@@ -3,15 +3,19 @@
 import hashlib
 import json
 import tempfile
-import unittest
+import typing as typ
 from pathlib import Path
 from shutil import copytree
 
+import pytest
 from protocol_capture import Recorder, decode_frame
 from verify_native_configured_ban import verify
 
+if typ.TYPE_CHECKING:
+    import collections.abc as cabc
+
 CORPUS = (
-    Path(__file__).resolve().parents[1]
+    Path(__file__).resolve().parents[2]
     / "evidence/gap-remediation/2026-11-14/native-configured-ban-01"
 )
 CASE = Path("native-configured-apply-c66")
@@ -19,10 +23,12 @@ HELD = CASE / "captures/held-apply"
 
 
 def write_json(path: Path, value: dict) -> None:
+    """Write ``value`` to ``path`` as indented JSON with a final newline."""
     path.write_text(json.dumps(value, indent=2) + "\n")
 
 
 def update_inventory(root: Path) -> None:
+    """Refresh the manifest file list and the SHA256SUMS inventory of ``root``."""
     manifest = json.loads((root / "manifest.json").read_text())
     files = {
         str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
@@ -37,6 +43,7 @@ def update_inventory(root: Path) -> None:
 
 
 def replay_frames(report: dict, plan: dict) -> None:
+    """Rebuild the decoded frames of ``report`` from its recorded events."""
     recorder = Recorder(plan)
     recorder.events = report["events"]
     report["streams"] = recorder.streams()
@@ -55,34 +62,62 @@ def replay_frames(report: dict, plan: dict) -> None:
         )
         while data:
             length = 20 + int.from_bytes(data[16:20], "big")
-            frames.append(
-                {
-                    "action": action,
-                    "connection": step["connection"],
-                    **decode_frame(data[:length]),
-                }
-            )
+            frames.append({
+                "action": action,
+                "connection": step["connection"],
+                **decode_frame(data[:length]),
+            })
             data = data[length:]
     report["frames"] = frames
 
 
-class ConfiguredBanWitnessTest(unittest.TestCase):
-    def test_frozen_corpus(self) -> None:
-        result = verify(CORPUS)
-        self.assertEqual(result["connections"], 5)
-        self.assertEqual(result["ban_bytes"], 49)
+class ConfiguredBanWitnessTest:
+    """Check the frozen configured-address ban witness against semantic faults."""
 
-    def mutate(self, change, reason: str) -> None:
+    # collected although the name does not match python_classes: it is a golden key
+    __test__ = True
+
+    def test_frozen_corpus(self) -> None:
+        """Check the connection count and the ban byte count of the frozen corpus."""
+        result = verify(CORPUS)
+        assert result["connections"] == 5, "the connection count differs"
+        assert result["ban_bytes"] == 49, "the ban byte count differs"
+
+    def mutate(self, change: cabc.Callable[[Path], object], reason: str) -> None:
+        """Mutate a copy of the frozen corpus and expect ``verify`` to reject it.
+
+        Parameters
+        ----------
+        change : collections.abc.Callable[[pathlib.Path], object]
+            Applied to the copied corpus root before its inventory is refreshed.
+        reason : str
+            The pattern that the rejection message must match.
+        """
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / "native-configured-ban-01"
             copytree(CORPUS, root)
             change(root)
             update_inventory(root)
-            with self.assertRaisesRegex(ValueError, reason):
+            with pytest.raises(ValueError, match=reason):
                 verify(root)
 
-    def edit_json(self, relative: Path, change, reason: str) -> None:
+    def edit_json(
+        self, relative: Path, change: cabc.Callable[[dict], object], reason: str
+    ) -> None:
+        """Edit one JSON file of the copied corpus and expect a rejection.
+
+        Parameters
+        ----------
+        relative : pathlib.Path
+            The file, relative to the corpus root.
+        change : collections.abc.Callable[[dict], object]
+            Applied to the parsed JSON value of the file.
+        reason : str
+            The pattern that the rejection message must match.
+        """
+
         def apply(root: Path) -> None:
+            """Apply ``change`` to the JSON file under ``root``."""
             path = root / relative
             value = json.loads(path.read_text())
             change(value)
@@ -90,24 +125,39 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
 
         self.mutate(apply, reason)
 
-    def edit_report(self, phase: str, change, reason: str) -> None:
+    def edit_report(
+        self, phase: str, change: cabc.Callable[[dict], object], reason: str
+    ) -> None:
+        """Edit the report of one phase, replay its frames and expect a rejection.
+
+        Parameters
+        ----------
+        phase : str
+            The capture phase directory, such as ``held-apply``.
+        change : collections.abc.Callable[[dict], object]
+            Applied to the parsed report before its frames are replayed.
+        reason : str
+            The pattern that the rejection message must match.
+        """
+
         def apply(root: Path) -> None:
+            """Apply ``change`` to a phase report and re-checksum the folder."""
             folder = root / CASE / "captures" / phase
             report = json.loads((folder / "report.json").read_text())
             plan = json.loads((folder / "plan.json").read_text())
             change(report)
             replay_frames(report, plan)
             write_json(folder / "report.json", report)
-            (folder / "checksums.sha256").write_text(
-                "".join(
-                    f"{hashlib.sha256((folder / name).read_bytes()).hexdigest()}  {name}\n"
-                    for name in ("plan.json", "report.json")
-                )
-            )
+            lines = []
+            for name in ("plan.json", "report.json"):
+                value = hashlib.sha256((folder / name).read_bytes()).hexdigest()
+                lines.append(f"{value}  {name}\n")
+            (folder / "checksums.sha256").write_text("".join(lines))
 
         self.mutate(apply, reason)
 
     def test_identity_and_management_faults(self) -> None:
+        """Check that each identity and management fault is rejected."""
         cases = (
             (
                 Path("native-configured-apply-c65/terminal.json"),
@@ -136,14 +186,16 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
             ),
         )
         for path, change, reason in cases:
-            with self.subTest(path=path, reason=reason):
-                self.edit_json(path, change, reason)
+            self.edit_json(path, change, reason)
 
     def test_source_packet_drop_and_stored_bytes(self) -> None:
+        """Check that source, drop and stored-byte faults are each rejected."""
+
         def alter(root: Path, name: Path, old: bytes, new: bytes) -> None:
+            """Replace the first ``old`` bytes under ``root`` with ``new``."""
             path = root / name
             data = path.read_bytes()
-            assert old in data
+            assert old in data, f"{name} lacks the expected bytes"
             path.write_bytes(data.replace(old, new, 1))
 
         cases = (
@@ -167,16 +219,16 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
             ),
         )
         for name, old, new, reason in cases:
-            with self.subTest(name=name):
-                self.mutate(
-                    lambda root, name=name, old=old, new=new: alter(
-                        root, name, old, new
-                    ),
-                    reason,
-                )
+            self.mutate(
+                lambda root, name=name, old=old, new=new: alter(root, name, old, new),
+                reason,
+            )
 
     def test_zero_privilege_bitmap_required(self) -> None:
+        """Check that a zero-privilege bitmap is required in the held apply phase."""
+
         def change(report: dict) -> None:
+            """Set the final byte of the short action-12 receive to one."""
             event = next(
                 e
                 for e in report["events"]
@@ -191,6 +243,7 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
         )
 
     def test_save_handoff_and_early_notice(self) -> None:
+        """Check that the Save handoff and an early notice are each rejected."""
         reason = "Add, reviewed Save or early-data timing differs"
         self.mutate(
             lambda root: (root / CASE / "save-trigger.utc").write_text(
@@ -200,6 +253,7 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
         )
 
         def early(report: dict) -> None:
+            """Move the action-17 notice sixty seconds later."""
             next(
                 e
                 for e in report["events"]
@@ -209,6 +263,7 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
         self.edit_report("held-apply", early, reason)
 
     def test_notice_type_and_text(self) -> None:
+        """Check that the notice type and its text are each rejected when altered."""
         for position, byte, reason in (
             (3, 105, "Completed frame read did not match"),
             (-1, ord("!"), "main configured-ban notice differs"),
@@ -217,6 +272,7 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
             def change(
                 report: dict, position: int = position, byte: int = byte
             ) -> None:
+                """Overwrite one byte of the action-17 notice."""
                 event = next(
                     e
                     for e in report["events"]
@@ -228,10 +284,10 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
                 raw[position] = byte
                 event["hex"] = raw.hex()
 
-            with self.subTest(position=position):
-                self.edit_report("held-apply", change, reason)
+            self.edit_report("held-apply", change, reason)
 
     def test_target_eof_required(self) -> None:
+        """Check that the target close is required in the held apply phase."""
         self.edit_report(
             "held-apply",
             lambda report: report.update(
@@ -245,7 +301,10 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
         )
 
     def test_extra_request_110_forbidden(self) -> None:
+        """Check that an extra 110 request is forbidden in the held apply phase."""
+
         def change(report: dict) -> None:
+            """Rewrite the action-15 request type to 110."""
             event = next(
                 e
                 for e in report["events"]
@@ -258,7 +317,10 @@ class ConfiguredBanWitnessTest(unittest.TestCase):
         self.edit_report("held-apply", change, "110 request forbidden")
 
     def test_paired_guest_byte_mismatch(self) -> None:
+        """Check that a byte mismatch in the paired guest capture is rejected."""
+
         def change(root: Path) -> None:
+            """Flip one bit of the paired guest capture."""
             path = root / CASE / "lab-guest.pcap"
             raw = bytearray(path.read_bytes())
             at = raw.index(b"TRTPHOTL")

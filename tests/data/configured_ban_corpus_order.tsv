@@ -1,0 +1,590 @@
+configured-ban		ok dca74cebab9d2c50
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/lease-ready.json>uid:empty	IndexError: list index out of range
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties>ActiveState:delete-key	KeyError: 'ActiveState'
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties>KillMode:delete-key	KeyError: 'KillMode'
+configured-ban	native-configured-apply-c66/readiness.json>actual_emulator:delete-key	KeyError: 'actual_emulator'
+configured-ban	native-configured-apply-c66/terminal.json>actual_lab_pid_gone:delete-key	KeyError: 'actual_lab_pid_gone'
+configured-ban	assets/preflight.json>app>admin:delete-key	KeyError: 'admin'
+configured-ban	assets/preflight.json>app:delete-key	KeyError: 'app'
+configured-ban	assets/preflight.json>app>app_data:delete-key	KeyError: 'app_data'
+configured-ban	assets/preflight.json>app>app_rsrc:delete-key	KeyError: 'app_rsrc'
+configured-ban	native-configured-apply-c66/readiness.json>ban_ui_empty_before_entry:delete-key	KeyError: 'ban_ui_empty_before_entry'
+configured-ban	assets/preflight.json>banned_absent:delete-key	KeyError: 'banned_absent'
+configured-ban	assets/assets.json>base_disk_sha256:delete-key	KeyError: 'base_disk_sha256'
+configured-ban	native-configured-apply-c66/lease-ready.json>busy_flock_exit:delete-key	KeyError: 'busy_flock_exit'
+configured-ban	native-configured-apply-c66/deadline.json>capture_deadline_utc:delete-key	KeyError: 'capture_deadline_utc'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids:delete-key	KeyError: 'capture_pids'
+configured-ban	assets/preflight.json>catalog_entries:delete-key	KeyError: 'catalog_entries'
+configured-ban	native-configured-apply-c66/readiness.json>clicked_cancel_without_add_save:delete-key	KeyError: 'clicked_cancel_without_add_save'
+configured-ban	native-configured-apply-c66/process-ready.json>client:delete-key	KeyError: 'client'
+configured-ban	native-configured-apply-c66/host-ready-case.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+configured-ban	native-configured-apply-c66/terminal.json>display114_absent:delete-key	KeyError: 'display114_absent'
+configured-ban	assets/asset-proof.json>display114_socket_absent:delete-key	KeyError: 'display114_socket_absent'
+configured-ban	native-configured-apply-c65/terminal.json>display114_socket_present:delete-key	KeyError: 'display114_socket_present'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_netns:delete-key	KeyError: 'emulator_netns'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+configured-ban	manifest.json>failed_full_A7:delete-key	KeyError: 'failed_full_A7'
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:delete-key	KeyError: 'file'
+configured-ban	manifest.json>files:delete-key	KeyError: 'files'
+configured-ban	native-configured-apply-c66/deadline.json>fixed_deadline_utc:delete-key	KeyError: 'fixed_deadline_utc'
+configured-ban	assets/preflight.json>app>fixture_low:delete-key	KeyError: 'fixture_low'
+configured-ban	manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+configured-ban	native-configured-apply-c65/terminal.json>guest_pcap_present:delete-key	KeyError: 'guest_pcap_present'
+configured-ban	native-configured-apply-c66/host-ready-case.json>header24:delete-key	KeyError: 'header24'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids>host:delete-key	KeyError: 'host'
+configured-ban	native-configured-apply-c66/terminal.json>host_drop_count:delete-key	KeyError: 'host_drop_count'
+configured-ban	native-configured-apply-c66/readiness.json>host_primary_pcap_bytes:delete-key	KeyError: 'host_primary_pcap_bytes'
+configured-ban	native-configured-apply-c65/terminal.json>host_primary_pcap_size:delete-key	KeyError: 'host_primary_pcap_size'
+configured-ban	native-configured-apply-c66/terminal.json>host_primary_syn_pcap_bytes:delete-key	KeyError: 'host_primary_syn_pcap_bytes'
+configured-ban	native-configured-apply-c66/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+configured-ban	native-configured-apply-c66/readiness.json>info_empty:delete-key	KeyError: 'info_empty'
+configured-ban	native-configured-apply-c66/process-ready.json>lab:delete-key	KeyError: 'lab'
+configured-ban	native-configured-apply-c66/lease-ready.json>lock_inode:delete-key	KeyError: 'lock_inode'
+configured-ban	native-configured-apply-c66/lease-ready.json>main_pid:delete-key	KeyError: 'main_pid'
+configured-ban	manifest.json:delete-key	KeyError: 'manifest.json'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids>namespace:delete-key	KeyError: 'namespace'
+configured-ban	native-configured-apply-c66/terminal.json>namespace_drop_count:delete-key	KeyError: 'namespace_drop_count'
+configured-ban	native-configured-apply-c66/readiness.json>namespace_established_connections:delete-key	KeyError: 'namespace_established_connections'
+configured-ban	native-configured-apply-c66/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+configured-ban	native-configured-apply-c66/readiness.json>namespace_routes:delete-key	KeyError: 'namespace_routes'
+configured-ban	native-configured-apply-c66/process-ready.json>primary>netns:delete-key	KeyError: 'netns'
+configured-ban	native-configured-apply-c66/capture-ready.json>ns_routes:delete-key	KeyError: 'ns_routes'
+configured-ban	native-configured-apply-c66/terminal.json>oracle_lease_released:delete-key	KeyError: 'oracle_lease_released'
+configured-ban	assets/preflight.json>original_user_count:delete-key	KeyError: 'original_user_count'
+configured-ban	native-configured-apply-c66/terminal.json>originals:delete-key	KeyError: 'originals'
+configured-ban	assets/preflight.json>owned_account_absent:delete-key	KeyError: 'owned_account_absent'
+configured-ban	native-configured-apply-c66/terminal.json>owned_ports_absent:delete-key	KeyError: 'owned_ports_absent'
+configured-ban	native-configured-apply-c65/terminal.json>owned_runtime_fd_processes:delete-key	KeyError: 'owned_runtime_fd_processes'
+configured-ban	native-configured-apply-c66/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+configured-ban	native-configured-apply-c66/host-ready-case.json>pid:delete-key	KeyError: 'pid'
+configured-ban	assets/asset-proof.json>ports:delete-key	KeyError: 'ports'
+configured-ban	assets/preflight.json>app>prefs:delete-key	KeyError: 'prefs'
+configured-ban	assets/asset-proof.json>prepared_base:delete-key	KeyError: 'prepared_base'
+configured-ban	assets/asset-proof.json>prepared_rom:delete-key	KeyError: 'prepared_rom'
+configured-ban	assets/asset-proof.json>prepared_working:delete-key	KeyError: 'prepared_working'
+configured-ban	native-configured-apply-c66/process-ready.json>primary:delete-key	KeyError: 'primary'
+configured-ban	native-configured-apply-c66/capture-ready.json>primary_syn_count:delete-key	KeyError: 'primary_syn_count'
+configured-ban	manifest.json>profile:delete-key	KeyError: 'profile'
+configured-ban	manifest.json>source_heads>protocol:delete-key	KeyError: 'protocol'
+configured-ban	packet-views.json>held-apply>target>guest>received_hex:delete-key	KeyError: 'received_hex'
+configured-ban	native-configured-apply-c66/readiness.json>remaining_seconds:delete-key	KeyError: 'remaining_seconds'
+configured-ban	assets/assets.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+configured-ban	manifest.json>schema:delete-key	KeyError: 'schema'
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256:delete-key	KeyError: 'screenshots_sha256'
+configured-ban	packet-views.json>guard>main>guest>sent_hex:delete-key	KeyError: 'sent_hex'
+configured-ban	assets/asset-proof.json>source_base>sha256:delete-key	KeyError: 'sha256'
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>size:delete-key	KeyError: 'size'
+configured-ban	assets/asset-proof.json>source_base:delete-key	KeyError: 'source_base'
+configured-ban	manifest.json>source_heads:delete-key	KeyError: 'source_heads'
+configured-ban	assets/asset-proof.json>source_rom:delete-key	KeyError: 'source_rom'
+configured-ban	manifest.json>source_sha256:delete-key	KeyError: 'source_sha256'
+configured-ban	native-configured-apply-c66/host-ready-case.json>start_ticks:delete-key	KeyError: 'start_ticks'
+configured-ban	native-configured-apply-c66/terminal.json>originals>primary>starttime:delete-key	KeyError: 'starttime'
+configured-ban	native-configured-apply-c66/readiness.json>typed_ip:delete-key	KeyError: 'typed_ip'
+configured-ban	native-configured-apply-c66/lease-ready.json>uid:delete-key	KeyError: 'uid'
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties:delete-key	KeyError: 'unit_properties'
+configured-ban	native-configured-apply-c65/terminal.json>working_disk_open:delete-key	KeyError: 'working_disk_open'
+configured-ban	native-configured-apply-c66/capture-ready.json>primary_syn_count:inc	ValueError: Actual case capture identity differs
+configured-ban	native-configured-apply-c66/process-ready.json>lab>pid:inc	ValueError: Actual lab emulator or original identity differs
+configured-ban	native-configured-apply-c66/plans-asrun/source-hashes.json>readiness:delete-key	ValueError: Actual plan inventory differs
+configured-ban	native-configured-apply-c66/deadline.json>fixed_deadline_utc:flip	ValueError: Boot deadline, route or no-contact UI readiness differs
+configured-ban	native-configured-apply-c65/terminal.json>display114_socket_present:not	ValueError: C65 failed-boot status differs
+configured-ban	native-configured-apply-c66/captures/guard/report.json>schema_version:inc	ValueError: Checksum mismatch: report.json
+configured-ban	manifest.json>files>assets/asset-proof.json:flip	ValueError: Corpus SHA differs: assets/asset-proof.json
+configured-ban	manifest.json>files>assets/assets.json:flip	ValueError: Corpus SHA differs: assets/assets.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-ready.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/bridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/bridge-service.log
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/x-bridge-ready.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/x-bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/xbridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/xbridge-service.log
+configured-ban	manifest.json>files>assets/isolated-network/bridge-ready.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network/bridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network/bridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-service.log
+configured-ban	manifest.json>files>assets/isolated-network/x-bridge-ready.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/x-bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network/xbridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/xbridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network/xbridge-service.log
+configured-ban	manifest.json>files>assets/options-input.py:flip	ValueError: Corpus SHA differs: assets/options-input.py
+configured-ban	manifest.json>files>assets/plan-runtime-prepared.json:flip	ValueError: Corpus SHA differs: assets/plan-runtime-prepared.json
+configured-ban	manifest.json>files>assets/plans-prepared/guard.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/guard.json
+configured-ban	manifest.json>files>assets/plans-prepared/held-apply.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/held-apply.json
+configured-ban	manifest.json>files>assets/plans-prepared/readiness.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/readiness.json
+configured-ban	manifest.json>files>assets/plans-prepared/seed.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/seed.json
+configured-ban	manifest.json>files>assets/plans-prepared/source-hashes.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/source-hashes.json
+configured-ban	manifest.json>files>assets/preflight.json:flip	ValueError: Corpus SHA differs: assets/preflight.json
+configured-ban	manifest.json>files>c65-launch-failure-operator-note.md:flip	ValueError: Corpus SHA differs: c65-launch-failure-operator-note.md
+configured-ban	manifest.json>files>native-configured-apply-c65/deadline.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/deadline.json
+configured-ban	manifest.json>files>native-configured-apply-c65/host-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/host-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c65/host-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/host-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c65/lease-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/lease-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c65/originals-terminal.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/originals-terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c65/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/primary-syn.pcap
+configured-ban	manifest.json>files>native-configured-apply-c65/sheep-journal.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/sheep-journal.log
+configured-ban	manifest.json>files>native-configured-apply-c65/system-units-terminal.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/system-units-terminal.txt
+configured-ban	manifest.json>files>native-configured-apply-c65/terminal.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c65/user-units-before-stop.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/user-units-before-stop.txt
+configured-ban	manifest.json>files>native-configured-apply-c65/user-units-terminal.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/user-units-terminal.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/add-click.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/add-click.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/after-disk-first-aid.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-disk-first-aid.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-one-add.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-one-add.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-save.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-save.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-save.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-save.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-empty.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-empty.png
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-ip-unsaved.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-ip-unsaved.png
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-tab.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-tab.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-initial.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/boot-initial.png
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-next.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/boot-next.png
+configured-ban	manifest.json>files>native-configured-apply-c66/c67-unit-cleanup.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/c67-unit-cleanup.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/c67-unit-retained.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/c67-unit-retained.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/capture-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/capture-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/held-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/held-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/seed/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/seed/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/seed/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/seed/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/seed/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/seed/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/coordinator.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/coordinator.log
+configured-ban	manifest.json>files>native-configured-apply-c66/deadline.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/deadline.json
+configured-ban	manifest.json>files>native-configured-apply-c66/disk-first-aid-click.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/disk-first-aid-click.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/display-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/display-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/emulator-initial.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/emulator-initial.json
+configured-ban	manifest.json>files>native-configured-apply-c66/held-ban-empty.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-ban-empty.png
+configured-ban	manifest.json>files>native-configured-apply-c66/held-ip-before-add.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-ip-before-add.png
+configured-ban	manifest.json>files>native-configured-apply-c66/held-options-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-options-open.png
+configured-ban	manifest.json>files>native-configured-apply-c66/held-options-open.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-options-open.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/host-ready-case.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready-case.json
+configured-ban	manifest.json>files>native-configured-apply-c66/host-ready-final.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready-final.json
+configured-ban	manifest.json>files>native-configured-apply-c66/host-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/host-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c66/input.py:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/input.py
+configured-ban	manifest.json>files>native-configured-apply-c66/ip-entry.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ip-entry.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/lab-guest.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lab-guest.pcap
+configured-ban	manifest.json>files>native-configured-apply-c66/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lab-namespace.pcap
+configured-ban	manifest.json>files>native-configured-apply-c66/lease-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lease-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-established.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-established.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-ready-case.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready-case.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready-final.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-routes.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-routes.json
+configured-ban	manifest.json>files>native-configured-apply-c66/open-server.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/open-server.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/open-system.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/open-system.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/options-cancel.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-cancel.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/options-cancelled.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-cancelled.png
+configured-ban	manifest.json>files>native-configured-apply-c66/options-loaded.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-loaded.png
+configured-ban	manifest.json>files>native-configured-apply-c66/options-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-open.png
+configured-ban	manifest.json>files>native-configured-apply-c66/options-open.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-open.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/guard.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/guard.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/held-apply.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/held-apply.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/readiness.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/readiness.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/seed.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/seed.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/source-hashes.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/source-hashes.json
+configured-ban	manifest.json>files>native-configured-apply-c66/post-saver-settled.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/post-saver-settled.png
+configured-ban	manifest.json>files>native-configured-apply-c66/post-saver.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/post-saver.png
+configured-ban	manifest.json>files>native-configured-apply-c66/pre-add-server.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/pre-add-server.png
+configured-ban	manifest.json>files>native-configured-apply-c66/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/primary-syn.pcap
+configured-ban	manifest.json>files>native-configured-apply-c66/process-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/process-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/readiness.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/readiness.json
+configured-ban	manifest.json>files>native-configured-apply-c66/reviewed-save.trigger:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/reviewed-save.trigger
+configured-ban	manifest.json>files>native-configured-apply-c66/runtime-asrun.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/runtime-asrun.json
+configured-ban	manifest.json>files>native-configured-apply-c66/save-click-return.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/save-click-return.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/save-trigger.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/save-trigger.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/saver-escape.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/saver-escape.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/server-open-initial.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-open-initial.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-open-next.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-open-next.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-quit-prompt.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-quit-prompt.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-quit.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-quit.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/server-ready.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-ready.png
+configured-ban	manifest.json>files>native-configured-apply-c66/sound-ack.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/sound-ack.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Banned.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Banned.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Prefs.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Prefs.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Users-admin-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-admin-UserData.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Users-fixture-low-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-fixture-low-UserData
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Users-m-ban-apply-only-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-m-ban-apply-only-Use
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/catalog.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/catalog.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/summary.json
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-working.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-working.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/system-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/system-open.png
+configured-ban	manifest.json>files>native-configured-apply-c66/terminal.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/terminal.json
+configured-ban	manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+configured-ban	manifest.json>files>sources/mothra/capture_readiness.py:flip	ValueError: Corpus SHA differs: sources/mothra/capture_readiness.py
+configured-ban	manifest.json>files>sources/mothra/mac_network_isolation.py:flip	ValueError: Corpus SHA differs: sources/mothra/mac_network_isolation.py
+configured-ban	manifest.json>files>sources/mothra/mac_runtime.py:flip	ValueError: Corpus SHA differs: sources/mothra/mac_runtime.py
+configured-ban	manifest.json>files>sources/protocol/native_auth_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_auth_cases.py
+configured-ban	manifest.json>files>sources/protocol/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_ban_control_cases.py
+configured-ban	manifest.json>files>sources/protocol/native_configured_ban_cases.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_configured_ban_cases.py
+configured-ban	manifest.json>files>sources/protocol/native_configured_ban_control.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_configured_ban_control.py
+configured-ban	manifest.json>files>sources/protocol/native_control_readiness.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_control_readiness.py
+configured-ban	manifest.json>files>sources/protocol/native_plan.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_plan.py
+configured-ban	manifest.json>files>sources/protocol/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/protocol/pcap_tcp.py
+configured-ban	manifest.json>files>sources/protocol/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol/protocol_capture.py
+configured-ban	manifest.json>files>sources/protocol/test_native_configured_ban.py:flip	ValueError: Corpus SHA differs: sources/protocol/test_native_configured_ban.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_account_updates.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_auth.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_auth.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_core.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_core.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_mkdir.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_shx.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_shx.py
+configured-ban	manifest.json>files>packet-views.json:delete-key	ValueError: Corpus inventory differs
+configured-ban	manifest.json>schema:flip	ValueError: Corpus profile or source identity differs
+configured-ban	native-configured-apply-c66/captures/held-apply/held-ready.json>source_plan_sha256:flip	ValueError: Held current target UID, access or roster differs
+configured-ban	assets/asset-proof.json>source_base>sha256:flip	ValueError: Immutable preboot assets or two-account state differ
+configured-ban	native-configured-apply-c66/deadline.json>fixed_deadline_utc:empty	ValueError: Invalid isoformat string: ''
+configured-ban	native-configured-apply-c66/terminal.json>actual_lab_pid_gone:not	ValueError: Lab retirement, zero contact or original processes differ
+configured-ban	native-configured-apply-c66/lease-ready.json>main_pid:inc	ValueError: Managed oracle lockholder differs
+configured-ban	assets/plans-prepared/guard.json>schema_version:inc	ValueError: Original prepared plan SHA differs
+configured-ban	assets/asset-proof.json>ports>15770:flip	ValueError: Preboot port or Banned state differs
+configured-ban	assets/plans-prepared/source-hashes.json>readiness:delete-key	ValueError: Prepared plan inventory differs
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned:delete-key	ValueError: Stopped Banned, Prefs, UserData or image bytes differ
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	ValueError: Stopped stored file bytes differ
+configured-ban	native-configured-apply-c66/readiness.json>host_primary_pcap_bytes:inc	ValueError: Unsaved UI rehearsal differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>ban-empty.png:flip	ValueError: ban-empty.png UI screenshot differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>ban-ip-unsaved.png:flip	ValueError: ban-ip-unsaved.png UI screenshot differs
+configured-ban	native-configured-apply-c66/captures/guard/plan.json>schema_version:inc	ValueError: guard source plan identity or profile differs
+configured-ban	packet-views.json>guard>main>guest>sent_hex:flip	ValueError: guard/main/guest paired TCP bytes differ
+configured-ban	packet-views.json>guard>main>namespace>packet_indices>12:inc	ValueError: guard/main/namespace paired TCP bytes differ
+configured-ban	native-configured-apply-c66/captures/held-apply/plan.json>schema_version:inc	ValueError: held-apply source plan identity or profile differs
+configured-ban	packet-views.json>held-apply>main>namespace>fin_packets>1:inc	ValueError: held-apply/main/namespace paired TCP bytes differ
+configured-ban	packet-views.json>held-apply>target>guest>received_hex:flip	ValueError: held-apply/target/guest paired TCP bytes differ
+configured-ban	packet-views.json>held-apply>target>namespace>packet_indices>5:inc	ValueError: held-apply/target/namespace paired TCP bytes differ
+configured-ban	native-configured-apply-c66/host-ready-case.json>pid:inc	ValueError: host recorder identity or deadline differs
+configured-ban	native-configured-apply-c66/namespace-ready-case.json>pid:inc	ValueError: namespace recorder identity or deadline differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>options-cancelled.png:flip	ValueError: options-cancelled.png UI screenshot differs
+configured-ban	native-configured-apply-c66/captures/readiness/plan.json>schema_version:inc	ValueError: readiness source plan identity or profile differs
+configured-ban	packet-views.json>readiness>main>guest>packet_indices>7:inc	ValueError: readiness/main/guest paired TCP bytes differ
+configured-ban	native-configured-apply-c66/captures/seed/plan.json>schema_version:inc	ValueError: seed source plan identity or profile differs
+configured-ban	packet-views.json>seed>main>guest>packet_indices>14:inc	ValueError: seed/main/guest paired TCP bytes differ
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>server-ready.png:flip	ValueError: server-ready.png UI screenshot differs
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:flip;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/native-configured-ban-01/native-confi
+configured-ban	native-configured-apply-c66/lease-ready.json>uid:empty;native-configured-apply-c66/lease-ready.json>uid:delete-key	KeyError: 'uid'
+configured-ban	native-configured-apply-c66/lease-ready.json>uid:empty;manifest.json>files>native-configured-apply-c66/plans-asrun/seed.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/seed.json
+configured-ban	native-configured-apply-c66/lease-ready.json>uid:empty;native-configured-apply-c66/deadline.json>fixed_deadline_utc:empty	IndexError: list index out of range
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/fixture-low/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty;manifest.json>files>native-configured-apply-c66/plans-asrun/source-hashes.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/source-hashes.json
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/admin/UserData>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Prefs>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:empty;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/native-configured-ban-01/native-configured-appl
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties>ActiveState:delete-key;native-configured-apply-c66/host-ready-case.json>unit_properties>KillMode:delete-key	KeyError: 'ActiveState'
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties>ActiveState:delete-key;native-configured-apply-c66/host-ready-case.json>unit_properties:delete-key	KeyError: 'unit_properties'
+configured-ban	native-configured-apply-c66/host-ready-case.json>unit_properties>KillMode:delete-key;native-configured-apply-c66/namespace-ready-case.json>pid:inc	KeyError: 'KillMode'
+configured-ban	native-configured-apply-c66/readiness.json>actual_emulator:delete-key;native-configured-apply-c66/process-ready.json>lab:delete-key	KeyError: 'lab'
+configured-ban	native-configured-apply-c66/readiness.json>actual_emulator:delete-key;assets/plans-prepared/guard.json>schema_version:inc	ValueError: Original prepared plan SHA differs
+configured-ban	native-configured-apply-c66/terminal.json>actual_lab_pid_gone:delete-key;packet-views.json>held-apply>target>guest>received_hex:flip	ValueError: held-apply/target/guest paired TCP bytes differ
+configured-ban	assets/preflight.json>app>admin:delete-key;assets/preflight.json>app:delete-key	KeyError: 'app'
+configured-ban	assets/preflight.json>app>admin:delete-key;assets/preflight.json>app>prefs:delete-key	KeyError: 'prefs'
+configured-ban	assets/preflight.json>app>app_data:delete-key;assets/preflight.json>app>app_rsrc:delete-key	KeyError: 'app_data'
+configured-ban	assets/preflight.json>app>app_data:delete-key;assets/assets.json>rom_sha256:delete-key	KeyError: 'rom_sha256'
+configured-ban	assets/preflight.json>app>app_rsrc:delete-key;assets/preflight.json>app>prefs:delete-key	KeyError: 'app_rsrc'
+configured-ban	native-configured-apply-c66/readiness.json>ban_ui_empty_before_entry:delete-key;native-configured-apply-c66/readiness.json>typed_ip:delete-key	KeyError: 'ban_ui_empty_before_entry'
+configured-ban	native-configured-apply-c66/readiness.json>ban_ui_empty_before_entry:delete-key;native-configured-apply-c66/readiness.json>screenshots_sha256>server-ready.png:flip	ValueError: server-ready.png UI screenshot differs
+configured-ban	assets/preflight.json>banned_absent:delete-key;assets/preflight.json>original_user_count:delete-key	KeyError: 'original_user_count'
+configured-ban	assets/preflight.json>banned_absent:delete-key;assets/preflight.json>owned_account_absent:delete-key	KeyError: 'banned_absent'
+configured-ban	assets/assets.json>base_disk_sha256:delete-key;assets/asset-proof.json>prepared_rom:delete-key	KeyError: 'prepared_rom'
+configured-ban	assets/assets.json>base_disk_sha256:delete-key;assets/assets.json>rom_sha256:delete-key	KeyError: 'base_disk_sha256'
+configured-ban	native-configured-apply-c66/lease-ready.json>busy_flock_exit:delete-key;native-configured-apply-c66/lease-ready.json>lock_inode:delete-key	KeyError: 'lock_inode'
+configured-ban	native-configured-apply-c66/lease-ready.json>busy_flock_exit:delete-key;native-configured-apply-c66/lease-ready.json>uid:delete-key	KeyError: 'busy_flock_exit'
+configured-ban	native-configured-apply-c66/deadline.json>capture_deadline_utc:delete-key;native-configured-apply-c66/deadline.json>fixed_deadline_utc:delete-key	KeyError: 'fixed_deadline_utc'
+configured-ban	native-configured-apply-c66/deadline.json>capture_deadline_utc:delete-key;native-configured-apply-c66/deadline.json>fixed_deadline_utc:empty	ValueError: Invalid isoformat string: ''
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids:delete-key;native-configured-apply-c66/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'capture_pids'
+configured-ban	assets/preflight.json>catalog_entries:delete-key;assets/asset-proof.json>display114_socket_absent:delete-key	KeyError: 'display114_socket_absent'
+configured-ban	assets/preflight.json>catalog_entries:delete-key;assets/plans-prepared/source-hashes.json>readiness:delete-key	KeyError: 'catalog_entries'
+configured-ban	native-configured-apply-c66/readiness.json>clicked_cancel_without_add_save:delete-key;native-configured-apply-c66/readiness.json>host_primary_pcap_bytes:delete-key	KeyError: 'clicked_cancel_without_add_save'
+configured-ban	native-configured-apply-c66/readiness.json>clicked_cancel_without_add_save:delete-key;native-configured-apply-c66/readiness.json>info_empty:delete-key	KeyError: 'info_empty'
+configured-ban	native-configured-apply-c66/process-ready.json>client:delete-key;native-configured-apply-c66/process-ready.json>primary>netns:delete-key	KeyError: 'client'
+configured-ban	native-configured-apply-c66/process-ready.json>client:delete-key;native-configured-apply-c66/process-ready.json>primary:delete-key	KeyError: 'primary'
+configured-ban	native-configured-apply-c66/host-ready-case.json>deadline_utc:delete-key;native-configured-apply-c66/host-ready-case.json>header24:delete-key	KeyError: 'header24'
+configured-ban	native-configured-apply-c66/host-ready-case.json>deadline_utc:delete-key;native-configured-apply-c66/host-ready-case.json>unit_properties:delete-key	KeyError: 'deadline_utc'
+configured-ban	native-configured-apply-c66/terminal.json>display114_absent:delete-key;native-configured-apply-c66/terminal.json>namespace_drop_count:delete-key	KeyError: 'namespace_drop_count'
+configured-ban	native-configured-apply-c66/terminal.json>display114_absent:delete-key;native-configured-apply-c66/terminal.json>owned_ports_absent:delete-key	KeyError: 'display114_absent'
+configured-ban	assets/asset-proof.json>display114_socket_absent:delete-key;assets/asset-proof.json>ports>15770:flip	ValueError: Preboot port or Banned state differs
+configured-ban	native-configured-apply-c65/terminal.json>display114_socket_present:delete-key;native-configured-apply-c65/terminal.json>host_primary_pcap_size:delete-key	KeyError: 'host_primary_pcap_size'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_netns:delete-key;native-configured-apply-c66/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_netns'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_netns:delete-key;native-configured-apply-c66/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_pid:delete-key;native-configured-apply-c66/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_pid'
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_pid:delete-key;native-configured-apply-c66/readiness.json>host_primary_pcap_bytes:inc	ValueError: Unsaved UI rehearsal differs
+configured-ban	native-configured-apply-c66/capture-ready.json>emulator_sha256:delete-key;native-configured-apply-c66/capture-ready.json>owned_working_image:delete-key	KeyError: 'emulator_sha256'
+configured-ban	manifest.json>failed_full_A7:delete-key;manifest.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+configured-ban	manifest.json>failed_full_A7:delete-key;manifest.json>source_heads:delete-key	KeyError: 'failed_full_A7'
+configured-ban	manifest.json>failed_full_A7:delete-key;manifest.json>files>native-configured-apply-c66/primary-syn.pcap:flip	KeyError: 'failed_full_A7'
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:delete-key;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>size:delete-key	KeyError: 'size'
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>file:delete-key;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Users/m-ban-apply-only/UserData>sha256:flip	KeyError: 'file'
+configured-ban	manifest.json>files:delete-key;native-configured-apply-c65/terminal.json>owned_runtime_fd_processes:delete-key	KeyError: 'files'
+configured-ban	assets/preflight.json>app>fixture_low:delete-key;assets/preflight.json>original_user_count:delete-key	KeyError: 'fixture_low'
+configured-ban	manifest.json>full_file_baseline:delete-key;manifest.json>profile:delete-key	KeyError: 'profile'
+configured-ban	manifest.json>full_file_baseline:delete-key;manifest.json>files>assets/isolated-network/bridge-service.json:flip	KeyError: 'full_file_baseline'
+configured-ban	native-configured-apply-c65/terminal.json>guest_pcap_present:delete-key;manifest.json>files>native-configured-apply-c66/captures/held-apply/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/checksums.sha256
+configured-ban	native-configured-apply-c65/terminal.json>guest_pcap_present:delete-key;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/summary.json
+configured-ban	native-configured-apply-c66/host-ready-case.json>header24:delete-key;native-configured-apply-c66/host-ready-case.json>start_ticks:delete-key	KeyError: 'start_ticks'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids>host:delete-key;native-configured-apply-c66/capture-ready.json>host_recorder_pid:delete-key	KeyError: 'host_recorder_pid'
+configured-ban	native-configured-apply-c66/terminal.json>host_drop_count:delete-key;native-configured-apply-c66/terminal.json>host_primary_syn_pcap_bytes:delete-key	KeyError: 'host_primary_syn_pcap_bytes'
+configured-ban	native-configured-apply-c66/terminal.json>host_drop_count:delete-key;native-configured-apply-c66/terminal.json>namespace_drop_count:delete-key	KeyError: 'host_drop_count'
+configured-ban	native-configured-apply-c65/terminal.json>host_primary_pcap_size:delete-key;native-configured-apply-c65/terminal.json>working_disk_open:delete-key	KeyError: 'working_disk_open'
+configured-ban	native-configured-apply-c66/terminal.json>host_primary_syn_pcap_bytes:delete-key;native-configured-apply-c66/terminal.json>actual_lab_pid_gone:not	ValueError: Lab retirement, zero contact or original processes differ
+configured-ban	native-configured-apply-c66/capture-ready.json>host_recorder_pid:delete-key;native-configured-apply-c66/capture-ready.json>owned_working_image:delete-key	KeyError: 'owned_working_image'
+configured-ban	native-configured-apply-c66/readiness.json>info_empty:delete-key;native-configured-apply-c66/readiness.json>typed_ip:delete-key	KeyError: 'typed_ip'
+configured-ban	native-configured-apply-c66/lease-ready.json>lock_inode:delete-key;native-configured-apply-c66/lease-ready.json>main_pid:inc	ValueError: Managed oracle lockholder differs
+configured-ban	native-configured-apply-c66/lease-ready.json>main_pid:delete-key;native-configured-apply-c66/process-ready.json>primary>netns:delete-key	KeyError: 'netns'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids>namespace:delete-key;native-configured-apply-c66/capture-ready.json>namespace_recorder_pid:delete-key	KeyError: 'namespace_recorder_pid'
+configured-ban	native-configured-apply-c66/readiness.json>capture_pids>namespace:delete-key;native-configured-apply-c66/capture-ready.json>ns_routes:delete-key	KeyError: 'namespace'
+configured-ban	native-configured-apply-c66/readiness.json>namespace_established_connections:delete-key;native-configured-apply-c66/readiness.json>namespace_routes:delete-key	KeyError: 'namespace_established_connections'
+configured-ban	native-configured-apply-c66/readiness.json>namespace_established_connections:delete-key;native-configured-apply-c66/readiness.json>remaining_seconds:delete-key	KeyError: 'remaining_seconds'
+configured-ban	native-configured-apply-c66/readiness.json>namespace_routes:delete-key;native-configured-apply-c66/host-ready-case.json>pid:delete-key	KeyError: 'namespace_routes'
+configured-ban	native-configured-apply-c66/process-ready.json>primary>netns:delete-key;manifest.json>files>native-configured-apply-c66/post-saver.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/post-saver.png
+configured-ban	native-configured-apply-c66/capture-ready.json>ns_routes:delete-key;native-configured-apply-c66/capture-ready.json>primary_syn_count:delete-key	KeyError: 'ns_routes'
+configured-ban	native-configured-apply-c66/terminal.json>oracle_lease_released:delete-key;native-configured-apply-c66/terminal.json>originals:delete-key	KeyError: 'oracle_lease_released'
+configured-ban	native-configured-apply-c66/terminal.json>oracle_lease_released:delete-key;native-configured-apply-c66/terminal.json>owned_ports_absent:delete-key	KeyError: 'owned_ports_absent'
+configured-ban	assets/preflight.json>owned_account_absent:delete-key;assets/asset-proof.json>ports:delete-key	KeyError: 'owned_account_absent'
+configured-ban	native-configured-apply-c65/terminal.json>owned_runtime_fd_processes:delete-key;manifest.json>files>native-configured-apply-c66/captures/held-apply/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/checksums.sha256
+configured-ban	assets/asset-proof.json>prepared_base:delete-key;assets/asset-proof.json>prepared_working:delete-key	KeyError: 'prepared_base'
+configured-ban	assets/asset-proof.json>prepared_base:delete-key;assets/asset-proof.json>source_base>sha256:flip	ValueError: Immutable preboot assets or two-account state differ
+configured-ban	assets/asset-proof.json>prepared_rom:delete-key;assets/asset-proof.json>source_rom:delete-key	KeyError: 'source_rom'
+configured-ban	assets/asset-proof.json>prepared_working:delete-key;assets/asset-proof.json>source_rom:delete-key	KeyError: 'prepared_working'
+configured-ban	native-configured-apply-c66/process-ready.json>primary:delete-key;native-configured-apply-c66/process-ready.json>lab>pid:inc	ValueError: Actual lab emulator or original identity differs
+configured-ban	manifest.json>profile:delete-key;manifest.json>schema:flip	ValueError: Corpus profile or source identity differs
+configured-ban	manifest.json>source_heads>protocol:delete-key;manifest.json>source_heads:delete-key	KeyError: 'source_heads'
+configured-ban	manifest.json>source_heads>protocol:delete-key;manifest.json>source_sha256:delete-key	KeyError: 'protocol'
+configured-ban	packet-views.json>held-apply>target>guest>received_hex:delete-key;packet-views.json>held-apply>target>namespace>packet_indices>5:inc	ValueError: held-apply/target/namespace paired TCP bytes differ
+configured-ban	native-configured-apply-c66/readiness.json>remaining_seconds:delete-key;native-configured-apply-c66/deadline.json>fixed_deadline_utc:flip	ValueError: Boot deadline, route or no-contact UI readiness differs
+configured-ban	packet-views.json>guard>main>guest>sent_hex:delete-key;packet-views.json>guard>main>namespace>packet_indices>12:inc	ValueError: guard/main/namespace paired TCP bytes differ
+configured-ban	assets/asset-proof.json>source_base>sha256:delete-key;assets/asset-proof.json>source_base:delete-key	KeyError: 'source_base'
+configured-ban	native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned>size:delete-key;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned:delete-key	ValueError: Stopped Banned, Prefs, UserData or image bytes differ
+configured-ban	assets/asset-proof.json>source_base:delete-key;native-configured-apply-c65/terminal.json>display114_socket_present:not	ValueError: C65 failed-boot status differs
+configured-ban	manifest.json>source_sha256:delete-key;manifest.json>files>packet-views.json:delete-key	KeyError: 'source_sha256'
+configured-ban	native-configured-apply-c66/host-ready-case.json>start_ticks:delete-key;native-configured-apply-c66/host-ready-case.json>pid:inc	ValueError: host recorder identity or deadline differs
+configured-ban	native-configured-apply-c66/terminal.json>originals>primary>starttime:delete-key;native-configured-apply-c66/stopped-files/summary.json>Hotline19/Banned:delete-key	KeyError: 'starttime'
+configured-ban	native-configured-apply-c65/terminal.json>working_disk_open:delete-key;manifest.json>files>native-configured-apply-c66/stopped-files/summary.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/summary.json
+configured-ban	native-configured-apply-c66/capture-ready.json>primary_syn_count:inc;native-configured-apply-c66/plans-asrun/source-hashes.json>readiness:delete-key	ValueError: Actual case capture identity differs
+configured-ban	native-configured-apply-c66/plans-asrun/source-hashes.json>readiness:delete-key;native-configured-apply-c66/captures/readiness/plan.json>schema_version:inc	ValueError: Actual plan inventory differs
+configured-ban	native-configured-apply-c66/captures/guard/report.json>schema_version:inc;native-configured-apply-c66/captures/guard/plan.json>schema_version:inc	ValueError: guard source plan identity or profile differs
+configured-ban	native-configured-apply-c66/captures/guard/report.json>schema_version:inc;native-configured-apply-c66/captures/seed/plan.json>schema_version:inc	ValueError: Checksum mismatch: report.json
+configured-ban	manifest.json>files>assets/asset-proof.json:flip;manifest.json>files>native-configured-apply-c66/captures/held-apply/checksums.sha256:flip	ValueError: Corpus SHA differs: assets/asset-proof.json
+configured-ban	manifest.json>files>assets/asset-proof.json:flip;manifest.json>files>sources/protocol/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: assets/asset-proof.json
+configured-ban	manifest.json>files>assets/asset-proof.json:flip;manifest.json>files>sources/protocol/native_plan.py:flip	ValueError: Corpus SHA differs: assets/asset-proof.json
+configured-ban	manifest.json>files>assets/assets.json:flip;manifest.json>files>assets/options-input.py:flip	ValueError: Corpus SHA differs: assets/assets.json
+configured-ban	manifest.json>files>assets/assets.json:flip;manifest.json>files>native-configured-apply-c66/c67-unit-cleanup.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/c67-unit-cleanup.txt
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-ready.json:flip;manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/bridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-ready.json:flip;manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.json:flip;manifest.json>files>assets/plans-prepared/source-hashes.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/source-hashes.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.log:flip;manifest.json>files>assets/plans-prepared/held-apply.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/held-apply.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/bridge-service.log:flip;manifest.json>files>assets/plans-prepared/source-hashes.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/source-hashes.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/x-bridge-ready.json:flip;manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/xbridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/x-bridge-ready.json:flip;manifest.json>files>assets/isolated-network/bridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/x-bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.json:flip;manifest.json>files>assets/isolated-network-c65-stopped/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network-c65-stopped/xbridge-service.log
+configured-ban	manifest.json>files>assets/isolated-network/bridge-ready.json:flip;manifest.json>files>assets/isolated-network/bridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network/bridge-ready.json:flip;manifest.json>files>assets/isolated-network/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network/bridge-service.json:flip;manifest.json>files>assets/isolated-network/bridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network/bridge-service.log
+configured-ban	manifest.json>files>assets/isolated-network/x-bridge-ready.json:flip;manifest.json>files>assets/isolated-network/xbridge-service.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/xbridge-service.json
+configured-ban	manifest.json>files>assets/isolated-network/x-bridge-ready.json:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/readiness.json:flip	ValueError: Corpus SHA differs: assets/isolated-network/x-bridge-ready.json
+configured-ban	manifest.json>files>assets/isolated-network/xbridge-service.json:flip;manifest.json>files>assets/isolated-network/xbridge-service.log:flip	ValueError: Corpus SHA differs: assets/isolated-network/xbridge-service.log
+configured-ban	manifest.json>files>assets/options-input.py:flip;manifest.json>files>assets/plan-runtime-prepared.json:flip	ValueError: Corpus SHA differs: assets/options-input.py
+configured-ban	manifest.json>files>assets/plan-runtime-prepared.json:flip;manifest.json>files>sources/protocol/native_configured_ban_cases.py:flip	ValueError: Corpus SHA differs: assets/plan-runtime-prepared.json
+configured-ban	manifest.json>files>assets/plans-prepared/guard.json:flip;manifest.json>files>assets/plans-prepared/readiness.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/readiness.json
+configured-ban	manifest.json>files>assets/plans-prepared/guard.json:flip;manifest.json>files>assets/plans-prepared/seed.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/guard.json
+configured-ban	manifest.json>files>assets/plans-prepared/held-apply.json:flip;manifest.json>files>assets/plans-prepared/seed.json:flip	ValueError: Corpus SHA differs: assets/plans-prepared/seed.json
+configured-ban	manifest.json>files>assets/plans-prepared/readiness.json:flip;manifest.json>files>sources/mothra/capture_readiness.py:flip	ValueError: Corpus SHA differs: sources/mothra/capture_readiness.py
+configured-ban	manifest.json>files>assets/preflight.json:flip;manifest.json>files>sources/protocol/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: assets/preflight.json
+configured-ban	manifest.json>files>assets/preflight.json:flip;manifest.json>files>sources/protocol/native_control_readiness.py:flip	ValueError: Corpus SHA differs: assets/preflight.json
+configured-ban	manifest.json>files>c65-launch-failure-operator-note.md:flip;manifest.json>files>native-configured-apply-c65/deadline.json:flip	ValueError: Corpus SHA differs: c65-launch-failure-operator-note.md
+configured-ban	manifest.json>files>c65-launch-failure-operator-note.md:flip;manifest.json>files>packet-views.json:delete-key	ValueError: Corpus inventory differs
+configured-ban	manifest.json>files>native-configured-apply-c65/deadline.json:flip;manifest.json>files>native-configured-apply-c65/lease-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/deadline.json
+configured-ban	manifest.json>files>native-configured-apply-c65/host-ready.json:flip;manifest.json>files>native-configured-apply-c65/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/primary-syn.pcap
+configured-ban	manifest.json>files>native-configured-apply-c65/host-ready.json:flip;manifest.json>files>native-configured-apply-c65/sheep-journal.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/host-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c65/host-recorder.log:flip;manifest.json>files>native-configured-apply-c65/lease-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/lease-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c65/host-recorder.log:flip;manifest.json>files>native-configured-apply-c65/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/host-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c65/originals-terminal.json:flip;manifest.json>files>native-configured-apply-c65/system-units-terminal.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/system-units-terminal.txt
+configured-ban	manifest.json>files>native-configured-apply-c65/originals-terminal.json:flip;manifest.json>files>native-configured-apply-c66/host-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/originals-terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c65/sheep-journal.log:flip;manifest.json>files>native-configured-apply-c65/user-units-before-stop.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/sheep-journal.log
+configured-ban	manifest.json>files>native-configured-apply-c65/system-units-terminal.txt:flip;manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+configured-ban	manifest.json>files>native-configured-apply-c65/terminal.json:flip;manifest.json>files>native-configured-apply-c66/deadline.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c65/terminal.json:flip;manifest.json>files>native-configured-apply-c66/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c65/user-units-before-stop.txt:flip;manifest.json>files>native-configured-apply-c65/user-units-terminal.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c65/user-units-before-stop.txt
+configured-ban	manifest.json>files>native-configured-apply-c65/user-units-terminal.txt:flip;manifest.json>files>packet-views.json:flip	ValueError: Corpus SHA differs: packet-views.json
+configured-ban	manifest.json>files>native-configured-apply-c66/add-click.utc:flip;manifest.json>files>native-configured-apply-c66/after-one-add.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/add-click.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/add-click.utc:flip;manifest.json>files>native-configured-apply-c66/held-ip-before-add.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-ip-before-add.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-disk-first-aid.png:flip;manifest.json>files>native-configured-apply-c66/disk-first-aid-click.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/disk-first-aid-click.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/after-disk-first-aid.png:flip;manifest.json>files>native-configured-apply-c66/lab-guest.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-disk-first-aid.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-one-add.png:flip;manifest.json>files>native-configured-apply-c66/reviewed-save.trigger:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-one-add.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-save.png:flip;manifest.json>files>native-configured-apply-c66/after-save.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-save.png
+configured-ban	manifest.json>files>native-configured-apply-c66/after-save.png:flip;manifest.json>files>native-configured-apply-c66/save-click-return.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/save-click-return.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/after-save.utc:flip;manifest.json>files>native-configured-apply-c66/server-quit.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/after-save.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-empty.png:flip;manifest.json>files>native-configured-apply-c66/ban-tab.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-tab.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-empty.png:flip;manifest.json>files>native-configured-apply-c66/ip-entry.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-empty.png
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-ip-unsaved.png:flip;manifest.json>files>native-configured-apply-c66/ip-entry.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ip-entry.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-ip-unsaved.png:flip;manifest.json>files>native-configured-apply-c66/options-cancel.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/ban-ip-unsaved.png
+configured-ban	manifest.json>files>native-configured-apply-c66/ban-tab.utc:flip;manifest.json>files>native-configured-apply-c66/options-loaded.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-loaded.png
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-initial.png:flip;manifest.json>files>native-configured-apply-c66/disk-first-aid-click.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/boot-initial.png
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-initial.png:flip;manifest.json>files>native-configured-apply-c66/namespace-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-initial.png:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/held-apply.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/boot-initial.png
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-next.png:flip;manifest.json>files>native-configured-apply-c66/input.py:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/boot-next.png
+configured-ban	manifest.json>files>native-configured-apply-c66/boot-next.png:flip;manifest.json>files>native-configured-apply-c66/lab-guest.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lab-guest.pcap
+configured-ban	manifest.json>files>native-configured-apply-c66/c67-unit-cleanup.txt:flip;manifest.json>files>native-configured-apply-c66/c67-unit-retained.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/c67-unit-retained.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/c67-unit-retained.txt:flip;manifest.json>files>native-configured-apply-c66/stopped-working.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-working.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/capture-ready.json:flip;manifest.json>files>native-configured-apply-c66/held-ban-empty.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/capture-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/capture-ready.json:flip;manifest.json>files>native-configured-apply-c66/host-ready-case.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/capture-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/checksums.sha256:flip;manifest.json>files>native-configured-apply-c66/captures/guard/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/checksums.sha256:flip;manifest.json>files>native-configured-apply-c66/captures/guard/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/plan.json:flip;manifest.json>files>native-configured-apply-c66/captures/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/guard/report.json:flip;manifest.json>files>native-configured-apply-c66/captures/seed/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/guard/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/held-ready.json:flip;manifest.json>files>native-configured-apply-c66/captures/held-apply/plan.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/held-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/held-apply/plan.json:flip;manifest.json>files>native-configured-apply-c66/captures/held-apply/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/held-apply/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/checksums.sha256:flip;manifest.json>files>native-configured-apply-c66/captures/readiness/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/checksums.sha256:flip;native-configured-apply-c66/namespace-ready-case.json>pid:inc	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/checksums.sha256
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/plan.json:flip;manifest.json>files>native-configured-apply-c66/captures/readiness/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/readiness/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/readiness/plan.json:flip;manifest.json>files>native-configured-apply-c66/stopped-files/Users-m-ban-apply-only-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-m-ban-apply-only-Use
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/seed/checksums.sha256:flip;manifest.json>files>native-configured-apply-c66/captures/seed/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/seed/report.json
+configured-ban	manifest.json>files>native-configured-apply-c66/captures/seed/plan.json:flip;manifest.json>files>native-configured-apply-c66/captures/seed/report.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/captures/seed/plan.json
+configured-ban	manifest.json>files>native-configured-apply-c66/coordinator.log:flip;manifest.json>files>native-configured-apply-c66/namespace-ready-case.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready-case.json
+configured-ban	manifest.json>files>native-configured-apply-c66/coordinator.log:flip;manifest.json>files>native-configured-apply-c66/process-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/process-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/deadline.json:flip;manifest.json>files>native-configured-apply-c66/host-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/deadline.json
+configured-ban	manifest.json>files>native-configured-apply-c66/display-ready.json:flip;manifest.json>files>native-configured-apply-c66/emulator-initial.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/display-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/display-ready.json:flip;manifest.json>files>native-configured-apply-c66/host-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/emulator-initial.json:flip;manifest.json>files>native-configured-apply-c66/lease-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lease-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/held-ban-empty.png:flip;manifest.json>files>native-configured-apply-c66/held-ip-before-add.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-ban-empty.png
+configured-ban	manifest.json>files>native-configured-apply-c66/held-options-open.png:flip;manifest.json>files>native-configured-apply-c66/held-options-open.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/held-options-open.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/held-options-open.png:flip;manifest.json>files>native-configured-apply-c66/host-ready-case.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready-case.json
+configured-ban	manifest.json>files>native-configured-apply-c66/held-options-open.utc:flip;manifest.json>files>native-configured-apply-c66/post-saver-settled.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/post-saver-settled.png
+configured-ban	manifest.json>files>native-configured-apply-c66/host-ready-final.json:flip;manifest.json>files>native-configured-apply-c66/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-ready-final.json
+configured-ban	manifest.json>files>native-configured-apply-c66/host-ready-final.json:flip;manifest.json>files>native-configured-apply-c66/options-cancelled.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-cancelled.png
+configured-ban	manifest.json>files>native-configured-apply-c66/host-recorder.log:flip;manifest.json>files>native-configured-apply-c66/primary-syn.pcap:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/host-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c66/input.py:flip;manifest.json>files>native-configured-apply-c66/open-system.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/input.py
+configured-ban	manifest.json>files>native-configured-apply-c66/lab-namespace.pcap:flip;manifest.json>files>native-configured-apply-c66/namespace-ready.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lab-namespace.pcap
+configured-ban	manifest.json>files>native-configured-apply-c66/lab-namespace.pcap:flip;manifest.json>files>native-configured-apply-c66/namespace-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-recorder.log
+configured-ban	manifest.json>files>native-configured-apply-c66/lease-ready.json:flip;manifest.json>files>native-configured-apply-c66/namespace-recorder.log:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/lease-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-established.txt:flip;manifest.json>files>native-configured-apply-c66/namespace-ready-final.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready-final.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-established.txt:flip;manifest.json>files>native-configured-apply-c66/namespace-routes.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-established.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-ready-case.json:flip;manifest.json>files>native-configured-apply-c66/pre-add-server.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-ready-case.json
+configured-ban	manifest.json>files>native-configured-apply-c66/namespace-routes.json:flip;manifest.json>files>native-configured-apply-c66/runtime-asrun.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/namespace-routes.json
+configured-ban	manifest.json>files>native-configured-apply-c66/open-server.utc:flip;manifest.json>files>native-configured-apply-c66/server-open-initial.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/open-server.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/open-server.utc:flip;manifest.json>files>native-configured-apply-c66/system-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/system-open.png
+configured-ban	manifest.json>files>native-configured-apply-c66/open-system.utc:flip;manifest.json>files>native-configured-apply-c66/system-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/open-system.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/options-cancel.utc:flip;manifest.json>files>native-configured-apply-c66/options-cancelled.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-cancel.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/options-loaded.png:flip;manifest.json>files>native-configured-apply-c66/options-open.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-open.png
+configured-ban	manifest.json>files>native-configured-apply-c66/options-open.png:flip;manifest.json>files>native-configured-apply-c66/options-open.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/options-open.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/options-open.utc:flip;manifest.json>files>native-configured-apply-c66/server-ready.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-ready.png
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/guard.json:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/readiness.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/readiness.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/guard.json:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/seed.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/guard.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/held-apply.json:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/seed.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/seed.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/held-apply.json:flip;manifest.json>files>native-configured-apply-c66/plans-asrun/source-hashes.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/held-apply.json
+configured-ban	manifest.json>files>native-configured-apply-c66/plans-asrun/source-hashes.json:flip;manifest.json>files>native-configured-apply-c66/stopped-files/catalog.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/plans-asrun/source-hashes.json
+configured-ban	manifest.json>files>native-configured-apply-c66/post-saver-settled.png:flip;manifest.json>files>native-configured-apply-c66/post-saver.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/post-saver.png
+configured-ban	manifest.json>files>native-configured-apply-c66/post-saver.png:flip;manifest.json>files>native-configured-apply-c66/saver-escape.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/saver-escape.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/pre-add-server.png:flip;manifest.json>files>native-configured-apply-c66/saver-escape.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/pre-add-server.png
+configured-ban	manifest.json>files>native-configured-apply-c66/process-ready.json:flip;manifest.json>files>native-configured-apply-c66/runtime-asrun.json:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/process-ready.json
+configured-ban	manifest.json>files>native-configured-apply-c66/readiness.json:flip;manifest.json>files>native-configured-apply-c66/save-click-return.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/readiness.json
+configured-ban	manifest.json>files>native-configured-apply-c66/readiness.json:flip;manifest.json>files>native-configured-apply-c66/save-trigger.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/readiness.json
+configured-ban	manifest.json>files>native-configured-apply-c66/reviewed-save.trigger:flip;manifest.json>files>native-configured-apply-c66/save-trigger.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/reviewed-save.trigger
+configured-ban	manifest.json>files>native-configured-apply-c66/server-open-initial.png:flip;manifest.json>files>native-configured-apply-c66/server-open-next.png:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-open-initial.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-open-next.png:flip;manifest.json>files>native-configured-apply-c66/sound-ack.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-open-next.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-quit-prompt.png:flip;manifest.json>files>native-configured-apply-c66/server-quit.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-quit.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/server-quit-prompt.png:flip;manifest.json>files>native-configured-apply-c66/stopped-working.sha256:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/server-quit-prompt.png
+configured-ban	manifest.json>files>native-configured-apply-c66/server-ready.png:flip;manifest.json>files>native-configured-apply-c66/sound-ack.utc:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/sound-ack.utc
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Banned.bin:flip;manifest.json>files>native-configured-apply-c66/stopped-files/Prefs.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Banned.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Banned.bin:flip;manifest.json>files>native-configured-apply-c66/stopped-files/catalog.txt:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/catalog.txt
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Prefs.bin:flip;manifest.json>files>native-configured-apply-c66/stopped-files/Users-admin-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Prefs.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Users-admin-UserData.bin:flip;manifest.json>files>native-configured-apply-c66/stopped-files/Users-fixture-low-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-admin-UserData.bin
+configured-ban	manifest.json>files>native-configured-apply-c66/stopped-files/Users-fixture-low-UserData.bin:flip;manifest.json>files>native-configured-apply-c66/stopped-files/Users-m-ban-apply-only-UserData.bin:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/stopped-files/Users-fixture-low-UserData
+configured-ban	manifest.json>files>native-configured-apply-c66/terminal.json:flip;manifest.json>files>sources/protocol/native_configured_ban_control.py:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/terminal.json
+configured-ban	manifest.json>files>native-configured-apply-c66/terminal.json:flip;manifest.json>files>sources/protocol/test_native_configured_ban.py:flip	ValueError: Corpus SHA differs: native-configured-apply-c66/terminal.json
+configured-ban	manifest.json>files>sources/mothra/capture_readiness.py:flip;manifest.json>files>sources/mothra/mac_network_isolation.py:flip	ValueError: Corpus SHA differs: sources/mothra/mac_network_isolation.py
+configured-ban	manifest.json>files>sources/mothra/mac_network_isolation.py:flip;manifest.json>files>sources/mothra/mac_runtime.py:flip	ValueError: Corpus SHA differs: sources/mothra/mac_runtime.py
+configured-ban	manifest.json>files>sources/mothra/mac_runtime.py:flip;manifest.json>files>sources/protocol/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_mkdir.py
+configured-ban	manifest.json>files>sources/protocol/native_auth_cases.py:flip;manifest.json>files>sources/protocol/native_plan.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_plan.py
+configured-ban	manifest.json>files>sources/protocol/native_auth_cases.py:flip;manifest.json>files>sources/protocol/verify_native_auth.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_auth_cases.py
+configured-ban	manifest.json>files>sources/protocol/native_configured_ban_cases.py:flip;manifest.json>files>sources/protocol/native_configured_ban_control.py:flip	ValueError: Corpus SHA differs: sources/protocol/native_configured_ban_cases.py
+configured-ban	manifest.json>files>sources/protocol/native_control_readiness.py:flip;manifest.json>files>sources/protocol/pcap_tcp.py:flip	ValueError: Corpus SHA differs: sources/protocol/pcap_tcp.py
+configured-ban	manifest.json>files>sources/protocol/pcap_tcp.py:flip;manifest.json>files>sources/protocol/protocol_capture.py:flip	ValueError: Corpus SHA differs: sources/protocol/protocol_capture.py
+configured-ban	manifest.json>files>sources/protocol/protocol_capture.py:flip;manifest.json>files>sources/protocol/test_native_configured_ban.py:flip	ValueError: Corpus SHA differs: sources/protocol/test_native_configured_ban.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_account_updates.py:flip;manifest.json>files>sources/protocol/verify_native_core.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_core.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_account_updates.py:flip;manifest.json>files>sources/protocol/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_account_updates.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_auth.py:flip;manifest.json>files>sources/protocol/verify_native_shx.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_auth.py
+configured-ban	manifest.json>files>sources/protocol/verify_native_core.py:flip;manifest.json>files>sources/protocol/verify_native_shx.py:flip	ValueError: Corpus SHA differs: sources/protocol/verify_native_shx.py
+configured-ban	native-configured-apply-c66/captures/held-apply/held-ready.json>source_plan_sha256:flip;native-configured-apply-c66/captures/held-apply/plan.json>schema_version:inc	ValueError: held-apply source plan identity or profile differs
+configured-ban	native-configured-apply-c66/captures/held-apply/held-ready.json>source_plan_sha256:flip;packet-views.json>readiness>main>guest>packet_indices>7:inc	ValueError: Held current target UID, access or roster differs
+configured-ban	assets/plans-prepared/guard.json>schema_version:inc;assets/plans-prepared/source-hashes.json>readiness:delete-key	ValueError: Prepared plan inventory differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>ban-empty.png:flip;native-configured-apply-c66/readiness.json>screenshots_sha256>ban-ip-unsaved.png:flip	ValueError: ban-empty.png UI screenshot differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>ban-empty.png:flip;native-configured-apply-c66/namespace-ready-case.json>pid:inc	ValueError: namespace recorder identity or deadline differs
+configured-ban	native-configured-apply-c66/readiness.json>screenshots_sha256>ban-ip-unsaved.png:flip;native-configured-apply-c66/readiness.json>screenshots_sha256>options-cancelled.png:flip	ValueError: ban-ip-unsaved.png UI screenshot differs
+configured-ban	native-configured-apply-c66/captures/guard/plan.json>schema_version:inc;native-configured-apply-c66/captures/readiness/plan.json>schema_version:inc	ValueError: readiness source plan identity or profile differs
+configured-ban	packet-views.json>guard>main>guest>sent_hex:flip;packet-views.json>seed>main>guest>packet_indices>14:inc	ValueError: guard/main/guest paired TCP bytes differ
+configured-ban	packet-views.json>guard>main>namespace>packet_indices>12:inc;packet-views.json>readiness>main>guest>packet_indices>7:inc	ValueError: readiness/main/guest paired TCP bytes differ
+configured-ban	native-configured-apply-c66/captures/held-apply/plan.json>schema_version:inc;native-configured-apply-c66/captures/seed/plan.json>schema_version:inc	ValueError: seed source plan identity or profile differs
+configured-ban	packet-views.json>held-apply>main>namespace>fin_packets>1:inc;packet-views.json>held-apply>target>namespace>packet_indices>5:inc	ValueError: held-apply/main/namespace paired TCP bytes differ
+configured-ban	packet-views.json>held-apply>main>namespace>fin_packets>1:inc;packet-views.json>seed>main>guest>packet_indices>14:inc	ValueError: seed/main/guest paired TCP bytes differ
