@@ -199,6 +199,8 @@ Classic login proxy, and the field-tolerance evidence for each.
   source was built, and the profile recorded for that build.
 - [shx field tolerance](peers/peer-tolerance-matrix.md): a controlled matrix of
   field tolerance for one complete terminal shx 0.1.48 build.
+- [HOPE extensions](peers/hope-extensions.md): the unofficial HOPE login,
+  cipher and compression extension, as read from SynHX and GtkHx source.
 - [Classic login proxy](peers/classic-login-proxy.md): the protocol-specific
   proxy used to vary field 161 in Login107 acknowledgements.
 - [Classic native baseline](peers/classic-native-baseline.md): two attempts at a

@@ -28,6 +28,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-16/revision-96",
       "reason": "Revision 96: record notes rewritten at the end of the script migration"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-16/hope-source-01",
+      "reason": "Source snapshots added in this repository for the HOPE extension document: the SynHX digest, cipher, compression and random-byte files that the imported snapshots call but do not hold."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-16/revision-97",
+      "reason": "Revision 97: the HOPE extensions document joins the peers set"
     }
   ]
 }

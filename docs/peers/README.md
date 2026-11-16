@@ -43,11 +43,11 @@ these peers are in the [mxd](../mxd/README.md) set.
 The documents use the glossary's names for the peers.
 [Classic client](../glossary.md#classic-client) names the Mac PowerPC candidate.
 [shx](../glossary.md#shx) names the client build evaluated here.
-[SynHX family](../glossary.md#synhx) names the family as a whole, and no
-document in this set concerns a SynHX server. The source documents also say
-identified client for a client build identified by the hashes of its
-executable. The [glossary](../glossary.md) has no entry for that phrase, so
-this overview uses it only as those documents do.
+[SynHX family](../glossary.md#synhx) names the family as a whole. Only
+[HOPE extensions](hope-extensions.md) concerns a SynHX server, and only as
+source. The source documents also say identified client for a client build
+identified by the hashes of its executable. The [glossary](../glossary.md) has
+no entry for that phrase, so this overview uses it only as those documents do.
 
 Four kinds of document appear in the set. A reference is a profile, rule or
 tool that other documents apply. A record is a retained account of how a build
@@ -55,20 +55,21 @@ was made, kept as written. A matrix is a table of cases and their observed
 results. A witness is the retained record of a run that was executed, with its
 observed exchanges.
 
-| Document                                                    | What it covers                                                                                                                                                                           | Kind      |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [Peer profile rules](peer-profile-rules.md)                 | The two evaluated profiles, the Classic client and shx 0.1.48, with their executable identities, and the rules for assigning a peer to a profile. Concerns both peers.                   | reference |
-| [Identified client source](identified-client-source.md)     | The retained source revision of shx 0.1.48, its applicability to configured builds, and the bounded results of the callbacks recorded against it. Concerns shx.                          | reference |
-| [shx build record](shx-peer.md)                             | The build of shx 0.1.48 from frozen inputs: its compatibility patch, local dependencies and the modern Linux build. Concerns shx.                                                        | record    |
-| [Peer tolerance matrix](peer-tolerance-matrix.md)           | Five cases in which shx 0.1.48 received deliberately altered frames from a controlled loopback receiver. The document states that this is not execution of the Mac server. Concerns shx. | matrix    |
-| [Classic login proxy](classic-login-proxy.md)               | The fixed proxy that carried Classic client logins to the native server, its network-namespace boundary and what it changes on the acknowledgement. Concerns the Classic client.         | reference |
-| [Classic native baseline](classic-native-baseline.md)       | Two controlled attempts through the proxy's baseline variant, against native Hotline Server 1.9 (B46 and B47). Concerns the Classic client.                                              | witness   |
-| [Classic field-161 matrix](classic-field161-matrix.md)      | Three zero-valued field-161 shapes in the Login107 acknowledgement, and the client progression that each produced. Concerns the Classic client.                                          | matrix    |
-| [Classic server-name 162](classic-server-name-162.md)       | One appended ASCII field 162 in the Login107 acknowledgement, and the client's acceptance of it. Concerns the Classic client.                                                            | witness   |
-| [Classic roster subject 115](classic-roster-subject-115.md) | One session in which the Classic client received a roster reply carrying an outer field 115. Concerns the Classic client.                                                                | witness   |
-| [Mac peer first session](mac-peer-first-session.md)         | One manual connection from the Classic candidate to the controlled fixture on 13 November 2026. The replay stopped as a partial session. Concerns the Classic client.                    | witness   |
-| [Mac peer isolated session](mac-peer-isolated-session.md)   | One controlled login by the Classic candidate against the native guest, in a loopback-only namespace, checked against the raw streams. Concerns the Classic client.                      | witness   |
-| [Evidence index](evidence.md)                               | The corpora, ledger identifiers and gap identifiers that the documents of this set cite, with the documents and sections that cite each. Generated by `tools/check_evidence.py`.         | reference |
+| Document                                                    | What it covers                                                                                                                                                                                                                                       | Kind      |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| [Peer profile rules](peer-profile-rules.md)                 | The two evaluated profiles, the Classic client and shx 0.1.48, with their executable identities, and the rules for assigning a peer to a profile. Concerns both peers.                                                                               | reference |
+| [Identified client source](identified-client-source.md)     | The retained source revision of shx 0.1.48, its applicability to configured builds, and the bounded results of the callbacks recorded against it. Concerns shx.                                                                                      | reference |
+| [shx build record](shx-peer.md)                             | The build of shx 0.1.48 from frozen inputs: its compatibility patch, local dependencies and the modern Linux build. Concerns shx.                                                                                                                    | record    |
+| [Peer tolerance matrix](peer-tolerance-matrix.md)           | Five cases in which shx 0.1.48 received deliberately altered frames from a controlled loopback receiver. The document states that this is not execution of the Mac server. Concerns shx.                                                             | matrix    |
+| [HOPE extensions](hope-extensions.md)                       | The HOPE login, cipher and compression extension as the SynHX server, shx and the current GtkHx client implement it, read from source and compared with the published descriptions. Nothing in it was run. Concerns shx, the SynHX server and GtkHx. | reference |
+| [Classic login proxy](classic-login-proxy.md)               | The fixed proxy that carried Classic client logins to the native server, its network-namespace boundary and what it changes on the acknowledgement. Concerns the Classic client.                                                                     | reference |
+| [Classic native baseline](classic-native-baseline.md)       | Two controlled attempts through the proxy's baseline variant, against native Hotline Server 1.9 (B46 and B47). Concerns the Classic client.                                                                                                          | witness   |
+| [Classic field-161 matrix](classic-field161-matrix.md)      | Three zero-valued field-161 shapes in the Login107 acknowledgement, and the client progression that each produced. Concerns the Classic client.                                                                                                      | matrix    |
+| [Classic server-name 162](classic-server-name-162.md)       | One appended ASCII field 162 in the Login107 acknowledgement, and the client's acceptance of it. Concerns the Classic client.                                                                                                                        | witness   |
+| [Classic roster subject 115](classic-roster-subject-115.md) | One session in which the Classic client received a roster reply carrying an outer field 115. Concerns the Classic client.                                                                                                                            | witness   |
+| [Mac peer first session](mac-peer-first-session.md)         | One manual connection from the Classic candidate to the controlled fixture on 13 November 2026. The replay stopped as a partial session. Concerns the Classic client.                                                                                | witness   |
+| [Mac peer isolated session](mac-peer-isolated-session.md)   | One controlled login by the Classic candidate against the native guest, in a loopback-only namespace, checked against the raw streams. Concerns the Classic client.                                                                                  | witness   |
+| [Evidence index](evidence.md)                               | The corpora, ledger identifiers and gap identifiers that the documents of this set cite, with the documents and sections that cite each. Generated by `tools/check_evidence.py`.                                                                     | reference |
 
 _Table 1: The documents of the peer set, the peer each concerns and their
 kinds._
