@@ -1525,6 +1525,50 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_a_remaining_file_fails_the_run_and_still_writes_it": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_a_wrong_binary_stops_before_any_output": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_absent_file_runs_without_a_deletion": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_an_ambiguous_file_is_never_deleted": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_present_file_is_deleted_once": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_the_output_is_the_plan_the_report_and_their_checksums": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CleanupTests.test_the_report_records_the_identity_of_the_declared_modules": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CommandTests.test_a_case_plan_is_written_once": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CommandTests.test_cleanup_without_its_guards_is_refused": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CommandTests.test_the_cleanup_command_passes_the_identity_of_its_modules": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_diagnostic_load_cleanup.CommandTests.test_the_guard_belongs_to_the_cleanup_case": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_diagnostic_near.NearPlanTests.test_exact_unique_ids_bounds_and_read_only_fixture": {
       "outcome": "ok",
       "detail": ""

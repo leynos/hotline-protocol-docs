@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from capture_acceptance import driver_is
 from native_packet_evidence import TCP_RST, reconcile
 from pcap_tcp import direction, lifetime, read_packets, stream
 from protocol_capture import ORACLE_SHA256, verify_capture
@@ -287,7 +288,7 @@ def verify(directory: Path) -> dict:
     _check_source(directory, manifest)
     reports = _load_reports(directory)
     require(
-        reports["cleanup"]["driver_sha256"] == manifest["cleanup_driver_sha256"],
+        driver_is(reports["cleanup"], manifest["cleanup_driver_sha256"]),
         "Cleanup report does not identify its as-run source",
     )
     return {

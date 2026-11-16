@@ -21,7 +21,6 @@ EXEMPT = {
     "verify_native_repeat_runs.py": "compares with the constant of two retained runs",
     "verify_native_ui_focus_capture.py": "compares with the constant of one run",
     "verify_native_settings_persistence_reports.py": "constants of two runs",
-    "verify_native_diagnostic_load.py": "reads the cleanup hash its planner writes",
 }
 
 
