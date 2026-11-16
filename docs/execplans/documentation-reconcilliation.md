@@ -226,6 +226,17 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 06:00Z) EP-M5, pinned scripts, first part (`0afdcc5` back
+  to the characterization commits, through `edf5657`): characterization tests
+  written first on the pinned bytes (122 for the three index-pinned scripts,
+  the Ghidra capture script replayed against a fake bridge built from retained
+  query records; 77 for `pcap_tcp`; 28 for `native_filp`; 71 for the two
+  private-message scripts; 95 for `protocol_capture`), then seven of the
+  sixteen migrated. `make all` passes with 1,201 tests in ninety seconds;
+  `make goldens-check` and `make pin-experiment` print `0 differences`;
+  `make pin-equivalence` (new target, outside `make all` because it takes eight
+  minutes) passes for all seven changed scripts. 166 scripts remain on the
+  legacy list. Not migrated: `protocol_capture.py`, pending D31.
 - [x] (2026-11-17 03:00Z) EP-M9 complete (`f491c80`, `0a05e40`).
   `tools/check_evidence.py` checks cited ledger, gap and script identifiers,
   status sentences against the register, the ledger of remaining work, corpus
@@ -1021,6 +1032,23 @@ The script work is a behaviour-preserving refactor.
   with an audit revision each. The relocation tool came to 1,283 lines with
   docstrings (513 of code), inside the ceiling of D28; it is deleted in EP-M11.
   Date/Author: 2026-11-16, lead.
+
+- Decision D31 (open, for the owner): how `protocol_capture.py` identifies
+  itself in new captures. `run_plan` records `driver_sha256`, the SHA-256 of
+  the module's own file. The module exceeds 400 lines and must be split to meet
+  the standard; a split leaves a facade, so a new capture would record the hash
+  of the facade and not of the code that captured. Existing evidence is
+  unaffected, because D29 pins it. Options: record the Git commit of the
+  scripts tree in new captures and compute `driver_sha256` over the whole
+  capture module set in a fixed order (the lead's recommendation, since it
+  applies D29 to new evidence too); keep the file whole as one recorded
+  exception to the 400-line limit; or split and hash the facade, which
+  identifies the driver weakly. Until the owner rules, the module stays on the
+  legacy list with its characterization tests in place. The same question
+  applies to `native_control_readiness.py`,
+  `verify_native_settings_transition.py` and `verify_native_121_default.py`,
+  which also record their own hash at capture, and to the capture-side
+  self-check in `native_settings_persistence.py`. Date/Author: 2026-11-17, lead.
 
 ## Outcomes & retrospective
 
