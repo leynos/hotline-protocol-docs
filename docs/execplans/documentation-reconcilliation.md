@@ -226,6 +226,13 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-18 21:00Z) Tag `evidence-sources-2026-11-15` pushed to
+  `origin` on the owner's confirmation. It is annotated and resolves to
+  `efea44a552ecd221ac3d12f4fdd10c6301e8102f`, the commit that the three
+  imported scripts are pinned to in `scripts/pinned-sources.json`; 678 LFS
+  objects (576 MB) went with it. The branch itself is still unpushed. When the
+  branch is merged it must not be squashed, or the pinned commit leaves the
+  history that the pin checks read.
 - [x] (2026-11-18 20:00Z) EP-M5 wave 6 and the capture identity of D31
   integrated (eleven commits by cherry-pick, then `76736ea`). Wave 6 brought
   the settings, settings-transition, 121-default, ban-control and
