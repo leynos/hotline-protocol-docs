@@ -226,6 +226,17 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 00:30Z) EP-M5 wave 3 integrated (`912237d` to `e378a1b`):
+  the cleanup, HTXF, correlation, handshake, account-batch, account-identity
+  and live-account families meet the standard (484 findings to 0, nine
+  suppressions, 68 tests converted with names unchanged). 201 error-order tests
+  in `tests/` pin which error each restructured function raises first, each
+  observed on the pristine script. `make all` passes with 739 tests;
+  `make goldens-check` and `make pin-experiment` print `0 differences`. 173
+  scripts remain on the legacy list. Not done: login extras, agreements and
+  bitmaps (ungated drafts in `/data/tmp/claude-1000/jm5/`); news, rooms, moves
+  and board, whose scripts show many hash hits in corpora and must be surveyed
+  for live comparisons first.
 - [x] (2026-11-16 22:00Z) D29 implemented (`37a06f4` to `3265ea9`).
   `scripts/pinned-sources.json` names the commit and hash for each of the
   sixteen scripts: thirteen at the published `4e62e00`, three at this branch's
