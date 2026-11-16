@@ -948,3 +948,193 @@ mxd-reconciliation	presence-tests.exit:empty-file;manifest.json>source_git_head:
 mxd-reconciliation	roster-tests.exit:delete-file;manifest.json>inputs>10>snapshot:delete-key	KeyError: "'snapshot'"
 mxd-reconciliation	roster-tests.log:delete-file;manifest.json>commands>2>passed_tests:drop-last	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
 mxd-reconciliation	scenario-tests.exit:empty-file;scenario-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+peer-tolerance		ok 523bf4410ff73cf9
+peer-tolerance	capture-control.log:delete-file	ValueError: Evidence checksums differ
+peer-tolerance	capture-vary-161.log:delete-file	ValueError: Evidence checksums differ
+peer-tolerance	captures/control/peer-profile.json>configuration_flags>7:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/peer-profile.json>commands>1>1:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/peer-profile.json>identity:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/plan.json>steps:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/plan.json>steps>1>timeout:inc	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/report.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+peer-tolerance	captures/control/report.json>events>16>event:flip	ValueError: Raw terminal event bytes differ
+peer-tolerance	captures/control/stdout.bin:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+peer-tolerance	captures/early-122/peer-profile.json>configuration_flags>1:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/peer-profile.json>commands>0>8:empty	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/peer-profile.json>libraries>usr/lib64/libreadline.so.8.3:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>environment>controlled_receiver_fixture>source_peer:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>steps>1>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>steps>3>command:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>steps:drop-last	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/report.json>events>1>hex:delete-key	KeyError: "'hex'"
+peer-tolerance	captures/early-122/report.json>events>31>hex:delete-key	KeyError: "'hex'"
+peer-tolerance	captures/omit-161/peer-profile.json>source_commit:delete-key	KeyError: "'source_commit'"
+peer-tolerance	captures/omit-161/peer-profile.json>environment>LDFLAGS:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/peer-profile.json>libraries>usr/lib64/libhistory.so.8.3:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>environment>controlled_receiver_fixture:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>steps>0>timeout:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>steps>2>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>steps>3>command:empty	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/report.json>host_home_file_before>exists:not	ValueError: Real home file changed
+peer-tolerance	captures/unknown-login/peer-profile.json>patch_sha256:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/peer-profile.json>commands>0>4:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/peer-profile.json>libraries>usr/lib64/libncursesw.so.6.5:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/plan.json>environment>controlled_receiver_fixture>case:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/plan.json>steps>1>command:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/plan.json>steps>2>timeout:inc	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/plan.json>steps>3>timeout:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/report.json>oracle_sha256:empty	ValueError: Peer/oracle identity differs
+peer-tolerance	captures/unknown-login/report.json>events>28>event:flip	ValueError: Sent terminal commands differ
+peer-tolerance	captures/vary-161/peer-profile.json>source_commit:delete-key	KeyError: "'source_commit'"
+peer-tolerance	captures/vary-161/peer-profile.json>environment>LDFLAGS:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/peer-profile.json>libraries>usr/lib64/libhistory.so.8.3:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>environment>controlled_receiver_fixture:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps>0>timeout:delete-key	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps>1>expect:empty	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps>3>command:empty	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/report.json>events>13>hex:delete-key	KeyError: "'hex'"
+peer-tolerance	fixtures/control/report.json>events:delete-key	KeyError: "'events'"
+peer-tolerance	fixtures/control/report.json>client_address:reverse	ValueError: Fixture socket identity differs
+peer-tolerance	fixtures/early-122/report.json>events>10>hex:empty	ValueError: Fixture bytes differ from peer syscalls
+peer-tolerance	fixtures/omit-161/report.json>endpoint:reverse	ValueError: Fixture status or endpoint differs
+peer-tolerance	fixtures/omit-161/report.json>events>7>hex:empty	ValueError: Fixture bytes differ from peer syscalls
+peer-tolerance	fixtures/omit-161/report.json>client_address:reverse	ValueError: Fixture socket identity differs
+peer-tolerance	fixtures/unknown-login/report.json>events>1>hex:empty	ValueError: Fixture bytes differ from peer syscalls
+peer-tolerance	fixtures/vary-161/ready.json:delete-file	ValueError: Evidence checksums differ
+peer-tolerance	fixtures/vary-161/report.json>events>8>hex:empty	ValueError: Fixture bytes differ from peer syscalls
+peer-tolerance	manifest.json>peer_binary_sha256:delete-key	KeyError: "'peer_binary_sha256'"
+peer-tolerance	manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	manifest.json>real_home_file_before>2:inc	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	manifest.json>source_runner_sha256:empty	ValueError: Missing exact fixture or runner source
+peer-tolerance	captures/control/report.json>command>16:empty	ok 523bf4410ff73cf9
+peer-tolerance	captures/control/report.json>events>6>elapsed_ns:delete-key	ok 523bf4410ff73cf9
+peer-tolerance	captures/early-122/report.json>terminal_environment>TERM:flip	ok 523bf4410ff73cf9
+peer-tolerance	captures/early-122/report.json>events>12>elapsed_ns:delete-key	ok 523bf4410ff73cf9
+peer-tolerance	capture-control.log:delete-file;captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/peer-profile.json>configuration_flags>7:flip;captures/early-122/plan.json>steps:drop-last	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/peer-profile.json>identity:flip;captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/plan.json>steps>1>timeout:inc;captures/unknown-login/report.json>events>28>event:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/control/report.json:empty-file;fixtures/control/report.json>events:delete-key	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+peer-tolerance	captures/control/stdout.bin:delete-file;manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	captures/early-122/peer-profile.json>commands>0>8:empty;captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>environment>controlled_receiver_fixture>source_peer:delete-key;captures/early-122/plan.json>steps:drop-last	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/plan.json>steps>3>command:delete-key;captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/early-122/report.json>events>1>hex:delete-key;captures/unknown-login/report.json>events>28>event:flip	ValueError: Sent terminal commands differ
+peer-tolerance	captures/omit-161/peer-profile.json>source_commit:delete-key;fixtures/control/report.json>events:delete-key	KeyError: "'events'"
+peer-tolerance	captures/omit-161/peer-profile.json>libraries>usr/lib64/libhistory.so.8.3:flip;manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	captures/omit-161/plan.json>steps>0>timeout:delete-key;captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/plan.json>steps>3>command:empty;captures/early-122/plan.json>steps:drop-last	ValueError: Plan/profile hash differs
+peer-tolerance	captures/omit-161/report.json>host_home_file_before>exists:not;captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/peer-profile.json>commands>0>4:flip;captures/unknown-login/report.json>events>28>event:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/unknown-login/plan.json>environment>controlled_receiver_fixture>case:delete-key;fixtures/control/report.json>events:delete-key	KeyError: "'events'"
+peer-tolerance	captures/unknown-login/plan.json>steps>2>timeout:inc;manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	captures/unknown-login/report.json>oracle_sha256:empty;captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/peer-profile.json>source_commit:delete-key;captures/early-122/plan.json>steps:drop-last	KeyError: "'source_commit'"
+peer-tolerance	captures/vary-161/peer-profile.json>libraries>usr/lib64/libhistory.so.8.3:flip;captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps>0>timeout:delete-key;captures/unknown-login/report.json>events>28>event:flip	ValueError: Plan/profile hash differs
+peer-tolerance	captures/vary-161/plan.json>steps>3>command:empty;fixtures/control/report.json>events:delete-key	KeyError: "'events'"
+peer-tolerance	captures/vary-161/report.json>events>13>hex:delete-key;manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+peer-tolerance	fixtures/control/report.json>client_address:reverse;captures/control/plan.json>steps>3>expect:flip	ValueError: Plan/profile hash differs
+peer-tolerance	fixtures/omit-161/report.json>endpoint:reverse;captures/early-122/plan.json>steps:drop-last	ValueError: Fixture status or endpoint differs
+peer-tolerance	fixtures/omit-161/report.json>client_address:reverse;captures/omit-161/plan.json>steps:reverse	ValueError: Plan/profile hash differs
+peer-tolerance	fixtures/vary-161/ready.json:delete-file;captures/unknown-login/report.json>events>28>event:flip	ValueError: Sent terminal commands differ
+peer-tolerance	manifest.json>peer_binary_sha256:delete-key;fixtures/control/report.json>events:delete-key	KeyError: "'peer_binary_sha256'"
+peer-tolerance	manifest.json>real_home_file_before>2:inc;manifest.json>cases>4:empty	ValueError: Peer manifest, identity or real HOME guard differs
+account-attribute		ok 5b6023785f0bc32a
+account-attribute	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/a
+account-attribute	manifest.json>oracle_identity_scope:empty	ValueError: oracle manifest identity or run result differs
+account-attribute	plan-01.json>4>id:empty	ValueError: oracle query inventory differs
+account-attribute	plan-01.json>10>tool:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	plan-02.json>1>tool:flip	ValueError: oracle tool name or arguments differ
+account-attribute	plan-02.json>5>id:delete-key	KeyError: "'id'"
+account-attribute	plan-02.json>8>id:flip	ValueError: oracle query inventory differs
+account-attribute	plan-02.json>9>tool:empty	ValueError: oracle tool name or arguments differ
+account-attribute	plan-03.json>1>id:empty	ValueError: oracle query inventory differs
+account-attribute	plan-03.json>2>arguments>direction:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	plan-03.json>3>arguments>direction:empty	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-C-10005d30.json>program>name:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-C-100071a0.json>query>id:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-C-100071a0.json>result>structuredContent>callers>items>0>caller>address:delete-key	KeyError: "'address'"
+account-attribute	queries/AA-C-100071a0.json>result>structuredContent>callers>items>2>direct:delete-key	KeyError: "'direct'"
+account-attribute	queries/AA-C-100073c0.json>result>structuredContent>callers>items>1>caller>address:flip	ValueError: reader caller set differs
+account-attribute	queries/AA-C-100075e0.json>program>executable_format:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: writer caller set differs
+account-attribute	queries/AA-C-10007780.json>program>min_address:flip	ValueError: oracle identity drift
+account-attribute	queries/AA-C-100146f0.json>program>language_id:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-C-10014bc0.json>query:delete-key	KeyError: "'query'"
+account-attribute	queries/AA-C-10014bc0.json>program>executable_path:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-C-10014df0.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+account-attribute	queries/AA-C-10014df0.json>program>min_address:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-C-10015500.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-C-100197e0.json>program>processor:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10003170.json>program>project_path:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-D-10005f90.json:delete-file	ValueError: oracle query inventory differs
+account-attribute	queries/AA-D-10005f90.json>program>compiler_spec:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10005f90.json>result>isError:not	ValueError: oracle query failed or lacks structured content
+account-attribute	queries/AA-D-10007510.json>program>language_id:flip	ValueError: oracle identity differs
+account-attribute	queries/AA-D-10007510.json>program>md5:empty	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007780.json>query>id:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-D-10007780.json>program>executable_path:flip	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007780.json>program>entry_points:drop-first	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007fa0.json>program>project_path:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10008040.c:empty-file	ValueError: decompiler source snapshot differs
+account-attribute	queries/AA-D-10008040.json>program>compiler_spec:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10008040.json>result>structuredContent>truncated:not	ValueError: decompilation is truncated or addresses another function
+account-attribute	queries/AA-D-10011ee0.json>query>tool:flip	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-D-10011ee0.json>program>min_address:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10011ee0.json>result>structuredContent>code:delete-key	KeyError: "'code'"
+account-attribute	queries/AA-D-10015160.json>program>pointer_size:inc	ValueError: oracle identity drift
+account-attribute	queries/AA-D-100197e0.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+account-attribute	queries/AA-D-100197e0.json>program>processor:flip	ValueError: oracle identity drift
+account-attribute	queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10019e90.json>query>arguments:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-D-10019e90.json>program>max_address:flip	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10019e90.json>result>structuredContent>code:empty	ValueError: decompilation is truncated or addresses another function
+account-attribute	queries/AA-D-1001f140.json>program>executable_format:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-1001f140.json>program>entry_points:drop-first	ValueError: oracle identity drift
+account-attribute	queries/AA-S-account.json>query>arguments>filter:flip	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-S-account.json>program>md5:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-S-attribute.json>program>endian:delete-key	KeyError: "'endian'"
+account-attribute	queries/AA-S-comment.json>program>name:flip	ValueError: oracle identity differs
+account-attribute	queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-S-note.json>program>function_count:inc	ValueError: oracle identity drift
+account-attribute	queries/AA-S-user.json>program>processor:empty	ValueError: oracle identity drift
+account-attribute	manifest.json>capture_exit_codes:reverse	ok 5b6023785f0bc32a
+account-attribute	manifest.json>capture_command:empty	ok 5b6023785f0bc32a
+account-attribute	manifest.json>original_record_sources:drop-last	ok 5b6023785f0bc32a
+account-attribute	queries/AA-A-100146f0.json>result>content>0>type:flip	ok 5b6023785f0bc32a
+account-attribute	manifest.json:delete-file;plan-02.json>9>tool:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/a
+account-attribute	plan-01.json>4>id:empty;queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: oracle query inventory differs
+account-attribute	plan-02.json>1>tool:flip;queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	plan-02.json>8>id:flip;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle query inventory differs
+account-attribute	plan-03.json>1>id:empty;queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle query inventory differs
+account-attribute	plan-03.json>3>arguments>direction:empty;queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-C-100071a0.json>query>id:delete-key;plan-02.json>9>tool:empty	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-C-100071a0.json>result>structuredContent>callers>items>2>direct:delete-key;queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: writer caller set differs
+account-attribute	queries/AA-C-100075e0.json>program>executable_format:empty;queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-C-10007780.json>program>min_address:flip;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-C-10014bc0.json>query:delete-key;queries/AA-D-100197e0.json>program>function_count:delete-key	KeyError: "'query'"
+account-attribute	queries/AA-C-10014df0.json:empty-file;queries/AA-S-comment.json>program>function_count:delete-key	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+account-attribute	queries/AA-C-10015500.json>program>endian:empty;plan-02.json>9>tool:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-D-10003170.json>program>project_path:empty;queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10005f90.json:delete-file;queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle query inventory differs
+account-attribute	queries/AA-D-10005f90.json>result>isError:not;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle query failed or lacks structured content
+account-attribute	queries/AA-D-10007510.json>program>md5:empty;queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007780.json>program>executable_path:flip;queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10007fa0.json>program>project_path:delete-key;plan-02.json>9>tool:empty	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-D-10008040.c:empty-file;queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: decompiler source snapshot differs
+account-attribute	queries/AA-D-10008040.json>result>structuredContent>truncated:not;queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-D-10011ee0.json>program>min_address:delete-key;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10015160.json>program>pointer_size:inc;queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-100197e0.json>program>processor:flip;queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-D-10019e90.json>query>arguments:delete-key;plan-02.json>9>tool:empty	ValueError: oracle tool name or arguments differ
+account-attribute	queries/AA-D-10019e90.json>result>structuredContent>code:empty;queries/AA-C-100075e0.json>result>structuredContent>callers>items>0>caller>address:flip	ValueError: decompilation is truncated or addresses another function
+account-attribute	queries/AA-D-1001f140.json>program>entry_points:drop-first;queries/AA-D-10003170.json>program>endian:empty	ValueError: oracle identity differs
+account-attribute	queries/AA-S-account.json>program>md5:delete-key;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle identity drift
+account-attribute	queries/AA-S-comment.json>program>name:flip;queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle identity differs
+account-attribute	queries/AA-S-note.json>program>function_count:inc;queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle identity drift

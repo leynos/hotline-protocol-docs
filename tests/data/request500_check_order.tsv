@@ -1,0 +1,92 @@
+ack	ValueError: missing unawaited ACK
+ack+disconnect	ValueError: missing unawaited ACK
+ack+tcp	ValueError: missing unawaited ACK
+branch	ValueError: missing version branch and send
+branch+ack	ValueError: missing version branch and send
+branch+disconnect	ValueError: missing version branch and send
+branch+reply-traffic	ValueError: missing version branch and send
+branch+tcp	ValueError: missing version branch and send
+branch+traffic	ValueError: missing version branch and send
+check	ValueError: missing 15-second check
+check+ack	ValueError: missing 15-second check
+check+branch	ValueError: missing 15-second check
+check+disconnect	ValueError: missing 15-second check
+check+quiet	ValueError: missing 15-second check
+check+reply-traffic	ValueError: missing 15-second check
+check+tcp	ValueError: missing 15-second check
+check+traffic	ValueError: missing 15-second check
+disconnect	ValueError: missing disconnect cancel
+disconnect+tcp	ValueError: missing disconnect cancel
+intact	ok 74234e98afe7498f
+opcode	ValueError: missing opcode 500
+opcode+ack	ValueError: missing opcode 500
+opcode+branch	ValueError: missing opcode 500
+opcode+check	ValueError: missing opcode 500
+opcode+disconnect	ValueError: missing opcode 500
+opcode+post-login	ValueError: missing opcode 500
+opcode+quiet	ValueError: missing opcode 500
+opcode+reply-traffic	ValueError: missing opcode 500
+opcode+server-info	ValueError: missing opcode 500
+opcode+tcp	ValueError: missing opcode 500
+opcode+threshold	ValueError: missing opcode 500
+opcode+traffic	ValueError: missing opcode 500
+opcode+version	ValueError: missing opcode 500
+post-login	ValueError: missing post-login start
+post-login+ack	ValueError: missing post-login start
+post-login+branch	ValueError: missing post-login start
+post-login+check	ValueError: missing post-login start
+post-login+disconnect	ValueError: missing post-login start
+post-login+quiet	ValueError: missing post-login start
+post-login+reply-traffic	ValueError: missing post-login start
+post-login+server-info	ValueError: missing post-login start
+post-login+tcp	ValueError: missing post-login start
+post-login+threshold	ValueError: missing post-login start
+post-login+traffic	ValueError: missing post-login start
+post-login+version	ValueError: missing post-login start
+quiet	ValueError: missing quiet trigger
+quiet+ack	ValueError: missing quiet trigger
+quiet+branch	ValueError: missing quiet trigger
+quiet+disconnect	ValueError: missing quiet trigger
+quiet+reply-traffic	ValueError: missing quiet trigger
+quiet+tcp	ValueError: missing quiet trigger
+quiet+traffic	ValueError: missing quiet trigger
+reply-traffic	ValueError: missing reply traffic
+reply-traffic+ack	ValueError: missing reply traffic
+reply-traffic+disconnect	ValueError: missing reply traffic
+reply-traffic+tcp	ValueError: missing reply traffic
+server-info	ValueError: missing login server info assignment
+server-info+ack	ValueError: missing login server info assignment
+server-info+branch	ValueError: missing login server info assignment
+server-info+check	ValueError: missing login server info assignment
+server-info+disconnect	ValueError: missing login server info assignment
+server-info+quiet	ValueError: missing login server info assignment
+server-info+reply-traffic	ValueError: missing login server info assignment
+server-info+tcp	ValueError: missing login server info assignment
+server-info+threshold	ValueError: missing login server info assignment
+server-info+traffic	ValueError: missing login server info assignment
+server-info+version	ValueError: missing login server info assignment
+tcp	ValueError: missing separate TCP keepalive
+threshold	ValueError: missing 180-second threshold
+threshold+ack	ValueError: missing 180-second threshold
+threshold+branch	ValueError: missing 180-second threshold
+threshold+check	ValueError: missing 180-second threshold
+threshold+disconnect	ValueError: missing 180-second threshold
+threshold+quiet	ValueError: missing 180-second threshold
+threshold+reply-traffic	ValueError: missing 180-second threshold
+threshold+tcp	ValueError: missing 180-second threshold
+threshold+traffic	ValueError: missing 180-second threshold
+traffic	ValueError: missing traffic versus activity
+traffic+ack	ValueError: missing traffic versus activity
+traffic+disconnect	ValueError: missing traffic versus activity
+traffic+reply-traffic	ValueError: missing traffic versus activity
+traffic+tcp	ValueError: missing traffic versus activity
+version	ValueError: missing reply version
+version+ack	ValueError: missing reply version
+version+branch	ValueError: missing reply version
+version+check	ValueError: missing reply version
+version+disconnect	ValueError: missing reply version
+version+quiet	ValueError: missing reply version
+version+reply-traffic	ValueError: missing reply version
+version+tcp	ValueError: missing reply version
+version+threshold	ValueError: missing reply version
+version+traffic	ValueError: missing reply version

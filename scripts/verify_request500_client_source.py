@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Check frozen modern-client request 500 source without executing the client."""
 
-from __future__ import annotations
-
-import argparse
 import hashlib
 import json
 import re
 from pathlib import Path
+
+from script_cli import run
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = (
@@ -17,11 +16,39 @@ MANIFEST = (
 
 
 def require(source: str, pattern: str, label: str) -> None:
+    """Require that ``pattern`` occurs in ``source``, naming ``label`` on failure.
+
+    Parameters
+    ----------
+    source : str
+        The source text to search.
+    pattern : str
+        The regular expression to find, where ``.`` also matches newlines.
+    label : str
+        The name of the check, reported when the pattern is absent.
+
+    Raises
+    ------
+    ValueError
+        When ``pattern`` does not occur in ``source``.
+    """
     if re.search(pattern, source, re.DOTALL) is None:
-        raise ValueError(f"missing {label}")
+        message = f"missing {label}"
+        raise ValueError(message)
 
 
 def check_chain(protocol: str, client: str, state: str) -> None:
+    """Require every predicate of the pinned keep-alive source chain.
+
+    Parameters
+    ----------
+    protocol : str
+        The text of the protocol definitions.
+    client : str
+        The text of the client connection code.
+    state : str
+        The text of the connection state code.
+    """
     require(protocol, r"case\s+connectionKeepAlive\s*=\s*500\b", "opcode 500")
     require(
         state,
@@ -50,27 +77,34 @@ def check_chain(protocol: str, client: str, state: str) -> None:
     )
     require(
         client,
-        r"func\s+keepAliveIfQuiet\(\).*?lastTraffic\s*>=\s*Self\.keepAliveAfter.*?sendKeepAlive\(\)",
+        r"func\s+keepAliveIfQuiet\(\).*?lastTraffic\s*>=\s*Self\.keepAliveAfter.*?"
+        r"sendKeepAlive\(\)",
         "quiet trigger",
     )
     require(
         client,
-        r"func\s+sendKeepAlive\(\).*?version\s*>=\s*185.*?type:\s*\.connectionKeepAlive.*?self\.send\(transaction\).*?self\.getUserList\(\)",
+        r"func\s+sendKeepAlive\(\).*?version\s*>=\s*185.*?"
+        r"type:\s*\.connectionKeepAlive.*?self\.send\(transaction\).*?"
+        r"self\.getUserList\(\)",
         "version branch and send",
     )
     require(
         client,
-        r"func\s+send\(_ transaction: HotlineTransaction\).*?lastTraffic\s*=\s*\.now.*?transaction\.type\s*!=\s*\.connectionKeepAlive",
+        r"func\s+send\(_ transaction: HotlineTransaction\).*?"
+        r"lastTraffic\s*=\s*\.now.*?transaction\.type\s*!=\s*\.connectionKeepAlive",
         "traffic versus activity",
     )
     require(
         client,
-        r"func\s+handleTransaction\(.*?lastTraffic\s*=\s*\.now.*?handleReply\(transaction\)",
+        r"func\s+handleTransaction\(.*?lastTraffic\s*=\s*\.now.*?"
+        r"handleReply\(transaction\)",
         "reply traffic",
     )
     require(
         client,
-        r"func\s+handleReply\(.*?pendingTransactions\.removeValue\(forKey:\s*transaction\.id\).*?Received reply for unknown transaction",
+        r"func\s+handleReply\(.*?"
+        r"pendingTransactions\.removeValue\(forKey:\s*transaction\.id\).*?"
+        r"Received reply for unknown transaction",
         "unawaited ACK",
     )
     require(
@@ -86,6 +120,25 @@ def check_chain(protocol: str, client: str, state: str) -> None:
 
 
 def verify(source_dir: Path, manifest: Path = MANIFEST) -> dict[str, object]:
+    """Verify the pinned source files and the keep-alive chain they contain.
+
+    Parameters
+    ----------
+    source_dir : pathlib.Path
+        The directory of locally retained pinned raw files.
+    manifest : pathlib.Path
+        The manifest that records the name, size and digest of each file.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The status, the pinned commit and the number of files checked.
+
+    Raises
+    ------
+    ValueError
+        When a file differs from the manifest, or the chain is incomplete.
+    """
     record = json.loads(manifest.read_text())
     contents: dict[str, str] = {}
     for item in record["files"]:
@@ -95,7 +148,8 @@ def verify(source_dir: Path, manifest: Path = MANIFEST) -> dict[str, object]:
             len(data) != item["bytes"]
             or hashlib.sha256(data).hexdigest() != item["sha256"]
         ):
-            raise ValueError(f"source identity mismatch: {item['name']}")
+            message = f"source identity mismatch: {item['name']}"
+            raise ValueError(message)
         contents[item["name"]] = data.decode("utf-8")
     check_chain(
         contents["HotlineProtocol.swift"],
@@ -109,16 +163,20 @@ def verify(source_dir: Path, manifest: Path = MANIFEST) -> dict[str, object]:
     }
 
 
+def show(*, source_dir: str) -> None:
+    """Print the source-only verification of the pinned files as JSON.
+
+    Parameters
+    ----------
+    source_dir : str
+        The directory of locally retained pinned raw files.
+    """
+    print(json.dumps(verify(Path(source_dir)), sort_keys=True))
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--source-dir",
-        type=Path,
-        required=True,
-        help="locally retained pinned raw files",
-    )
-    args = parser.parse_args()
-    print(json.dumps(verify(args.source_dir), sort_keys=True))
+    """Check the pinned client source chain without executing the client."""
+    run(show, __doc__)
 
 
 if __name__ == "__main__":

@@ -40,7 +40,6 @@ scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
 scripts/native_settings_transition_cases.py  # live bytes compared with a recorded hash
 scripts/package-protocol-evidence.py
-scripts/peer_tolerance_fixture.py
 scripts/peer_tolerance_run.py
 scripts/prepare_hotline_server.py
 scripts/prepare_native_cases.py
@@ -48,7 +47,6 @@ scripts/protocol_capture.py  # live bytes compared with a recorded hash
 scripts/render-protocol-gap-analysis.py
 scripts/serve_shx_fixture.py
 scripts/snapshot_native_hfs.py
-scripts/test_account_attribute.py
 scripts/test_alias_record_v2.py
 scripts/test_classic_proxy_rehearsal.py
 scripts/test_mothra_root.py
@@ -85,7 +83,6 @@ scripts/test_native_settings_persistence.py
 scripts/test_native_settings_persistence_witness.py
 scripts/test_native_settings_transition.py
 scripts/test_native_ui_focus.py
-scripts/test_peer_tolerance.py
 scripts/test_request500_client_source.py
 scripts/test_snapshot_native_hfs.py
 scripts/test_synhx_profiles.py
@@ -93,7 +90,6 @@ scripts/test_verify_classic_account_constructors.py
 scripts/test_verify_native_path_fields.py
 scripts/verify-shx-login-fragment.py
 scripts/verify-synhx-profiles.py
-scripts/verify_account_attribute.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
 scripts/verify_native_ban_expiry_first.py
@@ -117,7 +113,5 @@ scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py
 scripts/verify_native_settings_transition.py  # live bytes compared with a recorded hash
 scripts/verify_native_ui_focus.py
-scripts/verify_peer_tolerance.py
-scripts/verify_request500_client_source.py
 scripts/test_verify_classic_field161_matrix.py
 scripts/verify_classic_field161_matrix.py
