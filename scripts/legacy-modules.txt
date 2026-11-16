@@ -37,7 +37,6 @@ scripts/native_settings_persistence.py
 scripts/native_settings_persistence_cases.py
 scripts/native_settings_transition_cases.py  # live bytes compared with a recorded hash
 scripts/peer_tolerance_run.py
-scripts/prepare_native_cases.py
 scripts/protocol_capture.py  # live bytes compared with a recorded hash
 scripts/test_alias_record_v2.py
 scripts/test_classic_proxy_rehearsal.py
