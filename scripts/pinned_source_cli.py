@@ -3,7 +3,8 @@
 Run ``python3 scripts/pinned_source_cli.py check`` to verify every pin in
 ``scripts/pinned-sources.json``, or ``python3 scripts/pinned_source_cli.py stage
 DIRECTORY`` to overwrite each pinned script in ``DIRECTORY`` with its pinned
-bytes (the Makefile does this for the verifiers held under ``evidence/``). Exit
+bytes, without a word (the Makefile does this for the verifiers held under
+``evidence/``, and a recipe's output is a golden). Exit
 codes: 0 success, 1 a pin failed, 2 a command line that cannot be used.
 """
 
@@ -46,8 +47,7 @@ def command(
         names = pins.check()
         sys.stdout.write(f"{len(names)} pinned scripts verified\n")
     elif action == "stage" and destination is not None:
-        names = pins.stage(Path(destination))
-        sys.stdout.write(f"{len(names)} pinned scripts staged in {destination}\n")
+        pins.stage(Path(destination))  # silent: a recipe's output is a golden
     else:
         message = "use `check`, or `stage DIRECTORY`"
         raise script_cli.UsageError(message)

@@ -213,6 +213,10 @@ help: ## Show available targets
 # hotline-protocol-docs with the corpus beneath it. Run those from a scratch tree
 # of that name that holds a copy of scripts/ and a hard-linked evidence/, so they
 # pass in a checkout or worktree of any name.
+# The copy of scripts/ then receives the pinned bytes of every script that a manifest
+# or constant names by hash (scripts/pinned-sources.json, decision D29), so a verifier
+# held under evidence/ sees the bytes its corpus was recorded against while it imports
+# every other module from the current tree.
 # The scripts that still read mothra's general tooling find the checkout through
 # scripts/mothra_root.py; hand them the one that MOTHRA names.
 ifneq ($(MOTHRA),)
@@ -220,7 +224,7 @@ export MOTHRA_ROOT ?= $(abspath $(MOTHRA))
 endif
 
 define in_legacy_layout
-tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && cd "$$root" && $(1)
+tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && python3 scripts/pinned_source_cli.py stage "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && cd "$$root" && $(1)
 endef
 
 .PHONY: evidence-verify evidence-verify-known-red test-legacy typecheck-legacy

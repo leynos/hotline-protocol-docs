@@ -124,14 +124,14 @@
       "output_bytes": 186,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-14/native-121-defaults-01/verify_packets.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-14/native-121-defaults-01/verify_packets.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "6c344420ce13e5462edf550f20f602096418adc47283d0e0439832b4ba99af47",
       "output_bytes": 1315,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-14/native-121-defaults-01 -p test_verify_packets.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-14/native-121-defaults-01 -p test_verify_packets.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
@@ -145,14 +145,14 @@
       "output_bytes": 396,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "de1b06f3b78b14c37bfb0d0963d4454aefb2d7a3b78cedb96b29e485d36ebf75",
       "output_bytes": 1848,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-13/native-settings-transitions-01 -p test_verify_packets.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 -m unittest discover -s evidence/gap-remediation/2026-11-13/native-settings-transitions-01 -p test_verify_packets.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "8c6da4b11bfe4137c5f1a178950dbf70102b8aa3246a0a26029c06b7e1fd3b15",
@@ -215,7 +215,7 @@
       "output_bytes": 661,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/failure-criterion-review-01/verify.py.txt": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "12e5169fe900cc07a8758a840354aa63e8067e25a3093abb7c8dafa0d6fd8284",
@@ -495,21 +495,21 @@
       "output_bytes": 1427,
       "last_line": "}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "d1ac28e0e94d5a198071a9ec509613882e4982b2166556554113130c2ec9e7f2",
       "output_bytes": 39,
       "last_line": "A7 existing-fixture readback: verified"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "b7af091d53311365a99b4d9fd6f911bd89f8f5f8edf26d4b7e964f4c315cc01a",
       "output_bytes": 40,
       "last_line": "A8 phase-1 host/guest streams: verified"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "7bfd880e9672df48594613757510c53257ff559621f8c93796cc24b4faf2c109",
@@ -530,7 +530,7 @@
       "output_bytes": 91,
       "last_line": "verified seven profiles and two doctest groups at 20e891a059de7dd9dec5a657d7099570987d860d"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && python3 evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "384e06a9a4c9eb9c41b74ed6379a83316f29c595f8201ac58186bc975e15e6be",
@@ -614,7 +614,7 @@
       "output_bytes": 83,
       "last_line": "{\"elapsed_seconds\": 28.097680969, \"status\": \"verified-synthetic-and-zero-contact\"}"
     },
-    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && bash evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/verify-smoke.txt \"$root\"": {
+    "evidence-verify: tmp=$(mktemp -d) && trap 'rm -rf \"$tmp\"' EXIT && root=\"$tmp/hotline-protocol-docs\" && mkdir -p \"$root\" && cp -a scripts \"$root/scripts\" && python3 scripts/pinned_source_cli.py stage \"$root/scripts\" && { cp -al evidence \"$root/evidence\" 2>/dev/null || cp -a evidence \"$root/evidence\"; } && cd \"$root\" && bash evidence/gap-remediation/2026-11-13/native-runtime-recovery-01/verify-smoke.txt \"$root\"": {
       "target": "evidence-verify",
       "exit_code": 0,
       "output_sha256": "5b4882581bc23196bc99288f276ca0be34020bdc9bf1f947c60bb1d3b541a60e",

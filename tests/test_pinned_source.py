@@ -233,6 +233,27 @@ class CommandLineTests:
         ])
         assert code == 0, "expected a sound record to exit with 0"
 
+    def test_stage_writes_the_pinned_bytes_and_prints_nothing(
+        self, tmp_path: Path, repo: tuple[Path, str], capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        """``stage`` is silent, so a recipe that uses it keeps its output."""
+        root, commit = repo
+        record = write_record(tmp_path / "r.json", [entry(commit)])
+        stage = tmp_path / "stage"
+        stage.mkdir()
+        code = pinned_source_cli.main([
+            "stage",
+            str(stage),
+            "--record",
+            str(record),
+            "--repo",
+            str(root),
+        ])
+        assert code == 0, "expected staging to exit with 0"
+        assert (stage / "tool.py").read_bytes() == BODY, "expected the pinned bytes"
+        captured = capsys.readouterr()
+        assert captured.out == captured.err == "", "expected no output"
+
     def test_check_exits_with_one_for_a_failing_pin(
         self, tmp_path: Path, repo: tuple[Path, str], capsys: pytest.CaptureFixture[str]
     ) -> None:
