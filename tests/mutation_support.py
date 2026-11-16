@@ -93,7 +93,7 @@ def fault_state(state: Json, faults: list[Fault]) -> Json:
     return state
 
 
-def ending(call: cabc.Callable[[Json], object], state: Json) -> str:
+def ending(call: cabc.Callable[..., object], state: Json) -> str:
     """Run ``call`` on ``state`` and describe how it ended.
 
     Returns
