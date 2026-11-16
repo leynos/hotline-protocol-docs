@@ -1138,3 +1138,92 @@ account-attribute	queries/AA-D-1001f140.json>program>entry_points:drop-first;que
 account-attribute	queries/AA-S-account.json>program>md5:delete-key;queries/AA-D-10007fa0.json>program>external_function_count:delete-key	ValueError: oracle identity drift
 account-attribute	queries/AA-S-comment.json>program>name:flip;queries/AA-D-100197e0.json>program>function_count:delete-key	ValueError: oracle identity differs
 account-attribute	queries/AA-S-note.json>program>function_count:inc;queries/AA-S-comment.json>program>function_count:delete-key	ValueError: oracle identity drift
+synhx-profiles		ok 8236a2c7728a6db2
+synhx-profiles	archives/README.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/README.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/acconfig.h.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/acconfig.h.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/config.h.in.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/config.h.in.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/configure.in.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/configure.in.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/hxd_config.c.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/hxd_config.c.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/version.c.rcs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/version.c.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+synhx-profiles	manifest.json>archives>0>selected:delete-key	KeyError: "'selected'"
+synhx-profiles	manifest.json>archives>1>archive:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	manifest.json>archives>1>selected_sha256:flip	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>archives>2>archive_sha256:empty	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>archives>3>archive_sha256:delete-key	KeyError: "'archive_sha256'"
+synhx-profiles	manifest.json>archives>4>selected:flip	ValueError: Server metadata inventory differs
+synhx-profiles	manifest.json>archives>5>archive:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/synhx-profi
+synhx-profiles	manifest.json>archives>5>selected_sha256:empty	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>archives:drop-last	ValueError: Server metadata inventory differs
+synhx-profiles	manifest.json>configuration_options:delete-key	KeyError: "'configuration_options'"
+synhx-profiles	manifest.json>configuration_options>0>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>1>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>2>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>3>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>4>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>5>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>6>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>7>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>8>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>9>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>10>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>11>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>12>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>13>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>14>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>15>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>16>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>17>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>applicability>0>profile:flip	ValueError: Applicability scopes differ
+synhx-profiles	manifest.json>applicability:drop-first	ValueError: Applicability scopes differ
+synhx-profiles	selected/README.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/README.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/acconfig.h.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/acconfig.h.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/config.h.in.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/config.h.in.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/configure.in.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/configure.in.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/hxd_config.c.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/hxd_config.c.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/version.c.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/version.c.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>schema_version:delete-key	ok 8236a2c7728a6db2
+synhx-profiles	manifest.json>archives>0>selected_revision:delete-key	ok 8236a2c7728a6db2
+synhx-profiles	manifest.json>archives>0>vendor_revision:delete-key	ok 8236a2c7728a6db2
+synhx-profiles	manifest.json>archives>1>default_branch:flip	ok 8236a2c7728a6db2
+synhx-profiles	archives/README.rcs:delete-file;archives/configure.in.rcs:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/acconfig.h.rcs:delete-file;manifest.json>archives>2>archive_sha256:empty	ValueError: Server metadata identity differs
+synhx-profiles	archives/config.h.in.rcs:delete-file;manifest.json>configuration_options>3>line:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/configure.in.rcs:delete-file;manifest.json>configuration_options>13>line:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	archives/hxd_config.c.rcs:delete-file;selected/acconfig.h.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	archives/version.c.rcs:delete-file;archives/README.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json:delete-file;archives/version.c.rcs:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	manifest.json>archives>0>selected:delete-key;manifest.json>archives>5>selected_sha256:empty	KeyError: "'selected'"
+synhx-profiles	manifest.json>archives>1>selected_sha256:flip;manifest.json>configuration_options>7>line:empty	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>archives>3>archive_sha256:delete-key;manifest.json>configuration_options>17>line:empty	KeyError: "'archive_sha256'"
+synhx-profiles	manifest.json>archives>5>archive:empty;selected/configure.in.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>archives:drop-last;archives/config.h.in.rcs:empty-file	ValueError: Server metadata inventory differs
+synhx-profiles	manifest.json>configuration_options>0>line:empty;manifest.json>archives>1>archive:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	manifest.json>configuration_options>2>line:empty;manifest.json>configuration_options>1>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>4>line:empty;manifest.json>configuration_options>11>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>6>line:empty;selected/README.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>configuration_options>8>line:empty;selected/version.c.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>configuration_options>10>line:empty;archives/hxd_config.c.rcs:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	manifest.json>configuration_options>12>line:empty;manifest.json>archives>4>selected:flip	ValueError: Server metadata inventory differs
+synhx-profiles	manifest.json>configuration_options>14>line:empty;manifest.json>configuration_options>5>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>configuration_options>16>line:empty;manifest.json>configuration_options>15>line:empty	ValueError: Declared configure defaults differ
+synhx-profiles	manifest.json>applicability>0>profile:flip;selected/config.h.in.txt:empty-file	ValueError: Server metadata identity differs
+synhx-profiles	selected/README.txt:delete-file;archives/acconfig.h.rcs:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/acconfig.h.txt:delete-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+synhx-profiles	selected/config.h.in.txt:delete-file;manifest.json>configuration_options:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/configure.in.txt:delete-file;manifest.json>configuration_options>9>line:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/hxd_config.c.txt:delete-file;manifest.json>applicability:drop-first	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s
+synhx-profiles	selected/version.c.txt:delete-file;selected/hxd_config.c.txt:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/s

@@ -1,0 +1,13 @@
+banner	ok 5041c7d79590e65b
+banner-subject	ok b3166d29e7c5dbde
+control	ok 29a610b0f7c73599
+frames	ok aaa81a542a225e88
+output-exists	FileExistsError: [Errno 17] File exists: '<tmp>'
+refuses-chat	ok 0d96d005c0af9910
+refuses-hello	ok 1db990790a528539
+refuses-login	ok c09e8db89e4df8e9
+refuses-roster	ok f96bd28c77ac0331
+refuses-trailing	ok 0393c91adc206206
+rosters	ok 48ec7de03622be5c
+subject	ok 519227e69537aadf
+unknown-mode	ValueError: Unknown receiver fixture

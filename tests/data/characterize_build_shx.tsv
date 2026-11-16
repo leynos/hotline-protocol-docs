@@ -1,0 +1,10 @@
+changed-input	ValueError: Changed frozen build input: config.sub
+changed-input-and-no-header	ValueError: Changed frozen build input: config.sub
+no-header	ValueError: Extract the documented Readline/ncurses RPMs into --deps-root first
+no-header-and-output-exists	ValueError: Extract the documented Readline/ncurses RPMs into --deps-root first
+other-revision	ValueError: Historical source revision differs
+other-revision-and-changed-input	ValueError: Historical source revision differs
+other-revision-and-outside	ValueError: Build output and dependencies must be inside mothra
+output-exists	FileExistsError: [Errno 17] File exists: '<tmp>/repo/tools/shx-peer'
+outside-the-repository	ValueError: Build output and dependencies must be inside mothra
+success	ok fea5081bfbd60879

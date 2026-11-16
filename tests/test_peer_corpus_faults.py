@@ -18,8 +18,10 @@ import typing as typ
 from pathlib import Path
 
 import pytest
+from characterize_support import scripts_directory
 from mutation_support import ending, read_table
 from peer_fault_support import NEVER, REPOSITORY, run_faulted
+from script_loading import load_script
 
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
@@ -56,7 +58,11 @@ def verifier(module: str, function: str = "verify") -> cabc.Callable[[Path], obj
         object
             What the verifier returned.
         """
-        return getattr(importlib.import_module(module), function)(root)
+        if module.endswith(".py"):  # a script whose file name has a hyphen
+            loaded = load_script(scripts_directory() / module, "peer_fault_script")
+        else:
+            loaded = importlib.import_module(module)
+        return getattr(loaded, function)(root)
 
     return call
 
@@ -142,6 +148,9 @@ SUBJECTS: dict[str, Subject] = {
         f"{GAP}/2026-11-13/mac-peer-isolated-session-01",
         verifier("verify_mac_peer_isolated_session"),
         needs_mothra=True,
+    ),
+    "synhx-profiles": Subject(
+        f"{GAP}/2026-11-13/synhx-profile-01", verifier("verify-synhx-profiles.py")
     ),
     "mxd-limits": Subject(
         f"{GAP}/2026-11-13/mxd-limits-01", verifier("verify_mxd_limits")
