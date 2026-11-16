@@ -226,6 +226,21 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 20:00Z) EP-M5 wave 5A integrated (thirteen commits,
+  diagnostics through rate 304): the remaining native families meet the
+  standard, bar the scripts named below. About 2,100 findings to 0; about 4,400
+  error-order rows added, stable under four hash seeds. `make all` passes with
+  10,161 tests, but takes eleven minutes; `make goldens-check` and
+  `make pin-experiment` print `0 differences`. 40 scripts remain on the legacy
+  list. Left unmigrated because they record or check their own file's hash at
+  capture (D31): `native_diagnostic_load_cases.py` and the control scripts for
+  liveness, path fields, missing alias, rate 304 and configured ban. Left
+  unmigrated on the suppression limit: `native_ban_expiry_control.py` and
+  `native_ban_expiry_cleanup.py`, capture drivers that would need about
+  thirteen. Tolerances exceeded and accepted by the lead: the wave's size
+  (about 43,000 changed lines against a stop at 18,000) and five suppressions
+  in the path-fields family. To do: move the corpus-replay order tests behind
+  their own target so that the commit gate returns to about two minutes.
 - [x] (2026-11-17 15:00Z) EP-M8 complete: `docs/developers-guide.md`
   (`1a4beef`) written by a scribe from the `Makefile`, the tools and this plan,
   and gated. With it the orientation layer holds the root `README.md`, the
