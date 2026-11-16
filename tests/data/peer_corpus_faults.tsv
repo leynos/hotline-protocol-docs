@@ -484,3 +484,467 @@ mac-isolated-session	return-hashes.txt:empty-file;emulator-fds.txt:empty-file	Va
 mac-isolated-session	x-bridge-ready.json:empty-file;manifest.json>capture>host-final.pcap>sha256:delete-key	KeyError: "'sha256'"
 mac-isolated-session	x-bridge-ready.json>fixed_target>kind:delete-key;nonlocal-known-ip.pcap:empty-file	ValueError: Capture SHA/size differs: nonlocal-known-ip.pcap
 mac-isolated-session	x-bridge-ready.json>fixed_target>display:flip;x-bridge-ready.json>fixed_target>display:delete-key	ValueError: Fixed X bridge witness differs
+mxd-classic-login		ok f070c65dfe970d5d
+mxd-classic-login	actions-redacted.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	c19-readiness.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	c19-terminal.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	c19-terminal.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	c19-terminal.json>pid_absent:delete-key	KeyError: "'pid_absent'"
+mxd-classic-login	c19-terminal.json>pid_absent:not	AssertionError:
+mxd-classic-login	client-quit.png:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	connect-ready-masked.png:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	failed-login-alert.png:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	manifest.json>classification:delete-key	KeyError: "'classification'"
+mxd-classic-login	manifest.json>classification:flip	AssertionError:
+mxd-classic-login	manifest.json>classification:empty	AssertionError:
+mxd-classic-login	manifest.json>published:delete-key	KeyError: "'published'"
+mxd-classic-login	manifest.json>published>0:flip	AssertionError:
+mxd-classic-login	manifest.json>published>0:empty	AssertionError:
+mxd-classic-login	manifest.json>published>1:flip	AssertionError:
+mxd-classic-login	manifest.json>published>1:empty	AssertionError:
+mxd-classic-login	manifest.json>published>2:flip	AssertionError:
+mxd-classic-login	manifest.json>published>2:empty	AssertionError:
+mxd-classic-login	manifest.json>published>3:flip	AssertionError:
+mxd-classic-login	manifest.json>published>3:empty	AssertionError:
+mxd-classic-login	manifest.json>published>4:flip	AssertionError:
+mxd-classic-login	manifest.json>published>4:empty	AssertionError:
+mxd-classic-login	manifest.json>published>5:flip	AssertionError:
+mxd-classic-login	manifest.json>published>5:empty	AssertionError:
+mxd-classic-login	manifest.json>published>6:flip	AssertionError:
+mxd-classic-login	manifest.json>published>6:empty	AssertionError:
+mxd-classic-login	manifest.json>published:drop-last	AssertionError:
+mxd-classic-login	manifest.json>published:drop-first	AssertionError:
+mxd-classic-login	manifest.json>attempts:delete-key	KeyError: "'attempts'"
+mxd-classic-login	manifest.json>attempts:inc	AssertionError:
+mxd-classic-login	redacted-witness.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	redacted-witness.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	redacted-witness.json>kind:delete-key	KeyError: "'kind'"
+mxd-classic-login	redacted-witness.json>private_replay>secret_length:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>private_replay>credential_bytes_omitted:not	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>client_handshake_hex:flip	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>server_handshake_hex:flip	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_type:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_total_size:delete-key	KeyError: "'request_total_size'"
+mxd-classic-login	redacted-witness.json>decoded_public>request_data_size:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>0>1:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>0:reverse	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>1:drop-last	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>2>0:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>2:drop-first	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths:drop-first	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>reply_header_hex:flip	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>reply_type:inc	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>reply_id:delete-key	KeyError: "'reply_id'"
+mxd-classic-login	redacted-witness.json>decoded_public>reply_status:inc	AssertionError:
+mxd-classic-login	actions-redacted.txt:empty-file	ok f070c65dfe970d5d
+mxd-classic-login	c19-readiness.json:empty-file	ok f070c65dfe970d5d
+mxd-classic-login	c19-readiness.json>unit:delete-key	ok f070c65dfe970d5d
+mxd-classic-login	c19-readiness.json>unit:flip	ok f070c65dfe970d5d
+mxd-classic-login	actions-redacted.txt:delete-file;connect-ready-masked.png:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	c19-terminal.json:delete-file;manifest.json>published>1:flip	AssertionError:
+mxd-classic-login	c19-terminal.json>pid_absent:delete-key;manifest.json>published>6:flip	AssertionError:
+mxd-classic-login	client-quit.png:delete-file;redacted-witness.json>private_replay>credential_bytes_omitted:not	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	failed-login-alert.png:delete-file;redacted-witness.json>decoded_public>request_field_id_lengths>2:drop-first	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	manifest.json:empty-file;c19-terminal.json>pid_absent:delete-key	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	manifest.json>classification:flip;manifest.json>published:delete-key	AssertionError:
+mxd-classic-login	manifest.json>published:delete-key;manifest.json>published>4:empty	KeyError: 'published'
+mxd-classic-login	manifest.json>published>0:empty;redacted-witness.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	manifest.json>published>1:empty;redacted-witness.json>decoded_public>request_field_id_lengths>0:reverse	AssertionError:
+mxd-classic-login	manifest.json>published>2:empty;c19-readiness.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-classic-login	manifest.json>published>3:empty;manifest.json>classification:delete-key	KeyError: "'classification'"
+mxd-classic-login	manifest.json>published>4:empty;manifest.json>published>3:flip	AssertionError:
+mxd-classic-login	manifest.json>published>5:empty;manifest.json>attempts:delete-key	KeyError: "'attempts'"
+mxd-classic-login	manifest.json>published>6:empty;redacted-witness.json>decoded_public>request_total_size:delete-key	AssertionError:
+mxd-classic-login	manifest.json>published:drop-first;redacted-witness.json>decoded_public>reply_id:delete-key	AssertionError:
+mxd-classic-login	manifest.json>attempts:inc;failed-login-alert.png:delete-file	AssertionError:
+mxd-classic-login	redacted-witness.json:empty-file;manifest.json>published>1:empty	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-classic-login	redacted-witness.json>private_replay>secret_length:inc;manifest.json>published>6:empty	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_type:inc;redacted-witness.json>decoded_public>request_field_id_lengths:drop-first	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_data_size:inc;c19-terminal.json>pid_absent:not	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>0:reverse;manifest.json>published>0:flip	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths>2>0:inc;manifest.json>published>5:flip	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>request_field_id_lengths:drop-first;redacted-witness.json>kind:delete-key	KeyError: "'kind'"
+mxd-classic-login	redacted-witness.json>decoded_public>reply_type:inc;redacted-witness.json>decoded_public>request_field_id_lengths>1:drop-last	AssertionError:
+mxd-classic-login	redacted-witness.json>decoded_public>reply_status:inc;c19-terminal.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction		ok 2efdfcd9d7ca5dfc
+mxd-correction	as-run-full-gate.sh.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	c4-basis.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	commands.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	exit-provenance.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	fmt-lint-summary.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	fmt-lint-summary.txt:empty-file	ValueError: format/lint gate differs
+mxd-correction	focused-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	focused-tests.log:empty-file	ValueError: focused test result differs
+mxd-correction	full-gate-summary.txt:empty-file	ValueError: full gate source provenance differs
+mxd-correction	full-test.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	full-test.exit:empty-file	ValueError: unit-derived exit differs
+mxd-correction	inputs/base/src/db/migrations_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/base/src/db/migrations_tests.rs.txt
+mxd-correction	inputs/base/src/wireframe/codec/framed_tests.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/base/src/wireframe/codec/framed_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/base/src/wireframe/codec/framed_tests.rs.txt
+mxd-correction	inputs/base/src/wireframe/codec/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/db/migrations_tests.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/db/migrations_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/db/migrations_tests.rs.txt
+mxd-correction	inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/transaction/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/transaction/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/transaction/mod.rs.txt
+mxd-correction	inputs/final/src/wireframe/codec/framed.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/wireframe/codec/framed.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/framed.rs.txt
+mxd-correction	inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/framed_tests.rs.txt
+mxd-correction	inputs/final/src/wireframe/codec/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/wireframe/codec/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/mod.rs.txt
+mxd-correction	inputs/final/src/wireframe/codec/physical_frame.rs.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/physical_frame.rs.txt
+mxd-correction	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-correction	manifest.json>mxd_base:flip	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>codec_commit:flip	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>mxd_final_head:flip	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>candidate_source_hashes>src/db/migrations_tests.rs:delete-key	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>candidate_source_hashes>src/wireframe/codec/framed_tests.rs:delete-key	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>source_snapshots:delete-key	KeyError: "'source_snapshots'"
+mxd-correction	manifest.json>source_snapshots>inputs/base/src/db/migrations_tests.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/base/src/db/migrations_tests.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/base/src/wireframe/codec/mod.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/base/src/wireframe/codec/mod.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/db/migrations_tests.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/db/migrations_tests.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/mod.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/framed_tests.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/wireframe/codec/physical_frame.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/physical_frame.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/transaction/frame.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/transaction/frame.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/transaction/mod.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/transaction/mod.rs.txt
+mxd-correction	manifest.json>results:delete-key	KeyError: "'results'"
+mxd-correction	manifest.json>results>format_lint:delete-key	KeyError: "'format_lint'"
+mxd-correction	manifest.json>results>full_gate:delete-key	KeyError: "'full_gate'"
+mxd-correction	manifest.json>results>full_gate>unit:empty	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>unit_result:empty	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	KeyError: "'nextest_passed_by_profile'"
+mxd-correction	manifest.json>results>full_gate>nextest_passed_by_profile>2:inc	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>nextest_passed_by_profile>5:inc	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>nextest_verification_skipped:inc	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>doctests>mxd_concurrency_passed:inc	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>doctests>mxd_ignored:delete-key	ValueError: full gate manifest differs
+mxd-correction	manifest.json>limitations:delete-key	KeyError: "'limitations'"
+mxd-correction	patches/codec.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	patches/watchdog-test.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	source-commits.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	unit-final-props.txt:empty-file	ValueError: managed unit identity or timers differ
+mxd-correction	unit-initial-props.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	unit-initial-props.txt:empty-file	ValueError: managed unit identity or timers differ
+mxd-correction	as-run-full-gate.sh.txt:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-correction	c4-basis.txt:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-correction	commands.txt:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-correction	manifest.json>schema_version:delete-key	ok 2efdfcd9d7ca5dfc
+mxd-correction	as-run-full-gate.sh.txt:delete-file;focused-tests.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	commands.txt:delete-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	fmt-lint-summary.txt:delete-file;manifest.json:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	focused-tests.log:delete-file;manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	full-gate-summary.txt:empty-file;manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	KeyError: "'nextest_passed_by_profile'"
+mxd-correction	full-test.exit:empty-file;unit-final-props.txt:empty-file	ValueError: managed unit identity or timers differ
+mxd-correction	inputs/base/src/wireframe/codec/framed_tests.rs.txt:delete-file;focused-tests.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/base/src/wireframe/codec/mod.rs.txt:delete-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/db/migrations_tests.rs.txt:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-correction	inputs/final/src/transaction/mod.rs.txt:delete-file;manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/wireframe/codec/framed.rs.txt:delete-file;manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty-file;unit-final-props.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/framed_tests.rs.txt
+mxd-correction	inputs/final/src/wireframe/codec/mod.rs.txt:empty-file;focused-tests.log:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/mod.rs.txt
+mxd-correction	manifest.json:delete-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	manifest.json>mxd_base:flip;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-correction	manifest.json>mxd_final_head:flip;manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>candidate_source_hashes>src/wireframe/codec/framed_tests.rs:delete-key;manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	ValueError: unexpected source revision or changed-source digest
+mxd-correction	manifest.json>source_snapshots>inputs/base/src/db/migrations_tests.rs.txt:empty;unit-final-props.txt:empty-file	ValueError: source snapshot hash mismatch: inputs/base/src/db/migrations_tests.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/db/migrations_tests.rs.txt:empty;focused-tests.log:empty-file	ValueError: source snapshot hash mismatch: inputs/final/src/db/migrations_tests.rs.txt
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	manifest.json>source_snapshots>inputs/final/src/transaction/frame.rs.txt:empty;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-correction	manifest.json>results:delete-key;manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	ValueError: source snapshot hash mismatch: inputs/final/src/wireframe/codec/mod.rs.txt
+mxd-correction	manifest.json>results>full_gate:delete-key;manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	KeyError: 'full_gate'
+mxd-correction	manifest.json>results>full_gate>unit_result:empty;unit-final-props.txt:empty-file	ValueError: full gate manifest differs
+mxd-correction	manifest.json>results>full_gate>nextest_passed_by_profile>2:inc;focused-tests.log:empty-file	ValueError: focused test result differs
+mxd-correction	manifest.json>results>full_gate>nextest_verification_skipped:inc;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	manifest.json>results>full_gate>doctests>mxd_ignored:delete-key;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-correction	patches/codec.patch:delete-file;manifest.json>source_snapshots>inputs/final/src/wireframe/codec/mod.rs.txt:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	source-commits.txt:delete-file;manifest.json>results>full_gate>nextest_passed_by_profile:delete-key	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-correction	unit-initial-props.txt:delete-file;unit-final-props.txt:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits		ok 71ee45a3c0db9a98
+mxd-limits	codec-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	codec-tests.exit:empty-file	ValueError: focused command failed: codec-tests
+mxd-limits	codec-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	codec-tests.log:empty-file	ValueError: focused test count differs: codec-tests
+mxd-limits	green-framed-final.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	green-framed-final.exit:empty-file	ValueError: focused command failed: green-framed-final
+mxd-limits	green-framed-final.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	green-framed-final.log:empty-file	ValueError: focused test count differs: green-framed-final
+mxd-limits	inputs/base/src/wireframe/codec/framed_tests.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/base/src/wireframe/codec/framed_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/framed_tests.rs
+mxd-limits	inputs/base/src/wireframe/codec/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/base/src/wireframe/codec/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/mod.rs
+mxd-limits	inputs/final/Cargo.toml.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/Cargo.toml.txt:empty-file	ValueError: source snapshot hash mismatch: Cargo.toml
+mxd-limits	inputs/final/rust-toolchain.toml.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/server/wireframe/budgets.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/server/wireframe/budgets.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/server/wireframe/budgets.rs
+mxd-limits	inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/transaction/frame.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/transaction/frame.rs
+mxd-limits	inputs/final/src/transaction/reader/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/transaction/reader/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/transaction/reader/mod.rs
+mxd-limits	inputs/final/src/wireframe/codec/framed_tests.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/framed_tests.rs
+mxd-limits	inputs/final/src/wireframe/codec/mod.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/wireframe/codec/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/mod.rs
+mxd-limits	inputs/final/src/wireframe/codec/physical_frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/wireframe/codec/physical_frame.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/physical_frame.rs
+mxd-limits	inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/private-change.patch:empty-file	ValueError: candidate patch hash mismatch
+mxd-limits	make-test-resumed.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-resumed.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-resumed.log:empty-file	ValueError: linker failure missing: make-test-resumed
+mxd-limits	make-test-serialized.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-serialized.exit:empty-file	ValueError: full gate exit differs: make-test-serialized
+mxd-limits	make-test-serialized.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-serialized.log:empty-file	ValueError: linker failure missing: make-test-serialized
+mxd-limits	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	manifest.json>mxd_base:empty	ValueError: unexpected mxd base revision
+mxd-limits	manifest.json>sources>0>snapshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	manifest.json>sources>1>sha256:delete-key	KeyError: "'sha256'"
+mxd-limits	manifest.json>sources>2>sha256:empty	ValueError: source snapshot hash mismatch: Cargo.toml
+mxd-limits	manifest.json>sources>3>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-limits	manifest.json>sources>4>snapshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/mxd-limits-
+mxd-limits	manifest.json>sources>5>sha256:flip	ValueError: source snapshot hash mismatch: src/transaction/frame.rs
+mxd-limits	manifest.json>sources>8>sha256:delete-key	KeyError: "'sha256'"
+mxd-limits	manifest.json>sources>9>sha256:empty	ValueError: source snapshot hash mismatch: src/wireframe/codec/physical_frame.rs
+mxd-limits	manifest.json>full_gate_status:empty	ValueError: full gate status differs
+mxd-limits	manifest.json>candidate_patch:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	memory-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	memory-tests.exit:empty-file	ValueError: focused command failed: memory-tests
+mxd-limits	memory-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	memory-tests.log:empty-file	ValueError: focused test count differs: memory-tests
+mxd-limits	reader-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	reader-tests.exit:empty-file	ValueError: focused command failed: reader-tests
+mxd-limits	reader-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	reader-tests.log:empty-file	ValueError: focused test count differs: reader-tests
+mxd-limits	red-framed.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	red-framed.exit:empty-file	ValueError: red run did not fail with Cargo test status 101
+mxd-limits	red-framed.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	check-fmt-final.exit:delete-file	ok 71ee45a3c0db9a98
+mxd-limits	check-fmt-final.exit:empty-file	ok 71ee45a3c0db9a98
+mxd-limits	check-fmt-final.log:delete-file	ok 71ee45a3c0db9a98
+mxd-limits	check-fmt-final.log:empty-file	ok 71ee45a3c0db9a98
+mxd-limits	codec-tests.exit:delete-file;green-framed-final.log:empty-file	ValueError: focused test count differs: green-framed-final
+mxd-limits	codec-tests.log:delete-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	green-framed-final.exit:delete-file;inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	green-framed-final.log:delete-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	inputs/base/src/wireframe/codec/framed_tests.rs.txt:delete-file;manifest.json>full_gate_status:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/base/src/wireframe/codec/mod.rs.txt:delete-file;red-framed.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/Cargo.toml.txt:delete-file;green-framed-final.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/rust-toolchain.toml.txt:delete-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/server/wireframe/budgets.rs.txt:empty-file;inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/final/src/transaction/frame.rs.txt:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	inputs/final/src/transaction/reader/mod.rs.txt:empty-file;manifest.json>full_gate_status:empty	ValueError: source snapshot hash mismatch: src/transaction/reader/mod.rs
+mxd-limits	inputs/final/src/wireframe/codec/framed_tests.rs.txt:empty-file;red-framed.exit:delete-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/framed_tests.rs
+mxd-limits	inputs/final/src/wireframe/codec/mod.rs.txt:empty-file;green-framed-final.log:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/mod.rs
+mxd-limits	inputs/final/src/wireframe/codec/physical_frame.rs.txt:empty-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	inputs/private-change.patch:empty-file;inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-resumed.log:delete-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	make-test-serialized.exit:delete-file;manifest.json>full_gate_status:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	make-test-serialized.log:delete-file;red-framed.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	manifest.json:delete-file;green-framed-final.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	manifest.json>mxd_base:empty;inputs/final/src/transaction/frame.rs.txt:delete-file	ValueError: unexpected mxd base revision
+mxd-limits	manifest.json>sources>1>sha256:delete-key;inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	manifest.json>sources>3>snapshot:delete-key;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	manifest.json>sources>5>sha256:flip;manifest.json>full_gate_status:empty	ValueError: source snapshot hash mismatch: src/transaction/frame.rs
+mxd-limits	manifest.json>sources>9>sha256:empty;red-framed.exit:delete-file	ValueError: source snapshot hash mismatch: src/wireframe/codec/physical_frame.rs
+mxd-limits	manifest.json>candidate_patch:flip;green-framed-final.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	memory-tests.exit:empty-file;inputs/final/src/transaction/frame.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	memory-tests.log:empty-file;inputs/private-change.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-limits	reader-tests.exit:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-limits	reader-tests.log:empty-file;manifest.json>full_gate_status:empty	ValueError: focused test count differs: reader-tests
+mxd-limits	red-framed.exit:empty-file;red-framed.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras		ok 2efdfcd9d7ca5dfc
+mxd-login-extras	candidate.patch:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	changed-paths.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	check-fmt-final.exit:empty-file	ValueError: scoped gate exit differs: check-fmt-final
+mxd-login-extras	focused-cli.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-cli.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-config.exit:empty-file	ValueError: scoped gate exit differs: focused-config
+mxd-login-extras	focused-final-bdd.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-final-bdd.log:empty-file	ValueError: focused test count differs: focused-final-bdd
+mxd-login-extras	focused-final-router.exit:empty-file	ValueError: scoped gate exit differs: focused-final-router
+mxd-login-extras	focused-policy.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-policy.log:empty-file	ValueError: focused test count differs: focused-policy
+mxd-login-extras	full/full.exit:empty-file	ValueError: full gate script exit differs
+mxd-login-extras	full/full.started:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	full/terminal-mainpid.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	full/unit-final-props.txt:empty-file	ValueError: retained unit identity differs
+mxd-login-extras	full/unit-initial-props.txt:empty-file	ValueError: retained unit identity differs
+mxd-login-extras	lint-4.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-login-extras	manifest.json>full_unit:empty	ValueError: manifest unit or controlled thread count differs
+mxd-login-extras	manifest.json>schema:delete-key	ValueError: mxd source revisions differ
+mxd-login-extras	manifest.json>source_snapshots>1>path:flip	ValueError: source snapshot path set differs
+mxd-login-extras	manifest.json>source_snapshots>3>path:flip	ValueError: source snapshot path set differs
+mxd-login-extras	manifest.json>source_snapshots>4>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>6>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>8>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>9>sha256:empty	ValueError: source snapshot digest differs: src/wireframe/compat_layer.rs
+mxd-login-extras	manifest.json>source_snapshots>11>sha256:empty	ValueError: source snapshot digest differs: src/wireframe/compat_policy/mod.rs
+mxd-login-extras	manifest.json>source_snapshots>13>sha256:empty	ValueError: source snapshot digest differs: src/wireframe/login_reply_augmenter.rs
+mxd-login-extras	manifest.json>source_snapshots>15>sha256:empty	ValueError: source snapshot digest differs: src/wireframe/router_tests.rs
+mxd-login-extras	manifest.json>source_snapshots>17>path:flip	ValueError: source snapshot path set differs
+mxd-login-extras	manifest.json>source_snapshots>19>path:flip	ValueError: source snapshot path set differs
+mxd-login-extras	manifest.json>source_snapshots>21>path:flip	ValueError: source snapshot path set differs
+mxd-login-extras	manifest.json>source_snapshots>22>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>24>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>26>sha256:delete-key	KeyError: "'sha256'"
+mxd-login-extras	markdown.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	markdown.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/cli-defs/src/lib.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/docs/design.md:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/docs/internal-compatibility-matrix.md:empty-file	ValueError: source snapshot digest differs: docs/internal-compatibility-matrix.md
+mxd-login-extras	snapshots/docs/users-guide.md:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/server/cli_tests/precedence.rs:empty-file	ValueError: source snapshot digest differs: src/server/cli_tests/precedence.rs
+mxd-login-extras	snapshots/src/server/wireframe/mod.rs:empty-file	ValueError: source snapshot digest differs: src/server/wireframe/mod.rs
+mxd-login-extras	snapshots/src/wireframe/auth_strategy.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/compat_layer.rs:empty-file	ValueError: source snapshot digest differs: src/wireframe/compat_layer.rs
+mxd-login-extras	snapshots/src/wireframe/compat_policy/kani.rs:empty-file	ValueError: source snapshot digest differs: src/wireframe/compat_policy/kani.rs
+mxd-login-extras	snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/login_reply_augmenter.rs:empty-file	ValueError: source snapshot digest differs: src/wireframe/login_reply_augmenter.rs
+mxd-login-extras	snapshots/src/wireframe/router_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/routes/tests/direct_ack_cases.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/routes/tests/error_cases.rs:empty-file	ValueError: source snapshot digest differs: src/wireframe/routes/tests/error_cases.rs
+mxd-login-extras	snapshots/src/wireframe/routes/tests/middleware_cases.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/routes/tests/routing_cases.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/tests/create_user_bdd.rs:empty-file	ValueError: source snapshot digest differs: tests/create_user_bdd.rs
+mxd-login-extras	snapshots/tests/features/wireframe_login_compat.feature:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/tests/session_privileges_bdd.rs:empty-file	ValueError: source snapshot digest differs: tests/session_privileges_bdd.rs
+mxd-login-extras	snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	ValueError: source snapshot digest differs: tests/wireframe_compat_guardrails_bdd.rs
+mxd-login-extras	snapshots/tests/wireframe_presence_bdd/wireframe_presence_support.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	source-sha256.txt:empty-file	ValueError: pinned correction input differs: source-sha256.txt
+mxd-login-extras	full/full.started:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-login-extras	red-router-effective.exit:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-login-extras	red-router-effective.log:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-login-extras	red-subversion.exit:empty-file	ok 2efdfcd9d7ca5dfc
+mxd-login-extras	candidate.patch:delete-file;focused-final-bdd.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	check-fmt-final.exit:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-login-extras	focused-cli.log:delete-file;manifest.json>source_snapshots>13>sha256:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-final-bdd.exit:delete-file;red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-final-router.exit:empty-file;snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	focused-policy.log:empty-file;snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	ValueError: source snapshot digest differs: tests/wireframe_compat_guardrails_bdd.rs
+mxd-login-extras	full/full.started:delete-file;focused-final-bdd.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	full/unit-final-props.txt:empty-file;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-login-extras	lint-4.log:delete-file;manifest.json>source_snapshots>13>sha256:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json>full_unit:empty;red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json>source_snapshots>1>path:flip;snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json>source_snapshots>4>sha256:delete-key;snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>8>sha256:delete-key;focused-final-bdd.log:empty-file	KeyError: "'sha256'"
+mxd-login-extras	manifest.json>source_snapshots>11>sha256:empty;manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-login-extras	manifest.json>source_snapshots>15>sha256:empty;manifest.json>source_snapshots>13>sha256:empty	ValueError: source snapshot digest differs: src/wireframe/login_reply_augmenter.rs
+mxd-login-extras	manifest.json>source_snapshots>19>path:flip;red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json>source_snapshots>22>sha256:delete-key;snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	manifest.json>source_snapshots>26>sha256:delete-key;snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	KeyError: "'sha256'"
+mxd-login-extras	markdown.log:delete-file;focused-final-bdd.log:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/cli-defs/src/lib.rs:delete-file;manifest.json:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/docs/internal-compatibility-matrix.md:empty-file;manifest.json>source_snapshots>13>sha256:empty	ValueError: source snapshot digest differs: docs/internal-compatibility-matrix.md
+mxd-login-extras	snapshots/src/server/cli_tests/precedence.rs:empty-file;red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/auth_strategy.rs:delete-file;snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/compat_policy/kani.rs:empty-file;snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	ValueError: source snapshot digest differs: src/wireframe/compat_policy/kani.rs
+mxd-login-extras	snapshots/src/wireframe/login_reply_augmenter.rs:empty-file;focused-final-bdd.log:empty-file	ValueError: source snapshot digest differs: src/wireframe/login_reply_augmenter.rs
+mxd-login-extras	snapshots/src/wireframe/routes/tests/direct_ack_cases.rs:delete-file;manifest.json:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/src/wireframe/routes/tests/middleware_cases.rs:delete-file;manifest.json>source_snapshots>13>sha256:empty	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/tests/create_user_bdd.rs:empty-file;red-router-effective.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/tests/session_privileges_bdd.rs:empty-file;snapshots/src/wireframe/compat_policy_tests.rs:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-login-extras	snapshots/tests/wireframe_presence_bdd/wireframe_presence_support.rs:delete-file;snapshots/tests/wireframe_compat_guardrails_bdd.rs:empty-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/m
+mxd-reconciliation		ok 02d20bbd7e394ad5
+mxd-reconciliation	compat-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	compat-tests.exit:empty-file	ValueError: test command failed: compat-tests
+mxd-reconciliation	compat-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	compat-tests.log:empty-file	ValueError: test counts differ from claim: compat-tests
+mxd-reconciliation	inputs/Cargo.lock.txt:empty-file	ValueError: source snapshot hash mismatch: Cargo.lock
+mxd-reconciliation	inputs/Cargo.toml.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/Cargo.toml.txt:empty-file	ValueError: source snapshot hash mismatch: Cargo.toml
+mxd-reconciliation	inputs/docs/internal-compatibility-matrix.md.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/docs/release-notes-qa-sign-off.md.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/docs/release-notes-qa-sign-off.md.txt:empty-file	ValueError: source snapshot hash mismatch: docs/release-notes-qa-sign-off.md
+mxd-reconciliation	inputs/rust-toolchain.toml.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/src/wireframe/compat_layer.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/src/wireframe/compat_layer.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_layer.rs
+mxd-reconciliation	inputs/src/wireframe/compat_policy/kani.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/src/wireframe/compat_policy/kani.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy/kani.rs
+mxd-reconciliation	inputs/src/wireframe/compat_policy/mod.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy/mod.rs
+mxd-reconciliation	inputs/src/wireframe/compat_policy_tests.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy_tests.rs
+mxd-reconciliation	inputs/src/wireframe/login_reply_augmenter.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/login_reply_augmenter.rs
+mxd-reconciliation	inputs/tests/features/wireframe_compat_guardrails.feature.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/tests/features/wireframe_compat_guardrails.feature.txt:empty-file	ValueError: source snapshot hash mismatch: tests/features/wireframe_compat_guardrails.feature
+mxd-reconciliation	inputs/tests/features/wireframe_login_compat.feature.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/tests/wireframe_compat_guardrails_bdd.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/tests/wireframe_compat_guardrails_bdd.rs.txt:empty-file	ValueError: source snapshot hash mismatch: tests/wireframe_compat_guardrails_bdd.rs
+mxd-reconciliation	inputs/tests/wireframe_login_compat.rs.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-reconciliation	manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	manifest.json>inputs>0>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-reconciliation	manifest.json>inputs>2>sha256:delete-key	KeyError: "'sha256'"
+mxd-reconciliation	manifest.json>inputs>2>snapshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/delegated-m
+mxd-reconciliation	manifest.json>inputs>3>sha256:flip	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy/mod.rs
+mxd-reconciliation	manifest.json>inputs>5>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-reconciliation	manifest.json>inputs>6>snapshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json>inputs>7>sha256:delete-key	KeyError: "'sha256'"
+mxd-reconciliation	manifest.json>inputs>7>snapshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/delegated-m
+mxd-reconciliation	manifest.json>inputs>9>sha256:empty	ValueError: source snapshot hash mismatch: tests/features/wireframe_compat_guardrails.feature
+mxd-reconciliation	manifest.json>inputs>10>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-reconciliation	manifest.json>inputs>11>snapshot:flip	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json>inputs>12>snapshot:empty	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/delegated-m
+mxd-reconciliation	manifest.json>inputs>13>sha256:flip	ValueError: source snapshot hash mismatch: docs/release-notes-qa-sign-off.md
+mxd-reconciliation	manifest.json>commands>0>command:flip	ValueError: unexpected command or expected counts: compat-tests
+mxd-reconciliation	manifest.json>commands>0>exit_file:delete-key	KeyError: "'exit_file'"
+mxd-reconciliation	manifest.json>commands>1>command:empty	ValueError: unexpected command or expected counts: roster-tests
+mxd-reconciliation	manifest.json>commands>1>exit_file:flip	ValueError: test command failed: roster-tests
+mxd-reconciliation	manifest.json>commands>1>passed_tests:drop-first	ValueError: unexpected command or expected counts: roster-tests
+mxd-reconciliation	manifest.json>commands>2>exit_file:empty	ValueError: test command failed: scenario-tests
+mxd-reconciliation	manifest.json>commands>2>passed_tests:drop-last	ValueError: unexpected command or expected counts: scenario-tests
+mxd-reconciliation	manifest.json>commands>3>command:empty	ValueError: unexpected command or expected counts: presence-tests
+mxd-reconciliation	manifest.json>commands>3>exit_file:flip	ValueError: test command failed: presence-tests
+mxd-reconciliation	manifest.json>total_passed_tests:delete-key	KeyError: "'total_passed_tests'"
+mxd-reconciliation	presence-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	presence-tests.exit:empty-file	ValueError: test command failed: presence-tests
+mxd-reconciliation	presence-tests.log:empty-file	ValueError: test counts differ from claim: presence-tests
+mxd-reconciliation	roster-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	roster-tests.exit:empty-file	ValueError: test command failed: roster-tests
+mxd-reconciliation	roster-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	scenario-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	scenario-tests.exit:empty-file	ValueError: test command failed: scenario-tests
+mxd-reconciliation	scenario-tests.log:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json>schema_version:delete-key	ok 02d20bbd7e394ad5
+mxd-reconciliation	manifest.json>source_worktree_status_initial:empty	ok 02d20bbd7e394ad5
+mxd-reconciliation	manifest.json>working_directory:flip	ok 02d20bbd7e394ad5
+mxd-reconciliation	manifest.json>toolchain:delete-key	ok 02d20bbd7e394ad5
+mxd-reconciliation	compat-tests.exit:delete-file;inputs/docs/internal-compatibility-matrix.md.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	compat-tests.log:delete-file;inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy_tests.rs
+mxd-reconciliation	inputs/Cargo.lock.txt:empty-file;manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	inputs/Cargo.toml.txt:empty-file;manifest.json>inputs>10>snapshot:delete-key	ValueError: source snapshot hash mismatch: Cargo.toml
+mxd-reconciliation	inputs/docs/release-notes-qa-sign-off.md.txt:delete-file;manifest.json>commands>2>passed_tests:drop-last	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/rust-toolchain.toml.txt:delete-file;scenario-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/src/wireframe/compat_layer.rs.txt:empty-file;inputs/docs/internal-compatibility-matrix.md.txt:delete-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_layer.rs
+mxd-reconciliation	inputs/src/wireframe/compat_policy/kani.rs.txt:empty-file;inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy_tests.rs
+mxd-reconciliation	inputs/src/wireframe/compat_policy_tests.rs.txt:delete-file;manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	inputs/src/wireframe/login_reply_augmenter.rs.txt:empty-file;manifest.json>inputs>10>snapshot:delete-key	ValueError: source snapshot hash mismatch: src/wireframe/login_reply_augmenter.rs
+mxd-reconciliation	inputs/tests/features/wireframe_compat_guardrails.feature.txt:empty-file;manifest.json>commands>2>passed_tests:drop-last	ValueError: source snapshot hash mismatch: tests/features/wireframe_compat_guardrails.feature
+mxd-reconciliation	inputs/tests/wireframe_compat_guardrails_bdd.rs.txt:delete-file;scenario-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	inputs/tests/wireframe_login_compat.rs.txt:delete-file;inputs/docs/internal-compatibility-matrix.md.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json:empty-file;inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	TypeError: JSONDecodeError.__init__() missing 2 required positional arguments: 'doc' and 'pos'
+mxd-reconciliation	manifest.json>inputs>0>snapshot:delete-key;manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	manifest.json>inputs>2>snapshot:empty;manifest.json>inputs>10>snapshot:delete-key	IsADirectoryError: [Errno 21] Is a directory: '<tmp>/evidence/gap-remediation/2026-11-13/delegated-m
+mxd-reconciliation	manifest.json>inputs>5>snapshot:delete-key;manifest.json>commands>2>passed_tests:drop-last	KeyError: "'snapshot'"
+mxd-reconciliation	manifest.json>inputs>7>sha256:delete-key;scenario-tests.exit:delete-file	KeyError: "'sha256'"
+mxd-reconciliation	manifest.json>inputs>9>sha256:empty;inputs/docs/internal-compatibility-matrix.md.txt:delete-file	ValueError: source snapshot hash mismatch: tests/features/wireframe_compat_guardrails.feature
+mxd-reconciliation	manifest.json>inputs>11>snapshot:flip;inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy_tests.rs
+mxd-reconciliation	manifest.json>inputs>13>sha256:flip;manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	manifest.json>commands>0>exit_file:delete-key;manifest.json>inputs>10>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-reconciliation	manifest.json>commands>1>exit_file:flip;manifest.json>commands>2>passed_tests:drop-last	ValueError: test command failed: roster-tests
+mxd-reconciliation	manifest.json>commands>2>exit_file:empty;scenario-tests.exit:delete-file	ValueError: test command failed: scenario-tests
+mxd-reconciliation	manifest.json>commands>3>command:empty;inputs/docs/internal-compatibility-matrix.md.txt:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	manifest.json>total_passed_tests:delete-key;inputs/src/wireframe/compat_policy_tests.rs.txt:empty-file	ValueError: source snapshot hash mismatch: src/wireframe/compat_policy_tests.rs
+mxd-reconciliation	presence-tests.exit:empty-file;manifest.json>source_git_head:delete-key	KeyError: "'source_git_head'"
+mxd-reconciliation	roster-tests.exit:delete-file;manifest.json>inputs>10>snapshot:delete-key	KeyError: "'snapshot'"
+mxd-reconciliation	roster-tests.log:delete-file;manifest.json>commands>2>passed_tests:drop-last	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d
+mxd-reconciliation	scenario-tests.exit:empty-file;scenario-tests.exit:delete-file	FileNotFoundError: [Errno 2] No such file or directory: '<tmp>/evidence/gap-remediation/2026-11-13/d

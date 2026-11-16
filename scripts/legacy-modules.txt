@@ -52,12 +52,7 @@ scripts/test_account_attribute.py
 scripts/test_alias_record_v2.py
 scripts/test_classic_proxy_rehearsal.py
 scripts/test_mothra_root.py
-scripts/test_mxd_classic_login.py
-scripts/test_mxd_correction.py
 scripts/test_mxd_direct_ack.py
-scripts/test_mxd_limits.py
-scripts/test_mxd_login_extras.py
-scripts/test_mxd_reconciliation.py
 scripts/test_native_121_default.py
 scripts/test_native_ban_control.py
 scripts/test_native_ban_expiry.py
@@ -99,11 +94,6 @@ scripts/test_verify_native_path_fields.py
 scripts/verify-shx-login-fragment.py
 scripts/verify-synhx-profiles.py
 scripts/verify_account_attribute.py
-scripts/verify_mxd_classic_login.py
-scripts/verify_mxd_correction.py
-scripts/verify_mxd_limits.py
-scripts/verify_mxd_login_extras.py
-scripts/verify_mxd_reconciliation.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
 scripts/verify_native_ban_expiry_first.py
