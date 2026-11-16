@@ -226,6 +226,29 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 03:00Z) EP-M9 complete (`f491c80`, `0a05e40`).
+  `tools/check_evidence.py` checks cited ledger, gap and script identifiers,
+  status sentences against the register, the ledger of remaining work, corpus
+  families and the generated indexes; `make evidence-check` is part of
+  `make all` (805 tests). Nine sets have a generated `evidence.md`. On the real
+  tree: 606 ledger citations, 2,690 gap citations, 1,195 evidence links; no
+  unknown identifier; every cited corpus falls under a family of the recreation
+  guide; the ledger lists exactly the 25 unresolved gaps. The checker found
+  seven contradicting sentences; a scribe's reading of all 221 sentences that
+  name a Resolved gap found ten more. All seventeen keep their wording and
+  carry a dated status note (D4). Two working records carry a record note.
+  Loose family-name wording is reworded in six living documents (D25); general
+  set-up guidance in four documents is replaced by permalinks (D17).
+  `docs/reconciliation-log.md` lists every discrepancy and its disposition,
+  including those left open for the owner. Revision 94:
+  `87 gaps, 0 protected fields changed`, no heading changed. `links-check`
+  reports `136 documents, 7676 links, 0 failures`. Accepted findings left in
+  `evidence-known.json`: the toolset script names in the working record
+  `missing-target-alias.md`. For EP-M10: one audited heading in
+  `native-settings-preparation.md` keeps its earlier spelling by exemption in
+  `typos.local.toml`; the checker's tool code is 2,520 lines, so `tools/`
+  stands near 10,500 of 12,000 and the one-off relocation tool should be
+  deleted before the style check is written.
 - [x] (2026-11-17 00:30Z) EP-M5 wave 3 integrated (`912237d` to `e378a1b`):
   the cleanup, HTXF, correlation, handshake, account-batch, account-identity
   and live-account families meet the standard (484 findings to 0, nine
@@ -443,7 +466,8 @@ The script work is a behaviour-preserving refactor.
 - [x] EP-M7: mxd set consolidated; revision 93 (see the entry dated
   2026-11-16 18:00Z).
 - [ ] EP-M8: on-ramps, orientation, recreation guide and diagrams.
-- [ ] EP-M9: evidence correlation and reconciliation; revision 94.
+- [x] EP-M9: evidence correlation and reconciliation; revision 94 (see the
+  entry dated 2026-11-17 03:00Z).
 - [ ] EP-M10: style conformance and cross-references; revision 95.
 - [ ] EP-M11: final validation and retrospective.
 
