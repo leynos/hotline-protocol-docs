@@ -7,6 +7,7 @@ the helpers below are called in the order they are listed in
 
 import typing as typ
 
+from capture_acceptance import role_in
 from verify_native_rate304_sequence_constants import (
     ACTION_COUNT,
     CASES,
@@ -43,8 +44,8 @@ def _check_status(report: Report, plan: Report) -> None:
         and report["phase_progress"] == {"paced": 26, "burst": 26}
         and report["native_clock_calibrated"] is False
         and report["plan_sha256"] == PLAN
-        and report["cases_sha256"] == CASES
-        and report["source_sha256"] == RUNNER
+        and role_in(report, "cases", {CASES})
+        and role_in(report, "source", {RUNNER})
         and report["oracle_sha256"] == DATA
         and report["terminals"] == dict.fromkeys(plan["schedule"]["flows"], "eof"),
         "Failed case status/timing/source differs",

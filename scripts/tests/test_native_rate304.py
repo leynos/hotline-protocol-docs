@@ -11,6 +11,7 @@ from unittest import mock
 
 import native_rate304_cases as cases
 import native_rate304_control as control
+import native_rate304_control_classify as classifying
 import pytest
 from native_plan import packet, payload
 from protocol_capture import decode_frame
@@ -54,7 +55,7 @@ class Rate304Tests:
         with contextlib.ExitStack() as stack:
             stack.enter_context(
                 mock.patch.object(
-                    control,
+                    classifying,
                     "field_digest",
                     side_effect=lambda f: control.BASELINE_FIELDS[
                         DIGEST_CODES[f["id"]]

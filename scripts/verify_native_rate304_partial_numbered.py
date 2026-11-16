@@ -1,5 +1,6 @@
 """Check the numbered coordinator report of the failed first pair."""
 
+from capture_acceptance import role_in
 from native_wire_names import (
     FIELD_ICON,
     FIELD_USER_ID,
@@ -69,8 +70,8 @@ def failed_status(report: dict) -> None:
         and report["error"]
         == "ValueError: Missing paced subject/observer301 and500 ACK icon2"
         and report["plan_sha256"] == PLAN
-        and report["source_sha256"] == RUNNER
-        and report["cases_sha256"] == CASES
+        and role_in(report, "source", {RUNNER})
+        and role_in(report, "cases", {CASES})
         and report["oracle_sha256"] == DATA
         and report["native_clock_calibrated"] is False,
         "Failed-case status or source differs",

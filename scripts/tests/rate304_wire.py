@@ -10,8 +10,8 @@ import dataclasses as dc
 import json
 import time
 import typing as typ
-from pathlib import Path
 
+import capture_identity
 import native_rate304_cases as cases
 import native_rate304_control as control
 from native_plan import packet, payload
@@ -216,6 +216,8 @@ def build_full_report(
     if trace.pool:
         raise UndeliveredFrameError
     streams = stream_bytes(trace.events)
+    source_record = capture_identity.identity(control.CAPTURE_MODULES)
+    producer = capture_identity.identity(control.CASES_MODULES)
     return {
         **source,
         "status": "completed",
@@ -226,8 +228,10 @@ def build_full_report(
             name: phase_receipt(plan, trace, name) for name in ("paced", "burst")
         },
         "plan_sha256": cases.digest((json.dumps(plan, indent=2) + "\n").encode()),
-        "cases_sha256": control.digest(Path(cases.__file__).read_bytes()),
-        "source_sha256": control.digest(Path(control.__file__).read_bytes()),
+        "cases_sha256": producer["digest"],
+        "cases_identity": producer,
+        "source_sha256": source_record["digest"],
+        "source_identity": source_record,
         "oracle_sha256": control.ORACLE_SHA256,
         "frames": trace.observed,
         "events": trace.events,

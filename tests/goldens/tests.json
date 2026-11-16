@@ -2497,6 +2497,22 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_rate304_run.RunTests.test_a_binary_that_differs_is_refused_before_any_output": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_rate304_run.RunTests.test_a_failing_schedule_is_reported_and_its_bytes_kept": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_rate304_run.RunTests.test_an_epoch_with_too_little_margin_is_refused": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_rate304_run.RunTests.test_the_report_records_the_identity_of_the_runner_and_the_generator": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_rate304_sequence.Rate304SequenceTests.test_approved_closure_source_rejected": {
       "outcome": "ok",
       "detail": ""
