@@ -255,6 +255,7 @@ EQUIVALENCE_SECONDS = 3600  # a widely imported script reruns most of the suite 
 class PinnedScriptEquivalenceTests:
     """Every pinned script that has changed must behave as it did when pinned."""
 
+    @pytest.mark.pin_equivalence
     @pytest.mark.timeout(EQUIVALENCE_SECONDS)
     @pytest.mark.parametrize("name", CHANGED)
     def test_a_changed_script_passes_its_tests_under_both_versions(
