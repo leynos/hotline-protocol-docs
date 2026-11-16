@@ -20,7 +20,6 @@ scripts/native_diagnostic_load_cases.py
 scripts/native_liveness_control.py
 scripts/native_missing_alias_control.py
 scripts/native_path_fields_control.py
-scripts/native_rate304_cases.py
 scripts/native_rate304_control.py
 scripts/native_settings_cases.py  # live bytes compared with a recorded hash
 scripts/native_settings_persistence.py
@@ -34,9 +33,6 @@ scripts/test_mxd_direct_ack.py
 scripts/test_native_121_default.py
 scripts/test_native_ban_control.py
 scripts/test_native_control_readiness.py
-scripts/test_native_rate304.py
-scripts/test_native_rate304_partial.py
-scripts/test_native_rate304_sequence.py
 scripts/test_native_settings.py
 scripts/test_native_settings_corpus.py
 scripts/test_native_settings_persistence.py
@@ -46,8 +42,6 @@ scripts/test_request500_client_source.py
 scripts/test_verify_classic_account_constructors.py
 scripts/verify_native_121_default.py  # live bytes compared with a recorded hash
 scripts/verify_native_ban_control.py
-scripts/verify_native_rate304_partial.py
-scripts/verify_native_rate304_sequence.py
 scripts/verify_native_settings.py  # live bytes compared with a recorded hash
 scripts/verify_native_settings_corpus.py
 scripts/verify_native_settings_persistence.py

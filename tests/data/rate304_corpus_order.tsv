@@ -1,0 +1,901 @@
+rate304-partial		ok 74234e98afe7498f
+rate304-partial	manifest.json>case_status:delete-key	KeyError: 'case_status'
+rate304-partial	raw/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+rate304-partial	raw/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+rate304-partial	raw/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+rate304-partial	raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+rate304-partial	raw/coordinator/report.json>frames>11>fields:delete-key	KeyError: 'fields'
+rate304-partial	manifest.json>files:delete-key	KeyError: 'files'
+rate304-partial	raw/runtime.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+rate304-partial	raw/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+rate304-partial	raw/source-freeze.json>helper_hashes:delete-key	KeyError: 'helper_hashes'
+rate304-partial	raw/coordinator/report.json>frames>5>fields>2>hex:delete-key	KeyError: 'hex'
+rate304-partial	raw/coordinator/report.json>actions>5>label:delete-key	KeyError: 'label'
+rate304-partial	manifest.json:delete-key	KeyError: 'manifest.json'
+rate304-partial	raw/runtime.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+rate304-partial	raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+rate304-partial	manifest.json>schema:delete-key	KeyError: 'schema'
+rate304-partial	raw/stopped/forks.json>admin>sha256:delete-key	KeyError: 'sha256'
+rate304-partial	raw/stopped/forks.json>board>size:delete-key	KeyError: 'size'
+rate304-partial	raw/rate304-plan/plan.json>schema_version:inc	ValueError: As-run case plan differs
+rate304-partial	raw/source-freeze.json>hashes>native_account_update_cases.py:delete-key	ValueError: As-run source closure differs
+rate304-partial	raw/source-freeze.json>hashes>native_account_update_cases.py:flip	ValueError: As-run source differs: native_account_update_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_alias_cases.py:flip	ValueError: As-run source differs: native_alias_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: As-run source differs: native_auth_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_control_cases.py:flip	ValueError: As-run source differs: native_ban_control_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: As-run source differs: native_ban_expiry_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip	ValueError: As-run source differs: native_ban_expiry_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_banner_cases.py:flip	ValueError: As-run source differs: native_banner_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_board_cases.py:flip	ValueError: As-run source differs: native_board_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_board_control.py:flip	ValueError: As-run source differs: native_board_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_control_readiness.py
+rate304-partial	raw/source-freeze.json>hashes>native_filp.py:flip	ValueError: As-run source differs: native_filp.py
+rate304-partial	raw/source-freeze.json>hashes>native_folder_cases.py:flip	ValueError: As-run source differs: native_folder_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_framing_cases.py:flip	ValueError: As-run source differs: native_framing_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_metadata_cases.py:flip	ValueError: As-run source differs: native_metadata_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_mkdir_cases.py:flip	ValueError: As-run source differs: native_mkdir_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_news_decode.py:flip	ValueError: As-run source differs: native_news_decode.py
+rate304-partial	raw/source-freeze.json>hashes>native_news_delete_cases.py:flip	ValueError: As-run source differs: native_news_delete_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_packet_evidence.py:flip	ValueError: As-run source differs: native_packet_evidence.py
+rate304-partial	raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_plan.py
+rate304-partial	raw/source-freeze.json>hashes>native_queue_cases.py:flip	ValueError: As-run source differs: native_queue_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_rate304_cases.py:flip	ValueError: As-run source differs: native_rate304_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_rate304_control.py:flip	ValueError: As-run source differs: native_rate304_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_resume_cases.py:flip	ValueError: As-run source differs: native_resume_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_transfer_cases.py:flip	ValueError: As-run source differs: native_transfer_cases.py
+rate304-partial	raw/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: As-run source differs: pcap_tcp.py
+rate304-partial	raw/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: As-run source differs: protocol_capture.py
+rate304-partial	raw/source-freeze.json>hashes>shx_syscalls.py:flip	ValueError: As-run source differs: shx_syscalls.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_account_updates.py:flip	ValueError: As-run source differs: verify_native_account_updates.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_article_deletion.py:flip	ValueError: As-run source differs: verify_native_article_deletion.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: As-run source differs: verify_native_auth.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_banners.py:flip	ValueError: As-run source differs: verify_native_banners.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_core.py:flip	ValueError: As-run source differs: verify_native_core.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_framing.py:flip	ValueError: As-run source differs: verify_native_framing.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_mkdir.py:flip	ValueError: As-run source differs: verify_native_mkdir.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: As-run source differs: verify_native_shx.py
+rate304-partial	raw/coordinator/report.json>actions>5>label:flip	ValueError: Case action boundary differs
+rate304-partial	manifest.json>case_status:flip	ValueError: Case status must remain failed
+rate304-partial	manifest.json>files>audits/a102.txt:flip	ValueError: Corpus SHA differs: audits/a102.txt
+rate304-partial	manifest.json>files>audits/b90.txt:flip	ValueError: Corpus SHA differs: audits/b90.txt
+rate304-partial	manifest.json>files>preparation/approved-helper.sha256:flip	ValueError: Corpus SHA differs: preparation/approved-helper.sha256
+rate304-partial	manifest.json>files>preparation/approved-rate304-sources.sha256:flip	ValueError: Corpus SHA differs: preparation/approved-rate304-sources.sha256
+rate304-partial	manifest.json>files>preparation/boot-c106.sh:flip	ValueError: Corpus SHA differs: preparation/boot-c106.sh
+rate304-partial	manifest.json>files>preparation/build-runtime-c106.py:flip	ValueError: Corpus SHA differs: preparation/build-runtime-c106.py
+rate304-partial	manifest.json>files>preparation/catalog-allocated.exit:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.exit
+rate304-partial	manifest.json>files>preparation/catalog-allocated.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stderr
+rate304-partial	manifest.json>files>preparation/catalog-allocated.stdout:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stdout
+rate304-partial	manifest.json>files>preparation/catalog-full.exit:flip	ValueError: Corpus SHA differs: preparation/catalog-full.exit
+rate304-partial	manifest.json>files>preparation/catalog-full.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-full.stderr
+rate304-partial	manifest.json>files>preparation/catalog-full.stdout:flip	ValueError: Corpus SHA differs: preparation/catalog-full.stdout
+rate304-partial	manifest.json>files>preparation/complete-readiness-c106.sh:flip	ValueError: Corpus SHA differs: preparation/complete-readiness-c106.sh
+rate304-partial	manifest.json>files>preparation/icat-Prefs.exit:flip	ValueError: Corpus SHA differs: preparation/icat-Prefs.exit
+rate304-partial	manifest.json>files>preparation/icat-Prefs.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-Prefs.stderr
+rate304-partial	manifest.json>files>preparation/icat-admin.exit:flip	ValueError: Corpus SHA differs: preparation/icat-admin.exit
+rate304-partial	manifest.json>files>preparation/icat-admin.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-admin.stderr
+rate304-partial	manifest.json>files>preparation/icat-board.exit:flip	ValueError: Corpus SHA differs: preparation/icat-board.exit
+rate304-partial	manifest.json>files>preparation/icat-board.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-board.stderr
+rate304-partial	manifest.json>files>preparation/icat-board.stdout:flip	ValueError: Corpus SHA differs: preparation/icat-board.stdout
+rate304-partial	manifest.json>files>preparation/icat-fixture-low.exit:flip	ValueError: Corpus SHA differs: preparation/icat-fixture-low.exit
+rate304-partial	manifest.json>files>preparation/icat-fixture-low.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-fixture-low.stderr
+rate304-partial	manifest.json>files>preparation/icat-server-data.exit:flip	ValueError: Corpus SHA differs: preparation/icat-server-data.exit
+rate304-partial	manifest.json>files>preparation/icat-server-data.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-server-data.stderr
+rate304-partial	manifest.json>files>preparation/icat-server-rsrc.exit:flip	ValueError: Corpus SHA differs: preparation/icat-server-rsrc.exit
+rate304-partial	manifest.json>files>preparation/icat-server-rsrc.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-server-rsrc.stderr
+rate304-partial	manifest.json>files>preparation/istat-board.exit:flip	ValueError: Corpus SHA differs: preparation/istat-board.exit
+rate304-partial	manifest.json>files>preparation/istat-board.stderr:flip	ValueError: Corpus SHA differs: preparation/istat-board.stderr
+rate304-partial	manifest.json>files>preparation/istat-board.stdout:flip	ValueError: Corpus SHA differs: preparation/istat-board.stdout
+rate304-partial	manifest.json>files>preparation/port-ss.exit:flip	ValueError: Corpus SHA differs: preparation/port-ss.exit
+rate304-partial	manifest.json>files>preparation/port-ss.stderr:flip	ValueError: Corpus SHA differs: preparation/port-ss.stderr
+rate304-partial	manifest.json>files>preparation/port-ss.stdout:flip	ValueError: Corpus SHA differs: preparation/port-ss.stdout
+rate304-partial	manifest.json>files>preparation/preboot-packet-c105.json:flip	ValueError: Corpus SHA differs: preparation/preboot-packet-c105.json
+rate304-partial	manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+rate304-partial	manifest.json>files>preparation/prepare.exit:flip	ValueError: Corpus SHA differs: preparation/prepare.exit
+rate304-partial	manifest.json>files>preparation/prepare.log:flip	ValueError: Corpus SHA differs: preparation/prepare.log
+rate304-partial	manifest.json>files>preparation/prepare.py:flip	ValueError: Corpus SHA differs: preparation/prepare.py
+rate304-partial	manifest.json>files>preparation/prepare.stderr:flip	ValueError: Corpus SHA differs: preparation/prepare.stderr
+rate304-partial	manifest.json>files>preparation/prepare.stdout:flip	ValueError: Corpus SHA differs: preparation/prepare.stdout
+rate304-partial	manifest.json>files>preparation/run18-c106.sh:flip	ValueError: Corpus SHA differs: preparation/run18-c106.sh
+rate304-partial	manifest.json>files>preparation/source-fuser.exit:flip	ValueError: Corpus SHA differs: preparation/source-fuser.exit
+rate304-partial	manifest.json>files>preparation/source-fuser.stderr:flip	ValueError: Corpus SHA differs: preparation/source-fuser.stderr
+rate304-partial	manifest.json>files>preparation/source-fuser.stdout:flip	ValueError: Corpus SHA differs: preparation/source-fuser.stdout
+rate304-partial	manifest.json>files>preparation/supplement-ports.txt:flip	ValueError: Corpus SHA differs: preparation/supplement-ports.txt
+rate304-partial	manifest.json>files>preparation/supplement.exit:flip	ValueError: Corpus SHA differs: preparation/supplement.exit
+rate304-partial	manifest.json>files>preparation/supplement.json:flip	ValueError: Corpus SHA differs: preparation/supplement.json
+rate304-partial	manifest.json>files>preparation/supplement.py:flip	ValueError: Corpus SHA differs: preparation/supplement.py
+rate304-partial	manifest.json>files>preparation/supplement.stderr:flip	ValueError: Corpus SHA differs: preparation/supplement.stderr
+rate304-partial	manifest.json>files>preparation/supplement.stdout:flip	ValueError: Corpus SHA differs: preparation/supplement.stdout
+rate304-partial	manifest.json>files>preparation/wait-managed-c106.py:flip	ValueError: Corpus SHA differs: preparation/wait-managed-c106.py
+rate304-partial	manifest.json>files>preparation/working-fuser.exit:flip	ValueError: Corpus SHA differs: preparation/working-fuser.exit
+rate304-partial	manifest.json>files>preparation/working-fuser.stderr:flip	ValueError: Corpus SHA differs: preparation/working-fuser.stderr
+rate304-partial	manifest.json>files>preparation/working-fuser.stdout:flip	ValueError: Corpus SHA differs: preparation/working-fuser.stdout
+rate304-partial	manifest.json>files>raw/actual-emulator-proof.json:flip	ValueError: Corpus SHA differs: raw/actual-emulator-proof.json
+rate304-partial	manifest.json>files>raw/app-quit.png:flip	ValueError: Corpus SHA differs: raw/app-quit.png
+rate304-partial	manifest.json>files>raw/awake-before-retirement.png:flip	ValueError: Corpus SHA differs: raw/awake-before-retirement.png
+rate304-partial	manifest.json>files>raw/before-retirement.png:flip	ValueError: Corpus SHA differs: raw/before-retirement.png
+rate304-partial	manifest.json>files>raw/boot-next.png:flip	ValueError: Corpus SHA differs: raw/boot-next.png
+rate304-partial	manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot.png
+rate304-partial	manifest.json>files>raw/build-runtime.stdout:flip	ValueError: Corpus SHA differs: raw/build-runtime.stdout
+rate304-partial	manifest.json>files>raw/capture-journal-before-stop.txt:flip	ValueError: Corpus SHA differs: raw/capture-journal-before-stop.txt
+rate304-partial	manifest.json>files>raw/capture-journal-terminal.txt:flip	ValueError: Corpus SHA differs: raw/capture-journal-terminal.txt
+rate304-partial	manifest.json>files>raw/capture-ready.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+rate304-partial	manifest.json>files>raw/case-deadline.utc:flip	ValueError: Corpus SHA differs: raw/case-deadline.utc
+rate304-partial	manifest.json>files>raw/case-journal.txt:flip	ValueError: Corpus SHA differs: raw/case-journal.txt
+rate304-partial	manifest.json>files>raw/case-unit-terminal.txt:flip	ValueError: Corpus SHA differs: raw/case-unit-terminal.txt
+rate304-partial	manifest.json>files>raw/control-plans/ban.json:flip	ValueError: Corpus SHA differs: raw/control-plans/ban.json
+rate304-partial	manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/guard.json
+rate304-partial	manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+rate304-partial	manifest.json>files>raw/control-plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/control-plans/readiness.json
+rate304-partial	manifest.json>files>raw/control-plans/seed.json:flip	ValueError: Corpus SHA differs: raw/control-plans/seed.json
+rate304-partial	manifest.json>files>raw/coordinator.exit:flip	ValueError: Corpus SHA differs: raw/coordinator.exit
+rate304-partial	manifest.json>files>raw/coordinator/plan.json:flip	ValueError: Corpus SHA differs: raw/coordinator/plan.json
+rate304-partial	manifest.json>files>raw/coordinator/report.json:flip	ValueError: Corpus SHA differs: raw/coordinator/report.json
+rate304-partial	manifest.json>files>raw/desktop-ready.png:flip	ValueError: Corpus SHA differs: raw/desktop-ready.png
+rate304-partial	manifest.json>files>raw/desktop.png:flip	ValueError: Corpus SHA differs: raw/desktop.png
+rate304-partial	manifest.json>files>raw/display-launch.stdout:flip	ValueError: Corpus SHA differs: raw/display-launch.stdout
+rate304-partial	manifest.json>files>raw/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/epoch-start.utc
+rate304-partial	manifest.json>files>raw/fuser-terminal.exit:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.exit
+rate304-partial	manifest.json>files>raw/fuser-terminal.stderr:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.stderr
+rate304-partial	manifest.json>files>raw/fuser-terminal.stdout:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.stdout
+rate304-partial	manifest.json>files>raw/helper-sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/helper-sources/capture_readiness.py
+rate304-partial	manifest.json>files>raw/helper-sources/native_capture_receipt.py:flip	ValueError: Corpus SHA differs: raw/helper-sources/native_capture_receipt.py
+rate304-partial	manifest.json>files>raw/host-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/host-initial-wait.json
+rate304-partial	manifest.json>files>raw/host-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/host-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/host-launch.stdout:flip	ValueError: Corpus SHA differs: raw/host-launch.stdout
+rate304-partial	manifest.json>files>raw/host-ready.json:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+rate304-partial	manifest.json>files>raw/input.py:flip	ValueError: Corpus SHA differs: raw/input.py
+rate304-partial	manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+rate304-partial	manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+rate304-partial	manifest.json>files>raw/lease-initial-show.txt:flip	ValueError: Corpus SHA differs: raw/lease-initial-show.txt
+rate304-partial	manifest.json>files>raw/lease-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/lease-initial-wait.json
+rate304-partial	manifest.json>files>raw/lease-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/lease-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/lease-launch.stdout:flip	ValueError: Corpus SHA differs: raw/lease-launch.stdout
+rate304-partial	manifest.json>files>raw/namespace-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/namespace-initial-wait.json
+rate304-partial	manifest.json>files>raw/namespace-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/namespace-launch.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-launch.stdout
+rate304-partial	manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/namespace-ready.json
+rate304-partial	manifest.json>files>raw/plan-hashes.stdout:flip	ValueError: Corpus SHA differs: raw/plan-hashes.stdout
+rate304-partial	manifest.json>files>raw/ports-terminal.txt:flip	ValueError: Corpus SHA differs: raw/ports-terminal.txt
+rate304-partial	manifest.json>files>raw/pre-fuser.stderr:flip	ValueError: Corpus SHA differs: raw/pre-fuser.stderr
+rate304-partial	manifest.json>files>raw/pre-fuser.stdout:flip	ValueError: Corpus SHA differs: raw/pre-fuser.stdout
+rate304-partial	manifest.json>files>raw/pre-ports.txt:flip	ValueError: Corpus SHA differs: raw/pre-ports.txt
+rate304-partial	manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/primary-syn.pcap
+rate304-partial	manifest.json>files>raw/rate304-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/rate304-plan/plan.json
+rate304-partial	manifest.json>files>raw/rate304-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/rate304-plan/source-hashes.json
+rate304-partial	manifest.json>files>raw/readiness-launch.stdout:flip	ValueError: Corpus SHA differs: raw/readiness-launch.stdout
+rate304-partial	manifest.json>files>raw/readiness-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/readiness-unit-final.txt
+rate304-partial	manifest.json>files>raw/readiness.exit:flip	ValueError: Corpus SHA differs: raw/readiness.exit
+rate304-partial	manifest.json>files>raw/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/readiness/checksums.sha256
+rate304-partial	manifest.json>files>raw/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness/plan.json
+rate304-partial	manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+rate304-partial	manifest.json>files>raw/receipt-helper.stdout:flip	ValueError: Corpus SHA differs: raw/receipt-helper.stdout
+rate304-partial	manifest.json>files>raw/run-case-c107.sh:flip	ValueError: Corpus SHA differs: raw/run-case-c107.sh
+rate304-partial	manifest.json>files>raw/runtime.json:flip	ValueError: Corpus SHA differs: raw/runtime.json
+rate304-partial	manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/server-ready.png
+rate304-partial	manifest.json>files>raw/server-start-next.png:flip	ValueError: Corpus SHA differs: raw/server-start-next.png
+rate304-partial	manifest.json>files>raw/server-start.png:flip	ValueError: Corpus SHA differs: raw/server-start.png
+rate304-partial	manifest.json>files>raw/sheep-launch.stdout:flip	ValueError: Corpus SHA differs: raw/sheep-launch.stdout
+rate304-partial	manifest.json>files>raw/shutdown-dialog.png:flip	ValueError: Corpus SHA differs: raw/shutdown-dialog.png
+rate304-partial	manifest.json>files>raw/source-freeze.json:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+rate304-partial	manifest.json>files>raw/sources/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_account_update_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_alias_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_alias_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_auth_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_control_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_control.py
+rate304-partial	manifest.json>files>raw/sources/native_banner_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_banner_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_board_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_board_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_board_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_board_control.py
+rate304-partial	manifest.json>files>raw/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/native_control_readiness.py
+rate304-partial	manifest.json>files>raw/sources/native_filp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_filp.py
+rate304-partial	manifest.json>files>raw/sources/native_folder_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_folder_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_framing_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_metadata_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_mkdir_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_news_decode.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_decode.py
+rate304-partial	manifest.json>files>raw/sources/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_delete_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: raw/sources/native_packet_evidence.py
+rate304-partial	manifest.json>files>raw/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/sources/native_plan.py
+rate304-partial	manifest.json>files>raw/sources/native_queue_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_queue_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_rate304_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_rate304_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_rate304_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_rate304_control.py
+rate304-partial	manifest.json>files>raw/sources/native_resume_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_resume_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_transfer_cases.py
+rate304-partial	manifest.json>files>raw/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/sources/pcap_tcp.py
+rate304-partial	manifest.json>files>raw/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/sources/protocol_capture.py
+rate304-partial	manifest.json>files>raw/sources/shx_syscalls.py:flip	ValueError: Corpus SHA differs: raw/sources/shx_syscalls.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_account_updates.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_article_deletion.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_auth.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_banners.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_banners.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_core.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_core.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_framing.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_framing.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_mkdir.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+rate304-partial	manifest.json>files>raw/special-menu.png:flip	ValueError: Corpus SHA differs: raw/special-menu.png
+rate304-partial	manifest.json>files>raw/stopped/Prefs.bin:flip	ValueError: Corpus SHA differs: raw/stopped/Prefs.bin
+rate304-partial	manifest.json>files>raw/stopped/admin.bin:flip	ValueError: Corpus SHA differs: raw/stopped/admin.bin
+rate304-partial	manifest.json>files>raw/stopped/board-istat.txt:flip	ValueError: Corpus SHA differs: raw/stopped/board-istat.txt
+rate304-partial	manifest.json>files>raw/stopped/board.bin:flip	ValueError: Corpus SHA differs: raw/stopped/board.bin
+rate304-partial	manifest.json>files>raw/stopped/catalog-allocated.txt:flip	ValueError: Corpus SHA differs: raw/stopped/catalog-allocated.txt
+rate304-partial	manifest.json>files>raw/stopped/catalog-full.txt:flip	ValueError: Corpus SHA differs: raw/stopped/catalog-full.txt
+rate304-partial	manifest.json>files>raw/stopped/fixture-low.bin:flip	ValueError: Corpus SHA differs: raw/stopped/fixture-low.bin
+rate304-partial	manifest.json>files>raw/stopped/forks.json:flip	ValueError: Corpus SHA differs: raw/stopped/forks.json
+rate304-partial	manifest.json>files>raw/stopped/image-sha256.txt:flip	ValueError: Corpus SHA differs: raw/stopped/image-sha256.txt
+rate304-partial	manifest.json>files>raw/stopped/image-stat.txt:flip	ValueError: Corpus SHA differs: raw/stopped/image-stat.txt
+rate304-partial	manifest.json>files>raw/units-before-stop.txt:flip	ValueError: Corpus SHA differs: raw/units-before-stop.txt
+rate304-partial	manifest.json>files>raw/units-terminal.txt:flip	ValueError: Corpus SHA differs: raw/units-terminal.txt
+rate304-partial	manifest.json>files>raw/user-units-terminal.txt:flip	ValueError: Corpus SHA differs: raw/user-units-terminal.txt
+rate304-partial	manifest.json>files>audits/a102.txt:delete-key	ValueError: Corpus inventory differs
+rate304-partial	manifest.json>schema:flip	ValueError: Corpus schema differs
+rate304-partial	raw/source-freeze.json>helper_hashes>capture_readiness.py:flip	ValueError: Helper differs: capture_readiness.py
+rate304-partial	raw/source-freeze.json>helper_hashes>native_capture_receipt.py:flip	ValueError: Helper differs: native_capture_receipt.py
+rate304-partial	raw/capture-ready.json>emulator_pid:inc	ValueError: Runtime identity or fixed deadline differs
+rate304-partial	raw/stopped/forks.json>board>size:inc	ValueError: Stopped ban or board state differs
+rate304-partial	raw/stopped/forks.json>admin:delete-key	ValueError: Stopped fork hashes differ
+rate304-partial	manifest.json>case_status:delete-key;manifest.json>schema:flip	ValueError: Corpus schema differs
+rate304-partial	raw/capture-ready.json>deadline_utc:delete-key;raw/runtime.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+rate304-partial	raw/capture-ready.json>deadline_utc:delete-key;raw/rate304-plan/plan.json>schema_version:inc	KeyError: 'deadline_utc'
+rate304-partial	raw/capture-ready.json>emulator_netns_inode:delete-key;raw/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+rate304-partial	raw/capture-ready.json>emulator_netns_inode:delete-key;raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'emulator_netns_inode'
+rate304-partial	raw/capture-ready.json>emulator_netns_inode:delete-key;manifest.json>files>raw/rate304-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/rate304-plan/source-hashes.json
+rate304-partial	raw/capture-ready.json>emulator_pid:delete-key;raw/source-freeze.json>helper_hashes>capture_readiness.py:flip	ValueError: Helper differs: capture_readiness.py
+rate304-partial	raw/capture-ready.json>emulator_starttime:delete-key;raw/capture-ready.json>emulator_pid:inc	ValueError: Runtime identity or fixed deadline differs
+rate304-partial	raw/coordinator/report.json>frames>11>fields:delete-key;raw/coordinator/report.json>frames>5>fields>2>hex:delete-key	KeyError: 'hex'
+rate304-partial	raw/coordinator/report.json>frames>11>fields:delete-key;raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+rate304-partial	raw/coordinator/report.json>frames>11>fields:delete-key;manifest.json>files>preparation/catalog-allocated.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stderr
+rate304-partial	raw/coordinator/report.json>frames>11>fields:delete-key;raw/stopped/forks.json>admin:delete-key	KeyError: 'fields'
+rate304-partial	raw/runtime.json>full_file_baseline:delete-key;raw/runtime.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+rate304-partial	raw/coordinator/report.json>frames>5>fields>2>hex:delete-key;raw/coordinator/report.json>actions>5>label:flip	ValueError: Case action boundary differs
+rate304-partial	raw/coordinator/report.json>actions>5>label:delete-key;raw/rate304-plan/plan.json>schema_version:inc	ValueError: As-run case plan differs
+rate304-partial	raw/runtime.json>native_data_sha256:delete-key;raw/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+rate304-partial	raw/stopped/forks.json>admin>sha256:delete-key;raw/stopped/forks.json>board>size:delete-key	KeyError: 'sha256'
+rate304-partial	raw/stopped/forks.json>admin>sha256:delete-key;raw/stopped/forks.json>admin:delete-key	ValueError: Stopped fork hashes differ
+rate304-partial	raw/source-freeze.json>hashes>native_account_update_cases.py:delete-key;manifest.json>files>raw/user-units-terminal.txt:flip	ValueError: Corpus SHA differs: raw/user-units-terminal.txt
+rate304-partial	raw/source-freeze.json>hashes>native_account_update_cases.py:flip;raw/source-freeze.json>hashes>native_alias_cases.py:flip	ValueError: As-run source differs: native_account_update_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_alias_cases.py:flip;raw/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: As-run source differs: native_alias_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_auth_cases.py:flip;raw/source-freeze.json>hashes>native_ban_control_cases.py:flip	ValueError: As-run source differs: native_auth_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_control_cases.py:flip;raw/source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: As-run source differs: native_ban_control_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_expiry_cases.py:flip;raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip	ValueError: As-run source differs: native_ban_expiry_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_ban_expiry_control.py:flip;raw/source-freeze.json>hashes>native_banner_cases.py:flip	ValueError: As-run source differs: native_ban_expiry_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_banner_cases.py:flip;raw/source-freeze.json>hashes>native_board_cases.py:flip	ValueError: As-run source differs: native_banner_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_board_cases.py:flip;raw/source-freeze.json>hashes>native_board_control.py:flip	ValueError: As-run source differs: native_board_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_board_control.py:flip;raw/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: As-run source differs: native_board_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_board_control.py:flip;manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+rate304-partial	raw/source-freeze.json>hashes>native_control_readiness.py:flip;raw/source-freeze.json>hashes>native_filp.py:flip	ValueError: As-run source differs: native_control_readiness.py
+rate304-partial	raw/source-freeze.json>hashes>native_filp.py:flip;raw/source-freeze.json>hashes>native_folder_cases.py:flip	ValueError: As-run source differs: native_filp.py
+rate304-partial	raw/source-freeze.json>hashes>native_folder_cases.py:flip;raw/source-freeze.json>hashes>native_framing_cases.py:flip	ValueError: As-run source differs: native_folder_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_framing_cases.py:flip;raw/source-freeze.json>hashes>native_metadata_cases.py:flip	ValueError: As-run source differs: native_framing_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_metadata_cases.py:flip;raw/source-freeze.json>hashes>native_mkdir_cases.py:flip	ValueError: As-run source differs: native_metadata_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_mkdir_cases.py:flip;raw/source-freeze.json>hashes>native_news_decode.py:flip	ValueError: As-run source differs: native_mkdir_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_news_decode.py:flip;raw/source-freeze.json>hashes>native_news_delete_cases.py:flip	ValueError: As-run source differs: native_news_decode.py
+rate304-partial	raw/source-freeze.json>hashes>native_news_delete_cases.py:flip;raw/source-freeze.json>hashes>native_packet_evidence.py:flip	ValueError: As-run source differs: native_news_delete_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_packet_evidence.py:flip;raw/source-freeze.json>hashes>native_plan.py:flip	ValueError: As-run source differs: native_packet_evidence.py
+rate304-partial	raw/source-freeze.json>hashes>native_plan.py:flip;raw/source-freeze.json>hashes>native_queue_cases.py:flip	ValueError: As-run source differs: native_plan.py
+rate304-partial	raw/source-freeze.json>hashes>native_queue_cases.py:flip;raw/source-freeze.json>hashes>native_rate304_cases.py:flip	ValueError: As-run source differs: native_queue_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_rate304_cases.py:flip;raw/source-freeze.json>hashes>native_rate304_control.py:flip	ValueError: As-run source differs: native_rate304_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_rate304_control.py:flip;raw/source-freeze.json>hashes>native_resume_cases.py:flip	ValueError: As-run source differs: native_rate304_control.py
+rate304-partial	raw/source-freeze.json>hashes>native_resume_cases.py:flip;raw/source-freeze.json>hashes>native_transfer_cases.py:flip	ValueError: As-run source differs: native_resume_cases.py
+rate304-partial	raw/source-freeze.json>hashes>native_transfer_cases.py:flip;raw/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: As-run source differs: native_transfer_cases.py
+rate304-partial	raw/source-freeze.json>hashes>pcap_tcp.py:flip;raw/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: As-run source differs: pcap_tcp.py
+rate304-partial	raw/source-freeze.json>hashes>protocol_capture.py:flip;raw/source-freeze.json>hashes>shx_syscalls.py:flip	ValueError: As-run source differs: protocol_capture.py
+rate304-partial	raw/source-freeze.json>hashes>shx_syscalls.py:flip;raw/source-freeze.json>hashes>verify_native_account_updates.py:flip	ValueError: As-run source differs: shx_syscalls.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_account_updates.py:flip;raw/source-freeze.json>hashes>verify_native_article_deletion.py:flip	ValueError: As-run source differs: verify_native_account_updates.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_article_deletion.py:flip;raw/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: As-run source differs: verify_native_article_deletion.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_auth.py:flip;raw/source-freeze.json>hashes>verify_native_banners.py:flip	ValueError: As-run source differs: verify_native_auth.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_banners.py:flip;raw/source-freeze.json>hashes>verify_native_core.py:flip	ValueError: As-run source differs: verify_native_banners.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_core.py:flip;raw/source-freeze.json>hashes>verify_native_framing.py:flip	ValueError: As-run source differs: verify_native_core.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_framing.py:flip;raw/source-freeze.json>hashes>verify_native_mkdir.py:flip	ValueError: As-run source differs: verify_native_framing.py
+rate304-partial	raw/source-freeze.json>hashes>verify_native_shx.py:flip;raw/source-freeze.json>helper_hashes>native_capture_receipt.py:flip	ValueError: As-run source differs: verify_native_shx.py
+rate304-partial	manifest.json>case_status:flip;manifest.json>files>audits/a102.txt:delete-key	ValueError: Case status must remain failed
+rate304-partial	manifest.json>files>audits/a102.txt:flip;manifest.json>files>audits/b90.txt:flip	ValueError: Corpus SHA differs: audits/a102.txt
+rate304-partial	manifest.json>files>audits/a102.txt:flip;manifest.json>files>audits/a102.txt:delete-key	ValueError: Corpus inventory differs
+rate304-partial	manifest.json>files>audits/b90.txt:flip;manifest.json>files>preparation/approved-helper.sha256:flip	ValueError: Corpus SHA differs: audits/b90.txt
+rate304-partial	manifest.json>files>preparation/approved-helper.sha256:flip;manifest.json>files>preparation/approved-rate304-sources.sha256:flip	ValueError: Corpus SHA differs: preparation/approved-helper.sha256
+rate304-partial	manifest.json>files>preparation/approved-rate304-sources.sha256:flip;manifest.json>files>preparation/boot-c106.sh:flip	ValueError: Corpus SHA differs: preparation/approved-rate304-sources.sha256
+rate304-partial	manifest.json>files>preparation/boot-c106.sh:flip;manifest.json>files>preparation/build-runtime-c106.py:flip	ValueError: Corpus SHA differs: preparation/boot-c106.sh
+rate304-partial	manifest.json>files>preparation/build-runtime-c106.py:flip;manifest.json>files>preparation/catalog-allocated.exit:flip	ValueError: Corpus SHA differs: preparation/build-runtime-c106.py
+rate304-partial	manifest.json>files>preparation/catalog-allocated.exit:flip;manifest.json>files>preparation/catalog-allocated.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.exit
+rate304-partial	manifest.json>files>preparation/catalog-allocated.stderr:flip;manifest.json>files>preparation/catalog-allocated.stdout:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stderr
+rate304-partial	manifest.json>files>preparation/catalog-allocated.stdout:flip;manifest.json>files>preparation/catalog-full.exit:flip	ValueError: Corpus SHA differs: preparation/catalog-allocated.stdout
+rate304-partial	manifest.json>files>preparation/catalog-full.exit:flip;manifest.json>files>preparation/catalog-full.stderr:flip	ValueError: Corpus SHA differs: preparation/catalog-full.exit
+rate304-partial	manifest.json>files>preparation/catalog-full.stderr:flip;manifest.json>files>preparation/catalog-full.stdout:flip	ValueError: Corpus SHA differs: preparation/catalog-full.stderr
+rate304-partial	manifest.json>files>preparation/catalog-full.stdout:flip;manifest.json>files>preparation/complete-readiness-c106.sh:flip	ValueError: Corpus SHA differs: preparation/catalog-full.stdout
+rate304-partial	manifest.json>files>preparation/complete-readiness-c106.sh:flip;manifest.json>files>preparation/icat-Prefs.exit:flip	ValueError: Corpus SHA differs: preparation/complete-readiness-c106.sh
+rate304-partial	manifest.json>files>preparation/icat-Prefs.exit:flip;manifest.json>files>preparation/icat-Prefs.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-Prefs.exit
+rate304-partial	manifest.json>files>preparation/icat-Prefs.stderr:flip;manifest.json>files>preparation/icat-admin.exit:flip	ValueError: Corpus SHA differs: preparation/icat-Prefs.stderr
+rate304-partial	manifest.json>files>preparation/icat-admin.exit:flip;manifest.json>files>preparation/icat-admin.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-admin.exit
+rate304-partial	manifest.json>files>preparation/icat-admin.stderr:flip;manifest.json>files>preparation/icat-board.exit:flip	ValueError: Corpus SHA differs: preparation/icat-admin.stderr
+rate304-partial	manifest.json>files>preparation/icat-board.exit:flip;manifest.json>files>preparation/icat-board.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-board.exit
+rate304-partial	manifest.json>files>preparation/icat-board.stderr:flip;manifest.json>files>preparation/icat-board.stdout:flip	ValueError: Corpus SHA differs: preparation/icat-board.stderr
+rate304-partial	manifest.json>files>preparation/icat-board.stdout:flip;manifest.json>files>preparation/icat-fixture-low.exit:flip	ValueError: Corpus SHA differs: preparation/icat-board.stdout
+rate304-partial	manifest.json>files>preparation/icat-fixture-low.exit:flip;manifest.json>files>preparation/icat-fixture-low.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-fixture-low.exit
+rate304-partial	manifest.json>files>preparation/icat-fixture-low.stderr:flip;manifest.json>files>preparation/icat-server-data.exit:flip	ValueError: Corpus SHA differs: preparation/icat-fixture-low.stderr
+rate304-partial	manifest.json>files>preparation/icat-server-data.exit:flip;manifest.json>files>preparation/icat-server-data.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-server-data.exit
+rate304-partial	manifest.json>files>preparation/icat-server-data.stderr:flip;manifest.json>files>preparation/icat-server-rsrc.exit:flip	ValueError: Corpus SHA differs: preparation/icat-server-data.stderr
+rate304-partial	manifest.json>files>preparation/icat-server-rsrc.exit:flip;manifest.json>files>preparation/icat-server-rsrc.stderr:flip	ValueError: Corpus SHA differs: preparation/icat-server-rsrc.exit
+rate304-partial	manifest.json>files>preparation/icat-server-rsrc.stderr:flip;manifest.json>files>preparation/istat-board.exit:flip	ValueError: Corpus SHA differs: preparation/icat-server-rsrc.stderr
+rate304-partial	manifest.json>files>preparation/istat-board.exit:flip;manifest.json>files>preparation/istat-board.stderr:flip	ValueError: Corpus SHA differs: preparation/istat-board.exit
+rate304-partial	manifest.json>files>preparation/istat-board.stderr:flip;manifest.json>files>preparation/istat-board.stdout:flip	ValueError: Corpus SHA differs: preparation/istat-board.stderr
+rate304-partial	manifest.json>files>preparation/istat-board.stdout:flip;manifest.json>files>preparation/port-ss.exit:flip	ValueError: Corpus SHA differs: preparation/istat-board.stdout
+rate304-partial	manifest.json>files>preparation/port-ss.exit:flip;manifest.json>files>preparation/port-ss.stderr:flip	ValueError: Corpus SHA differs: preparation/port-ss.exit
+rate304-partial	manifest.json>files>preparation/port-ss.exit:flip;manifest.json>files>raw/pre-fuser.stdout:flip	ValueError: Corpus SHA differs: preparation/port-ss.exit
+rate304-partial	manifest.json>files>preparation/port-ss.exit:flip;raw/source-freeze.json>helper_hashes>capture_readiness.py:flip	ValueError: Corpus SHA differs: preparation/port-ss.exit
+rate304-partial	manifest.json>files>preparation/port-ss.stderr:flip;manifest.json>files>preparation/port-ss.stdout:flip	ValueError: Corpus SHA differs: preparation/port-ss.stderr
+rate304-partial	manifest.json>files>preparation/port-ss.stdout:flip;manifest.json>files>preparation/preboot-packet-c105.json:flip	ValueError: Corpus SHA differs: preparation/port-ss.stdout
+rate304-partial	manifest.json>files>preparation/preboot-packet-c105.json:flip;manifest.json>files>preparation/preflight.json:flip	ValueError: Corpus SHA differs: preparation/preboot-packet-c105.json
+rate304-partial	manifest.json>files>preparation/preflight.json:flip;manifest.json>files>preparation/prepare.exit:flip	ValueError: Corpus SHA differs: preparation/preflight.json
+rate304-partial	manifest.json>files>preparation/prepare.exit:flip;manifest.json>files>preparation/prepare.log:flip	ValueError: Corpus SHA differs: preparation/prepare.exit
+rate304-partial	manifest.json>files>preparation/prepare.log:flip;manifest.json>files>preparation/prepare.py:flip	ValueError: Corpus SHA differs: preparation/prepare.log
+rate304-partial	manifest.json>files>preparation/prepare.py:flip;manifest.json>files>preparation/prepare.stderr:flip	ValueError: Corpus SHA differs: preparation/prepare.py
+rate304-partial	manifest.json>files>preparation/prepare.stderr:flip;manifest.json>files>preparation/prepare.stdout:flip	ValueError: Corpus SHA differs: preparation/prepare.stderr
+rate304-partial	manifest.json>files>preparation/prepare.stdout:flip;manifest.json>files>preparation/run18-c106.sh:flip	ValueError: Corpus SHA differs: preparation/prepare.stdout
+rate304-partial	manifest.json>files>preparation/prepare.stdout:flip;manifest.json>files>preparation/supplement-ports.txt:flip	ValueError: Corpus SHA differs: preparation/prepare.stdout
+rate304-partial	manifest.json>files>preparation/run18-c106.sh:flip;manifest.json>files>preparation/source-fuser.exit:flip	ValueError: Corpus SHA differs: preparation/run18-c106.sh
+rate304-partial	manifest.json>files>preparation/source-fuser.exit:flip;manifest.json>files>preparation/source-fuser.stderr:flip	ValueError: Corpus SHA differs: preparation/source-fuser.exit
+rate304-partial	manifest.json>files>preparation/source-fuser.stderr:flip;manifest.json>files>preparation/source-fuser.stdout:flip	ValueError: Corpus SHA differs: preparation/source-fuser.stderr
+rate304-partial	manifest.json>files>preparation/source-fuser.stdout:flip;manifest.json>files>preparation/supplement-ports.txt:flip	ValueError: Corpus SHA differs: preparation/source-fuser.stdout
+rate304-partial	manifest.json>files>preparation/supplement-ports.txt:flip;manifest.json>files>preparation/supplement.exit:flip	ValueError: Corpus SHA differs: preparation/supplement-ports.txt
+rate304-partial	manifest.json>files>preparation/supplement.exit:flip;manifest.json>files>preparation/supplement.json:flip	ValueError: Corpus SHA differs: preparation/supplement.exit
+rate304-partial	manifest.json>files>preparation/supplement.json:flip;manifest.json>files>preparation/supplement.py:flip	ValueError: Corpus SHA differs: preparation/supplement.json
+rate304-partial	manifest.json>files>preparation/supplement.py:flip;manifest.json>files>preparation/supplement.stderr:flip	ValueError: Corpus SHA differs: preparation/supplement.py
+rate304-partial	manifest.json>files>preparation/supplement.stderr:flip;manifest.json>files>preparation/supplement.stdout:flip	ValueError: Corpus SHA differs: preparation/supplement.stderr
+rate304-partial	manifest.json>files>preparation/supplement.stdout:flip;manifest.json>files>preparation/wait-managed-c106.py:flip	ValueError: Corpus SHA differs: preparation/supplement.stdout
+rate304-partial	manifest.json>files>preparation/wait-managed-c106.py:flip;manifest.json>files>preparation/working-fuser.exit:flip	ValueError: Corpus SHA differs: preparation/wait-managed-c106.py
+rate304-partial	manifest.json>files>preparation/working-fuser.exit:flip;manifest.json>files>preparation/working-fuser.stderr:flip	ValueError: Corpus SHA differs: preparation/working-fuser.exit
+rate304-partial	manifest.json>files>preparation/working-fuser.stderr:flip;manifest.json>files>preparation/working-fuser.stdout:flip	ValueError: Corpus SHA differs: preparation/working-fuser.stderr
+rate304-partial	manifest.json>files>preparation/working-fuser.stdout:flip;manifest.json>files>raw/actual-emulator-proof.json:flip	ValueError: Corpus SHA differs: preparation/working-fuser.stdout
+rate304-partial	manifest.json>files>raw/actual-emulator-proof.json:flip;manifest.json>files>raw/app-quit.png:flip	ValueError: Corpus SHA differs: raw/actual-emulator-proof.json
+rate304-partial	manifest.json>files>raw/app-quit.png:flip;manifest.json>files>raw/awake-before-retirement.png:flip	ValueError: Corpus SHA differs: raw/app-quit.png
+rate304-partial	manifest.json>files>raw/awake-before-retirement.png:flip;manifest.json>files>raw/before-retirement.png:flip	ValueError: Corpus SHA differs: raw/awake-before-retirement.png
+rate304-partial	manifest.json>files>raw/before-retirement.png:flip;manifest.json>files>raw/boot-next.png:flip	ValueError: Corpus SHA differs: raw/before-retirement.png
+rate304-partial	manifest.json>files>raw/boot-next.png:flip;manifest.json>files>raw/boot.png:flip	ValueError: Corpus SHA differs: raw/boot-next.png
+rate304-partial	manifest.json>files>raw/boot.png:flip;manifest.json>files>raw/build-runtime.stdout:flip	ValueError: Corpus SHA differs: raw/boot.png
+rate304-partial	manifest.json>files>raw/build-runtime.stdout:flip;manifest.json>files>raw/capture-journal-before-stop.txt:flip	ValueError: Corpus SHA differs: raw/build-runtime.stdout
+rate304-partial	manifest.json>files>raw/capture-journal-before-stop.txt:flip;manifest.json>files>raw/capture-journal-terminal.txt:flip	ValueError: Corpus SHA differs: raw/capture-journal-before-stop.txt
+rate304-partial	manifest.json>files>raw/capture-journal-terminal.txt:flip;manifest.json>files>raw/case-deadline.utc:flip	ValueError: Corpus SHA differs: raw/capture-journal-terminal.txt
+rate304-partial	manifest.json>files>raw/capture-ready.json:flip;manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+rate304-partial	manifest.json>files>raw/capture-ready.json:flip;manifest.json>files>raw/control-plans/probe.json:flip	ValueError: Corpus SHA differs: raw/capture-ready.json
+rate304-partial	manifest.json>files>raw/case-deadline.utc:flip;manifest.json>files>raw/case-journal.txt:flip	ValueError: Corpus SHA differs: raw/case-deadline.utc
+rate304-partial	manifest.json>files>raw/case-journal.txt:flip;manifest.json>files>raw/case-unit-terminal.txt:flip	ValueError: Corpus SHA differs: raw/case-journal.txt
+rate304-partial	manifest.json>files>raw/case-unit-terminal.txt:flip;manifest.json>files>raw/control-plans/ban.json:flip	ValueError: Corpus SHA differs: raw/case-unit-terminal.txt
+rate304-partial	manifest.json>files>raw/control-plans/ban.json:flip;manifest.json>files>raw/control-plans/guard.json:flip	ValueError: Corpus SHA differs: raw/control-plans/ban.json
+rate304-partial	manifest.json>files>raw/control-plans/probe.json:flip;manifest.json>files>raw/control-plans/readiness.json:flip	ValueError: Corpus SHA differs: raw/control-plans/probe.json
+rate304-partial	manifest.json>files>raw/control-plans/readiness.json:flip;manifest.json>files>raw/control-plans/seed.json:flip	ValueError: Corpus SHA differs: raw/control-plans/readiness.json
+rate304-partial	manifest.json>files>raw/control-plans/seed.json:flip;manifest.json>files>raw/coordinator.exit:flip	ValueError: Corpus SHA differs: raw/control-plans/seed.json
+rate304-partial	manifest.json>files>raw/coordinator.exit:flip;manifest.json>files>raw/coordinator/plan.json:flip	ValueError: Corpus SHA differs: raw/coordinator.exit
+rate304-partial	manifest.json>files>raw/coordinator/plan.json:flip;manifest.json>files>raw/desktop-ready.png:flip	ValueError: Corpus SHA differs: raw/coordinator/plan.json
+rate304-partial	manifest.json>files>raw/coordinator/report.json:flip;manifest.json>files>raw/display-launch.stdout:flip	ValueError: Corpus SHA differs: raw/coordinator/report.json
+rate304-partial	manifest.json>files>raw/coordinator/report.json:flip;manifest.json>files>raw/epoch-start.utc:flip	ValueError: Corpus SHA differs: raw/coordinator/report.json
+rate304-partial	manifest.json>files>raw/desktop-ready.png:flip;manifest.json>files>raw/desktop.png:flip	ValueError: Corpus SHA differs: raw/desktop-ready.png
+rate304-partial	manifest.json>files>raw/desktop.png:flip;manifest.json>files>raw/display-launch.stdout:flip	ValueError: Corpus SHA differs: raw/desktop.png
+rate304-partial	manifest.json>files>raw/epoch-start.utc:flip;manifest.json>files>raw/fuser-terminal.exit:flip	ValueError: Corpus SHA differs: raw/epoch-start.utc
+rate304-partial	manifest.json>files>raw/fuser-terminal.exit:flip;manifest.json>files>raw/fuser-terminal.stderr:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.exit
+rate304-partial	manifest.json>files>raw/fuser-terminal.stderr:flip;manifest.json>files>raw/fuser-terminal.stdout:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.stderr
+rate304-partial	manifest.json>files>raw/fuser-terminal.stdout:flip;manifest.json>files>raw/helper-sources/capture_readiness.py:flip	ValueError: Corpus SHA differs: raw/fuser-terminal.stdout
+rate304-partial	manifest.json>files>raw/helper-sources/capture_readiness.py:flip;manifest.json>files>raw/helper-sources/native_capture_receipt.py:flip	ValueError: Corpus SHA differs: raw/helper-sources/capture_readiness.py
+rate304-partial	manifest.json>files>raw/helper-sources/native_capture_receipt.py:flip;manifest.json>files>raw/host-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/helper-sources/native_capture_receipt.py
+rate304-partial	manifest.json>files>raw/host-initial-wait.json:flip;manifest.json>files>raw/host-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/host-initial-wait.json
+rate304-partial	manifest.json>files>raw/host-initial-wait.stdout:flip;manifest.json>files>raw/host-launch.stdout:flip	ValueError: Corpus SHA differs: raw/host-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/host-launch.stdout:flip;manifest.json>files>raw/host-ready.json:flip	ValueError: Corpus SHA differs: raw/host-launch.stdout
+rate304-partial	manifest.json>files>raw/host-ready.json:flip;manifest.json>files>raw/input.py:flip	ValueError: Corpus SHA differs: raw/host-ready.json
+rate304-partial	manifest.json>files>raw/input.py:flip;manifest.json>files>raw/lab-guest.pcap:flip	ValueError: Corpus SHA differs: raw/input.py
+rate304-partial	manifest.json>files>raw/lab-guest.pcap:flip;manifest.json>files>raw/lab-namespace.pcap:flip	ValueError: Corpus SHA differs: raw/lab-guest.pcap
+rate304-partial	manifest.json>files>raw/lab-namespace.pcap:flip;manifest.json>files>raw/lease-initial-show.txt:flip	ValueError: Corpus SHA differs: raw/lab-namespace.pcap
+rate304-partial	manifest.json>files>raw/lease-initial-show.txt:flip;manifest.json>files>raw/lease-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/lease-initial-show.txt
+rate304-partial	manifest.json>files>raw/lease-initial-wait.json:flip;manifest.json>files>raw/lease-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/lease-initial-wait.json
+rate304-partial	manifest.json>files>raw/lease-initial-wait.stdout:flip;manifest.json>files>raw/lease-launch.stdout:flip	ValueError: Corpus SHA differs: raw/lease-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/lease-launch.stdout:flip;manifest.json>files>raw/namespace-initial-wait.json:flip	ValueError: Corpus SHA differs: raw/lease-launch.stdout
+rate304-partial	manifest.json>files>raw/namespace-initial-wait.json:flip;manifest.json>files>raw/namespace-initial-wait.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-initial-wait.json
+rate304-partial	manifest.json>files>raw/namespace-initial-wait.stdout:flip;manifest.json>files>raw/namespace-launch.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-initial-wait.stdout
+rate304-partial	manifest.json>files>raw/namespace-launch.stdout:flip;manifest.json>files>raw/namespace-ready.json:flip	ValueError: Corpus SHA differs: raw/namespace-launch.stdout
+rate304-partial	manifest.json>files>raw/namespace-ready.json:flip;manifest.json>files>raw/plan-hashes.stdout:flip	ValueError: Corpus SHA differs: raw/namespace-ready.json
+rate304-partial	manifest.json>files>raw/plan-hashes.stdout:flip;manifest.json>files>raw/ports-terminal.txt:flip	ValueError: Corpus SHA differs: raw/plan-hashes.stdout
+rate304-partial	manifest.json>files>raw/ports-terminal.txt:flip;manifest.json>files>raw/pre-fuser.stderr:flip	ValueError: Corpus SHA differs: raw/ports-terminal.txt
+rate304-partial	manifest.json>files>raw/pre-fuser.stderr:flip;manifest.json>files>raw/pre-fuser.stdout:flip	ValueError: Corpus SHA differs: raw/pre-fuser.stderr
+rate304-partial	manifest.json>files>raw/pre-fuser.stdout:flip;manifest.json>files>raw/pre-ports.txt:flip	ValueError: Corpus SHA differs: raw/pre-fuser.stdout
+rate304-partial	manifest.json>files>raw/pre-ports.txt:flip;manifest.json>files>raw/primary-syn.pcap:flip	ValueError: Corpus SHA differs: raw/pre-ports.txt
+rate304-partial	manifest.json>files>raw/primary-syn.pcap:flip;manifest.json>files>raw/rate304-plan/plan.json:flip	ValueError: Corpus SHA differs: raw/primary-syn.pcap
+rate304-partial	manifest.json>files>raw/rate304-plan/plan.json:flip;manifest.json>files>raw/rate304-plan/source-hashes.json:flip	ValueError: Corpus SHA differs: raw/rate304-plan/plan.json
+rate304-partial	manifest.json>files>raw/rate304-plan/source-hashes.json:flip;manifest.json>files>raw/readiness-launch.stdout:flip	ValueError: Corpus SHA differs: raw/rate304-plan/source-hashes.json
+rate304-partial	manifest.json>files>raw/readiness-launch.stdout:flip;manifest.json>files>raw/readiness-unit-final.txt:flip	ValueError: Corpus SHA differs: raw/readiness-launch.stdout
+rate304-partial	manifest.json>files>raw/readiness-unit-final.txt:flip;manifest.json>files>raw/readiness.exit:flip	ValueError: Corpus SHA differs: raw/readiness-unit-final.txt
+rate304-partial	manifest.json>files>raw/readiness.exit:flip;manifest.json>files>raw/readiness/checksums.sha256:flip	ValueError: Corpus SHA differs: raw/readiness.exit
+rate304-partial	manifest.json>files>raw/readiness/checksums.sha256:flip;manifest.json>files>raw/readiness/plan.json:flip	ValueError: Corpus SHA differs: raw/readiness/checksums.sha256
+rate304-partial	manifest.json>files>raw/readiness/plan.json:flip;manifest.json>files>raw/readiness/report.json:flip	ValueError: Corpus SHA differs: raw/readiness/plan.json
+rate304-partial	manifest.json>files>raw/readiness/report.json:flip;manifest.json>files>raw/receipt-helper.stdout:flip	ValueError: Corpus SHA differs: raw/readiness/report.json
+rate304-partial	manifest.json>files>raw/receipt-helper.stdout:flip;manifest.json>files>raw/run-case-c107.sh:flip	ValueError: Corpus SHA differs: raw/receipt-helper.stdout
+rate304-partial	manifest.json>files>raw/run-case-c107.sh:flip;manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/run-case-c107.sh
+rate304-partial	manifest.json>files>raw/runtime.json:flip;manifest.json>files>raw/server-ready.png:flip	ValueError: Corpus SHA differs: raw/runtime.json
+rate304-partial	manifest.json>files>raw/runtime.json:flip;manifest.json>files>raw/server-start-next.png:flip	ValueError: Corpus SHA differs: raw/runtime.json
+rate304-partial	manifest.json>files>raw/server-start-next.png:flip;manifest.json>files>raw/server-start.png:flip	ValueError: Corpus SHA differs: raw/server-start-next.png
+rate304-partial	manifest.json>files>raw/server-start.png:flip;manifest.json>files>raw/sheep-launch.stdout:flip	ValueError: Corpus SHA differs: raw/server-start.png
+rate304-partial	manifest.json>files>raw/sheep-launch.stdout:flip;manifest.json>files>raw/shutdown-dialog.png:flip	ValueError: Corpus SHA differs: raw/sheep-launch.stdout
+rate304-partial	manifest.json>files>raw/shutdown-dialog.png:flip;manifest.json>files>raw/sources/native_account_update_cases.py:flip	ValueError: Corpus SHA differs: raw/shutdown-dialog.png
+rate304-partial	manifest.json>files>raw/source-freeze.json:flip;manifest.json>files>raw/stopped/board-istat.txt:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+rate304-partial	manifest.json>files>raw/source-freeze.json:flip;manifest.json>files>raw/stopped/board.bin:flip	ValueError: Corpus SHA differs: raw/source-freeze.json
+rate304-partial	manifest.json>files>raw/sources/native_account_update_cases.py:flip;manifest.json>files>raw/sources/native_alias_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_account_update_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_alias_cases.py:flip;manifest.json>files>raw/sources/native_auth_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_alias_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_auth_cases.py:flip;manifest.json>files>raw/sources/native_ban_control_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_auth_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_control_cases.py:flip;manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_control_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_expiry_cases.py:flip;manifest.json>files>raw/sources/native_ban_expiry_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_ban_expiry_control.py:flip;manifest.json>files>raw/sources/native_banner_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_ban_expiry_control.py
+rate304-partial	manifest.json>files>raw/sources/native_banner_cases.py:flip;manifest.json>files>raw/sources/native_board_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_banner_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_board_cases.py:flip;manifest.json>files>raw/sources/native_board_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_board_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_board_control.py:flip;manifest.json>files>raw/sources/native_control_readiness.py:flip	ValueError: Corpus SHA differs: raw/sources/native_board_control.py
+rate304-partial	manifest.json>files>raw/sources/native_control_readiness.py:flip;manifest.json>files>raw/sources/native_filp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_control_readiness.py
+rate304-partial	manifest.json>files>raw/sources/native_filp.py:flip;manifest.json>files>raw/sources/native_folder_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_filp.py
+rate304-partial	manifest.json>files>raw/sources/native_folder_cases.py:flip;manifest.json>files>raw/sources/native_framing_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_folder_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_framing_cases.py:flip;manifest.json>files>raw/sources/native_metadata_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_framing_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_metadata_cases.py:flip;manifest.json>files>raw/sources/native_mkdir_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_metadata_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_mkdir_cases.py:flip;manifest.json>files>raw/sources/native_news_decode.py:flip	ValueError: Corpus SHA differs: raw/sources/native_mkdir_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_news_decode.py:flip;manifest.json>files>raw/sources/native_news_delete_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_decode.py
+rate304-partial	manifest.json>files>raw/sources/native_news_delete_cases.py:flip;manifest.json>files>raw/sources/native_packet_evidence.py:flip	ValueError: Corpus SHA differs: raw/sources/native_news_delete_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_packet_evidence.py:flip;manifest.json>files>raw/sources/native_plan.py:flip	ValueError: Corpus SHA differs: raw/sources/native_packet_evidence.py
+rate304-partial	manifest.json>files>raw/sources/native_plan.py:flip;manifest.json>files>raw/sources/native_queue_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_plan.py
+rate304-partial	manifest.json>files>raw/sources/native_queue_cases.py:flip;manifest.json>files>raw/sources/native_rate304_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_queue_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_rate304_cases.py:flip;manifest.json>files>raw/sources/native_rate304_control.py:flip	ValueError: Corpus SHA differs: raw/sources/native_rate304_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_rate304_control.py:flip;manifest.json>files>raw/sources/native_resume_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_rate304_control.py
+rate304-partial	manifest.json>files>raw/sources/native_resume_cases.py:flip;manifest.json>files>raw/sources/native_transfer_cases.py:flip	ValueError: Corpus SHA differs: raw/sources/native_resume_cases.py
+rate304-partial	manifest.json>files>raw/sources/native_transfer_cases.py:flip;manifest.json>files>raw/sources/pcap_tcp.py:flip	ValueError: Corpus SHA differs: raw/sources/native_transfer_cases.py
+rate304-partial	manifest.json>files>raw/sources/pcap_tcp.py:flip;manifest.json>files>raw/sources/protocol_capture.py:flip	ValueError: Corpus SHA differs: raw/sources/pcap_tcp.py
+rate304-partial	manifest.json>files>raw/sources/protocol_capture.py:flip;manifest.json>files>raw/sources/shx_syscalls.py:flip	ValueError: Corpus SHA differs: raw/sources/protocol_capture.py
+rate304-partial	manifest.json>files>raw/sources/shx_syscalls.py:flip;manifest.json>files>raw/sources/verify_native_account_updates.py:flip	ValueError: Corpus SHA differs: raw/sources/shx_syscalls.py
+rate304-partial	manifest.json>files>raw/sources/shx_syscalls.py:flip;manifest.json>files>raw/user-units-terminal.txt:flip	ValueError: Corpus SHA differs: raw/sources/shx_syscalls.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_account_updates.py:flip;manifest.json>files>raw/sources/verify_native_article_deletion.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_account_updates.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_article_deletion.py:flip;manifest.json>files>raw/sources/verify_native_auth.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_article_deletion.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_auth.py:flip;manifest.json>files>raw/sources/verify_native_banners.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_auth.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_banners.py:flip;manifest.json>files>raw/sources/verify_native_core.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_banners.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_core.py:flip;manifest.json>files>raw/sources/verify_native_framing.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_core.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_framing.py:flip;manifest.json>files>raw/sources/verify_native_mkdir.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_framing.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_mkdir.py:flip;manifest.json>files>raw/sources/verify_native_shx.py:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_mkdir.py
+rate304-partial	manifest.json>files>raw/sources/verify_native_shx.py:flip;manifest.json>files>raw/special-menu.png:flip	ValueError: Corpus SHA differs: raw/sources/verify_native_shx.py
+rate304-partial	manifest.json>files>raw/special-menu.png:flip;manifest.json>files>raw/stopped/Prefs.bin:flip	ValueError: Corpus SHA differs: raw/special-menu.png
+rate304-partial	manifest.json>files>raw/stopped/Prefs.bin:flip;manifest.json>files>raw/stopped/admin.bin:flip	ValueError: Corpus SHA differs: raw/stopped/Prefs.bin
+rate304-partial	manifest.json>files>raw/stopped/admin.bin:flip;manifest.json>files>raw/stopped/board-istat.txt:flip	ValueError: Corpus SHA differs: raw/stopped/admin.bin
+rate304-partial	manifest.json>files>raw/stopped/board.bin:flip;manifest.json>files>raw/stopped/catalog-allocated.txt:flip	ValueError: Corpus SHA differs: raw/stopped/board.bin
+rate304-partial	manifest.json>files>raw/stopped/catalog-allocated.txt:flip;manifest.json>files>raw/stopped/catalog-full.txt:flip	ValueError: Corpus SHA differs: raw/stopped/catalog-allocated.txt
+rate304-partial	manifest.json>files>raw/stopped/catalog-full.txt:flip;manifest.json>files>raw/stopped/fixture-low.bin:flip	ValueError: Corpus SHA differs: raw/stopped/catalog-full.txt
+rate304-partial	manifest.json>files>raw/stopped/fixture-low.bin:flip;manifest.json>files>raw/stopped/image-sha256.txt:flip	ValueError: Corpus SHA differs: raw/stopped/fixture-low.bin
+rate304-partial	manifest.json>files>raw/stopped/forks.json:flip;manifest.json>files>raw/units-before-stop.txt:flip	ValueError: Corpus SHA differs: raw/stopped/forks.json
+rate304-partial	manifest.json>files>raw/stopped/forks.json:flip;manifest.json>files>raw/units-terminal.txt:flip	ValueError: Corpus SHA differs: raw/stopped/forks.json
+rate304-partial	manifest.json>files>raw/stopped/image-sha256.txt:flip;manifest.json>files>raw/stopped/image-stat.txt:flip	ValueError: Corpus SHA differs: raw/stopped/image-sha256.txt
+rate304-sequence		ok a52efecaf499831c
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>Prefs:delete-key	KeyError: 'Prefs'
+rate304-sequence	raw/epoch/owned-pid-term.json>action:delete-key	KeyError: 'action'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>active_users:delete-key	KeyError: 'active_users'
+rate304-sequence	raw/epoch/terminal-identity.json>actual_pid_gone:delete-key	KeyError: 'actual_pid_gone'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>admin:delete-key	KeyError: 'admin'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>allocated_lines:delete-key	KeyError: 'allocated_lines'
+rate304-sequence	raw/preparation/preflight.json>catalog>banned_absent:delete-key	KeyError: 'banned_absent'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>banned_entries:delete-key	KeyError: 'banned_entries'
+rate304-sequence	raw/preparation/preflight.json>source_before>base:delete-key	KeyError: 'base'
+rate304-sequence	raw/preparation/preflight.json>prepared>base.dsk:delete-key	KeyError: 'base.dsk'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>board:delete-key	KeyError: 'board'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>board>bytes:delete-key	KeyError: 'bytes'
+rate304-sequence	manifest.json>case_status:delete-key	KeyError: 'case_status'
+rate304-sequence	raw/preparation/preflight.json>catalog:delete-key	KeyError: 'catalog'
+rate304-sequence	raw/epoch/capture-ready.json>deadline_utc:delete-key	KeyError: 'deadline_utc'
+rate304-sequence	raw/epoch/coordinator/report.json>actions>4>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+rate304-sequence	raw/epoch/capture-ready.json>emulator_netns_inode:delete-key	KeyError: 'emulator_netns_inode'
+rate304-sequence	raw/epoch/capture-ready.json>emulator_pid:delete-key	KeyError: 'emulator_pid'
+rate304-sequence	raw/epoch/capture-ready.json>emulator_sha256:delete-key	KeyError: 'emulator_sha256'
+rate304-sequence	raw/epoch/capture-ready.json>emulator_starttime:delete-key	KeyError: 'emulator_starttime'
+rate304-sequence	raw/epoch/coordinator/report.json>events>7>event:delete-key	KeyError: 'event'
+rate304-sequence	raw/epoch/disk-ready.json>exe_sha256:delete-key	KeyError: 'exe_sha256'
+rate304-sequence	raw/epoch/terminal-identity.json>fuser>base.dsk>exit:delete-key	KeyError: 'exit'
+rate304-sequence	manifest.json>files:delete-key	KeyError: 'files'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>fixture-low:delete-key	KeyError: 'fixture-low'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks:delete-key	KeyError: 'forks'
+rate304-sequence	raw/epoch/capture-ready.json>full_file_baseline:delete-key	KeyError: 'full_file_baseline'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>full_lines:delete-key	KeyError: 'full_lines'
+rate304-sequence	raw/epoch/terminal-identity.json>fuser:delete-key	KeyError: 'fuser'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>fuser_exit:delete-key	KeyError: 'fuser_exit'
+rate304-sequence	raw/epoch/source-freeze.json>hashes:delete-key	KeyError: 'hashes'
+rate304-sequence	raw/epoch/source-freeze.json>helper_hashes:delete-key	KeyError: 'helper_hashes'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>image_inode:delete-key	KeyError: 'image_inode'
+rate304-sequence	raw/preparation/preflight.json>prepared>working.dsk>inode:delete-key	KeyError: 'inode'
+rate304-sequence	manifest.json:delete-key	KeyError: 'manifest.json'
+rate304-sequence	raw/epoch/capture-ready.json>native_data_sha256:delete-key	KeyError: 'native_data_sha256'
+rate304-sequence	raw/epoch/disk-ready.json>netns_inode:delete-key	KeyError: 'netns_inode'
+rate304-sequence	raw/epoch/terminal-identity.json>oracle_lock_free:delete-key	KeyError: 'oracle_lock_free'
+rate304-sequence	raw/epoch/terminal-identity.json>original_ticks:delete-key	KeyError: 'original_ticks'
+rate304-sequence	raw/epoch/capture-ready.json>owned_working_image_inode:delete-key	KeyError: 'owned_working_image_inode'
+rate304-sequence	raw/epoch/disk-ready.json>phase:delete-key	KeyError: 'phase'
+rate304-sequence	raw/epoch/actual-emulator-proof.json>pid:delete-key	KeyError: 'pid'
+rate304-sequence	raw/epoch/rate304-plan/source-hashes.json>plan.json:delete-key	KeyError: 'plan.json'
+rate304-sequence	manifest.json>plan_sha256:delete-key	KeyError: 'plan_sha256'
+rate304-sequence	raw/epoch/terminal-identity.json>ports_absent:delete-key	KeyError: 'ports_absent'
+rate304-sequence	raw/preparation/preflight.json>prepared:delete-key	KeyError: 'prepared'
+rate304-sequence	raw/epoch/coordinator/report.json>frames>21>raw_hex:delete-key	KeyError: 'raw_hex'
+rate304-sequence	raw/preparation/preflight.json>source_before>rom:delete-key	KeyError: 'rom'
+rate304-sequence	manifest.json>schema:delete-key	KeyError: 'schema'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>server-data:delete-key	KeyError: 'server-data'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>server-rsrc:delete-key	KeyError: 'server-rsrc'
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>admin>sha256:delete-key	KeyError: 'sha256'
+rate304-sequence	raw/preparation/preflight.json>source_after:delete-key	KeyError: 'source_after'
+rate304-sequence	raw/preparation/preflight.json>source_before:delete-key	KeyError: 'source_before'
+rate304-sequence	raw/epoch/disk-ready.json>start_ticks:delete-key	KeyError: 'start_ticks'
+rate304-sequence	raw/epoch/actual-emulator-proof.json>starttime:delete-key	KeyError: 'starttime'
+rate304-sequence	raw/preparation/preflight.json>status:delete-key	KeyError: 'status'
+rate304-sequence	raw/epoch/terminal-identity.json>fuser>base.dsk>stderr:delete-key	KeyError: 'stderr'
+rate304-sequence	raw/epoch/terminal-identity.json>fuser>base.dsk>stdout:delete-key	KeyError: 'stdout'
+rate304-sequence	raw/preparation/preflight.json>prepared>working.dsk:delete-key	KeyError: 'working.dsk'
+rate304-sequence	raw/epoch/actual-emulator-proof.json>working_image_inode:delete-key	KeyError: 'working_image_inode'
+rate304-sequence	raw/epoch/disk-ready.json>working_inode:delete-key	KeyError: 'working_inode'
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_account_update_cases.py:delete-key	ValueError: Approved 35-module closure differs
+rate304-sequence	raw/epoch/readiness/plan.json>schema_version:inc	ValueError: Checksum mismatch: plan.json
+rate304-sequence	raw/epoch/readiness/report.json>frames>2>unconsumed_hex:flip	ValueError: Checksum mismatch: report.json
+rate304-sequence	manifest.json>files>raw/epoch/actual-emulator-proof.json:flip	ValueError: Corpus file SHA differs: raw/epoch/actual-emulator-proof.json
+rate304-sequence	manifest.json>files>raw/epoch/app-quit-click.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/app-quit-click.utc
+rate304-sequence	manifest.json>files>raw/epoch/app-quit-screen-2.png:flip	ValueError: Corpus file SHA differs: raw/epoch/app-quit-screen-2.png
+rate304-sequence	manifest.json>files>raw/epoch/app-quit-screen.png:flip	ValueError: Corpus file SHA differs: raw/epoch/app-quit-screen.png
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen-2.png:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen-2.png
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen-3.png:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen-3.png
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen-4.png:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen-4.png
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen-5.png:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen-5.png
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen.png:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen.png
+rate304-sequence	manifest.json>files>raw/epoch/build-runtime.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/build-runtime.stdout
+rate304-sequence	manifest.json>files>raw/epoch/capture-journal-terminal.command.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/capture-journal-terminal.command.txt
+rate304-sequence	manifest.json>files>raw/epoch/capture-journal-terminal.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/capture-journal-terminal.exit
+rate304-sequence	manifest.json>files>raw/epoch/capture-journal-terminal.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/capture-journal-terminal.stderr
+rate304-sequence	manifest.json>files>raw/epoch/capture-journal-terminal.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/capture-journal-terminal.txt
+rate304-sequence	manifest.json>files>raw/epoch/capture-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/capture-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/case-deadline.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/case-deadline.utc
+rate304-sequence	manifest.json>files>raw/epoch/case-launch-asrun-start.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/case-launch-asrun-start.utc
+rate304-sequence	manifest.json>files>raw/epoch/case-launch-asrun.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/case-launch-asrun.exit
+rate304-sequence	manifest.json>files>raw/epoch/case-launch-asrun.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/case-launch-asrun.stderr
+rate304-sequence	manifest.json>files>raw/epoch/case-launch-asrun.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/case-launch-asrun.stdout
+rate304-sequence	manifest.json>files>raw/epoch/case-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/case-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/complete-asrun-command.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/complete-asrun-command.txt
+rate304-sequence	manifest.json>files>raw/epoch/complete-asrun-start.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/complete-asrun-start.utc
+rate304-sequence	manifest.json>files>raw/epoch/complete-asrun.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/complete-asrun.exit
+rate304-sequence	manifest.json>files>raw/epoch/complete-asrun.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/complete-asrun.stderr
+rate304-sequence	manifest.json>files>raw/epoch/complete-asrun.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/complete-asrun.stdout
+rate304-sequence	manifest.json>files>raw/epoch/control-plans/ban.json:flip	ValueError: Corpus file SHA differs: raw/epoch/control-plans/ban.json
+rate304-sequence	manifest.json>files>raw/epoch/control-plans/guard.json:flip	ValueError: Corpus file SHA differs: raw/epoch/control-plans/guard.json
+rate304-sequence	manifest.json>files>raw/epoch/control-plans/probe.json:flip	ValueError: Corpus file SHA differs: raw/epoch/control-plans/probe.json
+rate304-sequence	manifest.json>files>raw/epoch/control-plans/readiness.json:flip	ValueError: Corpus file SHA differs: raw/epoch/control-plans/readiness.json
+rate304-sequence	manifest.json>files>raw/epoch/control-plans/seed.json:flip	ValueError: Corpus file SHA differs: raw/epoch/control-plans/seed.json
+rate304-sequence	manifest.json>files>raw/epoch/coordinator.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/coordinator.exit
+rate304-sequence	manifest.json>files>raw/epoch/coordinator/plan.json:flip	ValueError: Corpus file SHA differs: raw/epoch/coordinator/plan.json
+rate304-sequence	manifest.json>files>raw/epoch/coordinator/report.json:flip	ValueError: Corpus file SHA differs: raw/epoch/coordinator/report.json
+rate304-sequence	manifest.json>files>raw/epoch/desktop-1.png:flip	ValueError: Corpus file SHA differs: raw/epoch/desktop-1.png
+rate304-sequence	manifest.json>files>raw/epoch/desktop-2.png:flip	ValueError: Corpus file SHA differs: raw/epoch/desktop-2.png
+rate304-sequence	manifest.json>files>raw/epoch/disk-first-aid-click.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/disk-first-aid-click.utc
+rate304-sequence	manifest.json>files>raw/epoch/disk-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/disk-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/disk-ready.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/disk-ready.stdout
+rate304-sequence	manifest.json>files>raw/epoch/display-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/display-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/epoch-start.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/epoch-start.utc
+rate304-sequence	manifest.json>files>raw/epoch/guest-capture-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/guest-capture-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/guest-capture-ready.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/guest-capture-ready.stdout
+rate304-sequence	manifest.json>files>raw/epoch/guest-capture-resume-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/guest-capture-resume-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/guest-capture-resume-ready.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/guest-capture-resume-ready.stdout
+rate304-sequence	manifest.json>files>raw/epoch/helper-sources/capture_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/helper-sources/capture_readiness.py
+rate304-sequence	manifest.json>files>raw/epoch/helper-sources/native_capture_receipt.py:flip	ValueError: Corpus file SHA differs: raw/epoch/helper-sources/native_capture_receipt.py
+rate304-sequence	manifest.json>files>raw/epoch/helper-sources/native_emulator_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/helper-sources/native_emulator_readiness.py
+rate304-sequence	manifest.json>files>raw/epoch/host-initial-wait.json:flip	ValueError: Corpus file SHA differs: raw/epoch/host-initial-wait.json
+rate304-sequence	manifest.json>files>raw/epoch/host-initial-wait.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/host-initial-wait.stdout
+rate304-sequence	manifest.json>files>raw/epoch/host-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/host-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/host-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/host-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/input.py:flip	ValueError: Corpus file SHA differs: raw/epoch/input.py
+rate304-sequence	manifest.json>files>raw/epoch/lab-guest.pcap:flip	ValueError: Corpus file SHA differs: raw/epoch/lab-guest.pcap
+rate304-sequence	manifest.json>files>raw/epoch/lab-namespace.pcap:flip	ValueError: Corpus file SHA differs: raw/epoch/lab-namespace.pcap
+rate304-sequence	manifest.json>files>raw/epoch/lease-initial-show.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/lease-initial-show.txt
+rate304-sequence	manifest.json>files>raw/epoch/lease-initial-wait.json:flip	ValueError: Corpus file SHA differs: raw/epoch/lease-initial-wait.json
+rate304-sequence	manifest.json>files>raw/epoch/lease-initial-wait.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/lease-initial-wait.stdout
+rate304-sequence	manifest.json>files>raw/epoch/lease-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/lease-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/namespace-initial-wait.json:flip	ValueError: Corpus file SHA differs: raw/epoch/namespace-initial-wait.json
+rate304-sequence	manifest.json>files>raw/epoch/namespace-initial-wait.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/namespace-initial-wait.stdout
+rate304-sequence	manifest.json>files>raw/epoch/namespace-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/namespace-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/namespace-ready.json:flip	ValueError: Corpus file SHA differs: raw/epoch/namespace-ready.json
+rate304-sequence	manifest.json>files>raw/epoch/owned-pid-gone.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/owned-pid-gone.utc
+rate304-sequence	manifest.json>files>raw/epoch/owned-pid-term.json:flip	ValueError: Corpus file SHA differs: raw/epoch/owned-pid-term.json
+rate304-sequence	manifest.json>files>raw/epoch/parent-readiness-review.json:flip	ValueError: Corpus file SHA differs: raw/epoch/parent-readiness-review.json
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/helper-sources/capture_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/helper-sources/capture_rea
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/helper-sources/native_capture_receipt.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/helper-sources/native_capt
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/helper-sources/native_emulator_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/helper-sources/native_emul
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/runtime.json:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/runtime.json
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_account_update_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_account_upd
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_alias_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_alias_cases
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_auth_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_auth_cases.
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_ban_control_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_ban_control
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_ban_expiry_
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_banner_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_banner_case
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_board_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_board_cases
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_board_control.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_board_contr
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_control_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_control_rea
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_filp.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_filp.py
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_folder_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_folder_case
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_framing_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_framing_cas
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_metadata_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_metadata_ca
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_mkdir_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_mkdir_cases
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_news_decode.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_news_decode
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_news_delete_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_news_delete
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_packet_evidence.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_packet_evid
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_plan.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_plan.py
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_queue_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_queue_cases
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_rate304_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_rate304_cas
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_rate304_control.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_rate304_con
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_resume_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_resume_case
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_transfer_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_transfer_ca
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/pcap_tcp.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/pcap_tcp.py
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/protocol_capture.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/protocol_capture.p
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/shx_syscalls.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/shx_syscalls.py
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_account_updates.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_acco
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_article_deletion.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_arti
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_auth.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_auth
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_banners.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_bann
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_core.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_core
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_framing.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_fram
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_mkdir.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_mkdi
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_shx.py:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_shx.
+rate304-sequence	manifest.json>files>raw/epoch/plan-hashes.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/plan-hashes.stdout
+rate304-sequence	manifest.json>files>raw/epoch/postcase-screen.png:flip	ValueError: Corpus file SHA differs: raw/epoch/postcase-screen.png
+rate304-sequence	manifest.json>files>raw/epoch/pre-fuser.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/pre-fuser.stderr
+rate304-sequence	manifest.json>files>raw/epoch/pre-fuser.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/pre-fuser.stdout
+rate304-sequence	manifest.json>files>raw/epoch/pre-ports.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/pre-ports.txt
+rate304-sequence	manifest.json>files>raw/epoch/precase-screen.png:flip	ValueError: Corpus file SHA differs: raw/epoch/precase-screen.png
+rate304-sequence	manifest.json>files>raw/epoch/primary-syn.pcap:flip	ValueError: Corpus file SHA differs: raw/epoch/primary-syn.pcap
+rate304-sequence	manifest.json>files>raw/epoch/rate304-plan/plan.json:flip	ValueError: Corpus file SHA differs: raw/epoch/rate304-plan/plan.json
+rate304-sequence	manifest.json>files>raw/epoch/rate304-plan/source-hashes.json:flip	ValueError: Corpus file SHA differs: raw/epoch/rate304-plan/source-hashes.json
+rate304-sequence	manifest.json>files>raw/epoch/readiness-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/readiness-unit-final.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness-unit-final.txt
+rate304-sequence	manifest.json>files>raw/epoch/readiness.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness.exit
+rate304-sequence	manifest.json>files>raw/epoch/readiness/checksums.sha256:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness/checksums.sha256
+rate304-sequence	manifest.json>files>raw/epoch/readiness/plan.json:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness/plan.json
+rate304-sequence	manifest.json>files>raw/epoch/readiness/report.json:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness/report.json
+rate304-sequence	manifest.json>files>raw/epoch/receipt-helper.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/receipt-helper.stdout
+rate304-sequence	manifest.json>files>raw/epoch/resume-asrun-command.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/resume-asrun-command.txt
+rate304-sequence	manifest.json>files>raw/epoch/resume-asrun-start.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/resume-asrun-start.utc
+rate304-sequence	manifest.json>files>raw/epoch/resume-asrun.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/resume-asrun.exit
+rate304-sequence	manifest.json>files>raw/epoch/resume-asrun.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/resume-asrun.stderr
+rate304-sequence	manifest.json>files>raw/epoch/resume-asrun.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/resume-asrun.stdout
+rate304-sequence	manifest.json>files>raw/epoch/root-git-nested-sudo.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-nested-sudo.exit
+rate304-sequence	manifest.json>files>raw/epoch/root-git-nested-sudo.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-nested-sudo.stderr
+rate304-sequence	manifest.json>files>raw/epoch/root-git-nested-sudo.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-nested-sudo.stdout
+rate304-sequence	manifest.json>files>raw/epoch/root-git-ownership-check.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-ownership-check.exit
+rate304-sequence	manifest.json>files>raw/epoch/root-git-ownership-check.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-ownership-check.stderr
+rate304-sequence	manifest.json>files>raw/epoch/root-git-ownership-check.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/root-git-ownership-check.stdout
+rate304-sequence	manifest.json>files>raw/epoch/runtime.json:flip	ValueError: Corpus file SHA differs: raw/epoch/runtime.json
+rate304-sequence	manifest.json>files>raw/epoch/saver-escape.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/saver-escape.utc
+rate304-sequence	manifest.json>files>raw/epoch/server-launch-1.png:flip	ValueError: Corpus file SHA differs: raw/epoch/server-launch-1.png
+rate304-sequence	manifest.json>files>raw/epoch/server-launch-2.png:flip	ValueError: Corpus file SHA differs: raw/epoch/server-launch-2.png
+rate304-sequence	manifest.json>files>raw/epoch/server-launch-click.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/server-launch-click.utc
+rate304-sequence	manifest.json>files>raw/epoch/server-ready.png:flip	ValueError: Corpus file SHA differs: raw/epoch/server-ready.png
+rate304-sequence	manifest.json>files>raw/epoch/sheep-launch.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/sheep-launch.stdout
+rate304-sequence	manifest.json>files>raw/epoch/sound-ok-click.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/sound-ok-click.utc
+rate304-sequence	manifest.json>files>raw/epoch/source-freeze.json:flip	ValueError: Corpus file SHA differs: raw/epoch/source-freeze.json
+rate304-sequence	manifest.json>files>raw/epoch/source-prerun-check.json:flip	ValueError: Corpus file SHA differs: raw/epoch/source-prerun-check.json
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_account_update_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_account_update_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_alias_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_alias_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_auth_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_auth_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_ban_control_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_ban_control_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_ban_expiry_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_ban_expiry_control.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_ban_expiry_control.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_banner_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_banner_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_board_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_board_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_board_control.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_board_control.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_control_readiness.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_control_readiness.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_filp.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_filp.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_folder_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_folder_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_framing_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_framing_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_metadata_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_metadata_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_mkdir_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_mkdir_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_news_decode.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_news_decode.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_news_delete_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_news_delete_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_packet_evidence.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_packet_evidence.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_plan.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_plan.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_queue_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_queue_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_rate304_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_rate304_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_rate304_control.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_rate304_control.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_resume_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_resume_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_transfer_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_transfer_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/pcap_tcp.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/pcap_tcp.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/protocol_capture.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/protocol_capture.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/shx_syscalls.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/shx_syscalls.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_account_updates.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_account_updates.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_article_deletion.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_article_deletion.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_auth.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_auth.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_banners.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_banners.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_core.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_core.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_framing.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_framing.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_mkdir.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_mkdir.py
+rate304-sequence	manifest.json>files>raw/epoch/sources/verify_native_shx.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/verify_native_shx.py
+rate304-sequence	manifest.json>files>raw/epoch/special-menu.png:flip	ValueError: Corpus file SHA differs: raw/epoch/special-menu.png
+rate304-sequence	manifest.json>files>raw/epoch/stopped-fls-allocated.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-fls-allocated.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-fls-allocated.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-fls-allocated.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-fls-full.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-fls-full.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-fls-full.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-fls-full.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-hfs-summary.json:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-hfs-summary.json
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-Prefs.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-Prefs.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-Prefs.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-Prefs.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-admin.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-admin.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-admin.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-admin.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-board.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-board.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-board.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-board.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-fixture-low.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-fixture-low.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-fixture-low.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-fixture-low.stdout
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-server-data.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-server-data.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-icat-server-rsrc.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-icat-server-rsrc.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-istat-board.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-istat-board.stderr
+rate304-sequence	manifest.json>files>raw/epoch/stopped-istat-board.stdout:flip	ValueError: Corpus file SHA differs: raw/epoch/stopped-istat-board.stdout
+rate304-sequence	manifest.json>files>raw/epoch/terminal-identity.json:flip	ValueError: Corpus file SHA differs: raw/epoch/terminal-identity.json
+rate304-sequence	manifest.json>files>raw/epoch/units-after-stop.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/units-after-stop.txt
+rate304-sequence	manifest.json>files>raw/epoch/units-before-stop.txt:flip	ValueError: Corpus file SHA differs: raw/epoch/units-before-stop.txt
+rate304-sequence	manifest.json>files>raw/epoch/units-stopped.utc:flip	ValueError: Corpus file SHA differs: raw/epoch/units-stopped.utc
+rate304-sequence	manifest.json>files>raw/preparation/approved-helpers.sha256:flip	ValueError: Corpus file SHA differs: raw/preparation/approved-helpers.sha256
+rate304-sequence	manifest.json>files>raw/preparation/approved-rate304-sources.sha256:flip	ValueError: Corpus file SHA differs: raw/preparation/approved-rate304-sources.sha256
+rate304-sequence	manifest.json>files>raw/preparation/approved-source-closure.sha256:flip	ValueError: Corpus file SHA differs: raw/preparation/approved-source-closure.sha256
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-base.dsk.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-base.dsk.exit
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-base.dsk.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-base.dsk.stderr
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-base.dsk.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-base.dsk.stdout
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-rom.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-rom.exit
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-rom.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-rom.stderr
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-rom.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-rom.stdout
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-working.dsk.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-working.dsk.exit
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-working.dsk.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-working.dsk.stderr
+rate304-sequence	manifest.json>files>raw/preparation/boot-prehash-working.dsk.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-prehash-working.dsk.stdout
+rate304-sequence	manifest.json>files>raw/preparation/boot-r03.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-r03.exit
+rate304-sequence	manifest.json>files>raw/preparation/boot-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-r03.sh
+rate304-sequence	manifest.json>files>raw/preparation/boot-r03.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-r03.stderr
+rate304-sequence	manifest.json>files>raw/preparation/boot-r03.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/boot-r03.stdout
+rate304-sequence	manifest.json>files>raw/preparation/build-runtime-r03.py:flip	ValueError: Corpus file SHA differs: raw/preparation/build-runtime-r03.py
+rate304-sequence	manifest.json>files>raw/preparation/catalog-allocated.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-allocated.exit
+rate304-sequence	manifest.json>files>raw/preparation/catalog-allocated.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-allocated.stderr
+rate304-sequence	manifest.json>files>raw/preparation/catalog-allocated.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-allocated.stdout
+rate304-sequence	manifest.json>files>raw/preparation/catalog-full.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-full.exit
+rate304-sequence	manifest.json>files>raw/preparation/catalog-full.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-full.stderr
+rate304-sequence	manifest.json>files>raw/preparation/catalog-full.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/catalog-full.stdout
+rate304-sequence	manifest.json>files>raw/preparation/complete-readiness-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/complete-readiness-r03.sh
+rate304-sequence	manifest.json>files>raw/preparation/freeze-proposed-sources.py:flip	ValueError: Corpus file SHA differs: raw/preparation/freeze-proposed-sources.py
+rate304-sequence	manifest.json>files>raw/preparation/icat-Prefs.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-Prefs.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-Prefs.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-Prefs.stderr
+rate304-sequence	manifest.json>files>raw/preparation/icat-admin.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-admin.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-admin.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-admin.stderr
+rate304-sequence	manifest.json>files>raw/preparation/icat-board.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-board.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-board.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-board.stderr
+rate304-sequence	manifest.json>files>raw/preparation/icat-board.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-board.stdout
+rate304-sequence	manifest.json>files>raw/preparation/icat-fixture-low.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-fixture-low.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-fixture-low.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-fixture-low.stderr
+rate304-sequence	manifest.json>files>raw/preparation/icat-server-data.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-server-data.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-server-data.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-server-data.stderr
+rate304-sequence	manifest.json>files>raw/preparation/icat-server-rsrc.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-server-rsrc.exit
+rate304-sequence	manifest.json>files>raw/preparation/icat-server-rsrc.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/icat-server-rsrc.stderr
+rate304-sequence	manifest.json>files>raw/preparation/istat-board.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/istat-board.exit
+rate304-sequence	manifest.json>files>raw/preparation/istat-board.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/istat-board.stderr
+rate304-sequence	manifest.json>files>raw/preparation/istat-board.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/istat-board.stdout
+rate304-sequence	manifest.json>files>raw/preparation/launch-case-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/launch-case-r03.sh
+rate304-sequence	manifest.json>files>raw/preparation/parent-c117-review.json:flip	ValueError: Corpus file SHA differs: raw/preparation/parent-c117-review.json
+rate304-sequence	manifest.json>files>raw/preparation/port-ss.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/port-ss.exit
+rate304-sequence	manifest.json>files>raw/preparation/port-ss.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/port-ss.stderr
+rate304-sequence	manifest.json>files>raw/preparation/port-ss.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/port-ss.stdout
+rate304-sequence	manifest.json>files>raw/preparation/preboot-packet-c115.md:flip	ValueError: Corpus file SHA differs: raw/preparation/preboot-packet-c115.md
+rate304-sequence	manifest.json>files>raw/preparation/preflight.json:flip	ValueError: Corpus file SHA differs: raw/preparation/preflight.json
+rate304-sequence	manifest.json>files>raw/preparation/prepare.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/prepare.exit
+rate304-sequence	manifest.json>files>raw/preparation/prepare.py:flip	ValueError: Corpus file SHA differs: raw/preparation/prepare.py
+rate304-sequence	manifest.json>files>raw/preparation/prepare.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/prepare.stderr
+rate304-sequence	manifest.json>files>raw/preparation/prepare.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/prepare.stdout
+rate304-sequence	manifest.json>files>raw/preparation/proposed-source-closure.json:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-source-closure.json
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/capture_readiness.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/capture_readiness.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_account_update_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_account_update_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_alias_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_alias_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_auth_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_auth_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_ban_control_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_ban_control_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_ban_expiry_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_ban_expiry_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_ban_expiry_control.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_ban_expiry_control.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_banner_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_banner_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_board_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_board_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_board_control.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_board_control.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_capture_receipt.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_capture_receipt.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_control_readiness.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_control_readiness.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_emulator_readiness.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_emulator_readiness.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_filp.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_filp.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_folder_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_folder_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_framing_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_framing_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_metadata_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_metadata_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_mkdir_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_mkdir_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_news_decode.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_news_decode.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_news_delete_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_news_delete_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_packet_evidence.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_packet_evidence.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_plan.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_plan.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_queue_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_queue_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_rate304_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_rate304_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_rate304_control.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_rate304_control.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_resume_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_resume_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/native_transfer_cases.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/native_transfer_cases.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/pcap_tcp.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/pcap_tcp.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/protocol_capture.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/protocol_capture.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/shx_syscalls.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/shx_syscalls.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_account_updates.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_account_updates.
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_article_deletion.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_article_deletion
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_auth.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_auth.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_banners.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_banners.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_core.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_core.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_framing.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_framing.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_mkdir.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_mkdir.py
+rate304-sequence	manifest.json>files>raw/preparation/proposed-sources/verify_native_shx.py:flip	ValueError: Corpus file SHA differs: raw/preparation/proposed-sources/verify_native_shx.py
+rate304-sequence	manifest.json>files>raw/preparation/resume-complete-root.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/resume-complete-root.sh
+rate304-sequence	manifest.json>files>raw/preparation/run-case-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/run-case-r03.sh
+rate304-sequence	manifest.json>files>raw/preparation/run18-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/run18-r03.sh
+rate304-sequence	manifest.json>files>raw/preparation/script-SHA256SUMS:flip	ValueError: Corpus file SHA differs: raw/preparation/script-SHA256SUMS
+rate304-sequence	manifest.json>files>raw/preparation/source-fuser.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/source-fuser.exit
+rate304-sequence	manifest.json>files>raw/preparation/source-fuser.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/source-fuser.stderr
+rate304-sequence	manifest.json>files>raw/preparation/source-fuser.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/source-fuser.stdout
+rate304-sequence	manifest.json>files>raw/preparation/source-rom-fuser.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/source-rom-fuser.exit
+rate304-sequence	manifest.json>files>raw/preparation/source-rom-fuser.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/source-rom-fuser.stderr
+rate304-sequence	manifest.json>files>raw/preparation/source-rom-fuser.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/source-rom-fuser.stdout
+rate304-sequence	manifest.json>files>raw/preparation/stopped-supplement.json:flip	ValueError: Corpus file SHA differs: raw/preparation/stopped-supplement.json
+rate304-sequence	manifest.json>files>raw/preparation/wait-managed-r03.py:flip	ValueError: Corpus file SHA differs: raw/preparation/wait-managed-r03.py
+rate304-sequence	manifest.json>files>raw/preparation/working-fuser.exit:flip	ValueError: Corpus file SHA differs: raw/preparation/working-fuser.exit
+rate304-sequence	manifest.json>files>raw/preparation/working-fuser.stderr:flip	ValueError: Corpus file SHA differs: raw/preparation/working-fuser.stderr
+rate304-sequence	manifest.json>files>raw/preparation/working-fuser.stdout:flip	ValueError: Corpus file SHA differs: raw/preparation/working-fuser.stdout
+rate304-sequence	manifest.json>files>reviews/a113/audit.json:flip	ValueError: Corpus file SHA differs: reviews/a113/audit.json
+rate304-sequence	manifest.json>files>reviews/a113/closed-preflight.md:flip	ValueError: Corpus file SHA differs: reviews/a113/closed-preflight.md
+rate304-sequence	manifest.json>files>reviews/a114/audit.md.txt:flip	ValueError: Corpus file SHA differs: reviews/a114/audit.md.txt
+rate304-sequence	manifest.json>files>reviews/a114/flows.json:flip	ValueError: Corpus file SHA differs: reviews/a114/flows.json
+rate304-sequence	manifest.json>files>raw/epoch/actual-emulator-proof.json:delete-key	ValueError: Corpus file inventory differs
+rate304-sequence	manifest.json>case_status:flip	ValueError: Corpus scope/status differs
+rate304-sequence	raw/epoch/owned-pid-term.json>action:flip	ValueError: Forced retirement provenance differs
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_account_update_cases.py:flip	ValueError: Frozen module differs: native_account_update_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_alias_cases.py:flip	ValueError: Frozen module differs: native_alias_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_auth_cases.py:flip	ValueError: Frozen module differs: native_auth_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_ban_control_cases.py:flip	ValueError: Frozen module differs: native_ban_control_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_ban_expiry_cases.py:flip	ValueError: Frozen module differs: native_ban_expiry_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_ban_expiry_control.py:flip	ValueError: Frozen module differs: native_ban_expiry_control.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_banner_cases.py:flip	ValueError: Frozen module differs: native_banner_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_board_cases.py:flip	ValueError: Frozen module differs: native_board_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_board_control.py:flip	ValueError: Frozen module differs: native_board_control.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_control_readiness.py:flip	ValueError: Frozen module differs: native_control_readiness.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_filp.py:flip	ValueError: Frozen module differs: native_filp.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_folder_cases.py:flip	ValueError: Frozen module differs: native_folder_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_framing_cases.py:flip	ValueError: Frozen module differs: native_framing_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_metadata_cases.py:flip	ValueError: Frozen module differs: native_metadata_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_mkdir_cases.py:flip	ValueError: Frozen module differs: native_mkdir_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_news_decode.py:flip	ValueError: Frozen module differs: native_news_decode.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_news_delete_cases.py:flip	ValueError: Frozen module differs: native_news_delete_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_packet_evidence.py:flip	ValueError: Frozen module differs: native_packet_evidence.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_plan.py:flip	ValueError: Frozen module differs: native_plan.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_queue_cases.py:flip	ValueError: Frozen module differs: native_queue_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_rate304_cases.py:flip	ValueError: Frozen module differs: native_rate304_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_rate304_control.py:flip	ValueError: Frozen module differs: native_rate304_control.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_resume_cases.py:flip	ValueError: Frozen module differs: native_resume_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>native_transfer_cases.py:flip	ValueError: Frozen module differs: native_transfer_cases.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>pcap_tcp.py:flip	ValueError: Frozen module differs: pcap_tcp.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>protocol_capture.py:flip	ValueError: Frozen module differs: protocol_capture.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>shx_syscalls.py:flip	ValueError: Frozen module differs: shx_syscalls.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_account_updates.py:flip	ValueError: Frozen module differs: verify_native_account_updates.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_article_deletion.py:flip	ValueError: Frozen module differs: verify_native_article_deletion.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_auth.py:flip	ValueError: Frozen module differs: verify_native_auth.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_banners.py:flip	ValueError: Frozen module differs: verify_native_banners.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_core.py:flip	ValueError: Frozen module differs: verify_native_core.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_framing.py:flip	ValueError: Frozen module differs: verify_native_framing.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_mkdir.py:flip	ValueError: Frozen module differs: verify_native_mkdir.py
+rate304-sequence	raw/epoch/source-freeze.json>hashes>verify_native_shx.py:flip	ValueError: Frozen module differs: verify_native_shx.py
+rate304-sequence	raw/epoch/terminal-identity.json>fuser>base.dsk>exit:inc	ValueError: Owned image/ROM still held
+rate304-sequence	raw/epoch/rate304-plan/plan.json>schema_version:inc	ValueError: Prepared plan/source differs
+rate304-sequence	raw/epoch/coordinator/report.json>frames>1>is_reply:inc	ValueError: Raw frame decode differs
+rate304-sequence	raw/epoch/coordinator/report.json>frames>21>raw_hex:flip	ValueError: Received frame/tail bytes differ
+rate304-sequence	raw/epoch/coordinator/report.json>events>7>event:flip	ValueError: Recorder event/stream bytes differ
+rate304-sequence	raw/epoch/terminal-identity.json>actual_pid_gone:not	ValueError: Retirement/original identity differs
+rate304-sequence	raw/epoch/actual-emulator-proof.json>pid:inc	ValueError: Runtime/receipt identity or fixed deadline differs
+rate304-sequence	raw/epoch/coordinator/report.json>events>185>event:flip	ValueError: Socket terminal/event differs
+rate304-sequence	raw/epoch/disk-ready.json>deadline_utc:flip	ValueError: Staged readiness identity differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>image_inode:inc	ValueError: Stopped HFS state differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>Prefs>sha256:flip	ValueError: Stopped Prefs fork differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>admin>sha256:flip	ValueError: Stopped admin fork differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>active_users:reverse	ValueError: Stopped allocated HFS catalogue differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>board>bytes:inc	ValueError: Stopped board differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>fixture-low>sha256:flip	ValueError: Stopped fixture-low fork differs
+rate304-sequence	raw/preparation/preflight.json>source_before>base>path:flip	ValueError: Stopped preparation identity differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>server-data>sha256:flip	ValueError: Stopped server-data fork differs
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>server-rsrc>sha256:flip	ValueError: Stopped server-rsrc fork differs
+rate304-sequence	raw/epoch/source-freeze.json>helper_hashes>native_emulator_readiness.py:flip	ValueError: Three helper pins differ
+rate304-sequence	raw/epoch/stopped-hfs-summary.json>forks>board>bytes:delete-key;manifest.json>files>raw/preparation/complete-readiness-r03.sh:flip	ValueError: Corpus file SHA differs: raw/preparation/complete-readiness-r03.sh
+rate304-sequence	raw/epoch/capture-ready.json>owned_working_image_inode:delete-key;manifest.json>files>raw/epoch/server-ready.png:flip	ValueError: Corpus file SHA differs: raw/epoch/server-ready.png
+rate304-sequence	raw/preparation/preflight.json>status:delete-key;manifest.json>files>raw/epoch/sources/native_ban_expiry_cases.py:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_ban_expiry_cases.py
+rate304-sequence	manifest.json>files>raw/epoch/boot-screen-5.png:flip;manifest.json>files>raw/preparation/source-fuser.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/boot-screen-5.png
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/native_news_delete_cases.py:flip;manifest.json>files>raw/preparation/catalog-full.exit:flip	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/native_news_delete
+rate304-sequence	manifest.json>files>raw/epoch/partial-runtime-builder-01/sources/verify_native_auth.py:flip;raw/epoch/terminal-identity.json>fuser>base.dsk>exit:inc	ValueError: Corpus file SHA differs: raw/epoch/partial-runtime-builder-01/sources/verify_native_auth
+rate304-sequence	manifest.json>files>raw/epoch/readiness/checksums.sha256:flip;manifest.json>files>raw/epoch/stopped-fls-full.stderr:flip	ValueError: Corpus file SHA differs: raw/epoch/readiness/checksums.sha256
+rate304-sequence	manifest.json>files>raw/epoch/sources/native_filp.py:flip;raw/epoch/stopped-hfs-summary.json>forks>server-data>sha256:flip	ValueError: Corpus file SHA differs: raw/epoch/sources/native_filp.py
