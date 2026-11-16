@@ -58,5 +58,11 @@
     "path": "docs/native-evidence/native-ban-control-preparation.md",
     "key": "scripts/test_native_control_readiness.py",
     "reason": "A dated preparation record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_control_readiness.py; the record note beneath the command is rewritten with the audit revision that closes EP-M5."
+  },
+  {
+    "rule": "script",
+    "path": "docs/native-evidence/native-121-default-preparation.md",
+    "key": "scripts/test_native_121_default.py",
+    "reason": "A dated preparation record quotes the command as it was run. The test was converted to pytest and now lives at scripts/tests/test_native_121_default.py; the record note beneath the command is rewritten with the audit revision that closes EP-M5."
   }
 ]

@@ -1,0 +1,855 @@
+default-semantic		ok 62191e4ac803350f
+default-semantic	report>status:flip	ValueError: 121 capture did not complete
+default-semantic	report>status:delete-key	KeyError: 'status'
+default-semantic	report>events>0>action:delete-key	KeyError: 'action'
+default-semantic	report>events>1>action:delete-key	KeyError: 'action'
+default-semantic	report>events>1>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>2>action:delete-key	KeyError: 'action'
+default-semantic	report>events>3>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>3>action:delete-key	KeyError: 'action'
+default-semantic	report>events>4>action:delete-key	KeyError: 'action'
+default-semantic	report>events>4>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>5>action:delete-key	KeyError: 'action'
+default-semantic	report>events>6>action:delete-key	KeyError: 'action'
+default-semantic	report>events>6>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>7>action:delete-key	KeyError: 'action'
+default-semantic	report>events>8>action:delete-key	KeyError: 'action'
+default-semantic	report>events>8>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>9>action:delete-key	KeyError: 'action'
+default-semantic	report>events>9>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>10>action:delete-key	KeyError: 'action'
+default-semantic	report>events>11>action:delete-key	KeyError: 'action'
+default-semantic	report>events>11>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>12>action:delete-key	KeyError: 'action'
+default-semantic	report>events>13>action:delete-key	KeyError: 'action'
+default-semantic	report>events>13>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>14>action:delete-key	KeyError: 'action'
+default-semantic	report>events>15>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>15>action:delete-key	KeyError: 'action'
+default-semantic	report>events>16>action:delete-key	KeyError: 'action'
+default-semantic	report>events>16>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>17>action:delete-key	KeyError: 'action'
+default-semantic	report>events>18>action:delete-key	KeyError: 'action'
+default-semantic	report>events>18>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>19>action:delete-key	KeyError: 'action'
+default-semantic	report>events>20>action:delete-key	KeyError: 'action'
+default-semantic	report>events>20>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>21>action:delete-key	KeyError: 'action'
+default-semantic	report>events>21>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>22>action:delete-key	KeyError: 'action'
+default-semantic	report>events>23>action:delete-key	KeyError: 'action'
+default-semantic	report>events>23>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>24>action:delete-key	KeyError: 'action'
+default-semantic	report>events>25>action:delete-key	KeyError: 'action'
+default-semantic	report>events>25>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>26>action:delete-key	KeyError: 'action'
+default-semantic	report>events>27>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>27>action:delete-key	KeyError: 'action'
+default-semantic	report>events>28>action:delete-key	KeyError: 'action'
+default-semantic	report>events>28>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>29>action:delete-key	KeyError: 'action'
+default-semantic	report>events>30>action:delete-key	KeyError: 'action'
+default-semantic	report>events>30>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>31>action:delete-key	KeyError: 'action'
+default-semantic	report>events>32>action:delete-key	KeyError: 'action'
+default-semantic	report>events>32>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>33>action:delete-key	KeyError: 'action'
+default-semantic	report>events>33>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>34>action:delete-key	KeyError: 'action'
+default-semantic	report>events>35>action:delete-key	KeyError: 'action'
+default-semantic	report>events>35>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>36>action:delete-key	KeyError: 'action'
+default-semantic	report>events>37>action:delete-key	KeyError: 'action'
+default-semantic	report>events>37>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>38>action:delete-key	KeyError: 'action'
+default-semantic	report>events>39>action:inc	error: unpack requires a buffer of 20 bytes
+default-semantic	report>events>39>action:delete-key	KeyError: 'action'
+default-semantic	report>events>39>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>39>event:flip	error: unpack requires a buffer of 20 bytes
+default-semantic	report>events>39>event:delete-key	KeyError: 'event'
+default-semantic	report>events>39>hex:delete-key	KeyError: 'hex'
+default-semantic	report>events>40>action:delete-key	KeyError: 'action'
+default-semantic	report>events>41>action:delete-key	KeyError: 'action'
+default-semantic	report>events>41>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>42>action:delete-key	KeyError: 'action'
+default-semantic	report>events>43>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>43>action:delete-key	KeyError: 'action'
+default-semantic	report>events>44>action:delete-key	KeyError: 'action'
+default-semantic	report>events>44>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>45>action:delete-key	KeyError: 'action'
+default-semantic	report>events>46>action:delete-key	KeyError: 'action'
+default-semantic	report>events>46>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>47>action:delete-key	KeyError: 'action'
+default-semantic	report>events>48>action:delete-key	KeyError: 'action'
+default-semantic	report>events>48>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>49>action:delete-key	KeyError: 'action'
+default-semantic	report>events>49>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>50>action:delete-key	KeyError: 'action'
+default-semantic	report>events>51>action:delete-key	KeyError: 'action'
+default-semantic	report>events>51>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>52>action:delete-key	KeyError: 'action'
+default-semantic	report>events>53>action:delete-key	KeyError: 'action'
+default-semantic	report>events>53>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>54>action:delete-key	KeyError: 'action'
+default-semantic	report>events>55>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>55>action:delete-key	KeyError: 'action'
+default-semantic	report>events>56>action:delete-key	KeyError: 'action'
+default-semantic	report>events>56>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>57>action:delete-key	KeyError: 'action'
+default-semantic	report>events>58>action:delete-key	KeyError: 'action'
+default-semantic	report>events>58>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>59>action:delete-key	KeyError: 'action'
+default-semantic	report>events>60>action:delete-key	KeyError: 'action'
+default-semantic	report>events>60>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>61>action:delete-key	KeyError: 'action'
+default-semantic	report>events>61>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>62>action:delete-key	KeyError: 'action'
+default-semantic	report>events>63>action:delete-key	KeyError: 'action'
+default-semantic	report>events>63>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>64>action:delete-key	KeyError: 'action'
+default-semantic	report>events>65>action:delete-key	KeyError: 'action'
+default-semantic	report>events>65>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>66>action:delete-key	KeyError: 'action'
+default-semantic	report>events>67>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>67>action:delete-key	KeyError: 'action'
+default-semantic	report>events>68>action:delete-key	KeyError: 'action'
+default-semantic	report>events>68>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>69>action:delete-key	KeyError: 'action'
+default-semantic	report>events>70>action:delete-key	KeyError: 'action'
+default-semantic	report>events>70>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>71>action:delete-key	KeyError: 'action'
+default-semantic	report>events>72>action:delete-key	KeyError: 'action'
+default-semantic	report>events>72>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>73>action:delete-key	KeyError: 'action'
+default-semantic	report>events>73>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>74>action:delete-key	KeyError: 'action'
+default-semantic	report>events>75>action:delete-key	KeyError: 'action'
+default-semantic	report>events>75>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>76>action:delete-key	KeyError: 'action'
+default-semantic	report>events>77>action:delete-key	KeyError: 'action'
+default-semantic	report>events>77>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>78>action:delete-key	KeyError: 'action'
+default-semantic	report>events>79>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>79>action:delete-key	KeyError: 'action'
+default-semantic	report>events>80>action:delete-key	KeyError: 'action'
+default-semantic	report>events>80>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>81>action:delete-key	KeyError: 'action'
+default-semantic	report>events>82>action:delete-key	KeyError: 'action'
+default-semantic	report>events>82>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>83>action:delete-key	KeyError: 'action'
+default-semantic	report>events>84>action:delete-key	KeyError: 'action'
+default-semantic	report>events>84>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>85>action:delete-key	KeyError: 'action'
+default-semantic	report>events>85>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>86>action:inc	error: unpack requires a buffer of 20 bytes
+default-semantic	report>events>86>action:delete-key	KeyError: 'action'
+default-semantic	report>events>86>event:flip	error: unpack requires a buffer of 20 bytes
+default-semantic	report>events>86>event:delete-key	KeyError: 'event'
+default-semantic	report>events>86>hex:delete-key	KeyError: 'hex'
+default-semantic	report>events>87>action:delete-key	KeyError: 'action'
+default-semantic	report>events>88>action:delete-key	KeyError: 'action'
+default-semantic	report>events>88>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>89>action:delete-key	KeyError: 'action'
+default-semantic	report>events>89>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>90>action:delete-key	KeyError: 'action'
+default-semantic	report>events>91>action:delete-key	KeyError: 'action'
+default-semantic	report>events>91>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>92>action:delete-key	KeyError: 'action'
+default-semantic	report>events>93>action:delete-key	KeyError: 'action'
+default-semantic	report>events>93>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>94>action:delete-key	KeyError: 'action'
+default-semantic	report>events>95>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>95>action:delete-key	KeyError: 'action'
+default-semantic	report>events>96>action:delete-key	KeyError: 'action'
+default-semantic	report>events>96>hex:flip	ok 62191e4ac803350f
+default-semantic	report>events>97>action:delete-key	KeyError: 'action'
+default-semantic	report>events>98>action:delete-key	KeyError: 'action'
+default-semantic	report>events>98>event:flip	ok 62191e4ac803350f
+default-semantic	report>events>99>action:delete-key	KeyError: 'action'
+default-semantic	report>events>100>action:delete-key	KeyError: 'action'
+default-semantic	report>events>100>connection:flip	ok 62191e4ac803350f
+default-semantic	report>events>101>action:delete-key	KeyError: 'action'
+default-semantic	report>events>101>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>102>action:delete-key	KeyError: 'action'
+default-semantic	report>events>103>action:delete-key	KeyError: 'action'
+default-semantic	report>events>103>event:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>104>action:delete-key	KeyError: 'action'
+default-semantic	report>events>105>action:delete-key	KeyError: 'action'
+default-semantic	report>events>105>connection:delete-key	ok 62191e4ac803350f
+default-semantic	report>events>106>action:delete-key	KeyError: 'action'
+default-semantic	report>events>107>action:inc	ok 62191e4ac803350f
+default-semantic	report>events>107>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>0>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>0>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>0>type:inc	ok 62191e4ac803350f
+default-semantic	report>frames>0>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>0>fields>0>hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>1>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>1>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>1>flags:inc	ok 62191e4ac803350f
+default-semantic	report>frames>1>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>1>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>1>payload_hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>2>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>2>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>2>flags:inc	ok 62191e4ac803350f
+default-semantic	report>frames>2>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>2>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>2>payload_hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>3>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>3>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>3>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>3>flags:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>3>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>3>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>3>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>3>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>3>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>3>fields>0>hex:flip	ValueError: Initial observer identity differs
+default-semantic	report>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>3>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>4>action:inc	ValueError: Action 13: expected type 0 on subject_absent
+default-semantic	report>frames>4>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>4>connection:flip	ValueError: Action 13: expected type 0 on subject_absent
+default-semantic	report>frames>4>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>4>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>4>type:inc	ValueError: Action 13: expected type 0 on subject_absent
+default-semantic	report>frames>4>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>4>id:inc	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>4>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>4>error:inc	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>4>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>4>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>4>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>4>fields>0>hex:flip	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>4>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>4>fields>1>id:inc	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>4>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>4>fields>1>hex:flip	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>4>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>4>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>5>action:inc	ValueError: Action 14: expected type 109 on subject_absent
+default-semantic	report>frames>5>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>5>connection:flip	ValueError: Action 14: expected type 109 on subject_absent
+default-semantic	report>frames>5>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>5>type:inc	ValueError: Action 14: expected type 109 on subject_absent
+default-semantic	report>frames>5>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>5>total_size:inc	ok 62191e4ac803350f
+default-semantic	report>frames>5>fields>0>id:inc	ValueError: absent: pending agreement differs
+default-semantic	report>frames>5>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>5>fields>0>hex:flip	ValueError: absent: pending agreement differs
+default-semantic	report>frames>5>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>6>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>6>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>6>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>6>flags:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>6>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>6>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>6>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>6>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>6>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>6>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>6>fields>0>hex:flip	ValueError: Roster 11 differs
+default-semantic	report>frames>6>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>6>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>7>action:inc	ValueError: Action 18: expected type 0 on subject_absent
+default-semantic	report>frames>7>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>7>connection:flip	ValueError: Action 18: expected type 0 on subject_absent
+default-semantic	report>frames>7>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>7>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>7>type:inc	ValueError: Action 18: expected type 0 on subject_absent
+default-semantic	report>frames>7>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>7>id:inc	ValueError: absent: ACK 20 differs
+default-semantic	report>frames>7>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>7>error:inc	ValueError: absent: ACK 20 differs
+default-semantic	report>frames>7>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>7>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>8>action:inc	ValueError: Action 19: expected type 301 on main
+default-semantic	report>frames>8>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>8>connection:flip	ValueError: Action 19: expected type 301 on main
+default-semantic	report>frames>8>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>8>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>8>type:inc	ValueError: Action 19: expected type 301 on main
+default-semantic	report>frames>8>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>8>total_size:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>8>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>8>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>8>fields>0>hex:flip	ValueError: Roster 22 differs
+default-semantic	report>frames>8>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>8>fields>1>id:inc	ValueError: absent: 301 identity/name/icon differs
+default-semantic	report>frames>8>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>8>fields>1>hex:flip	ValueError: absent: 301 identity/name/icon differs
+default-semantic	report>frames>8>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>8>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>8>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>8>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>8>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>8>fields>3>hex:flip	ValueError: absent: 301 identity/name/icon differs
+default-semantic	report>frames>8>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>9>action:inc	ValueError: Action 20: expected type 354 on subject_absent
+default-semantic	report>frames>9>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>9>connection:flip	ValueError: Action 20: expected type 354 on subject_absent
+default-semantic	report>frames>9>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>9>flags:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>9>type:inc	ValueError: Action 20: expected type 354 on subject_absent
+default-semantic	report>frames>9>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>9>payload_hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>9>fields>0>id:inc	ValueError: absent: own 354 differs
+default-semantic	report>frames>9>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>9>fields>0>hex:flip	ValueError: absent: own 354 differs
+default-semantic	report>frames>9>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>10>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>10>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>10>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>10>id:inc	ok 62191e4ac803350f
+default-semantic	report>frames>10>fields>0>hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>11>action:inc	ValueError: Action 22: expected type 0 on subject_absent
+default-semantic	report>frames>11>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>11>connection:flip	ValueError: Action 22: expected type 0 on subject_absent
+default-semantic	report>frames>11>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>11>is_reply:inc	ok 62191e4ac803350f
+default-semantic	report>frames>11>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>11>type:inc	ValueError: Action 22: expected type 0 on subject_absent
+default-semantic	report>frames>11>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>11>id:inc	ValueError: absent: ACK 21 differs
+default-semantic	report>frames>11>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>11>error:inc	ValueError: absent: ACK 21 differs
+default-semantic	report>frames>11>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>12>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>12>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>12>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>12>flags:inc	ok 62191e4ac803350f
+default-semantic	report>frames>12>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>12>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>12>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>12>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>12>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>12>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>12>fields>0>hex:flip	ValueError: Roster 22 differs
+default-semantic	report>frames>12>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>12>fields>1>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>12>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>12>fields>1>hex:flip	ValueError: Roster 22 differs
+default-semantic	report>frames>12>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>12>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>13>action:inc	ValueError: Action 26: expected type 0 on main
+default-semantic	report>frames>13>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>13>connection:flip	ValueError: Action 26: expected type 0 on main
+default-semantic	report>frames>13>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>13>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>13>type:inc	ValueError: Action 26: expected type 0 on main
+default-semantic	report>frames>13>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>13>id:inc	ValueError: absent: ACK 30 differs
+default-semantic	report>frames>13>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>13>error:inc	ValueError: absent: ACK 30 differs
+default-semantic	report>frames>13>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>13>payload_hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>14>action:inc	ValueError: Action 27: expected type 104 on main
+default-semantic	report>frames>14>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>14>connection:flip	ValueError: Action 27: expected type 104 on main
+default-semantic	report>frames>14>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>14>is_reply:inc	ValueError: absent: 104 count differs
+default-semantic	report>frames>14>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>14>type:inc	ValueError: Action 27: expected type 104 on main
+default-semantic	report>frames>14>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>14>total_size:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>14>fields>0>id:inc	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>14>fields>0>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>14>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>14>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>14>fields>1>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>14>fields>2>id:inc	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>14>fields>2>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>14>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>14>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>14>fields>3>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>14>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>15>action:inc	ValueError: Action 28: expected type 104 on subject_absent
+default-semantic	report>frames>15>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>15>connection:flip	ValueError: Action 28: expected type 104 on subject_absent
+default-semantic	report>frames>15>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>15>is_reply:inc	ValueError: absent: 104 count differs
+default-semantic	report>frames>15>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>15>type:inc	ValueError: Action 28: expected type 104 on subject_absent
+default-semantic	report>frames>15>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>15>id:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>15>fields>0>id:inc	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>15>fields>0>hex:flip	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>15>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>15>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>15>fields>1>hex:flip	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>15>fields>2>id:inc	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>15>fields>2>hex:flip	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>15>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>15>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>15>fields>3>hex:flip	ValueError: absent: original PM differs
+default-semantic	report>frames>15>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>15>unconsumed_hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>16>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>16>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>16>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>16>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>16>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>16>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>16>data_size:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>17>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>17>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>17>is_reply:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>17>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>17>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>18>action:inc	ValueError: Action 36: expected type 302 on main
+default-semantic	report>frames>18>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>18>connection:flip	ValueError: Action 36: expected type 302 on main
+default-semantic	report>frames>18>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>18>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>18>type:inc	ValueError: Action 36: expected type 302 on main
+default-semantic	report>frames>18>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>18>total_size:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>18>fields>0>id:inc	ValueError: absent: departure UID differs
+default-semantic	report>frames>18>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>18>fields>0>hex:flip	ValueError: absent: departure UID differs
+default-semantic	report>frames>18>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>19>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>19>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>19>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>19>is_reply:inc	ok 62191e4ac803350f
+default-semantic	report>frames>19>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>19>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>19>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>19>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>19>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>19>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>19>fields>0>hex:flip	ValueError: Roster 32 differs
+default-semantic	report>frames>19>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>19>unconsumed_hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>20>action:inc	ValueError: Action 43: expected type 0 on subject_empty
+default-semantic	report>frames>20>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>20>connection:flip	ValueError: Action 43: expected type 0 on subject_empty
+default-semantic	report>frames>20>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>20>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>20>type:inc	ValueError: Action 43: expected type 0 on subject_empty
+default-semantic	report>frames>20>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>20>id:inc	ValueError: empty: ACK 3 differs
+default-semantic	report>frames>20>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>20>error:inc	ValueError: empty: ACK 3 differs
+default-semantic	report>frames>20>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>20>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>20>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>20>fields>0>hex:flip	ValueError: empty: ACK 3 differs
+default-semantic	report>frames>20>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>20>fields>1>id:inc	ValueError: empty: ACK 3 differs
+default-semantic	report>frames>20>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>20>fields>1>hex:flip	ValueError: empty: ACK 3 differs
+default-semantic	report>frames>20>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>20>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>21>action:inc	ValueError: Action 44: expected type 109 on subject_empty
+default-semantic	report>frames>21>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>21>connection:flip	ValueError: Action 44: expected type 109 on subject_empty
+default-semantic	report>frames>21>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>21>type:inc	ValueError: Action 44: expected type 109 on subject_empty
+default-semantic	report>frames>21>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>21>total_size:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>21>fields>0>id:inc	ValueError: empty: pending agreement differs
+default-semantic	report>frames>21>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>21>fields>0>hex:flip	ValueError: empty: pending agreement differs
+default-semantic	report>frames>21>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>22>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>22>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>22>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>22>is_reply:inc	ok 62191e4ac803350f
+default-semantic	report>frames>22>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>22>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>22>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>22>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>22>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>22>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>22>fields>0>hex:flip	ValueError: Roster 12 differs
+default-semantic	report>frames>22>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>22>unconsumed_hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>23>action:inc	ValueError: Action 48: expected type 0 on subject_empty
+default-semantic	report>frames>23>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>23>connection:flip	ValueError: Action 48: expected type 0 on subject_empty
+default-semantic	report>frames>23>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>23>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>23>type:inc	ValueError: Action 48: expected type 0 on subject_empty
+default-semantic	report>frames>23>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>23>id:inc	ValueError: empty: ACK 40 differs
+default-semantic	report>frames>23>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>23>error:inc	ValueError: empty: ACK 40 differs
+default-semantic	report>frames>23>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>23>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>24>action:inc	ValueError: Action 49: expected type 301 on main
+default-semantic	report>frames>24>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>24>connection:flip	ValueError: Action 49: expected type 301 on main
+default-semantic	report>frames>24>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>24>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>24>type:inc	ValueError: Action 49: expected type 301 on main
+default-semantic	report>frames>24>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>24>data_size:inc	ok 62191e4ac803350f
+default-semantic	report>frames>24>fields>0>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>24>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>24>fields>0>hex:flip	ValueError: Roster 42 differs
+default-semantic	report>frames>24>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>24>fields>1>id:inc	ValueError: empty: 301 identity/name/icon differs
+default-semantic	report>frames>24>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>24>fields>1>hex:flip	ValueError: empty: 301 identity/name/icon differs
+default-semantic	report>frames>24>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>24>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>24>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>24>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>24>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>24>fields>3>hex:flip	ValueError: empty: 301 identity/name/icon differs
+default-semantic	report>frames>24>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>25>action:inc	ValueError: Action 50: expected type 354 on subject_empty
+default-semantic	report>frames>25>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>25>connection:flip	ValueError: Action 50: expected type 354 on subject_empty
+default-semantic	report>frames>25>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>25>is_reply:inc	ok 62191e4ac803350f
+default-semantic	report>frames>25>type:inc	ValueError: Action 50: expected type 354 on subject_empty
+default-semantic	report>frames>25>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>25>fields>0>id:inc	ValueError: empty: own 354 differs
+default-semantic	report>frames>25>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>25>fields>0>hex:flip	ValueError: empty: own 354 differs
+default-semantic	report>frames>25>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>25>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>26>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>26>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>26>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>26>id:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>26>fields>0>hex:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>27>action:inc	ValueError: Action 52: expected type 0 on subject_empty
+default-semantic	report>frames>27>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>27>connection:flip	ValueError: Action 52: expected type 0 on subject_empty
+default-semantic	report>frames>27>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>27>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>27>type:inc	ValueError: Action 52: expected type 0 on subject_empty
+default-semantic	report>frames>27>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>27>id:inc	ValueError: empty: ACK 41 differs
+default-semantic	report>frames>27>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>27>error:inc	ValueError: empty: ACK 41 differs
+default-semantic	report>frames>27>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>27>total_size:inc	ok 62191e4ac803350f
+default-semantic	report>frames>28>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>28>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>28>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>28>flags:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>28>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>28>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>28>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>28>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>28>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>28>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>28>fields>0>hex:flip	ValueError: Roster 42 differs
+default-semantic	report>frames>28>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>28>fields>1>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>28>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>28>fields>1>hex:flip	ValueError: Roster 42 differs
+default-semantic	report>frames>28>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>28>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>29>action:inc	ValueError: Action 56: expected type 0 on main
+default-semantic	report>frames>29>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>29>connection:flip	ValueError: Action 56: expected type 0 on main
+default-semantic	report>frames>29>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>29>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>29>type:inc	ValueError: Action 56: expected type 0 on main
+default-semantic	report>frames>29>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>29>id:inc	ValueError: empty: ACK 50 differs
+default-semantic	report>frames>29>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>29>error:inc	ValueError: empty: ACK 50 differs
+default-semantic	report>frames>29>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>29>declared_field_count:inc	ok 62191e4ac803350f
+default-semantic	report>frames>30>action:inc	ValueError: Action 57: expected type 104 on main
+default-semantic	report>frames>30>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>30>connection:flip	ValueError: Action 57: expected type 104 on main
+default-semantic	report>frames>30>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>30>is_reply:inc	ValueError: empty: 104 count differs
+default-semantic	report>frames>30>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>30>type:inc	ValueError: Action 57: expected type 104 on main
+default-semantic	report>frames>30>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>30>data_size:inc	ok 62191e4ac803350f
+default-semantic	report>frames>30>fields>0>id:inc	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>30>fields>0>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>30>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>30>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>30>fields>1>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>30>fields>2>id:inc	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>30>fields>2>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>30>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>30>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>30>fields>3>hex:flip	ValueError: Automatic response default text/identity differs
+default-semantic	report>frames>30>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>31>action:inc	ValueError: Action 58: expected type 104 on subject_empty
+default-semantic	report>frames>31>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>31>connection:flip	ValueError: Action 58: expected type 104 on subject_empty
+default-semantic	report>frames>31>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>31>is_reply:inc	ValueError: empty: 104 count differs
+default-semantic	report>frames>31>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>31>type:inc	ValueError: Action 58: expected type 104 on subject_empty
+default-semantic	report>frames>31>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>31>error:inc	ok 62191e4ac803350f
+default-semantic	report>frames>31>fields>0>id:inc	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>31>fields>0>hex:flip	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>31>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>31>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>31>fields>1>hex:flip	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>1>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>31>fields>2>id:inc	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>2>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>31>fields>2>hex:flip	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>2>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>31>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>31>fields>3>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>31>fields>3>hex:flip	ValueError: empty: original PM differs
+default-semantic	report>frames>31>fields>3>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>32>action:inc	ok 62191e4ac803350f
+default-semantic	report>frames>32>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>32>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>32>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>32>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>32>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>32>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>32>payload_hex:flip	ok 62191e4ac803350f
+default-semantic	report>frames>33>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>33>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>33>type:inc	ok 62191e4ac803350f
+default-semantic	report>frames>33>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>33>declared_field_count:delete-key	ok 62191e4ac803350f
+default-semantic	report>frames>34>action:inc	ValueError: Action 66: expected type 302 on main
+default-semantic	report>frames>34>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>34>connection:flip	ValueError: Action 66: expected type 302 on main
+default-semantic	report>frames>34>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>34>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>34>type:inc	ValueError: Action 66: expected type 302 on main
+default-semantic	report>frames>34>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>34>data_size:inc	ok 62191e4ac803350f
+default-semantic	report>frames>34>fields>0>id:inc	ValueError: empty: departure UID differs
+default-semantic	report>frames>34>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>34>fields>0>hex:flip	ValueError: empty: departure UID differs
+default-semantic	report>frames>34>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>35>action:delete-key	KeyError: 'action'
+default-semantic	report>frames>35>connection:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>35>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>35>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>35>type:inc	ok 62191e4ac803350f
+default-semantic	report>frames>35>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>35>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>35>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>35>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>35>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>35>fields>0>hex:flip	ValueError: Roster 52 differs
+default-semantic	report>frames>35>fields>0>hex:delete-key	KeyError: 'hex'
+default-semantic	report>frames>35>unconsumed_hex:delete-key	ok 62191e4ac803350f
+default-semantic	plan>steps>0>op:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>op:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>connection:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>endpoint:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>endpoint:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>timeout:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>0>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>op:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>op:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>connection:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>timeout:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>1>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>op:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>op:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>connection:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>size:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>size:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>expect_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>expect_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>timeout:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>steps>2>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>case:flip	ValueError: Wrong 121 case
+default-semantic	plan>expectation>case:delete-key	KeyError: 'case'
+default-semantic	plan>expectation>cases>0>label:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>label:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>subject_connection:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>subject_connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>name_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>name_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>icon_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>icon_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>login_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>login_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>agreement_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>agreement_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>pm_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>pm_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>pm_text_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>pm_text_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>default_text_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>default_text_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>first:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>first:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>last:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>0>last:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>label:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>label:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>subject_connection:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>subject_connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>name_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>name_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>icon_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>icon_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>login_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>login_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>agreement_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>agreement_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>pm_id:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>pm_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>pm_text_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>pm_text_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>default_text_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>default_text_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>first:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>first:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>last:inc	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>cases>1>last:delete-key	ValueError: 121 steps/cases differ
+default-semantic	plan>expectation>baseline_plan_sha256:flip	ValueError: A7 baseline pin differs
+default-semantic	plan>expectation>baseline_plan_sha256:delete-key	KeyError: 'baseline_plan_sha256'
+default-semantic	report>events>99>action:delete-key;report>frames>21>fields>0>id:inc	KeyError: 'action'
+default-semantic	report>frames>12>fields>0>id:inc;report>frames>14>fields>1>hex:flip	ValueError: Unexpected roster parameter
+default-semantic	report>events>29>action:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>14>fields>2>hex:delete-key;report>frames>31>fields>3>id:inc	KeyError: 'hex'
+default-semantic	report>events>80>action:delete-key;report>frames>12>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>events>46>action:delete-key;report>frames>14>action:inc	ValueError: Action 27: expected type 104 on main
+default-semantic	report>frames>5>connection:delete-key;report>frames>12>id:delete-key	KeyError: 'connection'
+default-semantic	report>frames>7>connection:flip;report>frames>9>connection:flip	ValueError: Action 18: expected type 0 on subject_absent
+default-semantic	report>frames>14>fields>3>id:delete-key;plan>expectation>cases>1>icon_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	report>frames>14>type:inc;report>frames>34>connection:flip	ValueError: Action 27: expected type 104 on main
+default-semantic	report>events>54>action:delete-key;report>frames>15>fields>3>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>events>80>action:delete-key;report>frames>3>fields>0>id:inc	ValueError: Unexpected roster parameter
+default-semantic	report>frames>15>fields>2>hex:delete-key;report>frames>24>fields>0>id:delete-key	KeyError: 'hex'
+default-semantic	report>frames>21>connection:flip;report>frames>30>fields>3>id:inc	ValueError: Action 44: expected type 109 on subject_empty
+default-semantic	report>frames>14>fields>1>hex:delete-key;report>frames>29>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>24>fields>0>id:inc;report>frames>30>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>4>id:inc;report>frames>20>action:inc	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>25>connection:flip;plan>steps>1>connection:flip	ValueError: 121 steps/cases differ
+default-semantic	report>frames>30>type:inc;report>frames>33>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>33>type:delete-key;plan>expectation>cases>1>first:inc	ValueError: 121 steps/cases differ
+default-semantic	report>events>49>action:delete-key;report>frames>13>error:delete-key	KeyError: 'error'
+default-semantic	report>frames>15>fields>2>id:delete-key;report>frames>28>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>22>fields>0>hex:flip;report>frames>30>fields>3>id:inc	ValueError: Roster 12 differs
+default-semantic	report>frames>20>id:delete-key;report>frames>23>is_reply:delete-key	KeyError: 'id'
+default-semantic	report>frames>12>fields>0>id:inc;plan>expectation>cases>1>pm_text_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>15>fields>2>id:delete-key;report>frames>24>fields>2>hex:delete-key	KeyError: 'id'
+default-semantic	report>events>89>action:delete-key;report>frames>20>fields>1>hex:flip	KeyError: 'action'
+default-semantic	report>frames>6>action:delete-key;report>frames>24>fields>2>id:delete-key	KeyError: 'action'
+default-semantic	report>frames>12>connection:delete-key;report>frames>14>connection:flip	KeyError: 'connection'
+default-semantic	report>frames>14>fields>1>id:delete-key;report>frames>29>connection:flip	KeyError: 'id'
+default-semantic	report>frames>0>id:delete-key;report>frames>19>id:inc	KeyError: 'id'
+default-semantic	report>frames>11>error:inc;report>frames>14>fields>0>hex:delete-key	ValueError: absent: ACK 21 differs
+default-semantic	report>frames>8>type:delete-key;report>frames>24>fields>1>hex:delete-key	KeyError: 'type'
+default-semantic	report>events>20>action:delete-key;report>frames>20>action:inc	KeyError: 'action'
+default-semantic	report>frames>30>fields>2>hex:flip;report>frames>35>id:delete-key	KeyError: 'id'
+default-semantic	report>events>42>action:delete-key;report>frames>16>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>24>fields>0>hex:delete-key;plan>steps>2>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>25>connection:flip;report>frames>34>action:delete-key	KeyError: 'action'
+default-semantic	report>events>90>action:delete-key;report>frames>20>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>9>connection:delete-key;report>frames>12>connection:flip	KeyError: 'connection'
+default-semantic	report>events>39>event:delete-key;report>frames>5>action:inc	ValueError: Action 14: expected type 109 on subject_absent
+default-semantic	report>events>43>action:delete-key;report>frames>31>type:inc	KeyError: 'action'
+default-semantic	report>events>49>action:delete-key;report>frames>23>is_reply:delete-key	KeyError: 'action'
+default-semantic	report>frames>4>id:inc;report>frames>23>is_reply:delete-key	ValueError: absent: ACK 2 differs
+default-semantic	report>frames>11>type:inc;plan>expectation>cases>0>last:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>51>action:delete-key;report>frames>20>fields>1>hex:delete-key	KeyError: 'action'
+default-semantic	report>frames>9>fields>0>hex:flip;report>frames>34>fields>0>hex:delete-key	ValueError: absent: own 354 differs
+default-semantic	report>frames>8>fields>0>hex:delete-key;report>frames>27>connection:flip	KeyError: 'hex'
+default-semantic	report>frames>19>fields>0>id:delete-key;report>frames>35>fields>0>hex:flip	KeyError: 'id'
+default-semantic	report>frames>14>fields>2>id:delete-key;report>frames>32>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>events>73>action:delete-key;report>frames>35>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>23>connection:delete-key;report>frames>34>connection:flip	KeyError: 'connection'
+default-semantic	report>frames>5>fields>0>hex:delete-key;plan>steps>2>size:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>33>action:delete-key;report>events>86>event:delete-key	KeyError: 'action'
+default-semantic	report>frames>18>action:delete-key;plan>expectation>cases>1>label:flip	ValueError: 121 steps/cases differ
+default-semantic	report>events>9>action:delete-key;report>frames>14>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>events>92>action:delete-key;report>frames>33>connection:delete-key	KeyError: 'connection'
+default-semantic	report>events>39>action:delete-key;report>frames>19>id:inc	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>22>fields>0>id:inc;plan>expectation>cases>1>label:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>7>error:inc;report>frames>31>fields>2>id:delete-key	ValueError: absent: ACK 20 differs
+default-semantic	report>frames>23>id:delete-key;report>frames>31>fields>2>id:inc	KeyError: 'id'
+default-semantic	report>events>64>action:delete-key;report>frames>15>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>0>type:delete-key;report>frames>29>error:inc	KeyError: 'type'
+default-semantic	report>events>39>hex:delete-key;report>frames>9>action:inc	ValueError: Action 20: expected type 354 on subject_absent
+default-semantic	report>frames>22>fields>0>id:inc;report>frames>24>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>4>fields>0>id:inc;report>frames>9>action:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>2>type:delete-key;report>frames>7>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>21>fields>0>hex:delete-key;report>frames>31>fields>2>id:inc	KeyError: 'hex'
+default-semantic	report>frames>31>fields>0>hex:flip;report>frames>31>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>30>fields>3>id:inc;plan>expectation>cases>1>subject_connection:flip	ValueError: 121 steps/cases differ
+default-semantic	report>frames>19>fields>0>id:delete-key;report>frames>24>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>events>14>action:delete-key;report>frames>24>fields>3>hex:flip	KeyError: 'action'
+default-semantic	report>events>13>action:delete-key;report>frames>11>error:inc	ValueError: absent: ACK 21 differs
+default-semantic	report>events>13>action:delete-key;report>frames>18>is_reply:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>11>connection:flip;report>frames>30>is_reply:inc	ValueError: Action 22: expected type 0 on subject_absent
+default-semantic	report>events>12>action:delete-key;report>frames>12>fields>1>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>12>fields>0>hex:flip;plan>steps>2>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>1>type:delete-key;report>frames>28>action:delete-key	KeyError: 'type'
+default-semantic	report>events>65>action:delete-key;report>frames>5>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>4>connection:flip;plan>steps>2>connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>22>fields>0>hex:flip;plan>steps>1>connection:flip	ValueError: 121 steps/cases differ
+default-semantic	report>frames>16>action:delete-key;report>frames>27>id:inc	KeyError: 'action'
+default-semantic	report>frames>30>fields>1>id:inc;report>frames>31>fields>2>hex:flip	ValueError: Unexpected repeated scalar field
+default-semantic	report>frames>18>connection:delete-key;report>frames>22>id:delete-key	KeyError: 'connection'
+default-semantic	report>events>81>action:delete-key;plan>expectation>cases>0>pm_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>77>action:delete-key;report>frames>28>fields>1>hex:delete-key	KeyError: 'action'
+default-semantic	report>status:flip;report>frames>9>fields>0>hex:delete-key	ValueError: 121 capture did not complete
+default-semantic	report>frames>28>fields>1>id:delete-key;plan>steps>1>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>18>connection:delete-key;report>frames>28>action:delete-key	KeyError: 'connection'
+default-semantic	report>frames>8>fields>1>hex:delete-key;report>frames>29>type:delete-key	KeyError: 'type'
+default-semantic	report>frames>28>fields>0>hex:flip;plan>steps>2>timeout:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>3>is_reply:delete-key;plan>expectation>cases>0>login_id:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>13>is_reply:delete-key;report>frames>27>type:inc	KeyError: 'is_reply'
+default-semantic	report>frames>14>fields>3>hex:flip;plan>expectation>cases>1>icon_hex:flip	ValueError: 121 steps/cases differ
+default-semantic	report>frames>4>type:delete-key;report>frames>14>fields>2>hex:delete-key	KeyError: 'type'
+default-semantic	report>events>78>action:delete-key;report>frames>23>error:inc	KeyError: 'action'
+default-semantic	report>frames>12>id:inc;report>frames>35>fields>0>hex:flip	ValueError: Missing/duplicate auth reply
+default-semantic	report>frames>3>connection:flip;plan>expectation>cases>1>first:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>5>fields>0>id:delete-key;plan>expectation>cases>0>last:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>71>action:delete-key;plan>expectation>cases>1>name_hex:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>13>id:delete-key;report>frames>29>id:inc	KeyError: 'id'
+default-semantic	report>frames>20>fields>1>hex:delete-key;report>frames>31>fields>1>id:delete-key	KeyError: 'hex'
+default-semantic	report>frames>11>type:inc;plan>steps>0>endpoint:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>53>action:delete-key;plan>steps>1>op:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>frames>3>action:delete-key;report>frames>31>is_reply:delete-key	KeyError: 'action'
+default-semantic	report>frames>14>connection:delete-key;plan>expectation>cases>1>pm_id:inc	ValueError: 121 steps/cases differ
+default-semantic	report>frames>3>fields>0>id:delete-key;report>frames>12>fields>0>hex:flip	KeyError: 'id'
+default-semantic	report>frames>28>type:delete-key;report>frames>31>fields>2>id:delete-key	KeyError: 'type'
+default-semantic	report>events>65>action:delete-key;report>frames>7>id:inc	ValueError: absent: ACK 20 differs
+default-semantic	report>frames>13>is_reply:delete-key;report>frames>14>fields>2>id:delete-key	KeyError: 'is_reply'
+default-semantic	report>frames>21>fields>0>id:delete-key;report>frames>22>fields>0>hex:delete-key	KeyError: 'id'
+default-semantic	report>events>86>hex:delete-key;report>frames>13>error:inc	ValueError: absent: ACK 30 differs
+default-semantic	report>frames>30>fields>0>id:delete-key;plan>steps>0>connection:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>63>action:delete-key;report>frames>15>fields>0>id:delete-key	KeyError: 'id'
+default-semantic	report>frames>22>action:delete-key;report>frames>35>connection:flip	KeyError: 'action'
+default-semantic	report>events>41>action:delete-key;report>frames>29>type:inc	KeyError: 'action'
+default-semantic	report>frames>27>connection:delete-key;plan>expectation>cases>1>last:delete-key	ValueError: 121 steps/cases differ
+default-semantic	report>events>86>event:delete-key;report>frames>34>connection:delete-key	KeyError: 'connection'
+default-semantic	report>frames>21>action:inc;report>frames>30>action:inc	ValueError: Action 44: expected type 109 on subject_empty
+default-semantic	report>frames>0>type:delete-key;report>frames>6>connection:flip	KeyError: 'type'
