@@ -1112,15 +1112,15 @@ The script work is a behaviour-preserving refactor.
   docstrings (513 of code), inside the ceiling of D28; it is deleted in EP-M11.
   Date/Author: 2026-11-16, lead.
 
-- Decision D31 (open, for the owner): how `protocol_capture.py` identifies
-  itself in new captures. `run_plan` records `driver_sha256`, the SHA-256 of
-  the module's own file. The module exceeds 400 lines and must be split to meet
-  the standard; a split leaves a facade, so a new capture would record the hash
-  of the facade and not of the code that captured. Existing evidence is
-  unaffected, because D29 pins it. Options: record the Git commit of the
-  scripts tree in new captures and compute `driver_sha256` over the whole
-  capture module set in a fixed order (the lead's recommendation, since it
-  applies D29 to new evidence too); keep the file whole as one recorded
+- Decision D31 (question; see the ruling below): how `protocol_capture.py`
+  identifies itself in new captures. `run_plan` records `driver_sha256`, the
+  SHA-256 of the module's own file. The module exceeds 400 lines and must be
+  split to meet the standard; a split leaves a facade, so a new capture would
+  record the hash of the facade and not of the code that captured. Existing
+  evidence is unaffected, because D29 pins it. Options: record the Git commit
+  of the scripts tree in new captures and compute `driver_sha256` over the
+  whole capture module set in a fixed order (the lead's recommendation, since
+  it applies D29 to new evidence too); keep the file whole as one recorded
   exception to the 400-line limit; or split and hash the facade, which
   identifies the driver weakly. Until the owner rules, the module stays on the
   legacy list with its characterization tests in place. The same question
@@ -1150,6 +1150,27 @@ The script work is a behaviour-preserving refactor.
     `cases_sha256`).
   Where a planner in such a pair has been migrated, it was kept as one module
   so that its own bytes still mean one file.
+
+- Decision D31, ruling (settled by the owner, 2026-11-18): the lead's
+  recommendation is accepted. A new capture records the Git commit of the
+  scripts tree, and its driver hash is computed over the whole capture module
+  set in a fixed order, not over one file. Consequences:
+  - A capture script may be split into modules; what identifies the driver is
+    the commit and the digest of the set.
+  - Existing corpora are untouched and keep verifying against the pinned
+    bytes (D29). A verifier accepts either form: the recorded single-file hash
+    for a corpus captured before this change, or the commit and module-set
+    digest for one captured after it.
+  - The capture-time self-checks, where a control compares live files with
+    hashes its planner recorded, compare the module-set digest in the same
+    way.
+  - The fifteen scripts listed above join the script-standards work.
+- Decision D32 (settled by the owner, 2026-11-18): the suppression limit is
+  raised for capture drivers, the scripts that start processes, open sockets or
+  drive a capture. For that class the limit of four per family does not apply;
+  each suppression is still scoped to one line and states its reason, and the
+  count is reported. The two ban-expiry capture drivers join the
+  script-standards work.
 
 ## Outcomes & retrospective
 
