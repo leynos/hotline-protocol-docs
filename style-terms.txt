@@ -1,0 +1,26 @@
+# Proper nouns, product names and protocol names that headings capitalize.
+# One term per line. A line with a space is a phrase and is matched as written.
+# A capitalized heading word that this file does not list is reported when the
+# corpus also writes it in lower case; see tools/style_prose.py.
+Hotline Server Protocol
+Hotline Server
+Hotline
+Classic
+Mac
+Finder
+Trash
+Ghidra
+SheepShaver
+Sleuth Kit
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December

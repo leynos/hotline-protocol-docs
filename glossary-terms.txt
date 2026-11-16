@@ -1,0 +1,83 @@
+# Terms that docs/glossary.md must define, one level-3 entry each.
+# Built from decision D25's coverage list and the entries of the glossary at
+# its first revision. Case and backticks are ignored when matching.
+# A line `exempt-series: X reason` names a capital letter that labels
+# something other than a work packet, so the label scan leaves X alone.
+Classic client
+Hotline Server 1.9
+`hx`
+`hxd`
+Identified client
+mxd
+Native
+Peer profile
+`shx`
+`shxd`
+SynHX
+`synhxd`
+Unknown peer
+ACK
+Alias
+Data fork
+Field
+`FILP`
+Flattened file
+Handshake tags
+`HTXF`
+Notification
+Push
+Rate304
+Reply
+Request
+Resource fork
+Stream tags
+Transaction
+Transfer protocol
+A7 readback
+Capture plan
+Controlled receiver
+Corpus
+Observed
+Oracle
+Preparation
+Readback
+Source prediction
+Unresolved
+Verifier
+Withheld file
+Witness
+Audit revision
+Correction map
+Gap
+Gap kind
+Gap priority
+Gap status
+Ledger entry
+Snapshot label
+A-series label
+B-series label
+Batch number
+C-series label
+Packet label
+AppleDouble
+Ghidra
+Ghidra MCP bridge
+Ghidra query record
+`mothra`
+PEF
+SheepShaver
+Sleuth Kit
+
+exempt-series: D decision identifier of the execution plan
+exempt-series: F family number of the recreation guide
+exempt-series: G processor model, as in G3 and G4
+exempt-series: H hypothesis label inside one record
+exempt-series: L list label inside one record
+exempt-series: M ledger identifier, defined by the glossary entry for ledger entries
+exempt-series: N byte or nibble name in a field table
+exempt-series: O observation label, as in O500
+exempt-series: P gap priority, defined by the glossary entry for gap priorities
+exempt-series: S seconds in a timeline
+exempt-series: T ticks or time offset in a timeline
+exempt-series: V ledger identifier, defined by the glossary entry for ledger entries
+exempt-series: X window-system name

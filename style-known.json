@@ -1,0 +1,2258 @@
+[
+  {
+    "rule": "glossary",
+    "path": "docs/native-evidence/native-diagnostic-boundary-preparation.md",
+    "key": "series R",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/native-evidence/native-missing-alias-preparation.md",
+    "key": "series R",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/native-evidence/recreating-evidence.md",
+    "key": "series R",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/provenance/protocol-handoff.md",
+    "key": "series R",
+    "reason": "A working record kept as written; the series is to be defined in the glossary, so the record itself is not edited."
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/provenance/records/missing-target-alias.md",
+    "key": "series R",
+    "reason": "A working record kept as written; the series is to be defined in the glossary, so the record itself is not edited."
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/provenance/remaining-evidence-work.md",
+    "key": "series R",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "glossary",
+    "path": "docs/reconciliation-log.md",
+    "key": "series R",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/accounts-and-privileges/native-configured-ban-ui-resources.md",
+    "key": "Configured-ban Options resource reconnaissance: Options",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/files-and-transfers/alias-record-v2.md",
+    "key": "Recorded Alias Record v2 identity: Alias",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/files-and-transfers/alias-record-v2.md",
+    "key": "Recorded Alias Record v2 identity: Record",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/native-evidence/native-configured-ban-witness.md",
+    "key": "One Add and Save: Add",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/native-evidence/native-configured-ban-witness.md",
+    "key": "One Add and Save: Save",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/native-evidence/native-ui-focus-witness.md",
+    "key": "One server Log focus event during a stalled native download: Log",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "5 Worked example (Login): Login",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Access Privilege Bits (Field 110): Bits",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Access Privilege Bits (Field 110): Privilege",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Admin Privileges Note: Admin",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Admin Privileges Note: Note",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Admin Privileges Note: Privileges",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Observed Requests and Scope Gaps: Gaps",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Observed Requests and Scope Gaps: Observed",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Observed Requests and Scope Gaps: Requests",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Additional Observed Requests and Scope Gaps: Scope",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Administrative Functions: Functions",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Agreement Acceptance (Transaction 121) – Client Initiates: Acceptance",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Agreement Acceptance (Transaction 121) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Agreement Acceptance (Transaction 121) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Download (Transaction 212) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Download (Transaction 212) – Client Initiates: Download",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Download (Transaction 212) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Metadata (Transaction 122) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Metadata (Transaction 122) – Server Initiates: Metadata",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Banner Metadata (Transaction 122) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Binary Message Formats (Hotline Protocol 1.9): Formats",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Binary Message Formats (Hotline Protocol 1.9): Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated: Initiated",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Broadcasting a Message (Transaction 355) – Admin/Server Initiated: Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Changing User Settings (Transaction 304) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Changing User Settings (Transaction 304) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Changing User Settings (Transaction 304) – Client Initiates: Settings",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Changing User Settings (Transaction 304) – Client Initiates: User",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat (Public and Private Chat Rooms): Chat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat (Public and Private Chat Rooms): Private",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat (Public and Private Chat Rooms): Public",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat (Public and Private Chat Rooms): Rooms",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Invitations (Transactions 112, 113, 114) – Private Chats: Chats",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Invitations (Transactions 112, 113, 114) – Private Chats: Invitations",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Invitations (Transactions 112, 113, 114) – Private Chats: Private",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates: Notifications",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates: Room",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Room Notifications (Transactions 117 & 118) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Chat Subject Management (Transactions 119 & 120): Subject",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating a New Folder (Transaction 205) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating a New Folder (Transaction 205) – Client Initiates: Folder",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating a New Folder (Transaction 205) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating a New Folder (Transaction 205) – Client Initiates: New",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates: Alias",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Creating an Alias (Shortcut) (Transaction 209) – Client Initiates: Shortcut",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a File (Transaction 204) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a File (Transaction 204) – Client Initiates: File",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a File (Transaction 204) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a News Article (Transaction 411) – Client Initiates: Article",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a News Article (Transaction 411) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a News Article (Transaction 411) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Deleting a News Article (Transaction 411) – Client Initiates: News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use: Use",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Disconnecting a User (Transaction 110 & 111) – Admin/Server Use: User",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading a File (Transaction 202) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading a File (Transaction 202) – Client Initiates: File",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading a File (Transaction 202) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading an Entire Folder (Transaction 210) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading an Entire Folder (Transaction 210) – Client Initiates: Entire",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading an Entire Folder (Transaction 210) – Client Initiates: Folder",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Downloading an Entire Folder (Transaction 210) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "File Services (Files and Folders): Files",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "File Services (Files and Folders): Folders",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "File Services (Files and Folders): Services",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Getting File/Folder Info (Transaction 206) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Getting File/Folder Info (Transaction 206) – Client Initiates: Info",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Getting File/Folder Info (Transaction 206) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Hotline Server Protocol 1.9: Transactions and Functionality Guide: Guide",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Joining a Chat Room (Transaction 115) – Client Initiates: Chat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Joining a Chat Room (Transaction 115) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Joining a Chat Room (Transaction 115) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Joining a Chat Room (Transaction 115) – Client Initiates: Room",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Leaving a Chat Room (Transaction 116) – Client Initiates: Chat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Leaving a Chat Room (Transaction 116) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Leaving a Chat Room (Transaction 116) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Leaving a Chat Room (Transaction 116) – Client Initiates: Room",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Legacy Message Board (Transactions 101, 102, 103): Board",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Legacy Message Board (Transactions 101, 102, 103): Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing Files in a Folder (Transaction 200) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing Files in a Folder (Transaction 200) – Client Initiates: Files",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing Files in a Folder (Transaction 200) – Client Initiates: Folder",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing Files in a Folder (Transaction 200) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Articles (Transaction 371) – Client Initiates: Articles",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Articles (Transaction 371) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Articles (Transaction 371) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Articles (Transaction 371) – Client Initiates: News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Categories (Transaction 370) – Client Initiates: Categories",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Categories (Transaction 370) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Categories (Transaction 370) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Listing News Categories (Transaction 370) – Client Initiates: News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Login (Transaction 107) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Login (Transaction 107) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods): Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods): Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods): News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Managing News Structure (Transactions 380, 381, 382) – Client Initiates (Admin/Mods): Structure",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Moving Files/Folders (Transaction 208) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Moving Files/Folders (Transaction 208) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "News (Bulletin Board System): Board",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "News (Bulletin Board System): System",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "News Hierarchy: Hierarchy",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Posting a News Article (Transaction 410) – Client Initiates: Article",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Posting a News Article (Transaction 410) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Posting a News Article (Transaction 410) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Posting a News Article (Transaction 410) – Client Initiates: News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Private Messaging (Instant Messages): Instant",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Private Messaging (Instant Messages): Messages",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Private Messaging (Instant Messages): Messaging",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Reading a News Article (Transaction 400) – Client Initiates: Article",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Reading a News Article (Transaction 400) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Reading a News Article (Transaction 400) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Reading a News Article (Transaction 400) – Client Initiates: News",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Chat Message (Transaction 106) – Server Initiates: Chat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Chat Message (Transaction 106) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Chat Message (Transaction 106) – Server Initiates: Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Chat Message (Transaction 106) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Private Message (Transaction 104) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Private Message (Transaction 104) – Server Initiates: Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Private Message (Transaction 104) – Server Initiates: Private",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Receiving a Private Message (Transaction 104) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "References and Correction Traceability: Correction",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Retrieving the User List (Transaction 300) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Retrieving the User List (Transaction 300) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Retrieving the User List (Transaction 300) – Client Initiates: List",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Retrieving the User List (Transaction 300) – Client Initiates: User",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending a Chat Message (Transaction 105) – Client Initiates: Chat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending a Chat Message (Transaction 105) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending a Chat Message (Transaction 105) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending a Chat Message (Transaction 105) – Client Initiates: Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending an Instant Message (Transaction 108) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending an Instant Message (Transaction 108) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending an Instant Message (Transaction 108) – Client Initiates: Instant",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Sending an Instant Message (Transaction 108) – Client Initiates: Message",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Server Agreement (Transaction 109) – Server Initiates: Agreement",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Server Agreement (Transaction 109) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Server Agreement (Transaction 109) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Session Handshake (Before Transactions Begin): Before",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Session Handshake (Before Transactions Begin): Begin",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Session Handshake (Before Transactions Begin): Handshake",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Session Handshake (Before Transactions Begin): Transactions",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Setting File/Folder Info (Transaction 207) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Setting File/Folder Info (Transaction 207) – Client Initiates: Info",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Setting File/Folder Info (Transaction 207) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Transfer Connection and Reference Cleanup: Cleanup",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Transfer Connection and Reference Cleanup: Connection",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Transfer Connection and Reference Cleanup: Reference",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading a File (Transaction 203) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading a File (Transaction 203) – Client Initiates: File",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading a File (Transaction 203) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading an Entire Folder (Transaction 213) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading an Entire Folder (Transaction 213) – Client Initiates: Entire",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading an Entire Folder (Transaction 213) – Client Initiates: Folder",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Uploading an Entire Folder (Transaction 213) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Access Privileges (Transaction 354) – Server Initiates: Access",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Access Privileges (Transaction 354) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Access Privileges (Transaction 354) – Server Initiates: Privileges",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Access Privileges (Transaction 354) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Account Management – Client Initiates (Admin) (Tx 350–353): Account",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Account Management – Client Initiates (Admin) (Tx 350–353): Admin",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Account Management – Client Initiates (Admin) (Tx 350–353): Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Account Management – Client Initiates (Admin) (Tx 350–353): Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates: Appearance",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates: Server",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Appearance and Updates (Transaction 301 & 302) – Server Initiates: Updates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Login and Presence: Login",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "User Login and Presence: Presence",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Viewing User Info (Transaction 303) – Client Initiates: Client",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Viewing User Info (Transaction 303) – Client Initiates: Info",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Viewing User Info (Transaction 303) – Client Initiates: Initiates",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "heading-case",
+    "path": "docs/protocol/protocol.md",
+    "key": "Viewing User Info (Transaction 303) – Client Initiates: User",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "person",
+    "path": "docs/native-evidence/native-capture-workflow.md",
+    "key": "your: Use the committed mothra harness and a fresh working copy of",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "person",
+    "path": "docs/native-evidence/native-capture-workflow.md",
+    "key": "your: of your prepared guest. It needs the ordinary-file and folde",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "person",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "You: constructs status 1 with field 100: the compiled Pascal stri",
+    "reason": "Quoted wire text: the server's own error strings are named in prose without quotation marks. The correction is to put them in backticks, which leaves the claim unchanged."
+  },
+  {
+    "rule": "person",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "You: permanently banned on this server. and You are temporarily b",
+    "reason": "Quoted wire text: the server's own error strings are named in prose without quotation marks. The correction is to put them in backticks, which leaves the claim unchanged."
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/account-attribute-trace.md",
+    "key": "table: | Caller | Bounded visible use of the loaded record |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/account-attribute-trace.md",
+    "key": "table: | Native fixture | Stored length and bytes | Consequence est",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/classic-account-constructors.md",
+    "key": "table: | Client path | Positive construction evidence |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/native-ban-file-format.md",
+    "key": "table: | Offset | Size | Observed bytes and supported interpretatio",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/privilege-bits.md",
+    "key": "table: | Bit | One-bit field 110 hex | Native case: 353→352 ID | So",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/privilege-contracts.md",
+    "key": "table: | Bit | Observed native use | Evidence / condition |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/accounts-and-privileges/privilege-contracts.md",
+    "key": "table: | Operation group | Composition established in inspected han",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | 204 delete case | Native reply and effect |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | 208 move case | Native reply and effect |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | 211 new name | 210 absent | 210 empty | 210 nonempty |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Captured target | 205 description | 206 creator | 213 raw ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Case | Captured outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Combined operation | Reply | Before/after result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Field-202 input | Captured creation location |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Operation | Native check |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Post case | Native result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Request case | Observed order/result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+    "key": "table: | Target kind | 205 | 206 | 213 | 207 size | 208/209 dates a",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/native-download-send-path.md",
+    "key": "table: | Count | Meaning | What it cannot prove alone |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/native-download-send-path.md",
+    "key": "table: | Stage | Frozen function | Established action |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/native-path-fields.md",
+    "key": "table: | Field | Tested values | Measured selected location |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/native-transfer-stall.md",
+    "key": "table: | Lab | A7 actions | Lab guest bytes | Lab namespace bytes |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Cancellation attempt | Total stream bytes received | Appli",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Captured case | File-choice and completion outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Entry / state | Clock origin or refresh | Consequence in t",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Entry path | Captured sequence on the transfer connection ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Field 204 / file | Initial 108 | Initial 207 | Reference 1",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | File-header offset | Size | Emitted value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Fixture | Captured outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Fork-header offset | Size | Emitted value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Item after removing the transfer root | Derived descriptor",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Native file/control | Finder type | Advertised 152 | Store",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Native state | Input from client | Server action / next st",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Native state | Input/output | Next action |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Offset within entry | Size | Entry value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Offset | Size | Header value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Offset | Size | Observed value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Offset | Size | Role in the acceptor |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Offset | Size | Value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Probe | Native result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | RFLT entries, in wire order | Captured DATA / MACR bytes |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Reference state / requester | Captured 214 outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Reference | Selector | Lookup / branch |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Request 203, option 204 = 1 | Captured result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Request/item sequence | Captured result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Timing case | Host-clock observation at guest packet bound",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/files-and-transfers/transfer-contracts.md",
+    "key": "table: | Worker condition | Observed action |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-121-default-witness.md",
+    "key": "table: | 215 input | Current UID/name/icon | Measured automatic 104",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-ban-expiry-later-witness.md",
+    "key": "table: | Flow | Namespace packets | Guest packets | Sent bytes | Re",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-capture-workflow.md",
+    "key": "table: | Fixture family | Required scenarios / related gaps |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-control-readiness.md",
+    "key": "table: | Gate | Required evidence |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-diagnostic-boundary-preparation.md",
+    "key": "table: | Order | Request IDs / exact field intent | Required observ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-diagnostic-density-witness.md",
+    "key": "table: | Fixed point | Native 303 field 101 | Complete file-downloa",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-diagnostic-existing-witness.md",
+    "key": "table: | Native section | Row bytes (escaped CR) |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-diagnostic-near-witness.md",
+    "key": "table: | Point | Native field 101 | Complete active rows | Complete",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-liveness-witness.md",
+    "key": "table: | Flow | Sent | Received |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-pm-preparation.md",
+    "key": "table: | Case | Sender -> recipient | Session settings 113 | Reques",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-pm-witness.md",
+    "key": "table: | 108 case; identifier | Session flags (main/peer) | Recorde",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-rate304-first-pair.md",
+    "key": "table: | Event | Elapsed from case start |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-rate304-sequence.md",
+    "key": "table: | Connection | Client port | Sent bytes | Received bytes |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-roster-overlap-witness.md",
+    "key": "table: | State | A name/icon | B name/icon |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-settings-transition-witness.md",
+    "key": "table: | Stage | 304 inputs | Measured 301 name/icon; PM feedback |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/native-evidence/native-settings-witness.md",
+    "key": "table: | 304 field 113 input | Measured effective flags | PM observ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Article ID | Previous sibling 331 | Next sibling 332 | Par",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Article | 331 previous sibling | 332 next sibling | 335 pa",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Category offset | Size | Emitted value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Children posted | Stored/indexed articles | 371 traversal ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Deleted article and mode | Result | Stored count |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Folder offset | Size | Emitted value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Input bytes | Observed deletion of A |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | List-header offset | Size | Rebuilt value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Record offset | Size | Value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Record | Legacy 320 | Modern 323 |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Reply field | Native record offset | Meaning |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Request | Exact field 100 text |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Request | Target and permission checks | Normal effect / r",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/news/news-contracts.md",
+    "key": "table: | Serialized public ID | Parent | Title | Raw flags | Flavou",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/classic-field161-matrix.md",
+    "key": "table: | Variant | Forwarded ACK | 161 value | Client progression |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/classic-login-proxy.md",
+    "key": "table: | Variant | ACK change sent to Classic client |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/classic-native-baseline.md",
+    "key": "table: | Observation | B46 | B47 |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/identified-client-source.md",
+    "key": "table: | Evidence profile | Identity and applicability |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/identified-client-source.md",
+    "key": "table: | Generated reply input | Observed callback result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/identified-client-source.md",
+    "key": "table: | Receiver case | Observed real-client result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/identified-client-source.md",
+    "key": "table: | Session | Native exchange and independently checked result",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/mac-peer-first-session.md",
+    "key": "table: | Direction | Complete captured frame sequence |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/peer-profile-rules.md",
+    "key": "table: | Evidence cell | Exact shx build | Exact Classic candidate ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/peer-tolerance-matrix.md",
+    "key": "table: | Case | Deliberate receiver variant | Observed complete cli",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/peers/peer-tolerance-matrix.md",
+    "key": "table: | Field/output | Identified shx terminal build | Identified ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/native-104-variants.md",
+    "key": "table: | Producer and source | Branch's 104 fields and identity mea",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/native-console-broadcast.md",
+    "key": "table: | Origin and point | `ConsoleSender` | `ConsoleRefuse` | `Co",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/notification-104-variants.md",
+    "key": "table: | Producer and trigger | Fields produced | Captured evidence",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-defaults.md",
+    "key": "table: | Context and field | Presence/default distinction | Confide",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-defaults.md",
+    "key": "table: | Context and field | `Ø` / `E` | `00`, `N0` or sentinel | C",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-defaults.md",
+    "key": "table: | Notation | Wire distinction | Rule |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-defaults.md",
+    "key": "table: | Request field | `Ø` / `E` | `00` or numeric zero | Confide",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Action / state | Native result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Before / change | Calculated status after change |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Condition | Notification 109 contents |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Configuration branch | Loader effects |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Field | Native source | Established representation / scope",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Field | Update/default rule | Persistence rule in the insp",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Input | Observed assignment |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Native file type | Pre-conversion data-fork limit | Byte t",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Numeric mask | Native condition |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Observation | Captured result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Operation | Native result / checks in this handler |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Option 109 | Prefix |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Option 113 | Native effect on existing unprotected target ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Request/condition | Feedback to sender | Original message ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Subject path | Subject sequence and observer result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+    "key": "table: | Suffix / native file type | Selected four-byte value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/bitmap-boundaries.md",
+    "key": "table: | Submitted field 110 | Bytes in TLV | Exact 352 readback |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Condition after account authentication | Native dependent ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Operation | Field | Type / content cap | Absence/default a",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Present value bytes | Effective generic number |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Reply or notification | Field schemas / occurrence | Notes",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Reply or notification | Fields and occurrence | Conditions",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/core-field-schemas.md",
+    "key": "table: | Request | Field schemas / occurrence | Absence, conditions",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/date-contracts.md",
+    "key": "table: | Context | Producer to wire/storage | Receiver, copy or eff",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/date-contracts.md",
+    "key": "table: | Offset | Width | Source-derived output |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/date-contracts.md",
+    "key": "table: | Question | Smallest decisive comparison and stop rule |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/diagnostic-formatting-trace.md",
+    "key": "table: | Step | Native evidence | Consequence |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/diagnostic-replies.md",
+    "key": "table: | Case | Same-session target proof | Reply fields and bytes ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/error-outcomes.md",
+    "key": "table: | Component | Hex |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/error-outcomes.md",
+    "key": "table: | Internal domain | Resource role | Number of retained messa",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/error-outcomes.md",
+    "key": "table: | Native result | Internal domain/code | Resource meaning (p",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/error-outcomes.md",
+    "key": "table: | Trigger / path | Native result established in the traced c",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | 353 password field 106 | Stored result | Login controls |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Captured payload class | Settings outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Condition | Observed dispatcher action |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Configuration at application-relative Agreement.txt | Ordi",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Controlled condition | Captured result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Field 106 in request 353 | Observed password result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Field and core operation context | Native wire type, width",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Input or operation | Observed helper behaviour |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Input or rule | Field-202 evidence and scope |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Input or rule | Field-212 evidence and scope |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Input or rule | Field-325 evidence and scope |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Input/control | Captured result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Offset | Size | Value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Owned target | Effective bitmap | Request 110 | Request 35",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Recipient / request | Delivered sequence or result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Relative offset | Size | Component value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Subject path | Captured partial outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/native-wire-details.md",
+    "key": "table: | Wire field | Stored length offset | Stored bytes offset | ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Context | Exact unresolved boundary or aggregate question ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Gate / branch | Observed outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Native connection condition | Requests dispatched | Other ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Nested field | Input rule in this handler |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Operation and field | Native limit and unit | Boundary evi",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Request | Direct normal reply | E | Subsequent or associat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Request | Operation | Entry/evidence | Directly read field",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/operation-contracts.md",
+    "key": "table: | Type | Producer / role | Known value fields | Remaining co",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/parameter-multiplicity.md",
+    "key": "table: | Direction and transaction | Field(s) | Canonical occurrenc",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Bit | Observed use |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Field | Observed role |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Header field | Hex bytes |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Offset within record | Size | Field |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Offset within value | Size | Field |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Offset | Size | Field | Meaning |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Offset | Size | Field | Observed value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Offset | Size | Observed file-date value |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Parameter component | Hex bytes |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Request | Directly read fields | Observed result |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Request | Input fields identified | Reply behaviour |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Type | Established observation | Remaining uncertainty |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Value | Interpreted case |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/protocol.md",
+    "key": "table: | Value | Meaning |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/receive-limit-origin.md",
+    "key": "table: | Address | Bytes | PowerPC instruction |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/request-500-contract.md",
+    "key": "table: | Source anchor | Observed implementation |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Configured port | Server field | Construction/consumer |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Header contents | Native calls/outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Header field | Native server input | Native server output ",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Input on the ordinary control listener | Recorded applicat",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Mechanism | Native state / comparison | Consequence |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Native case | Captured outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Native input | Captured outcome |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | Session | Input after TRTP | Runner observation relative t",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/protocol/session-transport-contracts.md",
+    "key": "table: | State / counter | Native comparison and boundary | Reset /",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/provenance/baseline-correction-map.md",
+    "key": "table: | Ledger entry | Original status | Revised section | Disposi",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/repository-layout.md",
+    "key": "table: | Family | Holds | Maintained by |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/repository-layout.md",
+    "key": "table: | Old note | Present document | Basis |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/repository-layout.md",
+    "key": "table: | Old path | Present path |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/repository-layout.md",
+    "key": "table: | Path | Holds | Maintained by |",
+    "reason": "To be corrected in EP-M10"
+  },
+  {
+    "rule": "table-caption",
+    "path": "docs/repository-layout.md",
+    "key": "table: | Record | What it records | Maintained by |",
+    "reason": "To be corrected in EP-M10"
+  }
+]

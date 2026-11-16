@@ -86,7 +86,7 @@ IMPORT_COMMIT ?= f9b4108ec33e59956c9f2bfbd391dc3a8a279299
 
 .PHONY: help all build fmt check-fmt check-fmt-python check-fmt-markdown \
 	lint lint-python lint-legacy typecheck test docs-gates markdownlint spelling nixie \
-	json-check pins-check links-check evidence-check evidence-index audit-check withheld-check withheld-scan withheld-skip \
+	json-check pins-check links-check style-check evidence-check evidence-index audit-check withheld-check withheld-scan withheld-skip \
 	sums-check lfs-check evidence-skip curation-check import-check curation-skip \
 	goldens-check pin-experiment pin-equivalence continuity-tests
 
@@ -98,7 +98,7 @@ all: build check-fmt-python json-check pins-check links-check evidence-check aud
 
 lint: lint-python lint-legacy ## Run every Python linter
 
-docs-gates: check-fmt-markdown markdownlint nixie ## Run the Markdown gates (they join `all` once every document conforms)
+docs-gates: check-fmt-markdown markdownlint nixie style-check ## Run the Markdown gates (they join `all` once every document conforms)
 
 define ensure_tool
 	@command -v $(1) >/dev/null 2>&1 || { \
@@ -137,6 +137,17 @@ pins-check: ## Verify that each pinned script is in the local history and carrie
 
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)
+
+# The run must see at least this many tables, Mermaid blocks and glossary entries, so
+# an empty run cannot pass. style-known.json lists accepted current findings.
+STYLE_TABLES_MIN ?= 250
+STYLE_FIGURES_MIN ?= 10
+STYLE_GLOSSARY_MIN ?= 60
+STYLE_KNOWN ?= style-known.json
+
+style-check: ## Verify table captions, figure text, fence labels, heading case, person and the glossary
+	$(PYTHON) tools/check_style.py check --root . --known $(STYLE_KNOWN) \
+		--min-tables $(STYLE_TABLES_MIN) --min-figures $(STYLE_FIGURES_MIN) --min-glossary $(STYLE_GLOSSARY_MIN)
 
 # The run must see at least this many ledger citations and evidence links, so an
 # empty run cannot pass. evidence-known.json lists accepted current findings.
