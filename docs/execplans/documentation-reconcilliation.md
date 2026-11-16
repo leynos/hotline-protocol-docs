@@ -226,6 +226,17 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 15:00Z) EP-M8 complete: `docs/developers-guide.md`
+  (`1a4beef`) written by a scribe from the `Makefile`, the tools and this plan,
+  and gated. With it the orientation layer holds the root `README.md`, the
+  contents page, the repository layout, the developers' guide, the glossary,
+  nine set overviews, the recreation guide, the ledger of remaining evidence
+  work and the reconciliation log, with eleven validated Mermaid diagrams.
+  `links-check` reports `137 documents, 7684 links, 0 failures`. Questions the
+  guide's author could not answer from the repository, now answered in the
+  guide or left for EP-M10: which register to pass as the refresh baseline (the
+  last committed one); whether a make target should wrap the audit refresh (not
+  yet); that no file states a commit message convention.
 - [x] (2026-11-17 14:00Z) EP-M5 wave 5B integrated (eight commits, classic
   verifiers through `prepare_native_cases`): the classic, Mac peer, mxd, SynHX
   and shx verifiers, peer tolerance and the utilities meet the standard,
@@ -509,7 +520,8 @@ The script work is a behaviour-preserving refactor.
   2026-11-16 15:30Z).
 - [x] EP-M7: mxd set consolidated; revision 93 (see the entry dated
   2026-11-16 18:00Z).
-- [ ] EP-M8: on-ramps, orientation, recreation guide and diagrams.
+- [x] EP-M8: on-ramps, orientation, recreation guide and diagrams (see the
+  entries dated 2026-11-16 08:00Z, 11:30Z and 20:30Z, and 2026-11-17 15:00Z).
 - [x] EP-M9: evidence correlation and reconciliation; revision 94 (see the
   entry dated 2026-11-17 03:00Z).
 - [ ] EP-M10: style conformance and cross-references; revision 95.
