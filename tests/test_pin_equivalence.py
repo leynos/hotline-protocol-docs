@@ -141,6 +141,33 @@ class TopLevelTestEquivalenceTests:
         assert found == [], "expected the named script to be reached and agree"
 
 
+DATA_TEST = (
+    "from pathlib import Path\n\nimport calc\n\n"
+    "TABLE = Path(__file__).with_name('data') / 'sums.txt'\n"
+    "EXPECTED = int(TABLE.read_text())\n\n\n"
+    "class DataTests:\n"
+    "    def test_adds_the_tabulated_sum(self):\n"
+    "        assert calc.add(2, 3) == EXPECTED\n"
+)
+
+
+class DataTableEquivalenceTests:
+    """A test that reads a table of ``tests/data`` when it is collected still runs."""
+
+    def test_the_table_is_laid_out_so_that_the_test_is_not_a_collection_error(
+        self, tmp_path: Path
+    ) -> None:
+        """A change that the table-driven test catches is reported, not hidden."""
+        scripts = scripts_with(tmp_path, b"def add(a, b):\n    return a + b + 1\n")
+        (tmp_path / "tests/data").mkdir(parents=True)
+        (tmp_path / "tests/data/sums.txt").write_text("5\n")
+        (tmp_path / "tests/test_data.py").write_text(DATA_TEST)
+        found = pin_equivalence.differences(scripts, "calc.py", PINNED_CALC)
+        assert any(
+            "tests/test_data.py" in line and "FAILED" in line for line in found
+        ), found
+
+
 class CompanionEquivalenceTests:
     """A verifier that hashes its siblings is compared with them pinned too."""
 

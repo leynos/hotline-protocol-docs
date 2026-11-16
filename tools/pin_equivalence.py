@@ -131,6 +131,8 @@ def lay_out(
         (root / "tests").mkdir()
         for path in top.glob("*.py"):
             shutil.copyfile(path, root / "tests" / path.name)
+        if (top / "data").is_dir():  # tables that the order tests read on collection
+            shutil.copytree(top / "data", root / "tests" / "data")
     for name, target in links.items():
         place = base / name if name == "mothra" else root / name
         place.symlink_to(target)

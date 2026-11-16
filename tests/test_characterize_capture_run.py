@@ -64,6 +64,18 @@ def pause_plan() -> Plan:
     }
 
 
+def listing_digest(files: list[dict[str, str]]) -> str:
+    """Hash the lines ``sha256sum`` would print for the files.
+
+    Returns
+    -------
+    str
+        The SHA-256 of ``"<sha256>  <path>"`` lines.
+    """
+    text = "".join(f"{item['sha256']}  {item['path']}\n" for item in files)
+    return pc.digest(text.encode())
+
+
 class Run:
     """A plan file and a binary in a temporary directory."""
 
@@ -110,8 +122,16 @@ class TestReport:
     """The report of a completed run."""
 
     def test_the_keys_are_these_in_this_order(self, run: Run) -> None:
-        """No field is added, dropped or moved by a change to the driver."""
-        assert list(run.run()) == REPORT_KEYS, "expected the recorded keys"
+        """No field is added, dropped or moved; the identity record follows the hash.
+
+        A report of the earlier form has ``REPORT_KEYS``. Since decision D31 the
+        record ``driver_identity`` follows ``driver_sha256``; nothing else differs,
+        so the test holds for the pinned bytes and for the current ones.
+        """
+        keys = list(run.run())
+        if "driver_identity" in keys:
+            keys.remove("driver_identity")
+        assert keys == REPORT_KEYS, "expected the recorded keys"
 
     def test_the_fixed_fields_are_as_recorded(self, run: Run) -> None:
         """Profile, status, scope and counts for a completed pause."""
@@ -134,10 +154,26 @@ class TestReport:
         assert report["plan_sha256"] == pc.digest(run.source), report
         assert report["oracle_sha256"] == pc.digest(BINARY), report
 
-    def test_the_driver_hash_is_that_of_the_module_file(self, run: Run) -> None:
-        """Before decision D31 the driver is one file, ``protocol_capture.py``."""
+    def test_the_driver_is_identified(self, run: Run) -> None:
+        """One file before decision D31; the module set and its record after.
+
+        The pinned bytes hash their own file. The current driver hashes the
+        listing of every module of ``CAPTURE_MODULES`` and records the files.
+        """
         report = run.run()
-        assert report["driver_sha256"] == pc.digest(SCRIPT.read_bytes()), report
+        if "driver_identity" not in report:
+            assert report["driver_sha256"] == pc.digest(SCRIPT.read_bytes()), report
+            return
+        record = report["driver_identity"]
+        scripts = SCRIPT.parent
+        names = [item["path"] for item in record["files"]]
+        assert names == [f"scripts/{name}" for name in pc.CAPTURE_MODULES], record
+        for item in record["files"]:
+            held = (scripts / Path(item["path"]).name).read_bytes()
+            assert item["sha256"] == pc.digest(held), item
+        assert report["driver_sha256"] == record["digest"], report
+        assert record["digest"] == listing_digest(record["files"]), record
+        assert isinstance(record["dirty"], list), record
 
     def test_the_pause_is_one_event_without_a_connection(self, run: Run) -> None:
         """An event has these fields; its time is not compared."""

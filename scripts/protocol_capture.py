@@ -1,348 +1,123 @@
 #!/usr/bin/env python3
-"""Record planned TCP exchanges without treating tool tests as native evidence."""
+"""Record planned TCP exchanges without treating tool tests as native evidence.
+
+``capture`` records a plan against a peer; ``verify`` checks a retained capture
+directory. The work is split across the modules of ``CAPTURE_MODULES``, and this
+module keeps their public names and the two constants that tests patch.
+
+A report records which scripts made it (decision D31): ``driver_sha256`` is the
+digest of the whole module set, and ``driver_identity`` holds the commit, the
+hash of each module and whether any differed from the commit. See
+``capture_identity``. A report captured before that decision holds the hash of
+this one file in ``driver_sha256`` and has no ``driver_identity``; its verifiers
+keep their comparison for it.
+
+This module runs under a bare ``python3``: a recipe verifies retained captures
+with ``python3 scripts/protocol_capture.py verify``, so the command line stays
+on ``argparse``.
+"""
 
 import argparse
-import hashlib
 import json
-import re
-import socket
-import struct
-import time
-from datetime import datetime, timezone
+import typing as typ
 from pathlib import Path
+
+import capture_identity
+
+# Re-exported for the verifiers, controls and tests that import these names from
+# protocol_capture, as the module was one file before it was split.
+from protocol_capture_decode import decode_frame
+from protocol_capture_plan import VARIABLE, field_saves, validate
+from protocol_capture_recorder import RecorderBase
+from protocol_capture_report import (
+    Outcome,
+    build_report,
+    check_frames,
+    check_inventory,
+    check_report,
+    digest,
+    write_directory,
+)
+
+# The scripts that make a capture, in the fixed order of its identity digest: this
+# file, then the modules split out of it. A test requires the list to be exact.
+CAPTURE_MODULES = (
+    "protocol_capture.py",
+    "protocol_capture_decode.py",
+    "protocol_capture_plan.py",
+    "protocol_capture_recorder.py",
+    "protocol_capture_report.py",
+)
 
 ORACLE_SHA256 = "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
 MAX_CAPTURE_BYTES = 8 * 1024 * 1024
-VARIABLE = re.compile(r"\{([a-z][a-z0-9_]*)\}")
 
-
-def digest(data: bytes) -> str:
-    """Return a SHA-256 identity for exact retained bytes."""
-    return hashlib.sha256(data).hexdigest()
-
-
-def field_saves(step: dict) -> dict[str, int]:
-    """Normalize field selectors without changing the received value bytes."""
-    result = dict(step.get("save_fields", {}))
-    if "save_field" in step:
-        saved = step["save_field"]
-        if saved["name"] in result:
-            raise ValueError("Repeated saved-field variable")
-        result[saved["name"]] = saved["id"]
-    return result
+__all__ = [
+    "CAPTURE_MODULES",
+    "MAX_CAPTURE_BYTES",
+    "ORACLE_SHA256",
+    "VARIABLE",
+    "Recorder",
+    "decode_frame",
+    "digest",
+    "field_saves",
+    "main",
+    "run_plan",
+    "validate_plan",
+    "verify_capture",
+]
 
 
 def validate_plan(plan: dict) -> None:
-    """Reject invalid actions and unresolved connections before opening sockets."""
-    if plan.get("schema_version") != 1:
-        raise ValueError("Unsupported capture schema")
-    if plan.get("profile") not in {"synthetic-tool-test", "native-mac-oracle"}:
-        raise ValueError("Unknown evidence profile")
-    if not plan.get("operator") or not plan.get("gap_ids"):
-        raise ValueError("Operator and gap IDs are required")
-    if (
-        plan["profile"] == "native-mac-oracle"
-        and plan["oracle_sha256"] != ORACLE_SHA256
-    ):
-        raise ValueError("Native profile requires the recorded Mac oracle hash")
-    for endpoint in plan["endpoints"].values():
-        if not isinstance(endpoint["host"], str) or not 1 <= endpoint["port"] <= 65535:
-            raise ValueError("Invalid endpoint")
-    connections: set[str] = set()
-    declared: set[str] = set()
-    writes_closed: set[str] = set()
-    variables: set[str] = set()
-    for step in plan["steps"]:
-        op = step["op"]
-        name = step.get("connection", "")
-        if op == "connect":
-            if (
-                name in declared
-                or not name
-                or step["endpoint"] not in plan["endpoints"]
-            ):
-                raise ValueError("Invalid connection declaration")
-            connections.add(name)
-            declared.add(name)
-        elif op == "pause":
-            if not 0 <= step["seconds"] <= 3600:
-                raise ValueError("Invalid pause")
-        elif op in {
-            "send",
-            "read",
-            "read_frame",
-            "read_eof",
-            "close",
-            "shutdown_write",
-            "expect_quiet",
-        }:
-            if name not in connections:
-                raise ValueError(f"Unknown connection: {name}")
-            if op == "close":
-                connections.remove(name)
-            if op in {"send", "shutdown_write"} and name in writes_closed:
-                raise ValueError("Connection write side is already closed")
-            if op == "shutdown_write":
-                writes_closed.add(name)
-        else:
-            raise ValueError(f"Unknown action: {op}")
-        if not 0 < step.get("timeout", 2) <= 3600:
-            raise ValueError("Invalid action timeout")
-        if "size_from" in step and op != "read":
-            raise ValueError("Only fixed-length reads can use size_from")
-        if "match_frame" in step:
-            match = step["match_frame"]
-            bounds = {"is_reply": 255, "type": 65535, "id": 0xFFFFFFFF}
-            if (
-                op != "read_frame"
-                or not match
-                or any(
-                    k not in bounds or not isinstance(v, int) or not 0 <= v <= bounds[k]
-                    for k, v in match.items()
-                )
-            ):
-                raise ValueError("Invalid frame match")
-        if op == "read":
-            if "size_from" in step:
-                if "size" in step or step["size_from"] not in variables:
-                    raise ValueError("Unknown or ambiguous read size")
-            elif not 0 < step["size"] <= MAX_CAPTURE_BYTES:
-                raise ValueError("Read size exceeds capture limit")
-        if op == "send":
-            for variable in VARIABLE.findall(step["hex"]):
-                if variable not in variables:
-                    raise ValueError(f"Unknown saved bytes: {variable}")
-            literal = VARIABLE.sub("00", step["hex"])
-            if len(bytes.fromhex(literal)) > MAX_CAPTURE_BYTES:
-                raise ValueError("Send size exceeds capture limit")
-        if "expect_hex" in step:
-            bytes.fromhex(step["expect_hex"])
-        if "save" in step:
-            saved = step["save"]
-            if op not in {"read", "read_frame", "read_eof"}:
-                raise ValueError("Only received bytes can be saved")
-            if not re.fullmatch(r"[a-z][a-z0-9_]*", saved["name"]):
-                raise ValueError("Invalid saved-byte name")
-            if saved["offset"] < 0 or not 0 < saved["size"] <= MAX_CAPTURE_BYTES:
-                raise ValueError("Invalid saved-byte bounds")
-            variables.add(saved["name"])
-        for variable, field_id in field_saves(step).items():
-            if op != "read_frame" or not 0 <= field_id <= 65535:
-                raise ValueError("Only a frame field can be saved by ID")
-            if not re.fullmatch(r"[a-z][a-z0-9_]*", variable):
-                raise ValueError("Invalid saved-field name")
-            variables.add(variable)
+    """Reject invalid actions and unresolved connections before opening sockets.
+
+    The oracle hash and the capture limit are read here, from this module, so
+    that patching either on ``protocol_capture`` takes effect.
+
+    Parameters
+    ----------
+    plan : dict
+        The plan.
+    """
+    validate(plan, oracle=ORACLE_SHA256, limit=MAX_CAPTURE_BYTES)
 
 
-def decode_frame(data: bytes) -> dict:
-    """Describe a physical frame; preserve malformed/fragmented payloads as bytes."""
-    flags, reply, kind, identifier, error, total, size = struct.unpack(
-        ">BBHIIII", data[:20]
-    )
-    result = {
-        "flags": flags,
-        "is_reply": reply,
-        "type": kind,
-        "id": identifier,
-        "error": error,
-        "total_size": total,
-        "data_size": size,
-        "payload_hex": data[20:].hex(),
-    }
-    if total != size:
-        result["decode_note"] = "Physical fragment only; no logical TLV inference"
-        return result
-    payload = data[20:]
-    fields = []
-    offset = 2
-    if len(payload) >= 2:
-        count = int.from_bytes(payload[:2], "big")
-        for _ in range(count):
-            if offset + 4 > len(payload):
-                break
-            field, length = struct.unpack(">HH", payload[offset : offset + 4])
-            if offset + 4 + length > len(payload):
-                break
-            fields.append(
-                {"id": field, "hex": payload[offset + 4 : offset + 4 + length].hex()}
-            )
-            offset += 4 + length
-        result["fields"] = fields
-        result["declared_field_count"] = count
-        result["unconsumed_hex"] = payload[offset:].hex()
-    else:
-        result["decode_note"] = "Payload lacks a complete count word"
-    return result
-
-
-class Recorder:
+class Recorder(RecorderBase):
     """Retain every successful send/receive chunk and action-relative timing."""
 
-    def __init__(self, plan: dict) -> None:
-        self.plan = plan
-        self.started = time.monotonic_ns()
-        self.started_at_utc = datetime.now(timezone.utc).isoformat()
-        self.sockets: dict[str, socket.socket] = {}
-        self.variables: dict[str, bytes] = {}
-        self.events: list[dict] = []
-        self.frames: list[dict] = []
-        self.byte_count = 0
+    @property
+    def limit(self) -> int:
+        """The session limit, read from this module so that a patch applies.
 
-    def event(self, action: int, name: str, direction: str, data: bytes = b"") -> None:
-        self.byte_count += len(data)
-        self.events.append(
-            {
-                "action": action,
-                "connection": name,
-                "event": direction,
-                "elapsed_ns": time.monotonic_ns() - self.started,
-                "hex": data.hex(),
-            }
-        )
-
-        if data and self.byte_count > MAX_CAPTURE_BYTES:
-            raise ValueError("Session exceeds capture limit")
-
-    def read(self, action: int, name: str, size: int | None, deadline: float) -> bytes:
-        chunks = bytearray()
-        connection = self.sockets[name]
-        while size is None or len(chunks) < size:
-            remaining = deadline - time.monotonic()
-            if remaining <= 0:
-                raise TimeoutError("Action timed out")
-            connection.settimeout(remaining)
-            count = min(65536, size - len(chunks)) if size is not None else 65536
-            data = connection.recv(count)
-            if not data:
-                self.event(action, name, "eof")
-                if size is not None:
-                    raise EOFError(f"EOF before {size} requested bytes")
-                break
-            self.event(action, name, "receive", data)
-            chunks.extend(data)
-        return bytes(chunks)
-
-    def execute(self, action: int, step: dict) -> None:
-        name = step.get("connection", "")
-        op = step["op"]
-        deadline = time.monotonic() + step.get("timeout", 2)
-        if op == "connect":
-            endpoint = self.plan["endpoints"][step["endpoint"]]
-            self.sockets[name] = socket.create_connection(
-                (endpoint["host"], endpoint["port"]), step.get("timeout", 2)
-            )
-            self.event(action, name, "connect")
-            self.events[-1].update(
-                local_address=list(self.sockets[name].getsockname()),
-                peer_address=list(self.sockets[name].getpeername()),
-            )
-        elif op == "close":
-            self.sockets.pop(name).close()
-            self.event(action, name, "close")
-        elif op == "pause":
-            time.sleep(step["seconds"])
-            self.event(action, name, "pause")
-        elif op == "shutdown_write":
-            self.sockets[name].shutdown(socket.SHUT_WR)
-            self.event(action, name, "shutdown_write")
-        elif op == "expect_quiet":
-            self.sockets[name].settimeout(step.get("timeout", 2))
-            try:
-                data = self.sockets[name].recv(1)
-            except TimeoutError:
-                self.event(action, name, "quiet")
-            else:
-                self.event(action, name, "receive" if data else "eof", data)
-                raise ValueError("Expected bounded silence, received bytes or EOF")
-        elif op == "send":
-            encoded = VARIABLE.sub(lambda m: self.variables[m[1]].hex(), step["hex"])
-            data = bytes.fromhex(encoded)
-            if len(data) > MAX_CAPTURE_BYTES - self.byte_count:
-                raise ValueError("Send exceeds remaining capture limit")
-            while data:
-                remaining = deadline - time.monotonic()
-                if remaining <= 0:
-                    raise TimeoutError("Action timed out")
-                self.sockets[name].settimeout(remaining)
-                count = self.sockets[name].send(data)
-                if not count:
-                    raise EOFError("Socket closed during send")
-                self.event(action, name, "send", data[:count])
-                data = data[count:]
-        else:
-            if op == "read_frame":
-                for _ in range(256):
-                    header = self.read(action, name, 20, deadline)
-                    size = int.from_bytes(header[16:20], "big")
-                    if size > MAX_CAPTURE_BYTES - 20:
-                        raise ValueError("Frame exceeds capture limit")
-                    data = header + self.read(action, name, size, deadline)
-                    decoded = decode_frame(data)
-                    self.frames.append(
-                        {"action": action, "connection": name, **decoded}
-                    )
-                    if all(
-                        decoded[k] == v for k, v in step.get("match_frame", {}).items()
-                    ):
-                        break
-                else:
-                    raise ValueError("Frame match exceeds256-frame observation bound")
-            else:
-                size = step.get("size") if op == "read" else None
-                if "size_from" in step:
-                    raw = self.variables[step["size_from"]]
-                    if not 1 <= len(raw) <= 4:
-                        raise ValueError("Saved size must contain one to four bytes")
-                    size = int.from_bytes(raw, "big")
-                    if not 0 < size <= MAX_CAPTURE_BYTES:
-                        raise ValueError("Read size exceeds capture limit")
-                data = self.read(action, name, size, deadline)
-            if "expect_hex" in step and data != bytes.fromhex(step["expect_hex"]):
-                raise ValueError(
-                    f"Expected {step['expect_hex']}, received {data.hex()}"
-                )
-            if "save" in step:
-                saved = step["save"]
-                end = saved["offset"] + saved["size"]
-                if end > len(data):
-                    raise ValueError("Saved bytes exceed received value")
-                self.variables[saved["name"]] = data[saved["offset"] : end]
-            for variable, field_id in field_saves(step).items():
-                decoded = self.frames[-1]
-                fields = decoded.get("fields", [])
-                matches = [f for f in fields if f["id"] == field_id]
-                if (
-                    len(matches) != 1
-                    or decoded.get("unconsumed_hex")
-                    or decoded.get("declared_field_count") != len(fields)
-                    or decoded["total_size"] != decoded["data_size"]
-                ):
-                    raise ValueError("Saved field is missing, ambiguous or incomplete")
-                self.variables[variable] = bytes.fromhex(matches[0]["hex"])
-
-    def streams(self) -> dict:
-        streams = {}
-        for event in self.events:
-            name = event["connection"]
-            if not name:
-                continue
-            stream = streams.setdefault(name, {"sent_hex": "", "received_hex": ""})
-            if event["event"] == "send":
-                stream["sent_hex"] += event["hex"]
-            elif event["event"] == "receive":
-                stream["received_hex"] += event["hex"]
-        return streams
+        Returns
+        -------
+        int
+            ``MAX_CAPTURE_BYTES``.
+        """
+        return MAX_CAPTURE_BYTES
 
 
-def run_plan(plan_path: Path, binary: Path, output: Path) -> dict:
-    """Record a plan into a new directory; retain a failed exchange as failure."""
-    source = plan_path.read_bytes()
-    plan = json.loads(source)
-    validate_plan(plan)
-    if digest(binary.read_bytes()) != plan["oracle_sha256"]:
-        raise ValueError("Oracle binary hash mismatch")
-    output.mkdir(parents=True, exist_ok=False)
-    recorder = Recorder(plan)
+def _run_steps(
+    recorder: RecorderBase, plan: dict[str, typ.Any]
+) -> tuple[str, str, int]:
+    """Run every step, retaining a failed exchange as a failure.
+
+    Every connection still open at the end is closed, and each close is an
+    event, whether the run completed, failed or was interrupted.
+
+    Parameters
+    ----------
+    recorder : RecorderBase
+        The recorder that executes the steps.
+    plan : dict[str, typing.Any]
+        The validated plan.
+
+    Returns
+    -------
+    tuple[str, str, int]
+        The status (``"completed"`` or ``"failed"``), the error as
+        ``"Type: message"`` or the empty string, and the steps finished.
+    """
     status, error, completed = "completed", "", 0
     try:
         for index, step in enumerate(plan["steps"]):
@@ -354,110 +129,79 @@ def run_plan(plan_path: Path, binary: Path, output: Path) -> dict:
         for name, connection in recorder.sockets.items():
             connection.close()
             recorder.event(completed, name, "close")
-    report = {
-        "schema_version": 1,
-        "profile": plan["profile"],
-        "status": status,
-        "native_conformance": False,
-        "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
-        "operator": plan["operator"],
-        "oracle_sha256": plan["oracle_sha256"],
-        "plan_sha256": digest(source),
-        "driver_sha256": digest(Path(__file__).read_bytes()),
-        "recorded_at_utc": datetime.now(timezone.utc).isoformat(),
-        "started_at_utc": recorder.started_at_utc,
-        "gap_ids": plan["gap_ids"],
-        "completed_actions": completed,
-        "error": error,
-        "events": recorder.events,
-        "frames": recorder.frames,
-        "streams": recorder.streams(),
-    }
-    (output / "plan.json").write_bytes(source)
-    (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
-    (output / "checksums.sha256").write_text(
-        "".join(
-            f"{digest((output / name).read_bytes())}  {name}\n"
-            for name in ["plan.json", "report.json"]
-        )
+    return status, error, completed
+
+
+def run_plan(plan_path: Path, binary: Path, output: Path) -> dict:
+    """Record a plan into a new directory; retain a failed exchange as failure.
+
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The plan file.
+    binary : pathlib.Path
+        The oracle binary, whose hash the plan must name.
+    output : pathlib.Path
+        A directory that does not exist yet.
+
+    Returns
+    -------
+    dict
+        The report, which is also written to ``output``.
+
+    Raises
+    ------
+    ValueError
+        If the plan is invalid or the binary is not the plan's oracle.
+    """
+    source = plan_path.read_bytes()
+    plan = json.loads(source)
+    validate_plan(plan)
+    if digest(binary.read_bytes()) != plan["oracle_sha256"]:
+        message = "Oracle binary hash mismatch"
+        raise ValueError(message)
+    output.mkdir(parents=True, exist_ok=False)
+    recorder = Recorder(plan)
+    status, error, completed = _run_steps(recorder, plan)
+    report = build_report(
+        Outcome(plan, source, recorder, status, error, completed),
+        capture_identity.identity(CAPTURE_MODULES),
     )
+    write_directory(output, source, report)
     return report
 
 
 def verify_capture(directory: Path) -> dict:
-    """Check retained bytes and stream reconstruction, without certifying a peer."""
-    names = set()
-    for line in (directory / "checksums.sha256").read_text().splitlines():
-        expected, name = line.split("  ", 1)
-        if name not in {"plan.json", "report.json"} or name in names:
-            raise ValueError("Invalid checksum inventory")
-        names.add(name)
-        if digest((directory / name).read_bytes()) != expected:
-            raise ValueError(f"Checksum mismatch: {name}")
-    if names != {"plan.json", "report.json"}:
-        raise ValueError("Incomplete checksum inventory")
+    """Check retained bytes and stream reconstruction, without certifying a peer.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        A capture directory.
+
+    Returns
+    -------
+    dict
+        The report.
+    """
+    check_inventory(directory)
     plan_bytes = (directory / "plan.json").read_bytes()
     plan = json.loads(plan_bytes)
     validate_plan(plan)
-    report = json.loads((directory / "report.json").read_text())
-    if report["profile"] != plan["profile"] or report["native_conformance"]:
-        raise ValueError("Evidence profile mismatch")
-    if (
-        report["plan_sha256"] != digest(plan_bytes)
-        or report["oracle_sha256"] != plan["oracle_sha256"]
-    ):
-        raise ValueError("Source identity mismatch")
-    if report["status"] not in {"completed", "failed"}:
-        raise ValueError("Unknown capture status")
-    if report["status"] == "completed" and (
-        report["error"] or report["completed_actions"] != len(plan["steps"])
-    ):
-        raise ValueError("Incomplete plan reported as completed")
-    recorder = Recorder(plan)
-    recorder.events = report["events"]
-    if recorder.streams() != report["streams"]:
-        raise ValueError("Stream reconstruction mismatch")
-    frames = []
-    for index, step in enumerate(plan["steps"]):
-        if step["op"] != "read_frame":
-            continue
-        first_frame = len(frames)
-        data = bytes.fromhex(
-            "".join(
-                e["hex"]
-                for e in report["events"]
-                if e["action"] == index
-                and e["event"] == "receive"
-                and e["connection"] == step["connection"]
-            )
-        )
-        while len(data) >= 20:
-            size = 20 + int.from_bytes(data[16:20], "big")
-            if size > len(data):
-                break
-            frames.append(
-                {
-                    "action": index,
-                    "connection": step["connection"],
-                    **decode_frame(data[:size]),
-                }
-            )
-            data = data[size:]
-        if report["status"] == "completed":
-            matched = frames[first_frame:]
-            if data or not matched:
-                raise ValueError("Completed frame read has incomplete bytes")
-            if not all(
-                matched[-1][k] == v for k, v in step.get("match_frame", {}).items()
-            ):
-                raise ValueError("Completed frame read did not match")
-    if report["frames"] != frames:
-        raise ValueError("Decoded frame mismatch")
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    check_report(report, plan, plan_bytes)
+    check_frames(plan, report)
     return report
 
 
 def main() -> None:
-    """Capture a planned exchange or verify an existing transcript."""
+    """Capture a planned exchange or verify an existing transcript.
+
+    Raises
+    ------
+    SystemExit
+        With status 1 when the capture did not complete.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     capture = commands.add_parser("capture")
@@ -471,9 +215,8 @@ def main() -> None:
         report = run_plan(args.plan, args.oracle_binary, args.output)
     else:
         report = verify_capture(args.directory)
-    print(
-        f"{report['profile']}: {report['status']}; {report['completed_actions']} actions"
-    )
+    line = f"{report['profile']}: {report['status']}; "
+    print(f"{line}{report['completed_actions']} actions")
     if report["status"] != "completed":
         raise SystemExit(1)
 
