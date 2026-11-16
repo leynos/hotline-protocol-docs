@@ -5,7 +5,7 @@ This ExecPlan (execution plan) is a living document. The sections `Constraints`,
 `Outcomes & retrospective`, `Conformance basis`, and `Verification plan` must
 be kept up to date as work proceeds.
 
-Status: IN PROGRESS
+Status: COMPLETE
 
 ## Purpose / big picture
 
@@ -226,6 +226,31 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-19 12:00Z) EP-M11 complete. A scrutineer ran the final
+  validation on `337ef3d` and on the published toolset branch; the results are
+  in `Outcomes & retrospective`. Two acceptance items were not met as written
+  and are recorded as decision D33.
+- [x] (2026-11-19 06:00Z) EP-M5 complete (`337ef3d`). Waves 7A and 7B brought
+  the last eighteen entries to the standard: the control-readiness,
+  settings-persistence, settings-transition and 121-default capture scripts
+  with their four tests, and the board, liveness, path-fields, missing-alias,
+  rate-304, configured-ban and ban-expiry controls, the ban-expiry clean-up and
+  the diagnostic-load planner. `scripts/legacy-modules.txt`,
+  `scripts/ruff.toml` and the targets `lint-legacy` and `typecheck-legacy` are
+  deleted. `make test-legacy` remains because the golden test oracle reads its
+  recipe; it runs the one unittest file left beside the scripts, which
+  `make evidence-verify` runs by name. Audit revision 96 (not 91, the number
+  first planned) covers the record notes rewritten in 18 documents and the
+  capture-identity passages in the guides. Deliberate behaviour changes:
+  command lines moved to Cyclopts; `plan_gate` in the control-readiness script
+  checks its plans in a fixed order where the original iterated a set; the
+  settings-persistence planner writes `source-code-identity.json` in place of
+  `source-code-sha256.json`; three planners' `source-hashes.json` records carry
+  an identity, and the golden normalizer (`gm.settle` in
+  `tools/golden_model.py`) fixes the commit, differing-file list and digest.
+  Left for the first new-form corpus: the board and path-fields verifiers
+  compare `source-hashes.json` as an exact dictionary and accept only the
+  earlier form.
 - [x] (2026-11-18 21:00Z) Tag `evidence-sources-2026-11-15` pushed to
   `origin` on the owner's confirmation. It is annotated and resolves to
   `efea44a552ecd221ac3d12f4fdd10c6301e8102f`, the commit that the three
@@ -597,7 +622,8 @@ The script work is a behaviour-preserving refactor.
 - [x] (2026-11-15 17:10Z) EP-M1 foundation committed (`b4d4449`), and the
   mechanical document conformance brought forward (`bf6d00e`, decision D16);
   `make check-fmt lint typecheck markdownlint nixie` pass.
-- [ ] EP-M0 in progress (completed: secret-pattern scan of mothra's tracked
+- [x] EP-M0 in progress, superseded by the next entry (completed:
+      secret-pattern scan of mothra's tracked
   files, clean; JSON census; repository visibility check. Running: baseline
   gates, mothra classification, set-up passage census. Held: the push of mothra
   `main`, pending the owner's confirmation; the LFS quota reading).
@@ -612,7 +638,8 @@ The script work is a behaviour-preserving refactor.
   (see the dated entries above).
 - [x] EP-M4: mothra generalized on a branch and pushed (see the entry dated
   2026-11-16 05:00Z).
-- [ ] EP-M5: all scripts meet the df12 Python standards; revision 91.
+- [x] EP-M5: all scripts meet the df12 Python standards; revision 96 (see the
+  entry dated 2026-11-19 06:00Z).
 - [x] EP-M6: documents relocated into sets; revision 92 (see the entry dated
   2026-11-16 15:30Z).
 - [x] EP-M7: mxd set consolidated; revision 93 (see the entry dated
@@ -623,7 +650,8 @@ The script work is a behaviour-preserving refactor.
   entry dated 2026-11-17 03:00Z).
 - [x] EP-M10: style conformance and cross-references; revision 95 (see the
   entry dated 2026-11-18 12:00Z).
-- [ ] EP-M11: final validation and retrospective.
+- [x] EP-M11: final validation and retrospective (see the entry dated
+  2026-11-19 12:00Z).
 
 ## Surprises & discoveries
 
@@ -1229,6 +1257,20 @@ The script work is a behaviour-preserving refactor.
     hashes its planner recorded, compare the module-set digest in the same
     way.
   - The fifteen scripts listed above join the script-standards work.
+- Decision D33 (recorded by the lead at EP-M11, 2026-11-19; open to the
+  owner's review): two acceptance items are not met as written, and neither is
+  worked around. First, `make all` with no toolset checkout stops at
+  `links-check` with
+  `missing input: a local mothra clone (--mothra) is
+  required to verify permalinks`.
+  The check resolves each permalink against the clone so that no network is
+  needed; passing without it would leave 58 permalinks unverified. Options:
+  keep the requirement (chosen), or skip permalink verification with a printed
+  notice when no clone is present. Second, the search for `../mothra` in
+  Markdown prints 15 lines in six documents outside this plan. Every one is a
+  quoted shell command in a dated record or a prose description of the pattern,
+  not a link; `links-check` forbids relative toolset links and passes.
+  Rewriting them would alter commands quoted as they were run.
 - Decision D32 (settled by the owner, 2026-11-18): the suppression limit is
   raised for capture drivers, the scripts that start processes, open sockets or
   drive a capture. For that class the limit of four per family does not apply;
@@ -1238,7 +1280,59 @@ The script work is a behaviour-preserving refactor.
 
 ## Outcomes & retrospective
 
-Not yet started. To be completed at EP-M11.
+Completed 2026-11-19 at `337ef3d`.
+
+What was achieved. The documents sit in nine sets under `docs/`, each with an
+overview and a generated evidence index; `README.md`, `docs/contents.md`,
+`docs/repository-layout.md`, the developers' guide, the glossary and the
+reconciliation log orient a new reader; the eight mxd notes are six documents;
+the recreation guide gives the inputs, commands and verifier for each corpus
+without toolset set-up guidance; the ledger of remaining evidence work lists
+the 25 unresolved gaps and the prepared runs. Every Python file meets one rule
+set. The toolset branch is published with nothing specific to this project, and
+every link to it is a permalink.
+
+Final validation (scrutineer, sequential). In this repository: `make all` exit
+0 in 352 seconds, 2,283 passed and 2 expected failures; `make docs-gates` exit
+0; `make goldens-check` and `make pin-experiment` `0 differences`;
+`make continuity-tests` 14,425 passed; `make pin-equivalence` 16 passed;
+`make withheld-scan` 11,887 blobs and 0 withheld objects; `make import-check`
+13,854 files compared with 0 differences; the gap register has 87 gaps on
+`main` and on the branch with no protected field changed; 16,726 tests are
+collected; `tools/` is 10,634 lines against the limit of 12,000; 775 LFS files.
+In the toolset branch at `2278968`: `make check` exit 0; the name search prints
+nothing; no binary image is tracked; the remote branch tip equals the local tip.
+
+Not met as written: see decision D33.
+
+Left open for the owner, none of which blocks the plan: the items listed in
+`docs/reconciliation-log.md` (the canonical mxd revision, the trial revisions,
+the GAP-016 groups and the GAP-036 text); the LFS quota reading; the push and
+merge of this branch, which must not be squashed; and the removal of the
+agents' worktrees.
+
+Lessons.
+
+- An oracle that can pass with nothing run is worse than none. The equivalence
+  check passed for `protocol_capture` while every test errored on both sides;
+  each oracle now has a floor or a test that fails when its inputs are absent.
+- Replacing recorded hashes of live files with a pinned commit (D29) is what
+  made refactoring the evidence scripts possible; it needs the pinned commit to
+  stay in history, hence the pushed tag and the no-squash rule.
+- Characterizing a script on its unchanged bytes before touching it, with
+  tables of which check refuses first, is what let the order of checks be
+  compared before and after. One order could not be kept because it had been
+  random in the original.
+- Waves that land together must be gated together. Wave 6 and the capture
+  identity were each green alone; combined, one pinned list of verifier names
+  was wrong.
+- Scribes editing in place leave the tree failing its checks until they
+  finish; gates were run only on a quiet tree.
+- Milestone size estimates for EP-M5 were low by a wide margin; the tolerance
+  escalations (D28, D32) were the right response, not smaller commits.
+- Notes that describe a temporary state, such as "held at the earlier lint
+  rules", become false together; they were rewritten in one pass with one audit
+  revision.
 
 ## Context and orientation
 
