@@ -1,258 +1,258 @@
 deletion-leaf-one		ok a729d580b6b4a25c
-deletion-leaf-one	spec/mode:empty	KeyError: ''
-deletion-leaf-one	spec/case:delete-key	KeyError: 'case'
-deletion-leaf-one	report/frames/0/connection:delete-key	KeyError: 'connection'
-deletion-leaf-one	report/events/48/elapsed_ns:delete-key	KeyError: 'elapsed_ns'
-deletion-leaf-one	report/frames/4/error:delete-key	KeyError: 'error'
-deletion-leaf-one	report/events/0/event:delete-key	KeyError: 'event'
-deletion-leaf-one	report/events:delete-key	KeyError: 'events'
-deletion-leaf-one	report/frames/1/fields:delete-key	KeyError: 'fields'
-deletion-leaf-one	report/frames:delete-key	KeyError: 'frames'
-deletion-leaf-one	report/frames/1/fields/0/hex:delete-key	KeyError: 'hex'
-deletion-leaf-one	report/frames/0/id:delete-key	KeyError: 'id'
-deletion-leaf-one	report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-leaf-one	spec/mode:flip	KeyError: 'lea0'
-deletion-leaf-one	spec/mode:delete-key	KeyError: 'mode'
-deletion-leaf-one	spec/repeat:delete-key	KeyError: 'repeat'
+deletion-leaf-one	spec>mode:empty	KeyError: ''
+deletion-leaf-one	spec>case:delete-key	KeyError: 'case'
+deletion-leaf-one	report>frames>0>connection:delete-key	KeyError: 'connection'
+deletion-leaf-one	report>events>48>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+deletion-leaf-one	report>frames>4>error:delete-key	KeyError: 'error'
+deletion-leaf-one	report>events>0>event:delete-key	KeyError: 'event'
+deletion-leaf-one	report>events:delete-key	KeyError: 'events'
+deletion-leaf-one	report>frames>1>fields:delete-key	KeyError: 'fields'
+deletion-leaf-one	report>frames:delete-key	KeyError: 'frames'
+deletion-leaf-one	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+deletion-leaf-one	report>frames>0>id:delete-key	KeyError: 'id'
+deletion-leaf-one	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-leaf-one	spec>mode:flip	KeyError: 'lea0'
+deletion-leaf-one	spec>mode:delete-key	KeyError: 'mode'
+deletion-leaf-one	spec>repeat:delete-key	KeyError: 'repeat'
 deletion-leaf-one	report:delete-key	KeyError: 'report'
-deletion-leaf-one	spec/role:delete-key	KeyError: 'role'
+deletion-leaf-one	spec>role:delete-key	KeyError: 'role'
 deletion-leaf-one	spec:delete-key	KeyError: 'spec'
-deletion-leaf-one	report/frames/0/type:delete-key	KeyError: 'type'
-deletion-leaf-one	report/frames/3/fields:drop-last	KeyError: 321
-deletion-leaf-one	report/frames/1/type:inc	StopIteration:
-deletion-leaf-one	report/frames/4/error:inc	ValueError: Deletion ACK differs
-deletion-leaf-one	report/frames/1/fields:drop-last	ValueError: Deletion access mask differs
-deletion-leaf-one	report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-leaf-one	report/frames/7/error:inc	ValueError: Deletion body/navigation differs
-deletion-leaf-one	report/frames/13/error:inc	ValueError: Deletion error differs
-deletion-leaf-one	report/frames/15/error:inc	ValueError: Deletion lost liveness
-deletion-leaf-one	report/events/49/event:flip	ValueError: Missing bounded pacing/quiet event
-deletion-leaf-one	report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-leaf-one	report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-leaf-one	report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-leaf-one	report/frames/3/fields/0/hex:empty	ValueError: Truncated article record
-deletion-leaf-one	report/frames/7/fields/1/id:inc	ValueError: Unexpected repeated scalar field
-deletion-leaf-one	spec/mode:empty;spec/mode:flip	KeyError: 'x'
-deletion-leaf-one	spec/mode:empty;spec/mode:delete-key	KeyError: 'mode'
-deletion-leaf-one	spec/mode:empty;report/frames/1/type:inc	KeyError: ''
-deletion-leaf-one	spec/case:delete-key;report/frames/4/error:delete-key	KeyError: 'case'
-deletion-leaf-one	spec/case:delete-key;report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-leaf-one	report/frames/0/connection:delete-key;report/frames/0/is_reply:delete-key	KeyError: 'connection'
-deletion-leaf-one	report/frames/0/connection:delete-key;spec:delete-key	KeyError: 'spec'
-deletion-leaf-one	report/events/48/elapsed_ns:delete-key;spec:delete-key	KeyError: 'spec'
-deletion-leaf-one	report/events/48/elapsed_ns:delete-key;report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-leaf-one	report/frames/4/error:delete-key;report/events/0/event:delete-key	KeyError: 'error'
-deletion-leaf-one	report/frames/4/error:delete-key;report:delete-key	KeyError: 'report'
-deletion-leaf-one	report/events/0/event:delete-key;report/events:delete-key	KeyError: 'events'
-deletion-leaf-one	report/events/0/event:delete-key;report/frames/0/type:delete-key	KeyError: 'type'
-deletion-leaf-one	report/events/0/event:delete-key;report/frames/15/error:inc	ValueError: Deletion lost liveness
-deletion-leaf-one	report/events:delete-key;report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-leaf-one	report/frames/1/fields:delete-key;spec/repeat:delete-key	KeyError: 'repeat'
-deletion-leaf-one	report/frames/1/fields:delete-key;report/frames/1/type:inc	StopIteration:
-deletion-leaf-one	report/frames/1/fields/0/hex:delete-key;spec/role:delete-key	KeyError: 'hex'
-deletion-leaf-one	report/frames/0/id:delete-key;report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-leaf-one	report/frames/0/id:delete-key;report/frames/3/fields/0/hex:empty	KeyError: 'id'
-deletion-leaf-one	report/frames/0/is_reply:delete-key;report/frames/13/error:inc	KeyError: 'is_reply'
-deletion-leaf-one	spec/mode:flip;report/frames/6/fields:drop-last	KeyError: 'lea0'
-deletion-leaf-one	spec/mode:delete-key;report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-leaf-one	spec/repeat:delete-key;report/frames/0/type:delete-key	KeyError: 'repeat'
-deletion-leaf-one	spec/repeat:delete-key;report/frames/4/error:inc	ValueError: Deletion ACK differs
-deletion-leaf-one	spec/role:delete-key;report/frames/1/fields:drop-last	KeyError: 'role'
-deletion-leaf-one	report/frames/1/fields:drop-last;report/frames/7/error:inc	ValueError: Deletion access mask differs
-deletion-leaf-one	report/frames/7/error:inc;report/frames/7/fields/1/id:inc	ValueError: Deletion body/navigation differs
-deletion-leaf-one	report/frames/13/error:inc;report/frames:drop-last	ValueError: Deletion error differs
-deletion-leaf-one	report/frames/13/error:inc;report/events:reverse	ValueError: Deletion error differs
-deletion-leaf-one	report/frames/13/error:inc;report/frames/7/fields/1/id:inc	ValueError: Unexpected repeated scalar field
-deletion-leaf-one	report/frames/15/error:inc;report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-leaf-one	report/events/49/event:flip;report/events:reverse	ValueError: Missing bounded pacing/quiet event
+deletion-leaf-one	report>frames>0>type:delete-key	KeyError: 'type'
+deletion-leaf-one	report>frames>3>fields:drop-last	KeyError: 321
+deletion-leaf-one	report>frames>1>type:inc	StopIteration:
+deletion-leaf-one	report>frames>4>error:inc	ValueError: Deletion ACK differs
+deletion-leaf-one	report>frames>1>fields:drop-last	ValueError: Deletion access mask differs
+deletion-leaf-one	report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-leaf-one	report>frames>7>error:inc	ValueError: Deletion body/navigation differs
+deletion-leaf-one	report>frames>13>error:inc	ValueError: Deletion error differs
+deletion-leaf-one	report>frames>15>error:inc	ValueError: Deletion lost liveness
+deletion-leaf-one	report>events>49>event:flip	ValueError: Missing bounded pacing/quiet event
+deletion-leaf-one	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-leaf-one	report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-leaf-one	report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-leaf-one	report>frames>3>fields>0>hex:empty	ValueError: Truncated article record
+deletion-leaf-one	report>frames>7>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+deletion-leaf-one	spec>mode:empty;spec>mode:flip	KeyError: 'x'
+deletion-leaf-one	spec>mode:empty;spec>mode:delete-key	KeyError: 'mode'
+deletion-leaf-one	spec>mode:empty;report>frames>1>type:inc	KeyError: ''
+deletion-leaf-one	spec>case:delete-key;report>frames>4>error:delete-key	KeyError: 'case'
+deletion-leaf-one	spec>case:delete-key;report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-leaf-one	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+deletion-leaf-one	report>frames>0>connection:delete-key;spec:delete-key	KeyError: 'spec'
+deletion-leaf-one	report>events>48>elapsed_ns:delete-key;spec:delete-key	KeyError: 'spec'
+deletion-leaf-one	report>events>48>elapsed_ns:delete-key;report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-leaf-one	report>frames>4>error:delete-key;report>events>0>event:delete-key	KeyError: 'error'
+deletion-leaf-one	report>frames>4>error:delete-key;report:delete-key	KeyError: 'report'
+deletion-leaf-one	report>events>0>event:delete-key;report>events:delete-key	KeyError: 'events'
+deletion-leaf-one	report>events>0>event:delete-key;report>frames>0>type:delete-key	KeyError: 'type'
+deletion-leaf-one	report>events>0>event:delete-key;report>frames>15>error:inc	ValueError: Deletion lost liveness
+deletion-leaf-one	report>events:delete-key;report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-leaf-one	report>frames>1>fields:delete-key;spec>repeat:delete-key	KeyError: 'repeat'
+deletion-leaf-one	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+deletion-leaf-one	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+deletion-leaf-one	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-leaf-one	report>frames>0>id:delete-key;report>frames>3>fields>0>hex:empty	KeyError: 'id'
+deletion-leaf-one	report>frames>0>is_reply:delete-key;report>frames>13>error:inc	KeyError: 'is_reply'
+deletion-leaf-one	spec>mode:flip;report>frames>6>fields:drop-last	KeyError: 'lea0'
+deletion-leaf-one	spec>mode:delete-key;report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-leaf-one	spec>repeat:delete-key;report>frames>0>type:delete-key	KeyError: 'repeat'
+deletion-leaf-one	spec>repeat:delete-key;report>frames>4>error:inc	ValueError: Deletion ACK differs
+deletion-leaf-one	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+deletion-leaf-one	report>frames>1>fields:drop-last;report>frames>7>error:inc	ValueError: Deletion access mask differs
+deletion-leaf-one	report>frames>7>error:inc;report>frames>7>fields>1>id:inc	ValueError: Deletion body/navigation differs
+deletion-leaf-one	report>frames>13>error:inc;report>frames:drop-last	ValueError: Deletion error differs
+deletion-leaf-one	report>frames>13>error:inc;report>events:reverse	ValueError: Deletion error differs
+deletion-leaf-one	report>frames>13>error:inc;report>frames>7>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+deletion-leaf-one	report>frames>15>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-leaf-one	report>events>49>event:flip;report>events:reverse	ValueError: Missing bounded pacing/quiet event
 deletion-middle-zero		ok 1bcdb5db39613774
-deletion-middle-zero	spec/mode:empty	KeyError: ''
-deletion-middle-zero	spec/case:delete-key	KeyError: 'case'
-deletion-middle-zero	report/frames/0/connection:delete-key	KeyError: 'connection'
-deletion-middle-zero	report/events/48/elapsed_ns:delete-key	KeyError: 'elapsed_ns'
-deletion-middle-zero	report/frames/4/error:delete-key	KeyError: 'error'
-deletion-middle-zero	report/events/0/event:delete-key	KeyError: 'event'
-deletion-middle-zero	report/events:delete-key	KeyError: 'events'
-deletion-middle-zero	report/frames/1/fields:delete-key	KeyError: 'fields'
-deletion-middle-zero	report/frames:delete-key	KeyError: 'frames'
-deletion-middle-zero	report/frames/1/fields/0/hex:delete-key	KeyError: 'hex'
-deletion-middle-zero	report/frames/0/id:delete-key	KeyError: 'id'
-deletion-middle-zero	report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-middle-zero	spec/mode:delete-key	KeyError: 'mode'
-deletion-middle-zero	spec/mode:flip	KeyError: 'promote-middl0'
-deletion-middle-zero	spec/repeat:delete-key	KeyError: 'repeat'
+deletion-middle-zero	spec>mode:empty	KeyError: ''
+deletion-middle-zero	spec>case:delete-key	KeyError: 'case'
+deletion-middle-zero	report>frames>0>connection:delete-key	KeyError: 'connection'
+deletion-middle-zero	report>events>48>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+deletion-middle-zero	report>frames>4>error:delete-key	KeyError: 'error'
+deletion-middle-zero	report>events>0>event:delete-key	KeyError: 'event'
+deletion-middle-zero	report>events:delete-key	KeyError: 'events'
+deletion-middle-zero	report>frames>1>fields:delete-key	KeyError: 'fields'
+deletion-middle-zero	report>frames:delete-key	KeyError: 'frames'
+deletion-middle-zero	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+deletion-middle-zero	report>frames>0>id:delete-key	KeyError: 'id'
+deletion-middle-zero	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-middle-zero	spec>mode:delete-key	KeyError: 'mode'
+deletion-middle-zero	spec>mode:flip	KeyError: 'promote-middl0'
+deletion-middle-zero	spec>repeat:delete-key	KeyError: 'repeat'
 deletion-middle-zero	report:delete-key	KeyError: 'report'
-deletion-middle-zero	spec/role:delete-key	KeyError: 'role'
+deletion-middle-zero	spec>role:delete-key	KeyError: 'role'
 deletion-middle-zero	spec:delete-key	KeyError: 'spec'
-deletion-middle-zero	report/frames/0/type:delete-key	KeyError: 'type'
-deletion-middle-zero	report/frames/3/fields:drop-last	KeyError: 321
-deletion-middle-zero	report/frames/1/type:inc	StopIteration:
-deletion-middle-zero	report/frames/4/error:inc	ValueError: Deletion ACK differs
-deletion-middle-zero	report/frames/1/fields:drop-last	ValueError: Deletion access mask differs
-deletion-middle-zero	report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-middle-zero	report/frames/7/error:inc	ValueError: Deletion body/navigation differs
-deletion-middle-zero	report/frames/10/error:inc	ValueError: Deletion error differs
-deletion-middle-zero	report/frames/15/error:inc	ValueError: Deletion lost liveness
-deletion-middle-zero	report/events/49/event:flip	ValueError: Missing bounded pacing/quiet event
-deletion-middle-zero	report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-middle-zero	report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-middle-zero	report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-middle-zero	report/frames/3/fields/0/hex:empty	ValueError: Truncated article record
-deletion-middle-zero	report/frames/7/fields/1/id:inc	ValueError: Unexpected repeated scalar field
-deletion-middle-zero	spec/mode:empty;spec/mode:delete-key	KeyError: 'mode'
-deletion-middle-zero	spec/mode:empty;spec/mode:flip	KeyError: 'x'
-deletion-middle-zero	spec/case:delete-key;report/frames/4/error:delete-key	KeyError: 'case'
-deletion-middle-zero	spec/case:delete-key;report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-middle-zero	report/frames/0/connection:delete-key;report/frames/0/is_reply:delete-key	KeyError: 'connection'
-deletion-middle-zero	report/frames/0/connection:delete-key;spec:delete-key	KeyError: 'spec'
-deletion-middle-zero	report/events/48/elapsed_ns:delete-key;report/events:delete-key	KeyError: 'events'
-deletion-middle-zero	report/events/48/elapsed_ns:delete-key;report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-middle-zero	report/frames/4/error:delete-key;report:delete-key	KeyError: 'report'
-deletion-middle-zero	report/events/0/event:delete-key;report/events:delete-key	KeyError: 'events'
-deletion-middle-zero	report/events/0/event:delete-key;report/frames/15/error:inc	ValueError: Deletion lost liveness
-deletion-middle-zero	report/frames/1/fields:delete-key;report/frames/1/type:inc	StopIteration:
-deletion-middle-zero	report/frames/1/fields:delete-key;report/frames/3/fields/0/hex:empty	ValueError: Truncated article record
-deletion-middle-zero	report/frames/1/fields/0/hex:delete-key;spec/role:delete-key	KeyError: 'hex'
-deletion-middle-zero	report/frames/0/id:delete-key;report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-middle-zero	report/frames/0/id:delete-key;report/frames/3/fields/0/hex:empty	KeyError: 'id'
-deletion-middle-zero	spec/mode:delete-key;report:delete-key	KeyError: 'report'
-deletion-middle-zero	spec/mode:delete-key;report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-middle-zero	spec/mode:flip;report:delete-key	KeyError: 'report'
-deletion-middle-zero	spec/mode:flip;report/frames/0/type:delete-key	KeyError: 'promote-middl0'
-deletion-middle-zero	spec/mode:flip;report/frames/6/fields:drop-last	KeyError: 'promote-middl0'
-deletion-middle-zero	spec/repeat:delete-key;report/frames/0/type:delete-key	KeyError: 'repeat'
-deletion-middle-zero	spec/repeat:delete-key;report/frames/4/error:inc	ValueError: Deletion ACK differs
-deletion-middle-zero	spec/role:delete-key;report/frames/1/fields:drop-last	KeyError: 'role'
-deletion-middle-zero	report/frames/0/type:delete-key;report/frames/7/fields/1/id:inc	KeyError: 'type'
-deletion-middle-zero	report/frames/3/fields:drop-last;report/events:reverse	KeyError: 321
-deletion-middle-zero	report/frames/4/error:inc;report/frames/10/error:inc	ValueError: Deletion ACK differs
-deletion-middle-zero	report/frames/1/fields:drop-last;report/frames/7/error:inc	ValueError: Deletion access mask differs
-deletion-middle-zero	report/frames/7/error:inc;report/frames/7/fields/1/id:inc	ValueError: Deletion body/navigation differs
-deletion-middle-zero	report/frames/10/error:inc;report/frames:drop-last	ValueError: Deletion error differs
-deletion-middle-zero	report/frames/10/error:inc;report/frames/7/fields/1/id:inc	ValueError: Unexpected repeated scalar field
-deletion-middle-zero	report/frames/15/error:inc;report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-middle-zero	report/events/49/event:flip;report/events:reverse	ValueError: Missing bounded pacing/quiet event
+deletion-middle-zero	report>frames>0>type:delete-key	KeyError: 'type'
+deletion-middle-zero	report>frames>3>fields:drop-last	KeyError: 321
+deletion-middle-zero	report>frames>1>type:inc	StopIteration:
+deletion-middle-zero	report>frames>4>error:inc	ValueError: Deletion ACK differs
+deletion-middle-zero	report>frames>1>fields:drop-last	ValueError: Deletion access mask differs
+deletion-middle-zero	report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-middle-zero	report>frames>7>error:inc	ValueError: Deletion body/navigation differs
+deletion-middle-zero	report>frames>10>error:inc	ValueError: Deletion error differs
+deletion-middle-zero	report>frames>15>error:inc	ValueError: Deletion lost liveness
+deletion-middle-zero	report>events>49>event:flip	ValueError: Missing bounded pacing/quiet event
+deletion-middle-zero	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-middle-zero	report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-middle-zero	report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-middle-zero	report>frames>3>fields>0>hex:empty	ValueError: Truncated article record
+deletion-middle-zero	report>frames>7>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+deletion-middle-zero	spec>mode:empty;spec>mode:delete-key	KeyError: 'mode'
+deletion-middle-zero	spec>mode:empty;spec>mode:flip	KeyError: 'x'
+deletion-middle-zero	spec>case:delete-key;report>frames>4>error:delete-key	KeyError: 'case'
+deletion-middle-zero	spec>case:delete-key;report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-middle-zero	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+deletion-middle-zero	report>frames>0>connection:delete-key;spec:delete-key	KeyError: 'spec'
+deletion-middle-zero	report>events>48>elapsed_ns:delete-key;report>events:delete-key	KeyError: 'events'
+deletion-middle-zero	report>events>48>elapsed_ns:delete-key;report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-middle-zero	report>frames>4>error:delete-key;report:delete-key	KeyError: 'report'
+deletion-middle-zero	report>events>0>event:delete-key;report>events:delete-key	KeyError: 'events'
+deletion-middle-zero	report>events>0>event:delete-key;report>frames>15>error:inc	ValueError: Deletion lost liveness
+deletion-middle-zero	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+deletion-middle-zero	report>frames>1>fields:delete-key;report>frames>3>fields>0>hex:empty	ValueError: Truncated article record
+deletion-middle-zero	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+deletion-middle-zero	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-middle-zero	report>frames>0>id:delete-key;report>frames>3>fields>0>hex:empty	KeyError: 'id'
+deletion-middle-zero	spec>mode:delete-key;report:delete-key	KeyError: 'report'
+deletion-middle-zero	spec>mode:delete-key;report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-middle-zero	spec>mode:flip;report:delete-key	KeyError: 'report'
+deletion-middle-zero	spec>mode:flip;report>frames>0>type:delete-key	KeyError: 'promote-middl0'
+deletion-middle-zero	spec>mode:flip;report>frames>6>fields:drop-last	KeyError: 'promote-middl0'
+deletion-middle-zero	spec>repeat:delete-key;report>frames>0>type:delete-key	KeyError: 'repeat'
+deletion-middle-zero	spec>repeat:delete-key;report>frames>4>error:inc	ValueError: Deletion ACK differs
+deletion-middle-zero	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+deletion-middle-zero	report>frames>0>type:delete-key;report>frames>7>fields>1>id:inc	KeyError: 'type'
+deletion-middle-zero	report>frames>3>fields:drop-last;report>events:reverse	KeyError: 321
+deletion-middle-zero	report>frames>4>error:inc;report>frames>10>error:inc	ValueError: Deletion ACK differs
+deletion-middle-zero	report>frames>1>fields:drop-last;report>frames>7>error:inc	ValueError: Deletion access mask differs
+deletion-middle-zero	report>frames>7>error:inc;report>frames>7>fields>1>id:inc	ValueError: Deletion body/navigation differs
+deletion-middle-zero	report>frames>10>error:inc;report>frames:drop-last	ValueError: Deletion error differs
+deletion-middle-zero	report>frames>10>error:inc;report>frames>7>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+deletion-middle-zero	report>frames>15>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-middle-zero	report>events>49>event:flip;report>events:reverse	ValueError: Missing bounded pacing/quiet event
 deletion-denied		ok 6b85f276b28f529b
-deletion-denied	spec/mode:empty	KeyError: ''
-deletion-denied	spec/case:delete-key	KeyError: 'case'
-deletion-denied	report/frames/0/connection:delete-key	KeyError: 'connection'
-deletion-denied	report/events/27/elapsed_ns:delete-key	KeyError: 'elapsed_ns'
-deletion-denied	report/frames/4/error:delete-key	KeyError: 'error'
-deletion-denied	report/events/0/event:delete-key	KeyError: 'event'
-deletion-denied	report/events:delete-key	KeyError: 'events'
-deletion-denied	report/frames/1/fields:delete-key	KeyError: 'fields'
-deletion-denied	report/frames:delete-key	KeyError: 'frames'
-deletion-denied	report/frames/1/fields/0/hex:delete-key	KeyError: 'hex'
-deletion-denied	report/frames/0/id:delete-key	KeyError: 'id'
-deletion-denied	report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-denied	spec/mode:delete-key	KeyError: 'mode'
-deletion-denied	spec/repeat:delete-key	KeyError: 'repeat'
+deletion-denied	spec>mode:empty	KeyError: ''
+deletion-denied	spec>case:delete-key	KeyError: 'case'
+deletion-denied	report>frames>0>connection:delete-key	KeyError: 'connection'
+deletion-denied	report>events>27>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+deletion-denied	report>frames>4>error:delete-key	KeyError: 'error'
+deletion-denied	report>events>0>event:delete-key	KeyError: 'event'
+deletion-denied	report>events:delete-key	KeyError: 'events'
+deletion-denied	report>frames>1>fields:delete-key	KeyError: 'fields'
+deletion-denied	report>frames:delete-key	KeyError: 'frames'
+deletion-denied	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+deletion-denied	report>frames>0>id:delete-key	KeyError: 'id'
+deletion-denied	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-denied	spec>mode:delete-key	KeyError: 'mode'
+deletion-denied	spec>repeat:delete-key	KeyError: 'repeat'
 deletion-denied	report:delete-key	KeyError: 'report'
-deletion-denied	spec/role:delete-key	KeyError: 'role'
+deletion-denied	spec>role:delete-key	KeyError: 'role'
 deletion-denied	spec:delete-key	KeyError: 'spec'
-deletion-denied	report/frames/0/type:delete-key	KeyError: 'type'
-deletion-denied	spec/mode:flip	KeyError: 'unchange0'
-deletion-denied	report/frames/3/fields:drop-last	KeyError: 321
-deletion-denied	report/frames/1/type:inc	StopIteration:
-deletion-denied	spec/case:flip	ValueError: Deletion ACK differs
-deletion-denied	report/frames/1/fields:drop-last	ValueError: Deletion access mask differs
-deletion-denied	report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-denied	report/frames/4/error:inc	ValueError: Deletion error differs
-deletion-denied	report/frames/8/error:inc	ValueError: Deletion lost liveness
-deletion-denied	report/events/28/event:flip	ValueError: Missing bounded pacing/quiet event
-deletion-denied	report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-denied	report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-denied	report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-denied	report/frames/3/fields/0/hex:empty	ValueError: Truncated article record
-deletion-denied	spec/mode:empty;spec/mode:delete-key	KeyError: 'mode'
-deletion-denied	spec/mode:empty;spec/mode:flip	KeyError: 'x'
-deletion-denied	spec/case:delete-key;report/frames/4/error:delete-key	KeyError: 'case'
-deletion-denied	spec/case:delete-key;report/frames:drop-last	KeyError: 'case'
-deletion-denied	spec/case:delete-key;report/frames/6/fields:drop-last	ValueError: Repeated cached list differs
-deletion-denied	report/frames/0/connection:delete-key;spec:delete-key	KeyError: 'spec'
-deletion-denied	report/events/27/elapsed_ns:delete-key;report/events:reverse	ValueError: Short bounded pacing/quiet observation
-deletion-denied	report/frames/4/error:delete-key;report/frames:delete-key	KeyError: 'frames'
-deletion-denied	report/frames/4/error:delete-key;report/frames/8/error:inc	KeyError: 'error'
-deletion-denied	report/events/0/event:delete-key;report/events:delete-key	KeyError: 'events'
-deletion-denied	report/events/0/event:delete-key;report/frames/8/error:inc	ValueError: Deletion lost liveness
-deletion-denied	report/events:delete-key;report/frames/8/error:inc	ValueError: Deletion lost liveness
-deletion-denied	report/events:delete-key;report/frames/3/fields/0/hex:empty	ValueError: Truncated article record
-deletion-denied	report/frames/1/fields:delete-key;report/frames/1/type:inc	StopIteration:
-deletion-denied	report/frames:delete-key;spec/case:flip	KeyError: 'frames'
-deletion-denied	report/frames/1/fields/0/hex:delete-key;report/frames/0/id:delete-key	KeyError: 'id'
-deletion-denied	report/frames/1/fields/0/hex:delete-key;spec/role:delete-key	KeyError: 'hex'
-deletion-denied	report/frames/1/fields/0/hex:delete-key;report/events:reverse	KeyError: 'hex'
-deletion-denied	report/frames/0/id:delete-key;report/frames/0/is_reply:delete-key	KeyError: 'is_reply'
-deletion-denied	report/frames/0/id:delete-key;report/frames/3/fields/0/hex:empty	KeyError: 'id'
-deletion-denied	report/frames/0/is_reply:delete-key;spec/role:delete-key	KeyError: 'is_reply'
-deletion-denied	report/frames/0/is_reply:delete-key;spec:delete-key	KeyError: 'spec'
-deletion-denied	spec/mode:delete-key;report/frames/3/fields/0/hex:flip	ValueError: Deletion article metadata differs
-deletion-denied	spec/repeat:delete-key;report/frames/0/type:delete-key	KeyError: 'repeat'
-deletion-denied	spec/repeat:delete-key;report/frames/4/error:inc	ValueError: Deletion error differs
-deletion-denied	report:delete-key;spec/mode:flip	KeyError: 'report'
-deletion-denied	spec/role:delete-key;report/frames/1/fields:drop-last	KeyError: 'role'
-deletion-denied	spec/role:delete-key;report/frames/4/error:inc	ValueError: Deletion error differs
-deletion-denied	report/frames/0/type:delete-key;report/frames/1/type:inc	KeyError: 'type'
-deletion-denied	spec/case:flip;report/frames/4/error:inc	ValueError: Deletion ACK differs
-deletion-denied	report/frames/1/fields:drop-last;report/frames:drop-last	ValueError: Deletion access mask differs
-deletion-denied	report/frames/8/error:inc;report/frames:drop-last	ValueError: Missing/duplicate auth reply
-deletion-denied	report/events/28/event:flip;report/events:reverse	ValueError: Missing bounded pacing/quiet event
+deletion-denied	report>frames>0>type:delete-key	KeyError: 'type'
+deletion-denied	spec>mode:flip	KeyError: 'unchange0'
+deletion-denied	report>frames>3>fields:drop-last	KeyError: 321
+deletion-denied	report>frames>1>type:inc	StopIteration:
+deletion-denied	spec>case:flip	ValueError: Deletion ACK differs
+deletion-denied	report>frames>1>fields:drop-last	ValueError: Deletion access mask differs
+deletion-denied	report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-denied	report>frames>4>error:inc	ValueError: Deletion error differs
+deletion-denied	report>frames>8>error:inc	ValueError: Deletion lost liveness
+deletion-denied	report>events>28>event:flip	ValueError: Missing bounded pacing/quiet event
+deletion-denied	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-denied	report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-denied	report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-denied	report>frames>3>fields>0>hex:empty	ValueError: Truncated article record
+deletion-denied	spec>mode:empty;spec>mode:delete-key	KeyError: 'mode'
+deletion-denied	spec>mode:empty;spec>mode:flip	KeyError: 'x'
+deletion-denied	spec>case:delete-key;report>frames>4>error:delete-key	KeyError: 'case'
+deletion-denied	spec>case:delete-key;report>frames:drop-last	KeyError: 'case'
+deletion-denied	spec>case:delete-key;report>frames>6>fields:drop-last	ValueError: Repeated cached list differs
+deletion-denied	report>frames>0>connection:delete-key;spec:delete-key	KeyError: 'spec'
+deletion-denied	report>events>27>elapsed_ns:delete-key;report>events:reverse	ValueError: Short bounded pacing/quiet observation
+deletion-denied	report>frames>4>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+deletion-denied	report>frames>4>error:delete-key;report>frames>8>error:inc	KeyError: 'error'
+deletion-denied	report>events>0>event:delete-key;report>events:delete-key	KeyError: 'events'
+deletion-denied	report>events>0>event:delete-key;report>frames>8>error:inc	ValueError: Deletion lost liveness
+deletion-denied	report>events:delete-key;report>frames>8>error:inc	ValueError: Deletion lost liveness
+deletion-denied	report>events:delete-key;report>frames>3>fields>0>hex:empty	ValueError: Truncated article record
+deletion-denied	report>frames>1>fields:delete-key;report>frames>1>type:inc	StopIteration:
+deletion-denied	report>frames:delete-key;spec>case:flip	KeyError: 'frames'
+deletion-denied	report>frames>1>fields>0>hex:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+deletion-denied	report>frames>1>fields>0>hex:delete-key;spec>role:delete-key	KeyError: 'hex'
+deletion-denied	report>frames>1>fields>0>hex:delete-key;report>events:reverse	KeyError: 'hex'
+deletion-denied	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+deletion-denied	report>frames>0>id:delete-key;report>frames>3>fields>0>hex:empty	KeyError: 'id'
+deletion-denied	report>frames>0>is_reply:delete-key;spec>role:delete-key	KeyError: 'is_reply'
+deletion-denied	report>frames>0>is_reply:delete-key;spec:delete-key	KeyError: 'spec'
+deletion-denied	spec>mode:delete-key;report>frames>3>fields>0>hex:flip	ValueError: Deletion article metadata differs
+deletion-denied	spec>repeat:delete-key;report>frames>0>type:delete-key	KeyError: 'repeat'
+deletion-denied	spec>repeat:delete-key;report>frames>4>error:inc	ValueError: Deletion error differs
+deletion-denied	report:delete-key;spec>mode:flip	KeyError: 'report'
+deletion-denied	spec>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+deletion-denied	spec>role:delete-key;report>frames>4>error:inc	ValueError: Deletion error differs
+deletion-denied	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+deletion-denied	spec>case:flip;report>frames>4>error:inc	ValueError: Deletion ACK differs
+deletion-denied	report>frames>1>fields:drop-last;report>frames:drop-last	ValueError: Deletion access mask differs
+deletion-denied	report>frames>8>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+deletion-denied	report>events>28>event:flip;report>events:reverse	ValueError: Missing bounded pacing/quiet event
 wait-pause		ok 74234e98afe7498f
-wait-pause	report/events/39/elapsed_ns:delete-key	KeyError: 'elapsed_ns'
-wait-pause	report/events/0/event:delete-key	KeyError: 'event'
-wait-pause	report/events:delete-key	KeyError: 'events'
+wait-pause	report>events>39>elapsed_ns:delete-key	KeyError: 'elapsed_ns'
+wait-pause	report>events>0>event:delete-key	KeyError: 'event'
+wait-pause	report>events:delete-key	KeyError: 'events'
 wait-pause	report:delete-key	KeyError: 'report'
-wait-pause	report/events/40/event:flip	ValueError: Missing bounded pacing/quiet event
-wait-pause	report/events:reverse	ValueError: Short bounded pacing/quiet observation
-wait-pause	report/events/39/elapsed_ns:delete-key;report/events/0/event:delete-key	KeyError: 'event'
-wait-pause	report/events/39/elapsed_ns:delete-key;report/events:delete-key	KeyError: 'events'
-wait-pause	report/events/39/elapsed_ns:delete-key;report:delete-key	KeyError: 'report'
-wait-pause	report/events/39/elapsed_ns:delete-key;report/events/40/event:flip	ValueError: Missing bounded pacing/quiet event
-wait-pause	report/events/39/elapsed_ns:delete-key;report/events:reverse	ValueError: Short bounded pacing/quiet observation
-wait-pause	report/events/0/event:delete-key;report/events:delete-key	KeyError: 'events'
-wait-pause	report/events/0/event:delete-key;report:delete-key	KeyError: 'report'
-wait-pause	report/events/0/event:delete-key;report/events/40/event:flip	KeyError: 'event'
-wait-pause	report/events/0/event:delete-key;report/events:reverse	KeyError: 'event'
-wait-pause	report/events:delete-key;report:delete-key	KeyError: 'report'
-wait-pause	report/events/40/event:flip;report/events:reverse	ValueError: Missing bounded pacing/quiet event
+wait-pause	report>events>40>event:flip	ValueError: Missing bounded pacing/quiet event
+wait-pause	report>events:reverse	ValueError: Short bounded pacing/quiet observation
+wait-pause	report>events>39>elapsed_ns:delete-key;report>events>0>event:delete-key	KeyError: 'event'
+wait-pause	report>events>39>elapsed_ns:delete-key;report>events:delete-key	KeyError: 'events'
+wait-pause	report>events>39>elapsed_ns:delete-key;report:delete-key	KeyError: 'report'
+wait-pause	report>events>39>elapsed_ns:delete-key;report>events>40>event:flip	ValueError: Missing bounded pacing/quiet event
+wait-pause	report>events>39>elapsed_ns:delete-key;report>events:reverse	ValueError: Short bounded pacing/quiet observation
+wait-pause	report>events>0>event:delete-key;report>events:delete-key	KeyError: 'events'
+wait-pause	report>events>0>event:delete-key;report:delete-key	KeyError: 'report'
+wait-pause	report>events>0>event:delete-key;report>events>40>event:flip	KeyError: 'event'
+wait-pause	report>events>0>event:delete-key;report>events:reverse	KeyError: 'event'
+wait-pause	report>events:delete-key;report:delete-key	KeyError: 'report'
+wait-pause	report>events>40>event:flip;report>events:reverse	ValueError: Missing bounded pacing/quiet event
 scalar		ok 74234e98afe7498f
-scalar	specs/0/case:delete-key	KeyError: 'case'
-scalar	specs/0/mode:delete-key	KeyError: 'mode'
+scalar	specs>0>case:delete-key	KeyError: 'case'
+scalar	specs>0>mode:delete-key	KeyError: 'mode'
 scalar	specs:delete-key	KeyError: 'specs'
-scalar	specs/0/value_hex:delete-key	KeyError: 'value_hex'
+scalar	specs>0>value_hex:delete-key	KeyError: 'value_hex'
 scalar	specs:drop-first	ValueError: Deletion scalar controls differ
-scalar	specs/0/case:delete-key;specs/0/mode:delete-key	KeyError: 'case'
-scalar	specs/0/case:delete-key;specs:delete-key	KeyError: 'specs'
-scalar	specs/0/case:delete-key;specs/0/value_hex:delete-key	KeyError: 'case'
-scalar	specs/0/case:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
-scalar	specs/0/mode:delete-key;specs:delete-key	KeyError: 'specs'
-scalar	specs/0/mode:delete-key;specs/0/value_hex:delete-key	KeyError: 'value_hex'
-scalar	specs/0/mode:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
-scalar	specs/0/value_hex:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
+scalar	specs>0>case:delete-key;specs>0>mode:delete-key	KeyError: 'case'
+scalar	specs>0>case:delete-key;specs:delete-key	KeyError: 'specs'
+scalar	specs>0>case:delete-key;specs>0>value_hex:delete-key	KeyError: 'case'
+scalar	specs>0>case:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
+scalar	specs>0>mode:delete-key;specs:delete-key	KeyError: 'specs'
+scalar	specs>0>mode:delete-key;specs>0>value_hex:delete-key	KeyError: 'value_hex'
+scalar	specs>0>mode:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
+scalar	specs>0>value_hex:delete-key;specs:drop-first	ValueError: Deletion scalar controls differ
 graph		ok e692e56079f23bfc
-graph	modes/0:empty	KeyError: ''
-graph	modes/3:flip	KeyError: 'hea0'
-graph	modes/2:flip	KeyError: 'lea0'
+graph	modes>0:empty	KeyError: ''
+graph	modes>3:flip	KeyError: 'hea0'
+graph	modes>2:flip	KeyError: 'lea0'
 graph	modes:delete-key	KeyError: 'modes'
-graph	modes/6:flip	KeyError: 'promote-middl0'
-graph	modes/0:flip	KeyError: 'promote-paren0'
-graph	modes/7:flip	KeyError: 'recursive-middl0'
-graph	modes/1:flip	KeyError: 'recursive-paren0'
-graph	modes/4:flip	KeyError: 'tai0'
-graph	modes/5:flip	KeyError: 'unchange0'
-graph	modes/0:empty;modes:delete-key	KeyError: 'modes'
-graph	modes/0:empty;modes/0:flip	KeyError: 'x'
-graph	modes/3:flip;modes/2:flip	KeyError: 'lea0'
-graph	modes/3:flip;modes:delete-key	KeyError: 'modes'
-graph	modes/3:flip;modes/0:flip	KeyError: 'promote-paren0'
-graph	modes/3:flip;modes/5:flip	KeyError: 'hea0'
-graph	modes/2:flip;modes/7:flip	KeyError: 'lea0'
-graph	modes/2:flip;modes/1:flip	KeyError: 'recursive-paren0'
-graph	modes/2:flip;modes/5:flip	KeyError: 'lea0'
-graph	modes/6:flip;modes/0:flip	KeyError: 'promote-paren0'
-graph	modes/6:flip;modes/7:flip	KeyError: 'promote-middl0'
-graph	modes/6:flip;modes/5:flip	KeyError: 'unchange0'
-graph	modes/0:flip;modes/7:flip	KeyError: 'promote-paren0'
-graph	modes/0:flip;modes/1:flip	KeyError: 'promote-paren0'
-graph	modes/7:flip;modes/4:flip	KeyError: 'tai0'
-graph	modes/4:flip;modes/5:flip	KeyError: 'tai0'
+graph	modes>6:flip	KeyError: 'promote-middl0'
+graph	modes>0:flip	KeyError: 'promote-paren0'
+graph	modes>7:flip	KeyError: 'recursive-middl0'
+graph	modes>1:flip	KeyError: 'recursive-paren0'
+graph	modes>4:flip	KeyError: 'tai0'
+graph	modes>5:flip	KeyError: 'unchange0'
+graph	modes>0:empty;modes:delete-key	KeyError: 'modes'
+graph	modes>0:empty;modes>0:flip	KeyError: 'x'
+graph	modes>3:flip;modes>2:flip	KeyError: 'lea0'
+graph	modes>3:flip;modes:delete-key	KeyError: 'modes'
+graph	modes>3:flip;modes>0:flip	KeyError: 'promote-paren0'
+graph	modes>3:flip;modes>5:flip	KeyError: 'hea0'
+graph	modes>2:flip;modes>7:flip	KeyError: 'lea0'
+graph	modes>2:flip;modes>1:flip	KeyError: 'recursive-paren0'
+graph	modes>2:flip;modes>5:flip	KeyError: 'lea0'
+graph	modes>6:flip;modes>0:flip	KeyError: 'promote-paren0'
+graph	modes>6:flip;modes>7:flip	KeyError: 'promote-middl0'
+graph	modes>6:flip;modes>5:flip	KeyError: 'unchange0'
+graph	modes>0:flip;modes>7:flip	KeyError: 'promote-paren0'
+graph	modes>0:flip;modes>1:flip	KeyError: 'promote-paren0'
+graph	modes>7:flip;modes>4:flip	KeyError: 'tai0'
+graph	modes>4:flip;modes>5:flip	KeyError: 'tai0'

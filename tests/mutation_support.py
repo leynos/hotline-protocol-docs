@@ -4,10 +4,11 @@ A verifier refuses a corrupt record with the first check that the record fails.
 Which check that is depends on the order of the checks, so a pair of faults in
 the same record shows the order: the message that comes back belongs to the check
 that runs first. The order-pinning tests of a verifier replay a table of such
-faults, each stored as slash-separated paths into the evidence with a named
+faults, each stored as paths into the evidence with a named
 change, and the ending that the version of the scripts before the refactoring
 produced. A line of a table has three tab-separated columns: the subject, the
-faults (``path:change``, joined by ``;``) and the ending.
+faults (``path:change``, joined by ``;``, a path having its steps separated
+by ``>``) and the ending.
 """
 
 import copy
@@ -23,6 +24,7 @@ type Json = dict[str, Json] | list[Json] | str | int | float | bool | None
 type Fault = tuple[str, str]
 
 DELETE_KEY = "delete-key"
+PATH_SEPARATOR = ">"
 OK_DIGEST_CHARS = 16
 MESSAGE_CHARS = 100
 
@@ -79,7 +81,7 @@ def fault_state(state: Json, faults: list[Fault]) -> Json:
     """
     state = copy.deepcopy(state)
     for text, change in faults:
-        steps = text.split("/") if text else []
+        steps = text.split(PATH_SEPARATOR) if text else []
         parent: typ.Any = state
         for step in steps[:-1]:
             parent = parent[step_into(parent, step)]

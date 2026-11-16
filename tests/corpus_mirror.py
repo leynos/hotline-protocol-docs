@@ -8,11 +8,12 @@ copy. The retained evidence is never written to.
 
 import json
 import sys
+import tempfile
 import typing as typ
+from pathlib import Path
 
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
-    from pathlib import Path
 
     import pytest
 
@@ -46,6 +47,10 @@ class Mirror:
             leaf.write_bytes(content)
         return leaf
 
+    def write_json(self, relative: str, value: object) -> None:
+        """Replace one file of the mirror by the JSON of ``value``."""
+        self.thaw(relative).write_text(json.dumps(value))
+
     def edit_json(self, relative: str, change: cabc.Callable[[typ.Any], None]) -> None:
         """Change the JSON in one file of the mirror."""
         path = self.thaw(relative)
@@ -57,6 +62,37 @@ class Mirror:
         """Change the bytes of one file of the mirror."""
         path = self.thaw(relative)
         path.write_bytes(change(path.read_bytes()))
+
+
+def corpus_subject(
+    corpus: Path, verify: cabc.Callable[[Path], object], files: list[str]
+) -> tuple[dict[str, typ.Any], cabc.Callable[[dict[str, typ.Any]], object]]:
+    """Describe a corpus as the JSON of some of its files, and a check that runs on it.
+
+    Returns
+    -------
+    tuple[dict[str, typing.Any], collections.abc.Callable]
+        The parsed content of each named file, and a function that mirrors the
+        corpus with the files that differ written back, and runs ``verify`` on it.
+    """
+    original = {name: json.loads((corpus / name).read_text()) for name in files}
+
+    def call(state: dict[str, typ.Any]) -> object:
+        """Run ``verify`` on a mirror that holds the changed files.
+
+        Returns
+        -------
+        object
+            What ``verify`` returned.
+        """
+        with tempfile.TemporaryDirectory() as temporary:
+            mirror = Mirror(corpus, Path(temporary))
+            for name, value in state.items():
+                if value != original[name]:
+                    mirror.write_json(name, value)
+            return verify(mirror.root)
+
+    return original, call
 
 
 def patch_everywhere(

@@ -1,0 +1,234 @@
+structure-category-conflict-folder		ok 74234e98afe7498f
+structure-category-conflict-folder	expected>case:delete-key	KeyError: 'case'
+structure-category-conflict-folder	report>frames>0>connection:delete-key	KeyError: 'connection'
+structure-category-conflict-folder	report>frames>3>error:delete-key	KeyError: 'error'
+structure-category-conflict-folder	expected:delete-key	KeyError: 'expected'
+structure-category-conflict-folder	report>frames>1>fields:delete-key	KeyError: 'fields'
+structure-category-conflict-folder	report>frames:delete-key	KeyError: 'frames'
+structure-category-conflict-folder	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+structure-category-conflict-folder	report>frames>0>id:delete-key	KeyError: 'id'
+structure-category-conflict-folder	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-category-conflict-folder	report:delete-key	KeyError: 'report'
+structure-category-conflict-folder	expected>role:delete-key	KeyError: 'role'
+structure-category-conflict-folder	report>frames>0>type:delete-key	KeyError: 'type'
+structure-category-conflict-folder	report>frames>1>type:inc	StopIteration:
+structure-category-conflict-folder	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+structure-category-conflict-folder	report>frames>3>fields>0>id:inc	ValueError: Modern category field/length differs
+structure-category-conflict-folder	report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-category-conflict-folder	report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-category-conflict-folder	report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-category-conflict-folder	report>frames>6>error:inc	ValueError: Structure failure lost control liveness
+structure-category-conflict-folder	report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-category-conflict-folder	expected>case:delete-key;report>frames>0>connection:delete-key	KeyError: 'case'
+structure-category-conflict-folder	expected>case:delete-key;expected:delete-key	KeyError: 'expected'
+structure-category-conflict-folder	expected>case:delete-key;report>frames:drop-last	KeyError: 'case'
+structure-category-conflict-folder	expected>case:delete-key;report>frames>6>error:inc	KeyError: 'case'
+structure-category-conflict-folder	report>frames>0>connection:delete-key;expected:delete-key	KeyError: 'expected'
+structure-category-conflict-folder	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+structure-category-conflict-folder	report>frames>3>error:delete-key;report:delete-key	KeyError: 'report'
+structure-category-conflict-folder	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-category-conflict-folder	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+structure-category-conflict-folder	report>frames>1>fields>0>hex:delete-key;expected>role:delete-key	KeyError: 'hex'
+structure-category-conflict-folder	report>frames>1>fields>0>hex:delete-key;report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-category-conflict-folder	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-category-conflict-folder	report>frames>0>id:delete-key;report>frames:drop-last	KeyError: 'id'
+structure-category-conflict-folder	report>frames>0>id:delete-key;report>frames>4>error:inc	KeyError: 'id'
+structure-category-conflict-folder	report>frames>0>is_reply:delete-key;report>frames>1>type:inc	KeyError: 'is_reply'
+structure-category-conflict-folder	expected>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+structure-category-conflict-folder	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+structure-category-conflict-folder	report>frames>0>type:delete-key;report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-category-conflict-folder	report>frames:drop-last;report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-category-conflict-folder	report>frames>3>fields>0>id:inc;report>frames>3>fields:drop-last	ValueError: Modern category field/length differs
+structure-category-conflict-folder	report>frames>3>is_reply:inc;report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-category-conflict-folder	report>frames>3>is_reply:inc;report>frames>6>error:inc	ValueError: News listing failed
+structure-category-conflict-folder	report>frames>4>error:inc;report>frames>6>error:inc	ValueError: Structure error outcome differs
+structure-folder-missing-parent		ok 74234e98afe7498f
+structure-folder-missing-parent	expected>case:delete-key	KeyError: 'case'
+structure-folder-missing-parent	report>frames>0>connection:delete-key	KeyError: 'connection'
+structure-folder-missing-parent	report>frames>3>error:delete-key	KeyError: 'error'
+structure-folder-missing-parent	expected:delete-key	KeyError: 'expected'
+structure-folder-missing-parent	report>frames>1>fields:delete-key	KeyError: 'fields'
+structure-folder-missing-parent	report>frames:delete-key	KeyError: 'frames'
+structure-folder-missing-parent	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+structure-folder-missing-parent	report>frames>0>id:delete-key	KeyError: 'id'
+structure-folder-missing-parent	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-folder-missing-parent	report:delete-key	KeyError: 'report'
+structure-folder-missing-parent	expected>role:delete-key	KeyError: 'role'
+structure-folder-missing-parent	report>frames>0>type:delete-key	KeyError: 'type'
+structure-folder-missing-parent	report>frames>1>type:inc	StopIteration:
+structure-folder-missing-parent	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+structure-folder-missing-parent	report>frames>3>fields>0>id:inc	ValueError: Modern category field/length differs
+structure-folder-missing-parent	report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-folder-missing-parent	report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-folder-missing-parent	report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-folder-missing-parent	report>frames>6>error:inc	ValueError: Structure failure lost control liveness
+structure-folder-missing-parent	report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-folder-missing-parent	expected>case:delete-key;expected:delete-key	KeyError: 'expected'
+structure-folder-missing-parent	expected>case:delete-key;report>frames>1>fields>0>hex:delete-key	KeyError: 'case'
+structure-folder-missing-parent	report>frames>0>connection:delete-key;expected:delete-key	KeyError: 'expected'
+structure-folder-missing-parent	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+structure-folder-missing-parent	report>frames>3>error:delete-key;report:delete-key	KeyError: 'report'
+structure-folder-missing-parent	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-folder-missing-parent	report>frames>3>error:delete-key;report>frames>6>error:inc	KeyError: 'error'
+structure-folder-missing-parent	expected:delete-key;report>frames>0>type:delete-key	KeyError: 'expected'
+structure-folder-missing-parent	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+structure-folder-missing-parent	report>frames>1>fields>0>hex:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-folder-missing-parent	report>frames>1>fields>0>hex:delete-key;expected>role:delete-key	KeyError: 'hex'
+structure-folder-missing-parent	report>frames>1>fields>0>hex:delete-key;report>frames>1>type:inc	StopIteration:
+structure-folder-missing-parent	report>frames>1>fields>0>hex:delete-key;report>frames:drop-last	KeyError: 'hex'
+structure-folder-missing-parent	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-folder-missing-parent	report>frames>0>id:delete-key;report>frames>4>error:inc	KeyError: 'id'
+structure-folder-missing-parent	report>frames>0>is_reply:delete-key;report>frames>1>type:inc	KeyError: 'is_reply'
+structure-folder-missing-parent	expected>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+structure-folder-missing-parent	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+structure-folder-missing-parent	report>frames>0>type:delete-key;report>frames:drop-last	KeyError: 'type'
+structure-folder-missing-parent	report>frames>0>type:delete-key;report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-folder-missing-parent	report>frames:drop-last;report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-folder-missing-parent	report>frames>3>fields>0>id:inc;report>frames>3>fields:drop-last	ValueError: Modern category field/length differs
+structure-folder-missing-parent	report>frames>3>is_reply:inc;report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-delete-low-category		ok 74234e98afe7498f
+structure-delete-low-category	expected>case:delete-key	KeyError: 'case'
+structure-delete-low-category	report>frames>0>connection:delete-key	KeyError: 'connection'
+structure-delete-low-category	report>frames>3>error:delete-key	KeyError: 'error'
+structure-delete-low-category	expected:delete-key	KeyError: 'expected'
+structure-delete-low-category	report>frames>1>fields:delete-key	KeyError: 'fields'
+structure-delete-low-category	report>frames:delete-key	KeyError: 'frames'
+structure-delete-low-category	report>frames>1>fields>0>hex:delete-key	KeyError: 'hex'
+structure-delete-low-category	report>frames>0>id:delete-key	KeyError: 'id'
+structure-delete-low-category	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-delete-low-category	report:delete-key	KeyError: 'report'
+structure-delete-low-category	expected>role:delete-key	KeyError: 'role'
+structure-delete-low-category	report>frames>0>type:delete-key	KeyError: 'type'
+structure-delete-low-category	report>frames>1>type:inc	StopIteration:
+structure-delete-low-category	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+structure-delete-low-category	report>frames>3>fields>0>id:inc	ValueError: Modern category field/length differs
+structure-delete-low-category	report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-delete-low-category	report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-delete-low-category	report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-delete-low-category	report>frames>6>error:inc	ValueError: Structure failure lost control liveness
+structure-delete-low-category	report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-delete-low-category	expected>case:delete-key;expected:delete-key	KeyError: 'expected'
+structure-delete-low-category	expected>case:delete-key;report>frames>1>fields:drop-last	KeyError: 'case'
+structure-delete-low-category	report>frames>0>connection:delete-key;expected:delete-key	KeyError: 'expected'
+structure-delete-low-category	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+structure-delete-low-category	report>frames>3>error:delete-key;report:delete-key	KeyError: 'report'
+structure-delete-low-category	report>frames>3>error:delete-key;report>frames>3>is_reply:inc	ValueError: News listing failed
+structure-delete-low-category	report>frames>3>error:delete-key;report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-delete-low-category	report>frames>1>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+structure-delete-low-category	report>frames>1>fields>0>hex:delete-key;expected>role:delete-key	KeyError: 'hex'
+structure-delete-low-category	report>frames>1>fields>0>hex:delete-key;report>frames:drop-last	KeyError: 'hex'
+structure-delete-low-category	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+structure-delete-low-category	report>frames>0>id:delete-key;expected>role:delete-key	KeyError: 'id'
+structure-delete-low-category	report>frames>0>id:delete-key;report>frames>1>type:inc	KeyError: 'id'
+structure-delete-low-category	report>frames>0>id:delete-key;report>frames>4>error:inc	KeyError: 'id'
+structure-delete-low-category	report>frames>0>is_reply:delete-key;report:delete-key	KeyError: 'report'
+structure-delete-low-category	expected>role:delete-key;report>frames:drop-last	KeyError: 'role'
+structure-delete-low-category	expected>role:delete-key;report>frames>1>fields:drop-last	KeyError: 'role'
+structure-delete-low-category	report>frames>0>type:delete-key;report>frames>1>type:inc	KeyError: 'type'
+structure-delete-low-category	report>frames>0>type:delete-key;report>frames>3>fields:drop-last	ValueError: Rejected structure operation changed semantic listing
+structure-delete-low-category	report>frames:drop-last;report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+structure-delete-low-category	report>frames>3>fields>0>id:inc;report>frames>3>fields:drop-last	ValueError: Modern category field/length differs
+structure-delete-low-category	report>frames>3>is_reply:inc;report>frames>4>error:inc	ValueError: Structure error outcome differs
+structure-delete-low-category	report>frames>6>error:inc;report>frames>1>fields:drop-last	ValueError: Structure privilege control differs
+body-root-first		ok 74234e98afe7498f
+body-root-first	expected>case:delete-key	KeyError: 'case'
+body-root-first	report>frames>0>connection:delete-key	KeyError: 'connection'
+body-root-first	report>frames>3>error:delete-key	KeyError: 'error'
+body-root-first	expected:delete-key	KeyError: 'expected'
+body-root-first	report>frames>3>fields:delete-key	KeyError: 'fields'
+body-root-first	report>frames:delete-key	KeyError: 'frames'
+body-root-first	report>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+body-root-first	report>frames>0>id:delete-key	KeyError: 'id'
+body-root-first	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+body-root-first	report:delete-key	KeyError: 'report'
+body-root-first	report>frames>3>error:inc	ValueError: Body bytes/navigation/date graph differs
+body-root-first	report>frames>4>error:inc	ValueError: Body error/success lost control liveness
+body-root-first	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+body-root-first	report>frames>3>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+body-root-first	expected>case:delete-key;report>frames>3>fields>0>hex:delete-key	KeyError: 'case'
+body-root-first	expected>case:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+body-root-first	report>frames>0>connection:delete-key;expected:delete-key	KeyError: 'expected'
+body-root-first	report>frames>0>connection:delete-key;report>frames>0>id:delete-key	KeyError: 'connection'
+body-root-first	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+body-root-first	report>frames>0>connection:delete-key;report>frames>4>error:inc	KeyError: 'connection'
+body-root-first	report>frames>3>error:delete-key;expected:delete-key	KeyError: 'expected'
+body-root-first	report>frames>3>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+body-root-first	report>frames>3>error:delete-key;report>frames>3>fields>1>id:inc	ValueError: Unexpected repeated scalar field
+body-root-first	expected:delete-key;report>frames>4>error:inc	KeyError: 'expected'
+body-root-first	report>frames>3>fields:delete-key;report>frames:delete-key	KeyError: 'frames'
+body-root-first	report>frames>3>fields:delete-key;report>frames>4>error:inc	KeyError: 'fields'
+body-root-first	report>frames:delete-key;report:delete-key	KeyError: 'report'
+body-root-first	report>frames>0>id:delete-key;report:delete-key	KeyError: 'report'
+body-root-first	report>frames>0>is_reply:delete-key;report:delete-key	KeyError: 'report'
+body-root-first	report>frames>0>is_reply:delete-key;report>frames>4>error:inc	KeyError: 'is_reply'
+body-root-first	report>frames>3>error:inc;report>frames:drop-last	ValueError: Body bytes/navigation/date graph differs
+body-root-first	report>frames>4>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+body-unknown-flavour		ok 74234e98afe7498f
+body-unknown-flavour	expected>case:delete-key	KeyError: 'case'
+body-unknown-flavour	report>frames>0>connection:delete-key	KeyError: 'connection'
+body-unknown-flavour	report>frames>3>error:delete-key	KeyError: 'error'
+body-unknown-flavour	expected:delete-key	KeyError: 'expected'
+body-unknown-flavour	report>frames>3>fields:delete-key	KeyError: 'fields'
+body-unknown-flavour	report>frames:delete-key	KeyError: 'frames'
+body-unknown-flavour	report>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+body-unknown-flavour	report>frames>0>id:delete-key	KeyError: 'id'
+body-unknown-flavour	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+body-unknown-flavour	report:delete-key	KeyError: 'report'
+body-unknown-flavour	expected>case:flip	ValueError: Body bytes/navigation/date graph differs
+body-unknown-flavour	report>frames>3>error:inc	ValueError: Body error family differs
+body-unknown-flavour	report>frames>4>error:inc	ValueError: Body error/success lost control liveness
+body-unknown-flavour	report>frames:drop-last	ValueError: Missing/duplicate auth reply
+body-unknown-flavour	expected>case:delete-key;report>frames>3>error:delete-key	KeyError: 'case'
+body-unknown-flavour	expected>case:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+body-unknown-flavour	report>frames>0>connection:delete-key;report>frames>3>error:delete-key	KeyError: 'connection'
+body-unknown-flavour	report>frames>0>connection:delete-key;expected:delete-key	KeyError: 'expected'
+body-unknown-flavour	report>frames>0>connection:delete-key;report>frames>3>fields:delete-key	KeyError: 'connection'
+body-unknown-flavour	report>frames>0>connection:delete-key;report:delete-key	KeyError: 'report'
+body-unknown-flavour	report>frames>0>connection:delete-key;report>frames>3>error:inc	KeyError: 'connection'
+body-unknown-flavour	report>frames>3>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+body-unknown-flavour	report>frames>3>error:delete-key;expected>case:flip	KeyError: 'error'
+body-unknown-flavour	report>frames>3>fields:delete-key;report>frames>3>error:inc	ValueError: Body error family differs
+body-unknown-flavour	report>frames:delete-key;report:delete-key	KeyError: 'report'
+body-unknown-flavour	report>frames>3>fields>0>hex:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+body-unknown-flavour	report>frames>3>fields>0>hex:delete-key;expected>case:flip	KeyError: 'hex'
+body-unknown-flavour	report>frames>3>fields>0>hex:delete-key;report>frames>4>error:inc	KeyError: 'hex'
+body-unknown-flavour	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+body-unknown-flavour	report>frames>0>id:delete-key;expected>case:flip	KeyError: 'id'
+body-unknown-flavour	report>frames>0>is_reply:delete-key;report:delete-key	KeyError: 'report'
+body-unknown-flavour	expected>case:flip;report>frames:drop-last	ValueError: Body bytes/navigation/date graph differs
+body-unknown-flavour	report>frames>4>error:inc;report>frames:drop-last	ValueError: Missing/duplicate auth reply
+article-list		ok 11952083f93c619d
+article-list	hex:delete-key	KeyError: 'hex'
+article-list	hex:flip	ValueError: Article title/poster/parent/flags differ
+article-list	hex:empty	ValueError: Truncated article record
+article-list	hex:flip;hex:empty	ValueError: Truncated article record
+categories-15		ok 105ce9bb14203822
+categories-15	report>frames>0>connection:delete-key	KeyError: 'connection'
+categories-15	report>frames>3>error:delete-key	KeyError: 'error'
+categories-15	report>frames>3>fields:delete-key	KeyError: 'fields'
+categories-15	report>frames:delete-key	KeyError: 'frames'
+categories-15	report>frames>3>fields>0>hex:delete-key	KeyError: 'hex'
+categories-15	report>frames>0>id:delete-key	KeyError: 'id'
+categories-15	report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+categories-15	report:delete-key	KeyError: 'report'
+categories-15	report>frames>3>type:delete-key	KeyError: 'type'
+categories-15	report>frames>3>fields:drop-last	ValueError: Category order/name bytes differ
+categories-15	report>frames>3>connection:flip	ValueError: Missing/duplicate auth reply
+categories-15	report>frames>3>fields>0>id:inc	ValueError: Modern category field/length differs
+categories-15	report>frames>3>is_reply:inc	ValueError: News listing failed
+categories-15	report>frames>0>connection:delete-key;report>frames>3>fields>0>hex:delete-key	KeyError: 'connection'
+categories-15	report>frames>0>connection:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'connection'
+categories-15	report>frames>3>error:delete-key;report>frames:delete-key	KeyError: 'frames'
+categories-15	report>frames>3>error:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+categories-15	report>frames>3>error:delete-key;report>frames>3>type:delete-key	KeyError: 'type'
+categories-15	report>frames>3>fields:delete-key;report>frames>3>is_reply:inc	ValueError: News listing failed
+categories-15	report>frames:delete-key;report:delete-key	KeyError: 'report'
+categories-15	report>frames>3>fields>0>hex:delete-key;report>frames>0>id:delete-key	KeyError: 'id'
+categories-15	report>frames>3>fields>0>hex:delete-key;report>frames>3>connection:flip	ValueError: Missing/duplicate auth reply
+categories-15	report>frames>3>fields>0>hex:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'hex'
+categories-15	report>frames>0>id:delete-key;report>frames>0>is_reply:delete-key	KeyError: 'is_reply'
+categories-15	report>frames>0>id:delete-key;report:delete-key	KeyError: 'report'
+categories-15	report>frames>0>id:delete-key;report>frames>3>connection:flip	KeyError: 'id'
+categories-15	report>frames>0>is_reply:delete-key;report>frames>3>fields>0>id:inc	KeyError: 'is_reply'
+categories-15	report>frames>3>type:delete-key;report>frames>3>is_reply:inc	ValueError: News listing failed
+categories-15	report>frames>3>connection:flip;report>frames>3>is_reply:inc	ValueError: Missing/duplicate auth reply
