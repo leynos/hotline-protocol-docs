@@ -7,6 +7,7 @@ from pathlib import Path
 
 import script_cli
 from pcap_tcp import read_packets
+from pinned_source import pinned_bytes
 from protocol_capture import verify_capture
 from verify_native_core import require
 from verify_native_repeat_runs import (
@@ -131,7 +132,7 @@ def verify(corpus: Path) -> dict[str, typ.Any]:
     configs = load(corpus / "analysis/config-comparison.json")
     require(set(comparison) == set(configs) == set(RUNS), "Comparison run set differs")
     require(
-        sha(Path(__file__).with_name("protocol_capture.py").read_bytes()) == DRIVER_SHA,
+        sha(pinned_bytes("protocol_capture.py")) == DRIVER_SHA,
         "Capture driver revision differs",
     )
     summary = {}

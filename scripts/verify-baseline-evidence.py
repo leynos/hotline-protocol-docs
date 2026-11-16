@@ -7,6 +7,8 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from pinned_source import pinned_bytes
+
 
 def verify(root: Path) -> None:
     evidence = root / "evidence/hotline-server-1.9"
@@ -14,7 +16,7 @@ def verify(root: Path) -> None:
     expected = manifest["program"]["sha256"]
     for helper in manifest["helper_scripts"]:
         if (
-            hashlib.sha256((root / helper["path"]).read_bytes()).hexdigest()
+            hashlib.sha256(pinned_bytes(Path(helper["path"]).name)).hexdigest()
             != helper["sha256"]
         ):
             raise ValueError(f"Helper script changed: {helper['path']}")

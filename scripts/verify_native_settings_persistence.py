@@ -13,6 +13,7 @@ from pathlib import Path
 import native_settings_persistence as current_runner
 from native_control_readiness import readiness
 from pcap_tcp import read_packets, stream
+from pinned_source import pinned_bytes
 from protocol_capture import ORACLE_SHA256, digest, verify_capture
 
 A46_SOURCES = {
@@ -122,7 +123,7 @@ def source_identity(corpus: Path) -> None:
     for name in shared:
         require(
             digest((corpus / "source/a48" / name).read_bytes())
-            == digest((Path(__file__).parent / name).read_bytes()),
+            == digest(pinned_bytes(name)),
             f"Shared verifier source differs: {name}",
         )
     for phase in (1, 2):

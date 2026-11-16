@@ -9,6 +9,7 @@ from pathlib import Path
 from native_filp import decode, metadata
 from native_packet_evidence import reconcile
 from pcap_tcp import lifetime, read_packets, stream
+from pinned_source import pinned_bytes
 from protocol_capture import decode_frame, verify_capture
 from verify_native_core import require
 from verify_native_settings import semantic
@@ -250,7 +251,7 @@ def verify(bundle: Path) -> dict:
         "protocol_capture.py",
     ):
         require(
-            sha((Path(__file__).parent / name).read_bytes()) == recorded[name],
+            sha(pinned_bytes(name)) == recorded[name],
             f"Capture source differs: {name}",
         )
     for case in (raw / "cases").iterdir():

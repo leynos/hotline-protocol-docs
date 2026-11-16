@@ -10,6 +10,7 @@ import zlib
 from pathlib import Path
 
 from pcap_tcp import lifetime, read_packets, stream
+from pinned_source import pinned_sha256
 from protocol_capture import verify_capture
 
 # fmt: off
@@ -116,7 +117,7 @@ def verify(corpus: Path) -> dict:
     inventory(corpus)
     boot, exp, prep = (corpus / name for name in ("boot", "experiment", "preparation"))
     require(sha(exp / "a7-original-plan.json") == PLAN_SHA, "Original A7 plan differs")
-    require(sha(Path(__file__).with_name("protocol_capture.py")) == DRIVER_SHA, "A7 driver revision differs")
+    require(pinned_sha256("protocol_capture.py") == DRIVER_SHA, "A7 driver revision differs")
     original, asrun = load(exp / "a7-original-plan.json"), load(exp / "a7-as-run-plan.json")
     require(len(original["steps"]) == 29 and original["steps"] == asrun["steps"], "A7 steps differ")
     for key in original.keys() - {"environment", "endpoints"}:
