@@ -226,6 +226,24 @@ The script work is a behaviour-preserving refactor.
   10 tensions) in the session scratch directory.
 - [x] (2026-11-15 20:40Z) Owner raised the tooling tolerance (D24) and asked
   for the SynHX naming to be clarified and a comprehensive glossary (D25).
+- [x] (2026-11-17 14:00Z) EP-M5 wave 5B integrated (eight commits, classic
+  verifiers through `prepare_native_cases`): the classic, Mac peer, mxd, SynHX
+  and shx verifiers, peer tolerance and the utilities meet the standard,
+  including the planner dispatcher and the gap-analysis renderer, whose output
+  is byte-identical. 1,170 findings to 0; about 1,300 error-order and
+  characterization tests added. `make all` passes with 5,064 tests in about
+  five minutes; `make goldens-check` and `make pin-experiment` print
+  `0 differences`. 93 scripts remain on the legacy list. Left unmigrated:
+  `verify_classic_field161_matrix.py` and its test, because the golden hashes
+  the full traceback of the known-red verdict and any restructuring changes the
+  frames; `peer_tolerance_run.py` and `capture_shx_session.py`, which record
+  their own hash at capture (D31) and have no tests; and five tests that
+  `Makefile` recipes run by path. Tolerance exceeded and accepted by the lead:
+  54 line-scoped suppressions in this group, against four per family; most are
+  for subprocess use, helpers that take a condition positionally and public
+  signatures kept for callers. Consequence: a migrated script no longer runs
+  under a bare `python3`, so commands quoted in that form need a dated note
+  with the next audit revision.
 - [x] (2026-11-17 09:00Z) EP-M5 wave 4 integrated (nine commits ending at the
   news and board corpus-fault tests): the login-extras, agreement, bitmap,
   article-deletion, news, move, room and board families meet the standard, bar
