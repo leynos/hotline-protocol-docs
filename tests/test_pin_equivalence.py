@@ -95,10 +95,10 @@ TOP_LEVEL_TEST = (
 HYPHENATED = "def label():\n    return 'plain'\n"
 HYPHENATED_TEST = (
     "import importlib.util\nfrom pathlib import Path\n\n"
-    'SCRIPT = "odd-name.py"\n\n\n'
+    'CHARACTERIZES = "odd-name.py"\n\n\n'
     "class OddNameTests:\n"
     "    def test_label(self):\n"
-    "        path = Path(__file__).resolve().parents[1] / 'scripts' / SCRIPT\n"
+    "        path = Path(__file__).resolve().parents[1] / 'scripts' / CHARACTERIZES\n"
     "        spec = importlib.util.spec_from_file_location('odd', path)\n"
     "        module = importlib.util.module_from_spec(spec)\n"
     "        spec.loader.exec_module(module)\n"
@@ -132,7 +132,7 @@ class TopLevelTestEquivalenceTests:
     def test_a_script_loaded_by_its_hyphenated_name_is_reached(
         self, tmp_path: Path
     ) -> None:
-        """A test that names a hyphenated script by file name reaches it."""
+        """A test that declares the hyphenated script it characterizes reaches it."""
         scripts = scripts_with(tmp_path, PINNED_CALC)
         (scripts / "odd-name.py").write_text(HYPHENATED)
         (tmp_path / "tests").mkdir()

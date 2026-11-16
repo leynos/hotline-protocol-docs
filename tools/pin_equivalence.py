@@ -50,7 +50,10 @@ def _imports(path: Path, stems: set[str]) -> set[str]:
                 found.update(alias.name.split(".")[0] for alias in node.names)
             case ast.ImportFrom(level=0):
                 found.add((node.module or "").split(".")[0])
-            case ast.Constant(value=str() as text) if text.endswith(".py"):
+            case ast.Assign(
+                targets=[ast.Name(id="CHARACTERIZES")],
+                value=ast.Constant(value=str() as text),
+            ):
                 found.add(Path(text).stem)  # a script loaded by its file name
     return found & stems
 
@@ -69,8 +72,8 @@ def reaching_tests(scripts: Path, name: str) -> list[str]:
     -------
     list[str]
         Paths such as ``scripts/tests/test_x.py`` or ``tests/test_x.py``, sorted.
-        A file counts when it imports the script or a module that does, or names
-        a script file as a string, as a test of a hyphenated script must.
+        A file counts when it imports the script or a module that does, or declares
+        ``CHARACTERIZES = "<file name>"``, as a test of a hyphenated script must.
     """
     top = scripts.parent / "tests"
     files = [*scripts.glob("*.py"), *scripts.glob("tests/*.py"), *top.glob("*.py")]
