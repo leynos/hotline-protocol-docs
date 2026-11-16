@@ -108,7 +108,6 @@ scripts/test_native_diagnostic_load.py
 scripts/test_native_diagnostic_near.py
 scripts/test_native_diagnostics.py
 scripts/test_native_download_send_path.py
-scripts/test_native_handshakes.py
 scripts/test_native_live_accounts.py
 scripts/test_native_liveness.py
 scripts/test_native_liveness_corpus.py
@@ -173,7 +172,6 @@ scripts/verify_native_diagnostic_load.py
 scripts/verify_native_diagnostic_near.py
 scripts/verify_native_diagnostics.py
 scripts/verify_native_download_send_path.py
-scripts/verify_native_handshakes.py
 scripts/verify_native_live_accounts.py
 scripts/verify_native_liveness.py
 scripts/verify_native_login_extras.py
