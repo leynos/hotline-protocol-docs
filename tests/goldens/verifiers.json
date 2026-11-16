@@ -624,8 +624,8 @@
     "evidence-verify-known-red: python3 scripts/verify_classic_field161_matrix.py evidence/gap-remediation/2026-11-14/classic-field161-01": {
       "target": "evidence-verify-known-red",
       "exit_code": 1,
-      "output_sha256": "bd28f434886e9eb2910bae44c76ccdc8d6523b0ace5472f33f35ffd802182b8e",
-      "output_bytes": 881,
+      "output_sha256": "85ee46b20577899ffcd02c276c06e5b791989fa5768d14ea2d3973a34ab170cc",
+      "output_bytes": 53,
       "last_line": "ValueError: capture gate source identity"
     }
   }

@@ -24,6 +24,12 @@ GOLDEN_DIR = "tests/goldens"
 HEX64 = re.compile(r"\b[0-9a-f]{64}\b")
 # unittest and the verifiers print wall-clock durations, which differ per run.
 TIMING = re.compile(r"\b(in|took|elapsed:?) \d+(?:\.\d+)?s\b")
+# A traceback: its header, the indented frame lines, then the exception line.
+TRACEBACK = re.compile(
+    r"^Traceback \(most recent call last\):\n(?:[ \t]+.*\n)*([^ \t\n].*)",
+    re.MULTILINE,
+)
+TRACEBACK_MARKER = "<traceback>"
 # The interpreter the Makefile recipes use, so the oracles see the same Python.
 PYTHON3 = shutil.which("python3") or sys.executable
 type Record = dict[str, typ.Any]
@@ -87,21 +93,24 @@ class Normaliser:
     def text(self, raw: bytes) -> str:
         """Normalise captured process output.
 
-        Three things are replaced: the absolute path of the checkout, the
+        Four things are replaced: the absolute path of the checkout, the
         random ``tmp.XXXXXXXXXX`` directories that ``mktemp`` creates for the
-        legacy-layout recipes, and wall-clock durations.
+        legacy-layout recipes, wall-clock durations, and each Python traceback,
+        which shrinks to a marker line and its final exception line so that
+        restructuring a failing script cannot change the text.
 
         Returns
         -------
         str
-            The output with those three replaced by fixed markers.
+            The output with those four replaced by fixed markers.
         """
         text = raw.decode("utf-8", errors="replace")
         text = text.replace(str(self.root), "<ROOT>")
         text = text.replace(str(self.scratch), "<SCRATCH>")
         temp = re.escape(str(Path(tempfile.gettempdir()) / "tmp."))
         text = re.sub(temp + "[A-Za-z0-9]+", "<TMP>", text)
-        return TIMING.sub(r"\1 <T>s", text)
+        text = TIMING.sub(r"\1 <T>s", text)
+        return TRACEBACK.sub(TRACEBACK_MARKER + r"\n\1", text)
 
     def plan(self, raw: bytes) -> tuple[bytes, list[str]]:
         """Replace embedded digests of ``scripts/`` files with their names.
