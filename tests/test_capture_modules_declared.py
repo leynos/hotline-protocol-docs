@@ -93,10 +93,14 @@ def problems(scripts: Path) -> list[str]:
         One line per fault; empty when all declarations are right.
     """
     found: list[str] = []
+    helpers = {
+        name for path in scripts.glob("*.py") for name in (declared(path) or ())[1:]
+    }
     for path in sorted(scripts.glob("*.py")):
         modules = declared(path)
         if modules is None:
-            if CALLS_IDENTITY.search(path.read_text(encoding="utf-8")):
+            calls = CALLS_IDENTITY.search(path.read_text(encoding="utf-8"))
+            if calls and path.name not in helpers:
                 found.append(f"{path.name} records an identity but declares no set")
             continue
         if modules[:1] != (path.name,) or len(set(modules)) != len(modules):
@@ -205,6 +209,24 @@ class TestTheCheck:
         assert problems(scripts) == [
             "run.py records an identity but declares no set"
         ], "expected problems(scripts) == [run.py records an identity but declare"
+
+    def test_a_declared_helper_may_call_identity_for_its_script(
+        self, tmp_path: Path
+    ) -> None:
+        """A module of a set is not a script that must declare its own."""
+        scripts = build(
+            tmp_path,
+            {
+                "run.py": (
+                    "import run_part\nCAPTURE_MODULES = ('run.py', 'run_part.py')\n"
+                ),
+                "run_part.py": (
+                    "import capture_identity\ncapture_identity.identity(())\n"
+                ),
+                "capture_identity.py": "",
+            },
+        )
+        assert not problems(scripts), "expected the helper to be exempt"
 
     def test_a_shared_library_is_not_part_of_a_set(self, tmp_path: Path) -> None:
         """A module without the script's prefix is covered by the commit."""

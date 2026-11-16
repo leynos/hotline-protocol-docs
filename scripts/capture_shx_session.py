@@ -1,246 +1,264 @@
 #!/usr/bin/env python3
-"""Capture a compiled shx terminal session inside a repository-backed namespace."""
+"""Capture a compiled shx terminal session inside a repository-backed namespace.
+
+The report records which scripts made the capture (decision D31):
+``driver_sha256`` is the digest of the modules of ``CAPTURE_MODULES`` and
+``driver_identity`` holds the commit and the hash of each. A report made before
+that decision holds the hash of this one file in ``driver_sha256``.
+"""
 
 import argparse
-import hashlib
+import datetime as dt
 import json
 import os
-import pty
-import re
-import select
 import shutil
-import signal
-import time
-from datetime import datetime, timezone
 from pathlib import Path
 
+import capture_identity
+from capture_shx_session_support import (  # digest is imported from here by tests
+    Inputs,
+    Report,
+    Sandbox,
+    check_steps,
+    digest,
+    home_file_state,
+    sandbox_command,
+    write_results,
+)
+from capture_shx_session_terminal import Session, start
 from mothra_root import mothra_root
 from protocol_capture import ORACLE_SHA256
 
+# The scripts that make this capture, in the fixed order of its identity digest.
+CAPTURE_MODULES = (
+    "capture_shx_session.py",
+    "capture_shx_session_support.py",
+    "capture_shx_session_terminal.py",
+)
 
-def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+SOURCE_COMMIT = "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b"
+IDENTITY_SCOPE = (
+    "Local hashes checked; remote native process identity remains operator-reported"
+)
+
+__all__ = ["CAPTURE_MODULES", "Session", "capture", "digest", "main"]
 
 
-def capture(
-    plan_path: Path, binary: Path, profile_path: Path, oracle: Path, output: Path
-) -> dict:
-    root = mothra_root().resolve()
-    binary, output = binary.resolve(), output.resolve()
-    require_paths = [binary, output]
-    if any(not path.is_relative_to(root) for path in require_paths):
-        raise ValueError("Peer binary and capture output must be inside mothra")
-    plan = json.loads(plan_path.read_text())
-    profile = json.loads(profile_path.read_text())
+def _check_inputs(
+    plan_path: Path, binary: Path, profile_path: Path, oracle: Path
+) -> tuple[Report, Report]:
+    """Check the plan, the profile and the identities of the peer and oracle.
+
+    Returns
+    -------
+    tuple[dict[str, typing.Any], dict[str, typing.Any]]
+        The parsed plan and profile.
+
+    Raises
+    ------
+    ValueError
+        If the peer or oracle differs from what is recorded, the source
+        profile is unknown, or the plan's commands are not acceptable.
+    """
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    profile = json.loads(profile_path.read_text(encoding="utf-8"))
     if digest(oracle) != ORACLE_SHA256 or digest(binary) != profile["binary_sha256"]:
-        raise ValueError("Peer or oracle identity mismatch")
-    if profile["source_commit"] != "adb1bf8c8cb12f7eb2fa2c01673295a6312f262b":
-        raise ValueError("Unknown historical source profile")
-    for step in plan["steps"]:
-        if any(c in step["command"] for c in "\0\r\n") or len(step["command"]) > 4096:
-            raise ValueError("Require bounded single-line peer commands")
-    if not plan["steps"] or plan["steps"][-1].get("expect_exit") != 0:
-        raise ValueError("Require an explicit successful peer exit as the final step")
+        message = "Peer or oracle identity mismatch"
+        raise ValueError(message)
+    if profile["source_commit"] != SOURCE_COMMIT:
+        message = "Unknown historical source profile"
+        raise ValueError(message)
+    check_steps(plan)
+    return plan, profile
+
+
+def _programs() -> tuple[str, str]:
+    """Find the sandbox and tracing programs.
+
+    Returns
+    -------
+    tuple[str, str]
+        The paths of ``bwrap`` and ``strace``.
+
+    Raises
+    ------
+    ValueError
+        If either is missing.
+    """
     bwrap, strace = shutil.which("bwrap"), shutil.which("strace")
     if not bwrap or not strace:
-        raise ValueError("Require bwrap and strace")
-    output.mkdir(parents=True, exist_ok=False)
-    for name in ["home", "tmp", "work"]:
-        (output / name).mkdir()
-    (output / "plan.json").write_bytes(plan_path.read_bytes())
-    (output / "peer-profile.json").write_bytes(profile_path.read_bytes())
-    home_target = str(Path.home())
-    guarded_home_file = Path.home() / ".hxvars"
+        message = "Require bwrap and strace"
+        raise ValueError(message)
+    return bwrap, strace
 
-    def home_file_state() -> dict:
-        if not guarded_home_file.exists():
-            return {"exists": False}
-        stat = guarded_home_file.stat()
-        return {
-            "exists": True,
-            "size": stat.st_size,
-            "mtime_ns": stat.st_mtime_ns,
-            "sha256": digest(guarded_home_file),
-        }
 
-    original_home_state = home_file_state()
-    command = [
-        bwrap,
-        "--unshare-user",
-        "--die-with-parent",
-        "--ro-bind",
-        "/",
-        "/",
-        "--bind",
-        str(root),
-        str(root),
-        "--bind",
-        str(output / "home"),
-        home_target,
-        "--bind",
-        str(output / "tmp"),
-        "/tmp",
-        "--proc",
-        "/proc",
-        "--dev",
-        "/dev",
-        "--chdir",
-        str(output / "work"),
-        "--",
-        strace,
-        "-f",
-        "-ttt",
-        "-xx",
-        "-yy",
-        "-s",
-        "131072",
-        "-e",
-        "trace=network,read,write,close,execve,exit_group",
-        "-o",
-        str(output / "syscalls.log"),
-        str(binary),
-        "-q",
-        "-d",
-    ]
-    events: list[dict[str, str | int]] = []
-    report = {
+def _prepare(args: tuple[Path, Path, Path, Path, Path]) -> Inputs:
+    """Check everything that can be checked before the output directory exists.
+
+    Parameters
+    ----------
+    args : tuple[pathlib.Path, pathlib.Path, pathlib.Path, pathlib.Path, pathlib.Path]
+        The plan, peer binary, profile, oracle binary and output directory.
+
+    Returns
+    -------
+    Inputs
+        The checked inputs, with the binary and output resolved.
+
+    Raises
+    ------
+    ValueError
+        If a path is outside the checkout, an input is not acceptable, or
+        ``bwrap`` or ``strace`` is missing.
+    """
+    plan_path, binary, profile_path, oracle, output = args
+    root = mothra_root().resolve()
+    binary, output = binary.resolve(), output.resolve()
+    if any(not path.is_relative_to(root) for path in [binary, output]):
+        message = "Peer binary and capture output must be inside mothra"
+        raise ValueError(message)
+    plan, profile = _check_inputs(plan_path, binary, profile_path, oracle)
+    programs = _programs()
+    return Inputs(plan, profile, Sandbox(*programs, root, output, binary))
+
+
+def _driver_fields() -> Report:
+    """Identify the scripts that are running this capture.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        ``driver_sha256``, the digest of the module set, and ``driver_identity``,
+        the record behind it.
+    """
+    identity = capture_identity.identity(CAPTURE_MODULES)
+    return {"driver_sha256": identity["digest"], "driver_identity": identity}
+
+
+def _initial_report(
+    inputs: Inputs, paths: tuple[Path, Path], command: list[str], before: Report
+) -> Report:
+    """Build the report as it stands before the peer starts.
+
+    Parameters
+    ----------
+    inputs : Inputs
+        The checked inputs.
+    paths : tuple[pathlib.Path, pathlib.Path]
+        The plan file and the profile file.
+    command : list[str]
+        The sandbox command.
+    before : dict[str, typing.Any]
+        The state of the guarded home file before the capture.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report, with status ``"running"``.
+    """
+    plan_path, profile_path = paths
+    return {
         "schema_version": 1,
         "profile": "compiled-historical-peer",
         "native_conformance": False,
-        "identity_scope": "Local hashes checked; remote native process identity remains operator-reported",
+        "identity_scope": IDENTITY_SCOPE,
         "oracle_sha256": ORACLE_SHA256,
-        "peer_binary_sha256": digest(binary),
+        "peer_binary_sha256": digest(inputs.sandbox.binary),
         "plan_sha256": digest(plan_path),
         "peer_profile_sha256": digest(profile_path),
-        "driver_sha256": digest(Path(__file__)),
-        "started_at_utc": datetime.now(timezone.utc).isoformat(),
-        "environment": plan["environment"],
+        **_driver_fields(),
+        "started_at_utc": dt.datetime.now(dt.UTC).isoformat(),
+        "environment": inputs.plan["environment"],
         "terminal_environment": {
             **{key: os.environ.get(key) for key in ["LANG", "LC_ALL", "LC_CTYPE"]},
             "TERM": "dumb",
         },
         "command": command,
-        "events": events,
+        "events": [],
         "completed_steps": 0,
         "status": "running",
         "error": "",
-        "host_home_file_before": original_home_state,
+        "host_home_file_before": before,
     }
-    began = time.monotonic_ns()
-    pid, fd = pty.fork()
-    if pid == 0:
-        try:
-            environment = dict(os.environ, TERM="dumb")
-            os.execvpe(command[0], command, environment)
-        finally:
-            os._exit(127)
-    report["controller_child_pid"] = pid
-    raw = bytearray()
-    ended = False
-    code = None
 
-    def event(kind: str, data: bytes = b"", step: int = -1) -> None:
-        events.append(
-            {
-                "event": kind,
-                "step": step,
-                "elapsed_ns": time.monotonic_ns() - began,
-                "hex": data.hex(),
-            }
-        )
 
-    def poll(timeout: float, step: int) -> bytes:
-        nonlocal ended, code
-        data = b""
-        if select.select([fd], [], [], timeout)[0]:
-            try:
-                data = os.read(fd, 65536)
-            except OSError as exc:
-                if exc.errno != 5:
-                    raise
-            if data:
-                raw.extend(data)
-                event("output", data, step)
-                if len(raw) > 8 * 1024 * 1024:
-                    raise ValueError("Terminal output exceeds capture bound")
-        child, status = os.waitpid(pid, os.WNOHANG) if not ended else (0, 0)
-        if child:
-            ended, code = True, os.waitstatus_to_exitcode(status)
-            event("process-exit", str(code).encode(), step)
-        return data
+def _run(inputs: Inputs, report: Report, guard: tuple[Path, Report]) -> Report:
+    """Run the peer and finish the report.
 
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report, which is also written to the capture directory.
+    """
+    guarded, before = guard
+    session = start(report["command"])
+    report["controller_child_pid"] = session.pid
+    report["events"] = session.events
     try:
-        until = time.monotonic() + 1
-        while time.monotonic() < until and not ended:
-            poll(0.1, -1)
-        for index, step in enumerate(plan["steps"]):
-            if ended:
-                raise RuntimeError(f"Peer exited before step {index}: {code}")
-            value = step["command"].encode() + b"\n"
-            os.write(fd, value)
-            event("input", value, index)
-            segment = bytearray()
-            deadline = time.monotonic() + step.get("timeout", 15)
-            matched = "expect" not in step
-            while time.monotonic() < deadline:
-                segment.extend(poll(0.1, index))
-                clean = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", segment.decode("latin1"))
-                if not matched and re.search(step["expect"], clean, re.DOTALL):
-                    matched = True
-                    deadline = min(
-                        deadline, time.monotonic() + step.get("settle_seconds", 2)
-                    )
-                if ended:
-                    break
-                if matched and "expect_exit" in step:
-                    continue
-                if matched and "expect" not in step:
-                    deadline = min(
-                        deadline, time.monotonic() + step.get("settle_seconds", 2)
-                    )
-            if not matched:
-                raise TimeoutError(
-                    f"Step {index} output did not match {step['expect']!r}"
-                )
-            if "expect_exit" in step and (not ended or code != step["expect_exit"]):
-                raise RuntimeError(f"Step {index} exit differs: {code}")
-            report["completed_steps"] += 1
+        session.run(inputs.plan)
         report["status"] = "completed"
     except (OSError, RuntimeError, ValueError) as exc:
         report["status"], report["error"] = "failed", f"{type(exc).__name__}: {exc}"
     finally:
-        if not ended:
-            try:
-                os.killpg(pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-            _, status = os.waitpid(pid, 0)
-            code = os.waitstatus_to_exitcode(status)
-        os.close(fd)
-        report["host_home_file_after"] = home_file_state()
-        if report["host_home_file_after"] != original_home_state:
+        report["completed_steps"] = session.completed
+        session.stop()
+        report["host_home_file_after"] = home_file_state(guarded)
+        if report["host_home_file_after"] != before:
             report["status"], report["error"] = (
                 "failed",
                 "Host home-file state changed during capture",
             )
-        report["peer_exit_code"] = code
-        report["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
-        (output / "stdout.bin").write_bytes(raw)
-        (output / "stdout.txt").write_text(
-            raw.decode("utf8", errors="backslashreplace")
-        )
-        (output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
-        (output / "SHA256SUMS").write_text(
-            "".join(
-                f"{digest(path)}  {path.name}\n"
-                for path in sorted(output.iterdir())
-                if path.is_file() and path.name != "SHA256SUMS"
-            )
-        )
+        report["peer_exit_code"] = session.code
+        report["finished_at_utc"] = dt.datetime.now(dt.UTC).isoformat()
+        write_results(inputs.sandbox.output, bytes(session.raw), report)
     return report
 
 
+def capture(  # ruff: ignore[too-many-arguments, too-many-positional-arguments]  # pylint: disable=too-many-arguments,too-many-positional-arguments  # the callers' shape: five paths, as the runner passes them
+    plan_path: Path, binary: Path, profile_path: Path, oracle: Path, output: Path
+) -> Report:
+    """Capture a compiled peer's terminal session in a sandbox.
+
+    Parameters
+    ----------
+    plan_path : pathlib.Path
+        The plan of commands to type.
+    binary : pathlib.Path
+        The compiled peer, inside the checkout.
+    profile_path : pathlib.Path
+        The peer profile that records the binary's hash.
+    oracle : pathlib.Path
+        The oracle binary.
+    output : pathlib.Path
+        A new directory inside the checkout.
+
+    Returns
+    -------
+    dict[str, typing.Any]
+        The report, which is also written to ``output``.
+    """
+    inputs = _prepare((plan_path, binary, profile_path, oracle, output))
+    output = inputs.sandbox.output
+    output.mkdir(parents=True, exist_ok=False)
+    for name in ["home", "tmp", "work"]:
+        (output / name).mkdir()
+    (output / "plan.json").write_bytes(plan_path.read_bytes())
+    (output / "peer-profile.json").write_bytes(profile_path.read_bytes())
+    guarded = Path.home() / ".hxvars"
+    before = home_file_state(guarded)
+    command = sandbox_command(inputs.sandbox, str(Path.home()))
+    report = _initial_report(inputs, (plan_path, profile_path), command, before)
+    return _run(inputs, report, (guarded, before))
+
+
 def main() -> None:
+    """Capture a session from the command line.
+
+    Raises
+    ------
+    SystemExit
+        With a true status unless the capture completed.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("plan", type=Path)
     parser.add_argument("--binary", type=Path, required=True)
@@ -251,9 +269,8 @@ def main() -> None:
     report = capture(
         args.plan, args.binary, args.peer_profile, args.oracle_binary, args.output
     )
-    print(
-        f"Compiled peer: {report['status']}; {report['completed_steps']} steps; {report['error']}"
-    )
+    line = f"Compiled peer: {report['status']}; {report['completed_steps']} steps; "
+    print(f"{line}{report['error']}")
     raise SystemExit(report["status"] != "completed")
 
 

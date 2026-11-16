@@ -36,15 +36,51 @@ def rig(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Rig:
     return build_rig(tmp_path, monkeypatch)
 
 
+def check_sources(rig: Rig, fields: dict[str, typ.Any]) -> None:
+    """Check the four source fields of a manifest of the new form.
+
+    The runner is the two modules of its declared set; the fixture is the one
+    file of the protocol tree, which is not a repository, so it records no
+    commit and lists itself as uncommitted.
+    """
+    scripts = SCRIPT.parent
+    held = {
+        f"scripts/{name}": sha((scripts / name).read_bytes())
+        for name in ("peer_tolerance_run.py", "peer_tolerance_run_support.py")
+    }
+    fixture = (rig.protocol / "scripts/peer_tolerance_fixture.py").read_bytes()
+    held["scripts/peer_tolerance_fixture.py"] = sha(fixture)
+    fixture_record = fields["source_fixture_identity"]
+    runner_record = fields["source_runner_identity"]
+    for record in (fixture_record, runner_record):
+        for item in record["files"]:
+            assert item["sha256"] == held[item["path"]], item
+    fixture_paths = [item["path"] for item in fixture_record["files"]]
+    runner_paths = [item["path"] for item in runner_record["files"]]
+    assert fixture_paths == ["scripts/peer_tolerance_fixture.py"], fixture_record
+    assert runner_paths == [
+        "scripts/peer_tolerance_run.py",
+        "scripts/peer_tolerance_run_support.py",
+    ], runner_record
+    assert fields["source_fixture_sha256"] == fixture_record["digest"], fields
+    assert fields["source_runner_sha256"] == runner_record["digest"], fields
+    assert fixture_record["commit"] is None, "the tree is not a repository"
+    assert fixture_record["dirty"] == fixture_paths, fixture_record
+
+
 class PeerToleranceRunTests:
     """Pin what the receiver-matrix runner does, records and refuses."""
 
-    def test_the_manifest_records_the_hash_of_the_running_script(
+    def test_the_manifest_records_the_identity_of_the_running_scripts(
         self, rig: Rig
     ) -> None:
-        """The runner and fixture hashes, and every other field, are as recorded."""
+        """Every field is as recorded; the two source fields name module sets."""
         rig.run()
-        fixture = (rig.protocol / "scripts/peer_tolerance_fixture.py").read_bytes()
+        manifest = manifest_of(rig)
+        identity_keys = [key for key in manifest if key.startswith("source_")]
+        extra = {
+            key: manifest.pop(key) for key in identity_keys if key != "source_commit"
+        }
         expected = {
             "schema_version": 1,
             "profile": "compiled-historical-peer and controlled-receiver-fixture",
@@ -56,15 +92,12 @@ class PeerToleranceRunTests:
             "ports": list(range(FIRST_PORT, FIRST_PORT + len(rig.cases))),
             "real_home_file_before": None,
             "real_home_file_after": None,
-            "source_fixture_sha256": sha(fixture),
-            "source_runner_sha256": sha(SCRIPT.read_bytes()),
         }
-        assert manifest_of(rig) == expected, manifest_of(rig)
+        assert manifest == expected, manifest
+        check_sources(rig, extra)
 
-    def test_the_four_sources_are_copied_and_frozen_with_their_sums(
-        self, rig: Rig
-    ) -> None:
-        """Four scripts are copied from the protocol tree; every file is summed."""
+    def test_the_sources_are_copied_and_frozen_with_their_sums(self, rig: Rig) -> None:
+        """The modules of each script are copied from the protocol tree and summed."""
         rig.run()
         copied = sorted(p.name for p in (rig.destination / "sources").iterdir())
         assert copied == sorted(COPIED), copied

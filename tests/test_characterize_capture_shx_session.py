@@ -1,6 +1,6 @@
 """Characterize ``capture_shx_session.py``: its report and its own hash."""
 
-import typing as typ
+from pathlib import Path
 
 import pytest
 from shx_session_fakes import FD, PID
@@ -14,9 +14,6 @@ from shx_session_rig import (
     build_rig,
     sha,
 )
-
-if typ.TYPE_CHECKING:
-    from pathlib import Path
 
 
 @pytest.fixture
@@ -32,12 +29,24 @@ def rig(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Rig:
 
 
 class CaptureReportTests:
-    """Pin what a completed capture records, including its own hash."""
+    """Pin what a completed capture records, including its identity."""
 
     def test_the_report_records_the_hash_of_the_running_script(self, rig: Rig) -> None:
         """``driver_sha256`` and the other identities are as recorded."""
         report = rig.capture()
-        assert report["driver_sha256"] == sha(SCRIPT.read_bytes()), report
+        record = report["driver_identity"]
+        modules = rig.module.CAPTURE_MODULES
+        scripts = SCRIPT.parent
+        assert [i["path"] for i in record["files"]] == [
+            f"scripts/{m}" for m in modules
+        ], "expected [i['path'] for i in record['files']] == [f'scripts"
+        for item in record["files"]:
+            held = (scripts / Path(item["path"]).name).read_bytes()
+            assert item["sha256"] == sha(held), item
+        listing = "".join(f"{i['sha256']}  {i['path']}\n" for i in record["files"])
+        assert report["driver_sha256"] == record["digest"] == sha(listing.encode()), (
+            "expected report['driver_sha256'] == record['digest'] == sha"
+        )
         assert report["peer_binary_sha256"] == sha(PEER_BYTES), report
         assert report["oracle_sha256"] == sha(ORACLE_BYTES), report
         assert report["plan_sha256"] == sha(rig.plan.read_bytes()), report

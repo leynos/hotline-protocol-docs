@@ -2,15 +2,16 @@
 
 import dataclasses as dc
 import hashlib
+import importlib
 import json
 import typing as typ
+from pathlib import Path
 
 from script_loading import ROOT, load_script
 from shx_session_fakes import Terminal
 
 if typ.TYPE_CHECKING:
     import types
-    from pathlib import Path
 
     import pytest
 
@@ -105,6 +106,19 @@ class Rig:
         return json.loads((self.output / "report.json").read_text(encoding="utf-8"))
 
 
+def modules_of(module: types.ModuleType) -> list[types.ModuleType]:
+    """List the modules of the driver, which share the faked boundaries.
+
+    Returns
+    -------
+    list[types.ModuleType]
+        The loaded script, then each module that it declares in
+        ``CAPTURE_MODULES`` after itself, imported by name.
+    """
+    declared = getattr(module, "CAPTURE_MODULES", ())
+    return [module, *(importlib.import_module(Path(n).stem) for n in declared[1:])]
+
+
 def build_rig(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Rig:
     """Build the synthetic checkout and load the script against fakes.
 
@@ -129,8 +143,10 @@ def build_rig(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Rig:
     module = load_script(SCRIPT, "capture_shx_session_under_test")
     terminal = Terminal(replies=dict(REPLIES), exits=dict(EXITS))
     environ = {"LANG": "C.UTF-8", "PATH": "/usr/bin"}
-    for name, fake in terminal.namespaces(environ).items():
-        monkeypatch.setattr(module, name, fake)
+    for target in modules_of(module):
+        for name, fake in terminal.namespaces(environ).items():
+            if hasattr(target, name):
+                monkeypatch.setattr(target, name, fake)
     monkeypatch.setattr(module, "mothra_root", lambda: root)
     monkeypatch.setattr(module, "ORACLE_SHA256", sha(ORACLE_BYTES))
     built = Rig(

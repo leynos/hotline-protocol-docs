@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
+from capture_acceptance import role_in
 from pcap_tcp import read_packets
 from peer_tolerance_fixture import CASES, FIRST_PORT
 from script_cli import run
@@ -65,8 +66,8 @@ def check_sources(directory: Path, manifest: Report) -> set[str]:
     """
     source_hashes = {sha(p) for p in (directory / "sources").iterdir()}
     require(
-        manifest["source_fixture_sha256"] in source_hashes
-        and manifest["source_runner_sha256"] in source_hashes,
+        role_in(manifest, "source_fixture", source_hashes)
+        and role_in(manifest, "source_runner", source_hashes),
         "Missing exact fixture or runner source",
     )
     return source_hashes

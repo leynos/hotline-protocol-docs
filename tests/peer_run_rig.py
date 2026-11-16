@@ -20,8 +20,11 @@ ORACLE_BYTES = b"oracle binary"
 COPIED = (
     "peer_tolerance_fixture.py",
     "peer_tolerance_run.py",
+    "peer_tolerance_run_support.py",
     "verify_peer_tolerance.py",
     "capture_shx_session.py",
+    "capture_shx_session_support.py",
+    "capture_shx_session_terminal.py",
 )
 OWNED = "evidence/gap-remediation/2026-11-13/delegated-peer-01"
 SHX = "evidence/gap-remediation/2026-11-13/native-shx-02"
