@@ -1913,6 +1913,26 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_native_liveness_run.RunTests.test_a_binary_that_differs_is_refused_before_any_output": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_liveness_run.RunTests.test_a_clean_run_completes_and_checks_its_own_report": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_liveness_run.RunTests.test_a_failure_in_the_window_is_reported_not_raised": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_liveness_run.RunTests.test_an_epoch_that_does_not_fit_is_refused": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_native_liveness_run.RunTests.test_the_report_records_the_identity_of_the_runner_and_the_generator": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_native_login_extras.LoginExtraTests.test_absent_client_version_does_not_omit_configured_server_name": {
       "outcome": "ok",
       "detail": ""

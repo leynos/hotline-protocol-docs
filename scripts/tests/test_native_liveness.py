@@ -10,6 +10,7 @@ import typing as typ
 from copy import deepcopy
 from pathlib import Path
 
+import capture_identity
 import native_liveness_cases as cases
 import native_liveness_control as control
 import pytest
@@ -102,6 +103,8 @@ class LivenessTests:
                 event["elapsed_ns"] = actual
             item["actual_elapsed_ns"] = actual
             previous = actual
+        source = capture_identity.identity(control.CAPTURE_MODULES)
+        producer = capture_identity.identity(control.CASES_MODULES)
         return {
             "status": "completed",
             "window_completed": True,
@@ -109,8 +112,10 @@ class LivenessTests:
             "window_frame_count": fake.window_frame_count,
             "native_conformance": False,
             "plan_sha256": control.digest((json.dumps(plan, indent=2) + "\n").encode()),
-            "cases_sha256": control.digest(Path(cases.__file__).read_bytes()),
-            "source_sha256": control.digest(Path(control.__file__).read_bytes()),
+            "cases_sha256": producer["digest"],
+            "cases_identity": producer,
+            "source_sha256": source["digest"],
+            "source_identity": source,
             "oracle_sha256": control.ORACLE_SHA256,
             "events": events,
             "frames": deepcopy(fake.frames),
@@ -277,6 +282,15 @@ class LivenessTests:
             else:
                 pytest.fail(f"{key}: the altered report was accepted")
             assert re.search(reason, raised), f"{key}"
+        for role in ("source", "cases"):
+            altered = deepcopy(source)
+            altered[f"{role}_identity"]["files"][0]["sha256"] = "0" * 64
+            with pytest.raises(ValueError, match="source identity"):
+                control.verify_report(fake.plan, altered)
+            altered = deepcopy(source)
+            del altered[f"{role}_identity"]
+            with pytest.raises(KeyError, match=f"{role}_identity"):
+                control.verify_report(fake.plan, altered)
         altered = deepcopy(source)
         altered["streams"]["b"]["sent_hex"] += "00"
         with pytest.raises(ValueError, match="Raw streams"):

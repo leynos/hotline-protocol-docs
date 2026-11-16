@@ -2,6 +2,7 @@
 
 import typing as typ
 
+from capture_acceptance import role_in
 from native_wire_names import FIELD_USER_ID, TYPE_PRESENCE_UPDATE, TYPE_USER_LEFT
 from verify_native_liveness_checks import Report, need, read, sha
 from verify_native_liveness_pins import CASES, EXPECTED_302, PLAN, RUNNER
@@ -84,8 +85,8 @@ def _coordinator_matches(raw: Path, report: Report) -> bool:
         and report["window_frame_count"] == FRAMES
         and report["plan_sha256"] == PLAN
         and report["receipt_sha256"] == sha(raw / "capture-ready.json")
-        and report["source_sha256"] == RUNNER
-        and report["cases_sha256"] == CASES
+        and role_in(report, "source", {RUNNER})
+        and role_in(report, "cases", {CASES})
     )
 
 
