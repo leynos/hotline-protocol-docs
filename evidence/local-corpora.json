@@ -36,6 +36,10 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-16/revision-97",
       "reason": "Revision 97: the HOPE extensions document joins the peers set"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-17/revision-98",
+      "reason": "Revision 98: the GAP-016 fixture groups are located in the presence-default registry"
     }
   ]
 }
