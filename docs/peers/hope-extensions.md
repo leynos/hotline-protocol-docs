@@ -428,8 +428,13 @@ These are readings of code paths. None was exercised.
   times before logging in.
 - **Account enumeration by digest:** the login-digest search computes one
   digest per directory entry, and does not skip the `.` and `..` entries.
-- **List parser bound:** `list_n` starts its position counter one byte behind
-  its pointer, so its bound is one byte looser than the entry's end.
+- **List parser bound:** `list_n` accepts an entry when 1 plus its length byte
+  does not exceed the field's length. The length byte sits at offset 2, so the
+  name ends at offset 3 plus the length, and the check is two bytes looser than
+  the entry. The three-byte field `00 01 02` passes, although both name bytes
+  that it advertises lie outside the field.
+- **List parser first read:** `list_n` reads the length byte at offset 2 before
+  any check, so a field shorter than three bytes is read past its end.
 - **File hash reply:** hashes that were not requested are sent from buffers
   that were not cleared.
 

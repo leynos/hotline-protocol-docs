@@ -20,7 +20,9 @@ these peers are in the [mxd](../mxd/README.md) set.
 1. Read [Peer profile rules](peer-profile-rules.md) first. It defines what a
    profile is, gives the two evaluated builds and states the rule for a peer
    that matches no profile. Every other document assigns its results to one of
-   these profiles.
+   these profiles, except [HOPE extensions](hope-extensions.md), which reads
+   source for configurations that were not built or run and so reports no
+   result for either profile.
 2. Read the shx documents next:
    [Identified client source](identified-client-source.md), [shx build record](shx-peer.md)
    and [Peer tolerance matrix](peer-tolerance-matrix.md). The source profile
