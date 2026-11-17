@@ -1,0 +1,477 @@
+{
+  "usage": "Rule overrides for CodeScene. Only the retained hx-family source under evidence/ is exempted; every other file keeps the defaults.",
+  "rule_sets": [
+    {
+      "matching_content_path": "evidence/hotline-server-1.9/synhxd-source/**",
+      "matching_content_path_doc": "Retained historical hx-family (SynHX, shx) source. It is third-party evidence kept byte for byte and is never edited here, so its code health is not this repository's to act on.",
+      "rules": [
+        {
+          "name": "Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Class",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Bumpy Road Ahead",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Conditional",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Primitive Obsession",
+          "weight": 0.0
+        },
+        {
+          "name": "Overall Code Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Excess Number of Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "Modularity Issue",
+          "weight": 0.0
+        },
+        {
+          "name": "Potentially Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Number of Functions in a Single Module",
+          "weight": 0.0
+        },
+        {
+          "name": "String Heavy Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "High Degree of Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Missing Arguments Abstractions",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Embedded Code Block",
+          "weight": 0.0
+        },
+        {
+          "name": "Global Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Global Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Many Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Code in a Single File",
+          "weight": 0.0
+        },
+        {
+          "name": "Constructor Over-Injection",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Duplicated Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Developer Congestion",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Declarations in a Single File",
+          "weight": 0.0
+        }
+      ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-16/hope-source-01/**",
+      "matching_content_path_doc": "Retained historical hx-family (SynHX, shx) source. It is third-party evidence kept byte for byte and is never edited here, so its code health is not this repository's to act on.",
+      "rules": [
+        {
+          "name": "Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Class",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Bumpy Road Ahead",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Conditional",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Primitive Obsession",
+          "weight": 0.0
+        },
+        {
+          "name": "Overall Code Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Excess Number of Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "Modularity Issue",
+          "weight": 0.0
+        },
+        {
+          "name": "Potentially Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Number of Functions in a Single Module",
+          "weight": 0.0
+        },
+        {
+          "name": "String Heavy Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "High Degree of Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Missing Arguments Abstractions",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Embedded Code Block",
+          "weight": 0.0
+        },
+        {
+          "name": "Global Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Global Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Many Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Code in a Single File",
+          "weight": 0.0
+        },
+        {
+          "name": "Constructor Over-Injection",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Duplicated Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Developer Congestion",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Declarations in a Single File",
+          "weight": 0.0
+        }
+      ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-14/native-format-endpoint-oracle-01/frozen/**",
+      "matching_content_path_doc": "Retained historical hx-family (SynHX, shx) source. It is third-party evidence kept byte for byte and is never edited here, so its code health is not this repository's to act on.",
+      "rules": [
+        {
+          "name": "Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Class",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Bumpy Road Ahead",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Conditional",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Primitive Obsession",
+          "weight": 0.0
+        },
+        {
+          "name": "Overall Code Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Excess Number of Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "Modularity Issue",
+          "weight": 0.0
+        },
+        {
+          "name": "Potentially Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Number of Functions in a Single Module",
+          "weight": 0.0
+        },
+        {
+          "name": "String Heavy Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "High Degree of Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Missing Arguments Abstractions",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Embedded Code Block",
+          "weight": 0.0
+        },
+        {
+          "name": "Global Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Global Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Many Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Code in a Single File",
+          "weight": 0.0
+        },
+        {
+          "name": "Constructor Over-Injection",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Duplicated Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Developer Congestion",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Declarations in a Single File",
+          "weight": 0.0
+        }
+      ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-13/shx-build-01/build/**",
+      "matching_content_path_doc": "Retained historical hx-family (SynHX, shx) source. It is third-party evidence kept byte for byte and is never edited here, so its code health is not this repository's to act on.",
+      "rules": [
+        {
+          "name": "Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Class",
+          "weight": 0.0
+        },
+        {
+          "name": "Brain Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Bumpy Road Ahead",
+          "weight": 0.0
+        },
+        {
+          "name": "Complex Conditional",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Primitive Obsession",
+          "weight": 0.0
+        },
+        {
+          "name": "Overall Code Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Excess Number of Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "Modularity Issue",
+          "weight": 0.0
+        },
+        {
+          "name": "Potentially Low Cohesion",
+          "weight": 0.0
+        },
+        {
+          "name": "Number of Functions in a Single Module",
+          "weight": 0.0
+        },
+        {
+          "name": "String Heavy Function Arguments",
+          "weight": 0.0
+        },
+        {
+          "name": "High Degree of Code Duplication",
+          "weight": 0.0
+        },
+        {
+          "name": "Missing Arguments Abstractions",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Embedded Code Block",
+          "weight": 0.0
+        },
+        {
+          "name": "Global Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Global Nested Complexity",
+          "weight": 0.0
+        },
+        {
+          "name": "Many Conditionals",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Code in a Single File",
+          "weight": 0.0
+        },
+        {
+          "name": "Constructor Over-Injection",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Duplicated Assertion Blocks",
+          "weight": 0.0
+        },
+        {
+          "name": "Developer Congestion",
+          "weight": 0.0
+        },
+        {
+          "name": "Lines of Declarations in a Single File",
+          "weight": 0.0
+        }
+      ]
+    }
+  ]
+}
