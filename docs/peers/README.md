@@ -45,11 +45,14 @@ these peers are in the [mxd](../mxd/README.md) set.
 The documents use the glossary's names for the peers.
 [Classic client](../glossary.md#classic-client) names the Mac PowerPC candidate.
 [shx](../glossary.md#shx) names the client build evaluated here.
-[SynHX family](../glossary.md#synhx) names the family as a whole. Only
-[HOPE extensions](hope-extensions.md) concerns a SynHX server, and only as
-source. The source documents also say identified client for a client build
-identified by the hashes of its executable. The [glossary](../glossary.md) has
-no entry for that phrase, so this overview uses it only as those documents do.
+[SynHX family](../glossary.md#synhx) names the family as a whole. Two documents
+concern a SynHX server, both as source only:
+[Identified client source](identified-client-source.md), which records the
+selected server source's identity and configuration options, and
+[HOPE extensions](hope-extensions.md). The source documents also say identified
+client for a client build identified by the hashes of its executable. The
+[glossary](../glossary.md) has no entry for that phrase, so this overview uses
+it only as those documents do.
 
 Four kinds of document appear in the set. A reference is a profile, rule or
 tool that other documents apply. A record is a retained account of how a build

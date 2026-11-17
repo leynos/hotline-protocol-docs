@@ -277,17 +277,17 @@ bytes.
 ## Stream transport
 
 When a cipher was agreed, each side derives two keys by Table 3. Each key is
-the whole digest output: 20 bytes for the SHA-1 algorithms and 16 for the MD5
-ones. SynHX passes that length to RC4 and to Blowfish, so they are keyed with
-the whole digest. It calls `idea_set_encrypt_key` with no length
-([`cipher.c`][server-cipher], lines 203 to 204 and 224 to 225), and OpenSSL's
-IDEA takes a fixed 16-byte key, so IDEA is keyed with the first 16 bytes only.
-The whole digest remains the stored key, and it is the whole digest that the
-key rotation below feeds back into the digest function. The server encrypts
-with the server send key and the client with the client send key. The SynHX
-source names the keys from each side's own view, so the server's
-`cipher_encode_key` and the client's `cipher_decode_key` are the same bytes
-([server `rcv.c`][server-rcv], lines 1328 to 1345;
+the whole digest output: 20 bytes for the SHA-1 algorithms, 16 for the MD5 ones
+and, in hx-libs, 32 for `HMAC-SHA256`. SynHX passes that length to RC4 and to
+Blowfish, so they are keyed with the whole digest. It calls
+`idea_set_encrypt_key` with no length ([`cipher.c`][server-cipher], lines 203
+to 204 and 224 to 225), and OpenSSL's IDEA takes a fixed 16-byte key, so IDEA
+is keyed with the first 16 bytes only. The whole digest remains the stored key,
+and it is the whole digest that the key rotation below feeds back into the
+digest function. The server encrypts with the server send key and the client
+with the client send key. The SynHX source names the keys from each side's own
+view, so the server's `cipher_encode_key` and the client's `cipher_decode_key`
+are the same bytes ([server `rcv.c`][server-rcv], lines 1328 to 1345;
 [client `hx_commands.c`][client-commands], lines 1507 to 1512).
 
 The identification reply and the second login 107 travel in clear. The login
