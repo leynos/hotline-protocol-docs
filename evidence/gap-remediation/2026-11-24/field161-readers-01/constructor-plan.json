@@ -1,0 +1,9 @@
+[
+  {
+    "id": "constructor-caller",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10000050"
+    }
+  }
+]

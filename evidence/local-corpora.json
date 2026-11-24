@@ -48,6 +48,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-99",
       "reason": "Revision 99 records where the five remaining GAP-016 fixture groups are listed."
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/field161-readers-01",
+      "reason": "New bounded static field 161 reader inventory and Ghidra records for GAP-026."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-100",
+      "reason": "Revision 100 records the GAP-026 field 161 reader inventory."
     }
   ]
 }
