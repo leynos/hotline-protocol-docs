@@ -1,0 +1,20 @@
+{
+  "gap": "GAP-031",
+  "kind": "Offline unpacking of the identified Classic client PackedData section",
+  "client_data_sha256": "7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315",
+  "ghidra_version": "12.2",
+  "decoder": "ghidra.app.util.bin.format.pef.SectionHeader.getUnpackedData",
+  "decoder_sha256": {
+    "Base.jar": "2c772db8bb113f7db7fde98aabd45a87bd862df260fa1d60c79449dd25990741",
+    "Base-src.zip": "f30c7be455d5efe6d7728626eec3d1f427643cdd6c50834d7dfab3bfc4a29c76"
+  },
+  "section_index": 1,
+  "packed_file_offset": "1399d0",
+  "initialized_start": "10135810",
+  "initialized_end": "10159ef8",
+  "unpacked_size": 149225,
+  "unpacked_sha256": "54007ccb7536a965687731e54c27b75b52dcb0b78eef61ae545ce4fbac091784",
+  "repetition": "Two extractions from the identified acquisition copy gave byte-identical location reports. A different input was rejected before unpacking.",
+  "offset_check": "The initial comparison treated the four A68 file offsets as length-byte positions and failed. Each actually points to the first text byte. The retained comparison checks the length byte immediately before it.",
+  "scope": "The two exact labels and the class-name anchor were searched in the initialized unpacked section. No client or server was run. There is no observation of a control writing to the account object or of server-side enforcement."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Can Send Messages",
+    "packed_text_offset": "14d33c",
+    "loaded_text_address": "1014c725",
+    "loaded_length_address": "1014c724"
+  },
+  {
+    "label": "Can Send Messages",
+    "packed_text_offset": "14f9b4",
+    "loaded_text_address": "1014fdb1",
+    "loaded_length_address": "1014fdb0"
+  },
+  {
+    "label": "Can Disconnect Users",
+    "packed_text_offset": "14d306",
+    "loaded_text_address": "1014c6ef",
+    "loaded_length_address": "1014c6ee"
+  },
+  {
+    "label": "Can Disconnect Users",
+    "packed_text_offset": "14f97e",
+    "loaded_text_address": "1014fd7b",
+    "loaded_length_address": "1014fd7a"
+  }
+]

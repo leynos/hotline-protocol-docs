@@ -1,0 +1,7 @@
+input 7f286e3f8941c2261fc9c32b2d1d03acef32bdea567362a1c64abd5d64fe5315
+section sha256 54007ccb7536a965687731e54c27b75b52dcb0b78eef61ae545ce4fbac091784
+CMyAdminEditUserWin text=1014fef8 previous-byte=00 length=19
+Can Send Messages text=1014c725 previous-byte=11 length=17
+Can Send Messages text=1014fdb1 previous-byte=11 length=17
+Can Disconnect Users text=1014c6ef previous-byte=14 length=20
+Can Disconnect Users text=1014fd7b previous-byte=14 length=20
