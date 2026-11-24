@@ -5,6 +5,13 @@
     "evidence-verify-known-red"
   ],
   "records": {
+    "evidence-verify: PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/news-read-presence-01/verify.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "7b78857c9586abd1ac809cce859e8509e0e25f403df334974055205e19b76ecb",
+      "output_bytes": 61,
+      "last_line": "Verified nine native article reads at both packet boundaries"
+    },
     "evidence-verify: PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py": {
       "target": "evidence-verify",
       "exit_code": 0,

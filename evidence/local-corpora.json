@@ -64,6 +64,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-103",
       "reason": "Revision 103 records the native same-account login version controls for GAP-016."
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/news-read-presence-01",
+      "reason": "New GAP-016 request 400 comparison with nine native captures and both packet views."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-105",
+      "reason": "Revision 105 records the GAP-016 request 400 article read presence controls."
     }
   ]
 }

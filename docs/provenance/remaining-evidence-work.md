@@ -343,7 +343,11 @@ Quoted text is taken from the register.
   same-account delayed logins now cover omission, an empty field and one or two
   zero bytes for version 160. The remaining login controls concern password and
   name. Room chat covers empty and omitted text on the observed connections;
-  one-NUL delivery remains open.
+  one-NUL delivery remains open. Nine native article reads cover omitted, empty
+  and four-zero-byte encodings of 326, 334 and 337 on request 400. The three
+  article-ID cases gave the same error. Flags and recursive-field cases
+  returned the same body with article ID 1. Posting, deletion and transfer
+  controls remain open.
 - **Prepared:**
   [presence defaults](../presence-and-messaging/presence-defaults.md).
 - **Blocked by:** no `depends_on` entries. GAP-072 depends on this gap.
