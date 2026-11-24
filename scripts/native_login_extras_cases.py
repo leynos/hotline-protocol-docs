@@ -59,7 +59,7 @@ NAMES = {
 
 
 def authenticate(
-    version: int | None,
+    version: int | bytes | None,
     early: bool,  # ruff: ignore[boolean-type-hint-positional-argument]  # the callers' shape
     connection: str = "main",
 ) -> Action:
@@ -75,7 +75,8 @@ def authenticate(
         (FIELD_LOGIN, complement(b"admin")),
     ]
     if version is not None:
-        values.append((FIELD_VERSION, version.to_bytes(2, "big")))
+        encoded = version.to_bytes(2, "big") if isinstance(version, int) else version
+        values.append((FIELD_VERSION, encoded))
     if early:
         values += [(FIELD_NAME, b"extras-fixture"), (FIELD_ICON, b"\0\1")]
     return send(packet(TYPE_LOGIN, LOGIN_REQUEST_ID, payload(values)), connection)
@@ -120,6 +121,34 @@ def complete(connection: str = "main") -> list[Action]:
         read(connection, match_frame={"is_reply": 1, "id": 2}),
         read(connection),
     ]
+
+
+def version_presence() -> Cases:
+    """Plan four delayed logins with identical credentials and different field 160.
+
+    Returns
+    -------
+    dict[str, Case]
+        Each case ends after the matching login reply, including an error reply.
+    """
+    cases: Cases = {}
+    for name, version in (
+        ("version-absent", None),
+        ("version-empty", b""),
+        ("version-one-zero", b"\x00"),
+        ("version-two-zero", b"\x00\x00"),
+    ):
+        steps = [
+            *login()[:HANDSHAKE_STEP_COUNT],
+            authenticate(version, early=False),
+            read(match_frame={"is_reply": 1, "id": LOGIN_REQUEST_ID}),
+            close(),
+        ]
+        cases[name] = (
+            steps,
+            {"version_hex": None if version is None else version.hex()},
+        )
+    return cases
 
 
 def configured(phase: str) -> Cases:

@@ -30,6 +30,7 @@ from native_login_extras_cases import NAMES as LOGIN_EXTRA_NAMES
 from native_login_extras_cases import configured as login_extras_configured
 from native_login_extras_cases import downloads as login_extras_downloads
 from native_login_extras_cases import lifetime as login_extras_lifetime
+from native_login_extras_cases import version_presence
 from native_metadata_cases import account_cleanup as metadata_account_cleanup
 from native_metadata_cases import boundaries as metadata_boundaries
 from native_metadata_cases import cleanup as metadata_cleanup
@@ -98,6 +99,7 @@ def entries(inputs: Inputs) -> dict[str, Entry]:
         "mkdir-cleanup": mkdir_cleanup,
         "mkdir-seed": mkdir_seed,
         "mkdir-create": mkdir_creation,
+        "login-version-presence": version_presence,
         "login-extras-lifetime": login_extras_lifetime,
         "login-extras-downloads": login_extras_downloads,
         **{

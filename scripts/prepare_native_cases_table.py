@@ -108,6 +108,7 @@ SUITES = (
     "mkdir-cleanup",
     "mkdir-seed",
     "mkdir-create",
+    "login-version-presence",
     "login-extras-lifetime",
     "login-extras-downloads",
     *["login-extras-" + name for name in LOGIN_EXTRA_NAMES],
