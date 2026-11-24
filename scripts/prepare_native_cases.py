@@ -153,7 +153,7 @@ def build_plan(
         "control": {"host": "127.0.0.1", "port": 15500},
         "data": {"host": "127.0.0.1", "port": 15501},
     }
-    if suite in {"login-version-presence", "news-read-presence"}:
+    if suite in {"login-version-presence", "news-post-presence", "news-read-presence"}:
         endpoints = {"control": {"host": "127.0.0.1", "port": ISOLATED_CONTROL_PORT}}
     return {
         "schema_version": 1,

@@ -26,7 +26,7 @@ from native_news_delete_cases import remove_publisher as article_delete_remove
 from native_news_delete_cases import resume_category as article_delete_resume
 from native_news_delete_cases import seed as article_delete_seed
 from native_news_delete_cases import seed_categories as article_delete_categories
-from native_news_steps import read_presence
+from native_news_steps import post_presence, read_presence
 
 if typ.TYPE_CHECKING:
     from prepare_native_cases_inputs import Entry, Inputs
@@ -80,6 +80,7 @@ def entries(inputs: Inputs) -> dict[str, Entry]:
         "news-publish-cleanup": news_publish_cleanup,
         "news-remove-publisher": news_remove_publisher,
         "news-files-preflight": news_files_preflight,
+        "news-post-presence": post_presence,
         "news-read-presence": lambda: read_presence(inputs.article_parent),
         "news-bodies": news_bodies,
         "news-thread-children": lambda: news_thread_children(inputs.article_parent),

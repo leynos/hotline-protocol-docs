@@ -313,3 +313,44 @@ def remove_publisher() -> Cases:
         + [close()]
     )
     return {"remove": (steps, {"kind": "news-remove-publisher"})}
+
+
+def post_presence() -> Cases:
+    """Plan root posts between two listings of the same disposable category.
+
+    Returns
+    -------
+    Cases
+        Nine independent sessions, one per field and encoding. The caller
+        compares each new public article ID with its before-list inventory.
+    """
+    category = [(FIELD_NEWS_PATH, path((ROOT, b"category")))]
+    result: Cases = {}
+    for field in (FIELD_ARTICLE_ID, FIELD_FLAGS, FIELD_RECURSIVE):
+        for shape, value in (("absent", None), ("empty", b""), ("zero", bytes(4))):
+            fields = category.copy()
+            if field == FIELD_ARTICLE_ID and value is not None:
+                fields.append((field, value))
+            fields.append((FIELD_TITLE, b"First root"))
+            flags = value if field == FIELD_FLAGS else bytes(4)
+            if flags is not None:
+                fields.append((FIELD_FLAGS, flags))
+            fields.extend([
+                (FIELD_FLAVOUR, b"text/plain"),
+                (FIELD_BODY, b"first-body\r\n\0\xff"),
+            ])
+            if field == FIELD_RECURSIVE and value is not None:
+                fields.append((field, value))
+            result[f"{field}-{shape}"] = (
+                [
+                    *login(),
+                    *exchange(TYPE_LIST_NEWS_ARTICLES, 11, category),
+                    *exchange(TYPE_POST_NEWS_ARTICLE, 20, fields),
+                    *exchange(TYPE_LIST_NEWS_ARTICLES, 40, category),
+                    *exchange(TYPE_EMPTY_ACK, 90, []),
+                    {"op": "expect_quiet", "connection": "main", "timeout": 1},
+                    close(),
+                ],
+                {"kind": "news-post-presence", "field": field, "encoding": shape},
+            )
+    return result

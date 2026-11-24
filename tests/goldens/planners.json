@@ -48,6 +48,58 @@
     "prepare_native_cases.py": "dispatcher"
   },
   "records": {
+    "prepare_native_cases.py news-post-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "c30f29782787570eb0166e153d8721bcf25f1e81de6b60fc4450deaa27ed471d",
+      "files": {
+        "326-absent.json": {
+          "sha256": "cbeaa3a2c6f47c35d534cb85a95742f355eeb0df12b8102d71dc4bbf0be409d6",
+          "size": 3047,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "3dd7e91aeede774f6d94bf8d42f150b8478878d17453489e58b97985a28457a1",
+          "size": 3054,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "3f16278abcd50c274bce58a80dab67195f16eef52f01f8c2eba53a25defe352c",
+          "size": 3061,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "28254df1ae54aed815d1a9c116e3864402090fccec837cd21b3e55ef793f4629",
+          "size": 3031,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "7a016db20fba4ac0f90d1cf8803334a47f6e06f5e71017df8c6ea5aa0ce4ae4d",
+          "size": 3038,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "ee48854f0e4896ff5788d39f2f05e5e7fd7425b310b1aef0d64097aba7e0d356",
+          "size": 3045,
+          "embeds_script_digests": []
+        },
+        "337-absent.json": {
+          "sha256": "6b08fb5328556f6b076e9a143c1934bc557be5e0f3d906f99a79e5e0f9a77162",
+          "size": 3047,
+          "embeds_script_digests": []
+        },
+        "337-empty.json": {
+          "sha256": "9b5ea3c2c489cb9b26cf1e19c123e942bb4d5bcc9ed08bfb889b2ed1d9946cdd",
+          "size": 3054,
+          "embeds_script_digests": []
+        },
+        "337-zero.json": {
+          "sha256": "ad0f3cccb1b6552ad998f534f22e72b12078e9f37e36a4f6d47a9df0994c6171",
+          "size": 3061,
+          "embeds_script_digests": []
+        }
+      }
+    },
     "prepare_native_cases.py news-read-presence": {
       "status": "emitted",
       "exit_code": 0,
