@@ -231,6 +231,60 @@ def seed_categories() -> Cases:
     return result
 
 
+def deletion_steps(
+    category: bytes, values: list[tuple[int, bytes]], role: str, *, repeat: bool
+) -> list[Action]:
+    """Bracket the deletion with lists and check the article bodies and liveness.
+
+    Parameters
+    ----------
+    category : bytes
+        Encoded category path used for the observations.
+    values : list[tuple[int, bytes]]
+        Ordered fields of the deletion request.
+    role : str
+        Account role used by the original case.
+    repeat : bool
+        Whether to repeat the same deletion before checking its effects.
+
+    Returns
+    -------
+    list[Action]
+        Ordered actions for the individual session.
+    """
+    steps = login()
+    if role == "low":
+        steps[LOW_ROLE_STEP] = authentication(b"fixture-low", b"next-pass")
+    steps += exchange(TYPE_371, 10, [(FIELD_325, category)])
+    steps += exchange(TYPE_411, 11, values)
+    if repeat:
+        steps += exchange(TYPE_411, 12, values)
+    steps += [
+        *exchange(TYPE_371, 20, [(FIELD_325, category)]),
+        *exchange(TYPE_371, 21, [(FIELD_325, category)]),
+    ]
+    for identifier, _, _ in NODES if role == "admin" else NODES[:1]:
+        steps += exchange(
+            TYPE_400,
+            100 + identifier,
+            [
+                (FIELD_325, category),
+                (FIELD_326, identifier.to_bytes(ID_BYTES, "big")),
+                (FIELD_327, b"text/plain"),
+            ],
+        )
+    steps += [
+        *exchange(TYPE_EMPTY_ACK, 90, []),
+        {
+            "op": "expect_quiet",
+            "connection": "main",
+            "timeout": QUIET_TIMEOUT_SECONDS,
+        },
+        close(),
+    ]
+    return steps
+
+
 def deletions() -> Cases:
     """Plan the deletion of each owned case, with its replies and quiet check.
 
@@ -251,36 +305,7 @@ def deletions() -> Cases:
             values.append((FIELD_326, spec["article"].to_bytes(ID_BYTES, "big")))
         if spec["value_hex"] is not None:
             values.append((FIELD_337, bytes.fromhex(spec["value_hex"])))
-        steps = login()
-        if spec["role"] == "low":
-            steps[LOW_ROLE_STEP] = authentication(b"fixture-low", b"next-pass")
-        steps += exchange(TYPE_371, 10, [(FIELD_325, category)])
-        steps += exchange(TYPE_411, 11, values)
-        if spec["repeat"]:
-            steps += exchange(TYPE_411, 12, values)
-        steps += [
-            *exchange(TYPE_371, 20, [(FIELD_325, category)]),
-            *exchange(TYPE_371, 21, [(FIELD_325, category)]),
-        ]
-        for identifier, _, _ in NODES if spec["role"] == "admin" else NODES[:1]:
-            steps += exchange(
-                TYPE_400,
-                100 + identifier,
-                [
-                    (FIELD_325, category),
-                    (FIELD_326, identifier.to_bytes(ID_BYTES, "big")),
-                    (FIELD_327, b"text/plain"),
-                ],
-            )
-        steps += [
-            *exchange(TYPE_EMPTY_ACK, 90, []),
-            {
-                "op": "expect_quiet",
-                "connection": "main",
-                "timeout": QUIET_TIMEOUT_SECONDS,
-            },
-            close(),
-        ]
+        steps = deletion_steps(category, values, spec["role"], repeat=spec["repeat"])
         result[spec["case"]] = (steps, {"kind": "news-delete", **spec})
     return result
 

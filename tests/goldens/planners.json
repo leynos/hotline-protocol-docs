@@ -48,6 +48,43 @@
     "prepare_native_cases.py": "dispatcher"
   },
   "records": {
+    "prepare_native_cases.py news-delete-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "aa9944d6a018e2f25c0e95b81ee787114e8b83f29baa9ff9d07dfc7df8ef8ff4",
+      "files": {
+        "326-absent.json": {
+          "sha256": "074935c491553dc63512299034acc636e9184f153d9251e8ce99dc24f7fa92c4",
+          "size": 6806,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "1a1ec31301dcbc8b244dba5cbb1a97d69700b97d7499a4be7773f229c7245bc8",
+          "size": 6813,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "9cd9c26c9f57c9de300f79c8b4a76272ce59bcaa63eb465f96e50c8fc0674b13",
+          "size": 6820,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "168bf29ef324a87078bd415fa0afe03aff9a23fcaaa029e16b1f9c94f957b76c",
+          "size": 6828,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "620d6f8573c9ea48d15d4fa5e42febe04e00a1878c2a40bbb1c42b3b06198211",
+          "size": 6835,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "6c2f7a0c56d2317e19f46c0667c62524ea12b336d1255d38e8d60d3b25fc3b8a",
+          "size": 6842,
+          "embeds_script_digests": []
+        }
+      }
+    },
     "prepare_native_cases.py news-post-presence": {
       "status": "emitted",
       "exit_code": 0,
