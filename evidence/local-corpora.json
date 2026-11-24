@@ -56,6 +56,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-100",
       "reason": "Revision 100 records the GAP-026 field 161 reader inventory."
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/login-version-presence-01",
+      "reason": "New GAP-016 native login version matrix with both packet views."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-103",
+      "reason": "Revision 103 records the native same-account login version controls for GAP-016."
     }
   ]
 }

@@ -1,0 +1,58 @@
+{
+  "gap": "GAP-016",
+  "scope": "Native same-account delayed login request 107, first correlated reply and unread response.",
+  "planner_commit": "e1474a19ad21687e10f75d0af34375161edd0fb3",
+  "toolset_commit": "2278968b622eab731e4ba2be0484cedfbab73bb7",
+  "cases": [
+    "version-absent",
+    "version-empty",
+    "version-one-zero",
+    "version-two-zero"
+  ],
+  "network": {
+    "host_recorded_packets": 0,
+    "namespace_recorded_packets": 52,
+    "kernel_drops": [
+      0,
+      0
+    ],
+    "forward": 16140,
+    "guest_port": 5500
+  },
+  "retirement": {
+    "host-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ],
+    "mothra-bridge-7aab9fc2dd5b-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ],
+    "mothra-display-f53b19ae180b-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ],
+    "mothra-sheep-421f4c51c35b-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ],
+    "mothra-xbridge-7aab9fc2dd5b-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ],
+    "ns-retired": [
+      "ActiveState=inactive",
+      "MainPID=0"
+    ]
+  },
+  "installed_forks": {
+    "hfs_catalogue": 11187,
+    "data_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "resource_sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+    "disk_fuser_exit": 1,
+    "disk_fuser_output_bytes": 0
+  },
+  "setup": "Finder copied Hotline19 to the System 9 root. First launch created the dedicated administrator account and loaded Agreement.txt. Sound Manager was unavailable. General and banner options were inspected and cancelled. An earlier Finder disk-copy attempt raised a space dialog. The installed native folder and its two fork hashes identify the tested copy.",
+  "projections": "Readiness receipts retain all fields with local absolute paths shortened to basenames. Original receipt digests identify the private records. The screenshots show this disposable guest.",
+  "limitations": "The driver closed after its matching ACK. Complete packet views include a later notification; driver consumption ended before that frame. Source predicts an effective client version; this experiment did not exercise a version-gated operation."
+}

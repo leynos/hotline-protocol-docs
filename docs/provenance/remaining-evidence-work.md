@@ -339,7 +339,11 @@ Quoted text is taken from the register.
   They are: login and settings controls with one NUL and with zero widths;
   account-key and name cases for transactions 349 to 353; chat, private-message
   and kick text, option and target cases; invitation and room target, room and
-  subject cases; and the numeric fields of the transfer and news requests.
+  subject cases; and the numeric fields of the transfer and news requests. Four
+  same-account delayed logins now cover omission, an empty field and one or two
+  zero bytes for version 160. The remaining login controls concern password and
+  name. Room chat covers empty and omitted text on the observed connections;
+  one-NUL delivery remains open.
 - **Prepared:**
   [presence defaults](../presence-and-messaging/presence-defaults.md).
 - **Blocked by:** no `depends_on` entries. GAP-072 depends on this gap.

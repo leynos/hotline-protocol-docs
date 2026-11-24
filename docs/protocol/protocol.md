@@ -362,6 +362,13 @@ no new 161/162 refresh is observed for the existing online/waiting sessions in
 the accepted 20-second sequence. Field 161 stays two zero bytes across these
 name and banner modes, but its purpose remains unresolved.
 
+Four [same-account delayed logins][version-presence] produced identical success
+replies when request field 160 was omitted, empty, one zero byte or two zero
+bytes. In each reply, field 160 held `00be` and field 161 held `0000`. The
+reply reports the server version.
+
+[version-presence]: ../../evidence/gap-remediation/2026-11-24/login-version-presence-01/manifest.json
+
 A [scan of the server image][field161-readers] found one direct load
 overlapping the four-byte field at offset `0x41c` among the displacement-based
 load instructions checked. The login builder passes the entire word to the

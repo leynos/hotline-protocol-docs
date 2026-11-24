@@ -5,6 +5,13 @@
     "evidence-verify-known-red"
   ],
   "records": {
+    "evidence-verify: PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "2f04289914c9f6e3ca9664f91d2988516b946b7bacbb49853811dfc20b6e6fe5",
+      "output_bytes": 73,
+      "last_line": "Verified four same-account login version cases at both packet boundaries"
+    },
     "evidence-verify: d=evidence/gap-remediation/2026-11-24/field161-readers-01; python3 \"$d/discover-reads.py.as-run.txt\" | cmp - \"$d/read-candidates.json\" && jq -se --slurpfile scan \"$d/read-candidates.json\" -f \"$d/verify.jq\" \"$d\"/queries/*.json": {
       "target": "evidence-verify",
       "exit_code": 0,

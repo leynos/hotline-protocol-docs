@@ -1,0 +1,432 @@
+{
+  "disk-ready.json": {
+    "original_sha256": "96e62bf0c0ebcaa3c66b40a97614072c17b147b2c64fed97dabb3e02952b9242",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:45:30.824821+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "netns_inode": 4026533921,
+      "phase": "disk",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "guest-ready.json": {
+    "original_sha256": "5047aba947aa233b249607277f7296a28de8ae2a9856026ec9036f88d8c70128",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:45:46.476411+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "host-ready.json": {
+    "original_sha256": "06ad037bda86359ba99ad9d1d3ccd948e7fc6205a8f7170e34723f31f449635d",
+    "receipt": {
+      "utc": "2026-11-24T18:45:26.837619+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "namespace-ready.json": {
+    "original_sha256": "14771d5ae86879db91d72d84336f05088bff9d96e43ccca08215082c16f180d6",
+    "receipt": {
+      "utc": "2026-11-24T18:45:38.317316+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "postflight-guest-gate.json": {
+    "original_sha256": "5544bd198649ad895a44cbbf9f975f424ea7cd4cb8a9bf79daf9e7d4bb7d8ca2",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:51:48.306300+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "postflight-host-gate.json": {
+    "original_sha256": "db3835879b11c092d41c5e058b7b0a6b40be88c5ec1838e121d3a2c5f71cf1f2",
+    "receipt": {
+      "utc": "2026-11-24T18:51:48.474532+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "postflight-namespace-gate.json": {
+    "original_sha256": "cced7eacdce3bf95784f5cc1866b700e95010781da74f2c3c2eb7b2e5eba3def",
+    "receipt": {
+      "utc": "2026-11-24T18:51:48.635271+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-absent-guest-gate.json": {
+    "original_sha256": "0d6f854b13b2afcefecbc5b5cb2659205ced2286c4028dd9f4709d00fbbc7da5",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:51:22.154708+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "version-absent-host-gate.json": {
+    "original_sha256": "6d96d20a765069d7518d6f91eb9ed4f437340cca53ccfdedadd2319ac3e6c87b",
+    "receipt": {
+      "utc": "2026-11-24T18:51:22.330430+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-absent-namespace-gate.json": {
+    "original_sha256": "4d093c31f7a8ed7ff275ab0e016759421d8dd3c246204a415adbdcc36e04dcb1",
+    "receipt": {
+      "utc": "2026-11-24T18:51:22.518517+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-empty-guest-gate.json": {
+    "original_sha256": "e65205ccb8dd0d71d2203d773975278f929024596876fce40147f093843a2044",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:51:31.023487+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "version-empty-host-gate.json": {
+    "original_sha256": "2d1f9eded84cf2d2f8a931c11156fe15dd1a91dfb5d5257ffb60577a8d7c8721",
+    "receipt": {
+      "utc": "2026-11-24T18:51:31.218639+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-empty-namespace-gate.json": {
+    "original_sha256": "085457a5347ca031a06f9b950c95feb35e7ced66390a1f3c75a5fe8cadd975f1",
+    "receipt": {
+      "utc": "2026-11-24T18:51:31.358477+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-one-zero-guest-gate.json": {
+    "original_sha256": "311a04d674d57a284eb9fb9153298b82ff4487db4889c2343648562819711d4e",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:51:38.099879+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "version-one-zero-host-gate.json": {
+    "original_sha256": "35ecadfa14d27f2c08ddfced3515643e3d153b429d65d38e927db4fd78ac1527",
+    "receipt": {
+      "utc": "2026-11-24T18:51:38.275381+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-one-zero-namespace-gate.json": {
+    "original_sha256": "36012e373cea796d2a3c504a40ed56494715212a7f6660ccd353dd3daf25a3d6",
+    "receipt": {
+      "utc": "2026-11-24T18:51:38.453634+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-two-zero-guest-gate.json": {
+    "original_sha256": "7f9a64b000b04d7607ff60c16e1e22323090429ff84c72781f89fba6ebef5189",
+    "receipt": {
+      "checked_utc": "2026-11-24T18:51:44.723823+00:00",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 648150293,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026533921,
+      "phase": "capture",
+      "pid": 413260,
+      "start_ticks": 97062284,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 2768721517
+    }
+  },
+  "version-two-zero-host-gate.json": {
+    "original_sha256": "71b705f12c164bb54a33e07d227513274fe5064ceb1308cb6b261fa3cbbeddf8",
+    "receipt": {
+      "utc": "2026-11-24T18:51:44.900039+00:00",
+      "unit": "gap016-login-version-20261124-01-host.service",
+      "pid": 413100,
+      "start_ticks": 97062085,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 647185419,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970620857212",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "413100",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "version-two-zero-namespace-gate.json": {
+    "original_sha256": "53ad4aec02159e05bd7900e8bd178fa6f95529e5c2c99109d604ce6533d17ae6",
+    "receipt": {
+      "utc": "2026-11-24T18:51:45.080788+00:00",
+      "unit": "gap016-login-version-20261124-01-ns.service",
+      "pid": 414200,
+      "start_ticks": 97063234,
+      "netns_inode": 4026533921,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 647349006,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T18:57:25+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "970632361620",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "414200",
+        "KillMode": "control-group"
+      }
+    }
+  }
+}
