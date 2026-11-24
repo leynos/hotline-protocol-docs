@@ -257,6 +257,14 @@
       "outcome": "ok",
       "detail": ""
     },
+    "test_login_version_presence.test_control_target_is_the_namespace_local_server_forward": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_login_version_presence.test_version_lengths_are_explicit_and_other_login_fields_match": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_mac_peer_first_session.MacPeerFirstSessionTests.test_complete_finite_capture": {
       "outcome": "ok",
       "detail": ""

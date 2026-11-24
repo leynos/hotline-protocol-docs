@@ -74,6 +74,10 @@ __all__ = [
 # The largest article identifier, which a 32-bit field carries.
 MAX_ARTICLE_PARENT = 0xFFFFFFFF
 
+# Namespace-local server forward for the GAP-016 run, separate from the
+# isolated runtime's fixed relay to host loopback at 15500.
+LOGIN_VERSION_CONTROL_PORT = 16140
+
 
 def refuse(message: str) -> typ.NoReturn:
     """Refuse a command line that names something that cannot be planned.
@@ -145,6 +149,14 @@ def build_plan(
     dict[str, typ.Any]
         The plan, with its keys in the order the verifier reads them.
     """
+    endpoints = {
+        "control": {"host": "127.0.0.1", "port": 15500},
+        "data": {"host": "127.0.0.1", "port": 15501},
+    }
+    if suite == "login-version-presence":
+        endpoints = {
+            "control": {"host": "127.0.0.1", "port": LOGIN_VERSION_CONTROL_PORT}
+        }
     return {
         "schema_version": 1,
         "profile": "native-mac-oracle",
@@ -152,10 +164,7 @@ def build_plan(
         "oracle_sha256": ORACLE_SHA256,
         "environment": json.loads(runtime_record.read_text()),
         "gap_ids": gap_ids(suite),
-        "endpoints": {
-            "control": {"host": "127.0.0.1", "port": 15500},
-            "data": {"host": "127.0.0.1", "port": 15501},
-        },
+        "endpoints": endpoints,
         "expectation": expectation,
         "steps": steps,
     }
