@@ -60,7 +60,7 @@ condensed from the register and the sources of each claim.
 | [GAP-001](../../gap-analysis.md#gap-001) | P1       | Open          | Define the supported 1.9 subset                        | Decision        | Operation-by-profile scope matrix                                                                               | [mxd reconciliation](../mxd/assertion-reconciliation.md)                                        | None; owner unassigned                        | [mxd validation](../mxd/validation-status.md)                                                   |
 | [GAP-005](../../gap-analysis.md#gap-005) | P0       | Investigating | Connection timers and liveness                         | Native capture  | Timer and state table; native clock, wake cause, configuration, idle beyond 600 s                               | [Liveness witness](../native-evidence/native-liveness-witness.md)                               | None                                          | [Liveness witness](../native-evidence/native-liveness-witness.md)                               |
 | [GAP-011](../../gap-analysis.md#gap-011) | P0       | Investigating | Frame, transaction and buffering limits                | Static analysis | Later writes and aggregate buffering; format-5 Prefs observed after shutdown                                    | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     | None                                          | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     |
-| [GAP-016](../../gap-analysis.md#gap-016) | P0       | Investigating | Absent, empty and zero-valued fields                   | Native capture  | Five remaining fixture groups, not named in the register                                                        | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             | None; GAP-072 waits on it                     | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             |
+| [GAP-016](../../gap-analysis.md#gap-016) | P0       | Investigating | Absent, empty and zero-valued fields                   | Native capture  | Five fixture groups, listed under "Explicitly unmeasured cells" in the presence defaults                        | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             | None; GAP-072 waits on it                     | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             |
 | [GAP-018](../../gap-analysis.md#gap-018) | P0       | Investigating | Text encoding and transformations                      | Peer capture    | Identified-peer byte fixtures; peer text policy                                                                 | [Identified client source](../peers/identified-client-source.md)                                | None; GAP-082 waits on it                     | [Identified client source](../peers/identified-client-source.md)                                |
 | [GAP-019](../../gap-analysis.md#gap-019) | P0       | Investigating | Semantic length limits and truncation                  | Native capture  | Unmeasured length cells; 1024-byte diagnostic boundary                                                          | [Diagnostic boundary preparation](../native-evidence/native-diagnostic-boundary-preparation.md) | None; packet needs parent approval            | [Diagnostic boundary preparation](../native-evidence/native-diagnostic-boundary-preparation.md) |
 | [GAP-020](../../gap-analysis.md#gap-020) | P1       | Investigating | Date and timestamp semantics                           | Native capture  | Timezone, alternate-year, subsecond and rollover fixtures                                                       | [Date contracts](../protocol/date-contracts.md)                                                 | None; GAP-067 waits on it                     | [Date contracts](../protocol/date-contracts.md)                                                 |
@@ -334,14 +334,19 @@ Quoted text is taken from the register.
   four cases, especially credentials, settings and partial account updates."
   The progress text records that independent review accepts the
   presence-default registry and "five explicit remaining fixture groups". The
-  register does not name those five groups, so they are not listed here.
+  register does not list them; the registry does, numbered 1 to 5, under
+  [Explicitly unmeasured cells](../presence-and-messaging/presence-defaults.md#explicitly-unmeasured-cells).
+  They are: login and settings controls with one NUL and with zero widths;
+  account-key and name cases for transactions 349 to 353; chat, private-message
+  and kick text, option and target cases; invitation and room target, room and
+  subject cases; and the numeric fields of the transfer and news requests.
 - **Prepared:**
   [presence defaults](../presence-and-messaging/presence-defaults.md).
 - **Blocked by:** no `depends_on` entries. GAP-072 depends on this gap.
 - **Pick up:**
   [presence defaults](../presence-and-messaging/presence-defaults.md), sections
-  "Credentials and session settings" and "Account replacements and related
-  lookup".
+  "Credentials and session settings", "Account replacements and related lookup"
+  and "Explicitly unmeasured cells".
 
 ### GAP-018
 

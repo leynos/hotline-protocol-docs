@@ -60,6 +60,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-99",
       "reason": "Revision 99 records where the five remaining GAP-016 fixture groups are listed."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-107",
+      "reason": "Integrate the GAP-016 fixture ledger from revision 99 with the retained GAP-011 observations from revision 104."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-114",
+      "reason": "Integrate the GAP-016 correction in revision 107 with the GAP-011 status link in revision 113."
     }
   ]
 }
