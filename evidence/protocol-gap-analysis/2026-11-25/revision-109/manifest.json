@@ -1,0 +1,627 @@
+{
+  "captured_at_utc": "2026-11-25T12:55:00.543459+00:00",
+  "source_git_head": "2ee6ebabf80e4efbceaf05cb044ad87837fac4de",
+  "source_worktree_status": "M  Makefile\nM  docs/accounts-and-privileges/classic-privilege-discovery.md\nM  docs/accounts-and-privileges/evidence.md\nM  docs/accounts-and-privileges/privilege-bits.md\nM  docs/protocol/protocol.md\nM  docs/provenance/remaining-evidence-work.md\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/ClassicLabels.java\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/SHA256SUMS\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/confirm-locations.py.as-run.txt\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/length-byte-crosscheck.json\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/locations.txt\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/manifest.json\nA  evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/verify.jq\nUU evidence/local-corpora.json\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/SHA256SUMS\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/account-attribute-trace.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/account-write-ordering.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/classic-account-constructors.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/classic-privilege-discovery.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/native-ban-file-format.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/native-configured-ban-static.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/native-configured-ban-ui-resources.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/privilege-bits.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/accounts-and-privileges/privilege-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/alias-record-v2.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/filesystem-and-board-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/native-download-send-path.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/native-path-fields.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/native-transfer-stall.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/files-and-transfers/transfer-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/README.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/assertion-reconciliation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/classic-client-trials.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/compatibility-matrix.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/corrections.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/mxd/validation-status.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-121-default-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-121-default-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-control-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-control-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-expiry-cleanup.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-expiry-first-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-expiry-later-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-expiry-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ban-reload-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-board-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-board-readiness-failure.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-board-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-capture-workflow.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-configured-ban-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-configured-ban-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-control-readiness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-boundary-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-density-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-existing-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-existing-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-near-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-diagnostic-near-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-liveness-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-liveness-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-missing-alias-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-path-fields-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-pm-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-pm-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-rate304-first-pair.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-rate304-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-rate304-sequence.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-rate304-startup-gate.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-roster-overlap-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-roster-overlap-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-persistence-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-persistence-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-preparation.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-transition-prep.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-transition-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-settings-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/native-ui-focus-witness.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/native-evidence/runtime-recovery-20261113.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/news/legacy-board-format.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/news/news-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/classic-field161-matrix.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/classic-login-proxy.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/classic-native-baseline.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/classic-roster-subject-115.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/classic-server-name-162.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/identified-client-source.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/mac-peer-first-session.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/mac-peer-isolated-session.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/peer-profile-rules.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/peers/peer-tolerance-matrix.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/native-104-variants.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/native-ban-notices.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/native-console-broadcast.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/notification-104-variants.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/presence-defaults.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/presence-messaging-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/rate304-contract.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/presence-and-messaging/rate304-recipient-predicate.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/bitmap-boundaries.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/core-field-schemas.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/date-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/diagnostic-formatting-trace.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/diagnostic-replies.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/diagnostic-transfer-boundaries.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/error-outcomes.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/failure-representatives.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/native-wire-details.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/operation-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/parameter-multiplicity.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/protocol.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/receive-limit-origin.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/request-500-contract.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/protocol/session-transport-contracts.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/provenance/baseline-correction-map.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/inputs/docs/provenance/evidence-portability.md.txt\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/manifest.json\nA  evidence/protocol-gap-analysis/2026-11-24/revision-101/sections.json\nUU gap-analysis.md\nUU gap-register.json\nM  tests/goldens/verifiers.json",
+  "inputs": [
+    {
+      "path": "docs/protocol/protocol.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/protocol.md.txt",
+      "sha256": "f60fea022ad4095ad1c2f9872653714d2271748b636b49186c718e0d05934116",
+      "lines": 1478
+    },
+    {
+      "path": "docs/provenance/baseline-correction-map.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/provenance/baseline-correction-map.md.txt",
+      "sha256": "3ae06d48d8e2cea562b4f509ee196534dbe5c907a5c274ff2f4840e473a671be",
+      "lines": 119
+    },
+    {
+      "path": "docs/protocol/native-wire-details.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/native-wire-details.md.txt",
+      "sha256": "02ea2c1ea057e77370990e6129b235b32f49f4c4af95de05b41588aed3df0345",
+      "lines": 903
+    },
+    {
+      "path": "docs/protocol/operation-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/operation-contracts.md.txt",
+      "sha256": "afec21f416ebc6e995c741c64fe8b332490e90fea9eda165014c06dcbf1211fb",
+      "lines": 459
+    },
+    {
+      "path": "docs/files-and-transfers/transfer-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/transfer-contracts.md.txt",
+      "sha256": "82be8f08bcaaebc554a96b19809f1ef7c16d1f67a2c1f4e60bf0b5356213259a",
+      "lines": 1055
+    },
+    {
+      "path": "docs/news/news-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/news/news-contracts.md.txt",
+      "sha256": "2ff680175aab822b72e63f37f4daa1780f59c4ff54b77d23fdf5f104fe0e40d5",
+      "lines": 599
+    },
+    {
+      "path": "docs/presence-and-messaging/presence-messaging-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/presence-messaging-contracts.md.txt",
+      "sha256": "f7f0a6e11d8ad4351a6f172ef88c43e2dcfa877b48ad271e62e3cbc8a9820023",
+      "lines": 754
+    },
+    {
+      "path": "docs/protocol/core-field-schemas.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/core-field-schemas.md.txt",
+      "sha256": "0c5e88da1454eb496e97170c13c3fff37861f8b046fee745868f7ec9c64996a6",
+      "lines": 192
+    },
+    {
+      "path": "docs/protocol/session-transport-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/session-transport-contracts.md.txt",
+      "sha256": "c5f8dcf88343377c06f0f1cba9e4bee6ee2f85e2d81a48562ab934d60fcd7eec",
+      "lines": 436
+    },
+    {
+      "path": "docs/files-and-transfers/filesystem-and-board-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/filesystem-and-board-contracts.md.txt",
+      "sha256": "56261a8b2ddfcd57828f69c1711265591b3cc56f2fa9ec94bd8cf2336d50de36",
+      "lines": 572
+    },
+    {
+      "path": "docs/provenance/evidence-portability.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/provenance/evidence-portability.md.txt",
+      "sha256": "e8a285b9254614a0e6a00d0e585416f8ae58ccdb13bf271163a12c7f83cf4b99",
+      "lines": 87
+    },
+    {
+      "path": "docs/protocol/error-outcomes.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/error-outcomes.md.txt",
+      "sha256": "4ae8dcd5eeba2074a0614aedffec0d48264a4bdcb1fda36818607c23934b880b",
+      "lines": 189
+    },
+    {
+      "path": "docs/peers/identified-client-source.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/identified-client-source.md.txt",
+      "sha256": "1bd44dcbe7de014e613e3550ca0742711143be4db2f8dd60a593f75bd6e46af6",
+      "lines": 347
+    },
+    {
+      "path": "docs/accounts-and-privileges/privilege-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/privilege-contracts.md.txt",
+      "sha256": "68e675996ac665e3fa5f6a5725478dc9d1b418902a840865b6a4bdccf10a2c80",
+      "lines": 171
+    },
+    {
+      "path": "docs/native-evidence/native-capture-workflow.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-capture-workflow.md.txt",
+      "sha256": "cc159984fb01adffbce15299ec890ca6702a35ad9a4639a290ecc7b12e3d3e1d",
+      "lines": 1835
+    },
+    {
+      "path": "docs/protocol/diagnostic-replies.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/diagnostic-replies.md.txt",
+      "sha256": "eefb885115017989abff3142ffa2b88cd04154006ce3d80405c71091e9bb556d",
+      "lines": 141
+    },
+    {
+      "path": "docs/peers/peer-tolerance-matrix.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/peer-tolerance-matrix.md.txt",
+      "sha256": "8980779b789c1296be66ab4117be6d2aa04feb501532bb30a6590baa95dbf2c7",
+      "lines": 140
+    },
+    {
+      "path": "docs/protocol/bitmap-boundaries.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/bitmap-boundaries.md.txt",
+      "sha256": "6c8f59c20a97e82d5334b0b2b92aabe58e9bf26156b0f7fa91e7dcf64a7fad21",
+      "lines": 143
+    },
+    {
+      "path": "docs/accounts-and-privileges/account-attribute-trace.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/account-attribute-trace.md.txt",
+      "sha256": "ad8aa10e944900b6f92375aac16ded14ba01b27a2934db6fd2e1bf8cb00390d9",
+      "lines": 185
+    },
+    {
+      "path": "docs/protocol/failure-representatives.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/failure-representatives.md.txt",
+      "sha256": "dc7290c421681bc66a9b78f63894a047478f6cb97406e7acb3aad76faa8e5003",
+      "lines": 121
+    },
+    {
+      "path": "docs/native-evidence/runtime-recovery-20261113.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/runtime-recovery-20261113.md.txt",
+      "sha256": "19b9e72b6a91906bed2e299b3d32ac2c40166d92a6d5589c050f6c7e786b790a",
+      "lines": 155
+    },
+    {
+      "path": "docs/protocol/receive-limit-origin.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/receive-limit-origin.md.txt",
+      "sha256": "314a14e4f2233d892a74e0ff5d974497e7bfbb3113b6ed6752f836f321aee03b",
+      "lines": 129
+    },
+    {
+      "path": "docs/protocol/diagnostic-transfer-boundaries.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/diagnostic-transfer-boundaries.md.txt",
+      "sha256": "081da2e7ab2b58e416d244e6f80aa7bd01d1645f404f4e8d6433c9712b1ebb26",
+      "lines": 93
+    },
+    {
+      "path": "docs/peers/mac-peer-first-session.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/mac-peer-first-session.md.txt",
+      "sha256": "d8925306e440c73f79a71a674a3c8c173e1dfd7f56703591fe18cdc804269d7e",
+      "lines": 70
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-existing-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-existing-preparation.md.txt",
+      "sha256": "24aa3178329d5083810720fffbcd3c19f3a175445b39e436d428be356ebb01bd",
+      "lines": 129
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-existing-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-existing-witness.md.txt",
+      "sha256": "1f2e5b02bc51bacbf1cff8f0c07c748ec99ebf3e4bce17e76089bbb4ee22b6c8",
+      "lines": 124
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-density-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-density-witness.md.txt",
+      "sha256": "11ea999a44980bd5ad8346e1a02867ff8bc831cb638780d74f40d6078c2c32a6",
+      "lines": 92
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-near-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-near-preparation.md.txt",
+      "sha256": "03ad4b9f79d2b8a84d060c9596c92f2da9ed809336eb401ffb9347d00c723328",
+      "lines": 78
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-near-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-near-witness.md.txt",
+      "sha256": "b641a80422932203bb18cf13286d36e6fb310f4aadc2cca9d5250ccedbe2cbbb",
+      "lines": 86
+    },
+    {
+      "path": "docs/peers/mac-peer-isolated-session.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/mac-peer-isolated-session.md.txt",
+      "sha256": "0820b6c17d38f3c0013ba96c93939ec2e52880fdffad1db776bd43f6e8625a6d",
+      "lines": 69
+    },
+    {
+      "path": "docs/protocol/request-500-contract.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/request-500-contract.md.txt",
+      "sha256": "4acc65358c36285ddbfdb2846aa71722b9e12779d3d038eac44b408fa846289d",
+      "lines": 51
+    },
+    {
+      "path": "docs/presence-and-messaging/native-console-broadcast.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/native-console-broadcast.md.txt",
+      "sha256": "e8a66044146137eb1d36fb49727f49be8cd8643a88126e777c52f70a40bd9ae4",
+      "lines": 81
+    },
+    {
+      "path": "docs/peers/classic-login-proxy.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/classic-login-proxy.md.txt",
+      "sha256": "356f6e3ec9af73bb2ed4779e2be24c5fdf66e0a1a73014bd33e2091de3d6a41b",
+      "lines": 220
+    },
+    {
+      "path": "docs/native-evidence/native-pm-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-pm-preparation.md.txt",
+      "sha256": "836dceb611055dd0ea00c710d642a3414025c4928d1d3053db94b439278c1c6f",
+      "lines": 104
+    },
+    {
+      "path": "docs/native-evidence/native-pm-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-pm-witness.md.txt",
+      "sha256": "05637c4d62798f4ff127f61fdc69349947dbd9e225a95820d7cea5eca0e446a8",
+      "lines": 85
+    },
+    {
+      "path": "docs/presence-and-messaging/native-104-variants.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/native-104-variants.md.txt",
+      "sha256": "2820d3a7c48d5ca8332fad513bf0e6740a279612a702379f7b7b3bae7f04d21f",
+      "lines": 75
+    },
+    {
+      "path": "docs/native-evidence/native-settings-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-preparation.md.txt",
+      "sha256": "b972fd5a9ee2a4e79adad5406129871bc39ef6533e52f6b384679c4694962860",
+      "lines": 85
+    },
+    {
+      "path": "docs/native-evidence/native-settings-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-witness.md.txt",
+      "sha256": "d31060eebb87dfc945e83bf51e4a0fd06623dae30546c65314e6ecf23d31fc5a",
+      "lines": 83
+    },
+    {
+      "path": "docs/presence-and-messaging/native-ban-notices.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/native-ban-notices.md.txt",
+      "sha256": "994c7a799c321e58b1d8738b584b2ec35df7577a6d266d68ef4809a6caeafe1c",
+      "lines": 100
+    },
+    {
+      "path": "docs/protocol/parameter-multiplicity.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/parameter-multiplicity.md.txt",
+      "sha256": "dfda16372246e645d7949c43eee09425946e9c52dff82e2bf4099eca4bee4c81",
+      "lines": 63
+    },
+    {
+      "path": "docs/files-and-transfers/native-transfer-stall.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/native-transfer-stall.md.txt",
+      "sha256": "8344dac8dba0b74e0f1ad8f37672cb0cdec6db400d089fb998e1cd8f8b71163d",
+      "lines": 139
+    },
+    {
+      "path": "docs/native-evidence/native-settings-transition-prep.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-transition-prep.md.txt",
+      "sha256": "c0786311d5b56db3bd20d40261892909ff44e8fc4069ee243b21567175bfe4b6",
+      "lines": 66
+    },
+    {
+      "path": "docs/native-evidence/native-settings-transition-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-transition-witness.md.txt",
+      "sha256": "88b91827a269591333c9a7f99729ce03dd215756d872f5818b360de9516ef7cf",
+      "lines": 90
+    },
+    {
+      "path": "docs/files-and-transfers/native-download-send-path.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/native-download-send-path.md.txt",
+      "sha256": "5c069fd2b5eb05e5126fd7c6082655cdae1ee89e557557415fe31e453d564161",
+      "lines": 100
+    },
+    {
+      "path": "docs/accounts-and-privileges/classic-account-constructors.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/classic-account-constructors.md.txt",
+      "sha256": "4a7cf06b77fb8e1412bd481bfa18657bc23dfcb98a0c388dbe7dfec49b8cb584",
+      "lines": 88
+    },
+    {
+      "path": "docs/native-evidence/native-121-default-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-121-default-preparation.md.txt",
+      "sha256": "9660803311ec8d15fa6e071dc08243740835427edf640b1cc90821cac7bffa34",
+      "lines": 93
+    },
+    {
+      "path": "docs/native-evidence/native-121-default-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-121-default-witness.md.txt",
+      "sha256": "3656e6d403a264be8ca492ac7d87e5172bb310a0e32fd3560ce34a3ea50f9edf",
+      "lines": 87
+    },
+    {
+      "path": "docs/peers/classic-native-baseline.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/classic-native-baseline.md.txt",
+      "sha256": "8293148592e56d7485730ff6ce89a30836c6c647f6b2ff4a480de2d326d864cc",
+      "lines": 99
+    },
+    {
+      "path": "docs/native-evidence/native-ui-focus-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ui-focus-witness.md.txt",
+      "sha256": "e1a5280b053cf6f1630ee78b6cbd153b99ee6e9cf907cd9ea4472c2e6958923c",
+      "lines": 81
+    },
+    {
+      "path": "docs/native-evidence/native-control-readiness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-control-readiness.md.txt",
+      "sha256": "d1b0bf753988bf95b7c83695d777b6151613b77b09d3d2f75ceee07e5498ada2",
+      "lines": 88
+    },
+    {
+      "path": "docs/peers/classic-field161-matrix.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/classic-field161-matrix.md.txt",
+      "sha256": "0f356e898cc40c797d825399ff164831f0efcf48afcc9fd9149cdcf92b06d5bc",
+      "lines": 91
+    },
+    {
+      "path": "docs/native-evidence/native-ban-control-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-control-preparation.md.txt",
+      "sha256": "19c47210d3829fc6e3f6b0f81920ed8c51ad1d40acdc0b8327fa2231067eac67",
+      "lines": 106
+    },
+    {
+      "path": "docs/presence-and-messaging/notification-104-variants.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/notification-104-variants.md.txt",
+      "sha256": "c8d3def7419f82c9668ec0f88edd1288cd5921c89e092976a673c8b3f31feb08",
+      "lines": 83
+    },
+    {
+      "path": "docs/peers/peer-profile-rules.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/peer-profile-rules.md.txt",
+      "sha256": "f0ebbe7c375852fa50c057b3ffa5d79e662bb3e78a3b2553ec5810898a9c9414",
+      "lines": 84
+    },
+    {
+      "path": "docs/native-evidence/native-settings-persistence-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-persistence-preparation.md.txt",
+      "sha256": "064527521f21eaee8c3ed978a7d345782de10cef298b59fc3417617a92022b43",
+      "lines": 147
+    },
+    {
+      "path": "docs/native-evidence/native-ban-control-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-control-witness.md.txt",
+      "sha256": "2c7c96364448a814386e8f986a6c4b086384db39ceace33eac792d8505985a4a",
+      "lines": 87
+    },
+    {
+      "path": "docs/peers/classic-server-name-162.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/classic-server-name-162.md.txt",
+      "sha256": "0fd9a8a19d8e5bb2e9489366aafce485afa71f1c5868252c1d0aff9757541289",
+      "lines": 72
+    },
+    {
+      "path": "docs/accounts-and-privileges/native-configured-ban-static.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/native-configured-ban-static.md.txt",
+      "sha256": "5fec9395ace23433c4019902bc8cba1542382ac007c987cb519e7b8bb1bc44f3",
+      "lines": 57
+    },
+    {
+      "path": "docs/accounts-and-privileges/native-configured-ban-ui-resources.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/native-configured-ban-ui-resources.md.txt",
+      "sha256": "a8c8629909e6df9009d88d88b79fa41d98ec4e266d8a4cb211a1cd12a5a6ea66",
+      "lines": 34
+    },
+    {
+      "path": "docs/native-evidence/native-ban-reload-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-reload-witness.md.txt",
+      "sha256": "44436cf73eaa6545dc8e7e6374884e706fc33e10e09e2fc2af6bba4d1680e234",
+      "lines": 88
+    },
+    {
+      "path": "docs/native-evidence/native-settings-persistence-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-settings-persistence-witness.md.txt",
+      "sha256": "4365967a09ece79ba2cb7e62cfed49eedc2205b3c87be3370bcde9ad9046733c",
+      "lines": 124
+    },
+    {
+      "path": "docs/peers/classic-roster-subject-115.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/peers/classic-roster-subject-115.md.txt",
+      "sha256": "828523cdf2348ba46bbf9cbb63e7ae79aaf68c878834e4881f7969c47cf3362a",
+      "lines": 86
+    },
+    {
+      "path": "docs/native-evidence/native-configured-ban-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-configured-ban-preparation.md.txt",
+      "sha256": "5ef64a86513dcdddf7f73e53619ef3ed753e4e0a7617a7d4781b347d84aff631",
+      "lines": 91
+    },
+    {
+      "path": "docs/native-evidence/native-configured-ban-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-configured-ban-witness.md.txt",
+      "sha256": "1cfd0daed8a7603592b18e7784d213da502edbec4a210c89bc3e560e2c7ad8de",
+      "lines": 86
+    },
+    {
+      "path": "docs/protocol/diagnostic-formatting-trace.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/diagnostic-formatting-trace.md.txt",
+      "sha256": "6916648c5a2e41257beb0106dac75516d5e714609e866a92081987369bec17b4",
+      "lines": 85
+    },
+    {
+      "path": "docs/accounts-and-privileges/native-ban-file-format.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/native-ban-file-format.md.txt",
+      "sha256": "a1538303157018629a82ca3cabf16997fd026380e9d8c37b3a4691630d415f3b",
+      "lines": 114
+    },
+    {
+      "path": "docs/native-evidence/native-ban-expiry-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-expiry-preparation.md.txt",
+      "sha256": "b2ea54b6ad02f1a8aae82a07ee921dc350a3653d72b3deb790a852b05a5e4cdd",
+      "lines": 198
+    },
+    {
+      "path": "docs/native-evidence/native-roster-overlap-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-roster-overlap-preparation.md.txt",
+      "sha256": "c85c25dddf9a14c72931bddeb01dc594989a12ad0c536df4d6c140697e189dcf",
+      "lines": 143
+    },
+    {
+      "path": "docs/native-evidence/native-ban-expiry-cleanup.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-expiry-cleanup.md.txt",
+      "sha256": "835d81465c6f62dec7788252f9afd6955441459899a42ab7111e33d65667b390",
+      "lines": 72
+    },
+    {
+      "path": "docs/native-evidence/native-ban-expiry-first-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-expiry-first-witness.md.txt",
+      "sha256": "d2c2401845793cbdb46dcdb4378429b1623e545fbfd527796252bd10766f44ed",
+      "lines": 83
+    },
+    {
+      "path": "docs/native-evidence/native-ban-expiry-later-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-ban-expiry-later-witness.md.txt",
+      "sha256": "14a99eef9d990827cf01fe87b0ac2f44581a684bb9230fc6651b1f5708770363",
+      "lines": 115
+    },
+    {
+      "path": "docs/native-evidence/native-roster-overlap-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-roster-overlap-witness.md.txt",
+      "sha256": "9e6218a7e30e2534b0bb8abc6e9505e4034a05f7a9e36bf0e23a98cc834aec20",
+      "lines": 94
+    },
+    {
+      "path": "docs/accounts-and-privileges/account-write-ordering.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/account-write-ordering.md.txt",
+      "sha256": "e9a661524676cf2259a1e3e59bfc3da75de85beb250177669f459c09e3aff458",
+      "lines": 72
+    },
+    {
+      "path": "docs/native-evidence/native-liveness-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-liveness-preparation.md.txt",
+      "sha256": "9afabb197d98e8fafb8fc125c2f3d61e285083cd2fec6fad44fff4657490241f",
+      "lines": 123
+    },
+    {
+      "path": "docs/accounts-and-privileges/classic-privilege-discovery.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/classic-privilege-discovery.md.txt",
+      "sha256": "e92cb779a7aba17714775ef96899b6da732a39f26b2b456d8082fa9d1c426f4b",
+      "lines": 116
+    },
+    {
+      "path": "docs/native-evidence/native-liveness-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-liveness-witness.md.txt",
+      "sha256": "d57803da70b4d3bf7dce36e7d2be833ab7d0e1b405870318cb9246629f4233da",
+      "lines": 111
+    },
+    {
+      "path": "docs/news/legacy-board-format.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/news/legacy-board-format.md.txt",
+      "sha256": "be6ddeb4c0887c58c6bb1d8b0f4d9117fabfd9782c4afeffdd91866de2b531cf",
+      "lines": 56
+    },
+    {
+      "path": "docs/native-evidence/native-board-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-board-preparation.md.txt",
+      "sha256": "c39c1f18dbefef2110662170b4f6f9ba50883d7348686b9a7edce5132ddb2823",
+      "lines": 155
+    },
+    {
+      "path": "docs/native-evidence/native-board-readiness-failure.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-board-readiness-failure.md.txt",
+      "sha256": "d1ce1130fb62ccebdb01cca23db82861229310def462e44a494e7cdc73360617",
+      "lines": 78
+    },
+    {
+      "path": "docs/native-evidence/native-board-witness.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-board-witness.md.txt",
+      "sha256": "79363207148ebfe53c20b90ce2cb42fc7b5be3263c9f75bfe4ef9442430535d1",
+      "lines": 97
+    },
+    {
+      "path": "docs/presence-and-messaging/rate304-contract.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/rate304-contract.md.txt",
+      "sha256": "b52f33de67799c35d8aec6bbfa00646d3e378ea582a0732f1dca871fde6c22c3",
+      "lines": 89
+    },
+    {
+      "path": "docs/native-evidence/native-rate304-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-rate304-preparation.md.txt",
+      "sha256": "de07d3e84ed784e24354a3713bf09287cc42fcbfc3e1fdfd9aaa6bc5bf87e676",
+      "lines": 168
+    },
+    {
+      "path": "docs/native-evidence/native-rate304-first-pair.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-rate304-first-pair.md.txt",
+      "sha256": "65962007551e2c29f01607b826d1cf3bed5ba4b3756dc497e0d2fc59502b89f7",
+      "lines": 90
+    },
+    {
+      "path": "docs/presence-and-messaging/rate304-recipient-predicate.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/rate304-recipient-predicate.md.txt",
+      "sha256": "52afef4694240fc0d2a1fd79d2dafc0c112f34e3741f3d162e900c943909b439",
+      "lines": 82
+    },
+    {
+      "path": "docs/native-evidence/native-rate304-startup-gate.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-rate304-startup-gate.md.txt",
+      "sha256": "234f7d8fe5bcaecf4ee31ce0658a0cda349f6bdf3370f2a0cecfac944fbc0dd2",
+      "lines": 86
+    },
+    {
+      "path": "docs/native-evidence/native-rate304-sequence.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-rate304-sequence.md.txt",
+      "sha256": "d6697df324b3b707bafd17b292ec3dd42054b29016b3e4f6ffcd0cceddc77100",
+      "lines": 136
+    },
+    {
+      "path": "docs/native-evidence/native-path-fields-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-path-fields-preparation.md.txt",
+      "sha256": "db97db7f89c25fd26f5bce813733d1a7661127f353d9c680ffa27de0a78076ba",
+      "lines": 101
+    },
+    {
+      "path": "docs/files-and-transfers/native-path-fields.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/native-path-fields.md.txt",
+      "sha256": "5115c4cb4d79996b9ec7d313dd00b9bf8dbc3d3e01f3b8480da0787f53380ca4",
+      "lines": 77
+    },
+    {
+      "path": "docs/native-evidence/native-missing-alias-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-missing-alias-preparation.md.txt",
+      "sha256": "328f0f270e27330a6612301eeb5d88fd480acac6bd4606126363533a659d9cf2",
+      "lines": 219
+    },
+    {
+      "path": "docs/files-and-transfers/alias-record-v2.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/files-and-transfers/alias-record-v2.md.txt",
+      "sha256": "72d7ba565e31ffe08851f3da1491d4559f0b21293da20ce7cca861598b7e3148",
+      "lines": 42
+    },
+    {
+      "path": "docs/protocol/date-contracts.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/protocol/date-contracts.md.txt",
+      "sha256": "86680c4234cec5ae23374a593237d272118eee5e383448550ce077ba6a7dfd84",
+      "lines": 103
+    },
+    {
+      "path": "docs/presence-and-messaging/presence-defaults.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/presence-and-messaging/presence-defaults.md.txt",
+      "sha256": "496c927e11dbd8e41952b4d6f3e1a0c91a5e9c5f44a503e451fa5a7d49f21fe2",
+      "lines": 146
+    },
+    {
+      "path": "docs/native-evidence/native-diagnostic-boundary-preparation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/native-evidence/native-diagnostic-boundary-preparation.md.txt",
+      "sha256": "7260932277dc61ad051dbdca47ccf55c4033c85866e1dc6cafd9f69d42421694",
+      "lines": 112
+    },
+    {
+      "path": "docs/accounts-and-privileges/privilege-bits.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/accounts-and-privileges/privilege-bits.md.txt",
+      "sha256": "874d3cca22e6042d12c356de26b9804009d44ba53b77b2a085a37b72dc2d32b2",
+      "lines": 119
+    },
+    {
+      "path": "docs/mxd/validation-status.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/validation-status.md.txt",
+      "sha256": "677fbb1894b227c3de2a88cbde31dc26911431c71afe86af84366170fefde6b1",
+      "lines": 220
+    },
+    {
+      "path": "docs/mxd/classic-client-trials.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/classic-client-trials.md.txt",
+      "sha256": "0b9cf5078a0125cda3afdc663033426da250c99294ce41de03ee4d8997b378cb",
+      "lines": 327
+    },
+    {
+      "path": "docs/mxd/assertion-reconciliation.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/assertion-reconciliation.md.txt",
+      "sha256": "26ac424dde7d2e1b4181bbd42391406c95a5e06305c9ef4f0346d0e6b9de107d",
+      "lines": 270
+    },
+    {
+      "path": "docs/mxd/compatibility-matrix.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/compatibility-matrix.md.txt",
+      "sha256": "086799ae7b6130ab51329cd521bb3346bb730695485f0896ce8d6368b9f4fdc2",
+      "lines": 417
+    },
+    {
+      "path": "docs/mxd/corrections.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/corrections.md.txt",
+      "sha256": "9a723f6b4a1fd603a4468cf6858b6b89833966d750de5556eba121fbd8004af3",
+      "lines": 493
+    },
+    {
+      "path": "docs/mxd/README.md",
+      "snapshot": "evidence/protocol-gap-analysis/2026-11-25/revision-109/inputs/docs/mxd/README.md.txt",
+      "sha256": "83d9ea6a64c32a2985db9124d25f351dc256d3d6b921e89351e8f34b6e1b8c62",
+      "lines": 84
+    }
+  ],
+  "method": "Revision 90 follows the move of the evidence into the documentation repository. It preserves all 87 original closure criteria and every prior question and status string. The 102 input documents were reflowed to 80 columns, corrected to Oxford spelling and had their evidence links pointed at the in-repository evidence tree; no heading or anchor changed, so each section corresponds by position to its predecessor in revision 89. No new native protocol observation or gap closure; mxd validation stays held.",
+  "snapshot_policy": "Every input is snapshotted afresh in this revision; no earlier snapshot is reused by reference.",
+  "reused_prior_snapshots": 0,
+  "superseded_draft_inputs": [],
+  "updated_at_utc": "2026-11-25T12:55:00.543459+00:00",
+  "carried_forward_from_revision_89": {
+    "independent_contract_review": {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-86/reviews/a171-protocol-contract-review.md.txt",
+      "sha256": "019316dfc8a345fe9592ec1d9f3d4a070c2d74807d8688d411093b7de0774509",
+      "scope": "date and corrected presence/default registries; no native execution or closure"
+    },
+    "independent_privilege_table_review": {
+      "path": "evidence/protocol-gap-analysis/2026-11-14/revision-87/reviews/a175-privilege-table-review.md.txt",
+      "sha256": "1898dfd06b6788e9fc2320a610a82abb99dd3adca16d7ff6b841c64d83716e04",
+      "scope": "literal 64-row source/native index accuracy; no GAP-031 closure"
+    },
+    "prior_metadata_correction": "Revision88 manifest method mistakenly said R04 had closed readiness. Its retained zero-TCP abort evidence establishes no closed readiness or protocol case. The immutable earlier manifest is not rewritten.",
+    "independent_operational_review": "A195 reviewed the two workflow diffs and exact retirement boundary; root fixed line wrapping without changing meaning."
+  },
+  "source_repository": "leynos/hotline-protocol-docs"
+}

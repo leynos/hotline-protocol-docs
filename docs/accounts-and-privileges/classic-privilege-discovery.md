@@ -91,3 +91,26 @@ checkbox-to-bit mapping and no server enforcement meaning for bits 18/19 or
 claim needs a positive class/control-to-account-object write edge; these
 data-only references and object-bit operation do not supply one. GAP-031
 remains open.
+
+The [24 November offline extraction][unpacked-labels] used the Ghidra 12.2 PEF
+loader's `SectionHeader.getUnpackedData` on section 1 of the identified Classic
+DATA fork. The decoded section contained 149,225 bytes. Adding its recorded
+loaded base to the decoded class-name offset reproduced the earlier Ghidra
+memory address `1014fef8`.
+
+| Label                | Packed file offsets of first text byte | Loaded addresses of first text byte | Preceding length byte |
+| -------------------- | -------------------------------------- | ----------------------------------- | --------------------- |
+| Can Send Messages    | `14d33c`, `14f9b4`                     | `1014c725`, `1014fdb1`              | `11`                  |
+| Can Disconnect Users | `14d306`, `14f97e`                     | `1014c6ef`, `1014fd7b`              | `14`                  |
+
+_Table 1: The two occurrences of each exact label in the identified client.
+Offsets, addresses and lengths are hexadecimal._
+
+Each length byte immediately precedes its text. A repeat extraction gave the
+same locations. An input with a different hash was rejected before unpacking.
+The locations give four points at which to investigate references to each
+label, including its two length bytes. No reference from a control to the
+account object's privilege bitmap was observed. The 27 unknown bits retain
+their GAP-031 classification.
+
+[unpacked-labels]: ../../evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/manifest.json

@@ -439,8 +439,10 @@ Quoted text is taken from the register.
   label-to-bit map has been inferred. It also says that a round trip "is not
   proof that unknown bits are reserved or ignored".
 - **Kind chosen by the scribe:** static analysis of the Classic client, which
-  the progress text bounds but does not complete. Native enforcement fixtures
-  for unknown bits follow.
+  the progress text bounds but does not complete. The unpacked Classic client
+  contains two copies each of `Can Send Messages` and `Can Disconnect Users`.
+  Connecting those labels to editor controls and bitmap writes remains open.
+  Native enforcement fixtures for unknown bits follow.
 - **Prepared:** [privilege bits](../accounts-and-privileges/privilege-bits.md),
   [privilege contracts](../accounts-and-privileges/privilege-contracts.md) and
   [Classic privilege discovery](../accounts-and-privileges/classic-privilege-discovery.md).

@@ -86,8 +86,20 @@
       "reason": "Integrate the GAP-026 reader inventory in revision 108 with the register from revision 114."
     },
     {
+      "path": "evidence/gap-remediation/2026-11-24/classic-privilege-labels-01",
+      "reason": "New offline Classic client label locations and length-byte cross-check for GAP-031."
+    },
+    {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-101",
       "reason": "Revision 101 records the GAP-031 Classic editor label locations."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-109",
+      "reason": "Integrate the Classic account-editor label observations from revision 101 with the register in revision 108."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-116",
+      "reason": "Integrate the GAP-031 label observations in revision 109 with the register from revision 115."
     }
   ]
 }

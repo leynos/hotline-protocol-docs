@@ -551,7 +551,11 @@ explicitly retaining unknown bits 12–13, 18–19 and 41–63. Account creation
 update enforce different grant rules; see
 [account composition](../accounts-and-privileges/privilege-contracts.md#account-creation-update-and-batch-rules).
 Private messaging uses bit 40 in this build. Do not infer private-chat owner
-or administrator overrides from historical privilege names.
+or administrator overrides from historical privilege names. The Classic client
+contains two copies each of the send-message and disconnect labels. Their
+loaded addresses are recorded in
+[Classic privilege discovery](../accounts-and-privileges/classic-privilege-discovery.md).
+The corresponding control-to-bit mappings remain unknown.
 
 Evidence: V030–V031, V055–V056, V073; `10008a90`, `1000f4e0`, `10012850`,
 `10013930`.
