@@ -1,0 +1,1398 @@
+{
+  "326-absent-guest-gate.json": {
+    "original_sha256": "4a545555b002c9410d9d77808e1a7ba5c96a4dc6ebab223724df76812477d8cf",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:16:57.706950+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "326-absent-host-gate.json": {
+    "original_sha256": "fa267c034d4b3c4fe20f3a59690636fcc6823549a74b907c5f20bc6a618e14b9",
+    "receipt": {
+      "utc": "2026-11-24T21:16:57.905993+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "326-absent-namespace-gate.json": {
+    "original_sha256": "baedf47c0dc9ab4553d1f9f65ce76cfb0b5ae5c564c4d633c4a8fb40fa451d48",
+    "receipt": {
+      "utc": "2026-11-24T21:16:58.079924+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "326-empty-guest-gate.json": {
+    "original_sha256": "154396fffa8c06c8809bc3a76222c9818e439dac8667b0eb2763159b5e8d5284",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:10.914679+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "326-empty-host-gate.json": {
+    "original_sha256": "64b3b55e0ca223c8a3c8aaf971cb3ab1fb4d8fff0eda48b04e861bc29c286c67",
+    "receipt": {
+      "utc": "2026-11-24T21:17:11.117439+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "326-empty-namespace-gate.json": {
+    "original_sha256": "35465417ecfbe4935f2ad89e1fbd042b4c259ce8dfcaf4c469659bcb6b4d8dc3",
+    "receipt": {
+      "utc": "2026-11-24T21:17:11.293605+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "326-zero-guest-gate.json": {
+    "original_sha256": "45da1f4b1989b0cb53da1b5f1b65157e11fc6e07291164df5ba7f03c6d883528",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:17.578272+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "326-zero-host-gate.json": {
+    "original_sha256": "1348726d3ef4a1d453848a91f0759c1ac9ccdadf31fab36c208c3a512659b498",
+    "receipt": {
+      "utc": "2026-11-24T21:17:17.759257+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "326-zero-namespace-gate.json": {
+    "original_sha256": "6e22cbfe6ac7ccc9016cbc98ceef6826ed124dd5bd4e9d65a2af27e0f0dd27d1",
+    "receipt": {
+      "utc": "2026-11-24T21:17:17.940605+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-absent-guest-gate.json": {
+    "original_sha256": "8795db6e84f7c1e974c436e022d47c24b707af1377799422308ddfe0d80df0fe",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:22.909935+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "334-absent-host-gate.json": {
+    "original_sha256": "3549044a834b24106b7b5d3e862469bc4fb313a534078a0d4460fccf477cfff7",
+    "receipt": {
+      "utc": "2026-11-24T21:17:23.088997+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-absent-namespace-gate.json": {
+    "original_sha256": "a173c87e8932bb08f9cf7ba48b53db4f14b95a3741897b4cafdcd88fe8120d9f",
+    "receipt": {
+      "utc": "2026-11-24T21:17:23.259399+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-empty-guest-gate.json": {
+    "original_sha256": "fdfed3ad44a0963cbaa14ab004a34bae9bbafc75f4289dd82b6d51f7b1dca460",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:28.200505+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "334-empty-host-gate.json": {
+    "original_sha256": "1ddbf19c5465e59df057596bc286da870955b37f0e9d6fe9aa1683fcb1d85a7c",
+    "receipt": {
+      "utc": "2026-11-24T21:17:28.361869+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-empty-namespace-gate.json": {
+    "original_sha256": "0108efdaa4c42f02d1d706cfb0460160739ab091aa2b5a7ddada7d5da4379352",
+    "receipt": {
+      "utc": "2026-11-24T21:17:28.524405+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-zero-guest-gate.json": {
+    "original_sha256": "0521408c9baab11b3b7c09707702cb35b8488cc3b272bb55088faf6158d61957",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:16:36.552520+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "334-zero-host-gate.json": {
+    "original_sha256": "b82f0102ac155faa0b3d720ae0e860b0e7cdb789bc0702807cc965a29505e94a",
+    "receipt": {
+      "utc": "2026-11-24T21:16:36.719824+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "334-zero-namespace-gate.json": {
+    "original_sha256": "f8f5a38b517ae49c262dda781bcd24ff4a5ba40c5cb9473273234b012d807966",
+    "receipt": {
+      "utc": "2026-11-24T21:16:36.894033+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-absent-guest-gate.json": {
+    "original_sha256": "e5ab4ba89d8c504d3d06bcd19f27ce80f675889f023715b2d332aa3adadbe74f",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:33.299165+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "337-absent-host-gate.json": {
+    "original_sha256": "89ac714b0ef56a82e3963c2f33e4c65d5326ea3252e6fbe14bd9d73c8e7e3773",
+    "receipt": {
+      "utc": "2026-11-24T21:17:33.484914+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-absent-namespace-gate.json": {
+    "original_sha256": "ddf7651cd438d0f96efd0c35ae785026793acf42b4b65d6fa6bfff898b0b9170",
+    "receipt": {
+      "utc": "2026-11-24T21:17:33.662075+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-empty-guest-gate.json": {
+    "original_sha256": "17313695770a04444992504e7f87d6aabfc3ed22a13a252da5e12d4e783ad876",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:38.947517+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "337-empty-host-gate.json": {
+    "original_sha256": "cdce60516bc29d5102cdd7dde84b6b23c820013f04506ae887490c85967a65f4",
+    "receipt": {
+      "utc": "2026-11-24T21:17:39.115984+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-empty-namespace-gate.json": {
+    "original_sha256": "d4026e5e18e361abc1a21226ca36fb6fb5321736ca7f910eae9ff442a0d7eaf7",
+    "receipt": {
+      "utc": "2026-11-24T21:17:39.287330+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-zero-guest-gate.json": {
+    "original_sha256": "97661b4bae0a8ee8de9722a7b8e474a711b38a11150281d07e3ea3ae3125948f",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:44.071671+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "337-zero-host-gate.json": {
+    "original_sha256": "54dd5c6093f8dfb10358acffa0e9de5705542d962ab11cd2f81ed532df828c7e",
+    "receipt": {
+      "utc": "2026-11-24T21:17:44.350483+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "337-zero-namespace-gate.json": {
+    "original_sha256": "263978a579b387fc87feac257f0bb6699cb0b8883efd83ccd5b162baf65b31fe",
+    "receipt": {
+      "utc": "2026-11-24T21:17:44.517967+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-absent-guest-gate.json": {
+    "original_sha256": "2f2dd1cb9a9b6533e67733aba242b8137abdd05511671f670a73fd79bfcde2d3",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:01.896644+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-326-absent-host-gate.json": {
+    "original_sha256": "463a64b7e2dca4b1efae583bd87c3c8bc1a9cf61c9ac2f2ee5482ef0af1c3fd6",
+    "receipt": {
+      "utc": "2026-11-24T21:17:02.088082+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-absent-namespace-gate.json": {
+    "original_sha256": "28bc478f08d95cb598dd3eee51b5e212e47373e7b359b8039493f855d83521e5",
+    "receipt": {
+      "utc": "2026-11-24T21:17:02.260371+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-empty-guest-gate.json": {
+    "original_sha256": "2fd52f9688341df062eb582b7d106186ceee3a679e4e497225367d954064ff55",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:14.537418+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-326-empty-host-gate.json": {
+    "original_sha256": "4a3cc333d640edf0d6a396a7d78bbe9b683657db88da9c58851c0fe63876ce74",
+    "receipt": {
+      "utc": "2026-11-24T21:17:14.715893+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-empty-namespace-gate.json": {
+    "original_sha256": "cc0fe42625ce7d756d5682251a42fa5fe40a6b24b9fcc36492379ef5549984e2",
+    "receipt": {
+      "utc": "2026-11-24T21:17:14.887346+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-zero-guest-gate.json": {
+    "original_sha256": "cd775647dc018975c440070bf5e483d150fee15f01fa9fff1e15bad53818215a",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:20.505245+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-326-zero-host-gate.json": {
+    "original_sha256": "e5e522f2a023333520c716200ac3778fb269af3b550dddcbe75c7ae57eff6116",
+    "receipt": {
+      "utc": "2026-11-24T21:17:20.692688+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-326-zero-namespace-gate.json": {
+    "original_sha256": "78c3f8b55a6ac880ae1ed7cfebf161e31a929d455f5ed859b159cfee552ccfba",
+    "receipt": {
+      "utc": "2026-11-24T21:17:20.861346+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-absent-guest-gate.json": {
+    "original_sha256": "09c3e8d85120942b8cbb19e4384cdf4193a031f2ad716d2cff2a6c7d0e6732f9",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:25.773857+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-334-absent-host-gate.json": {
+    "original_sha256": "162ad34cd7ed34322a4aa0300bfc527770ea21dbbb88c6ada4e2c64ee613bc87",
+    "receipt": {
+      "utc": "2026-11-24T21:17:25.947594+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-absent-namespace-gate.json": {
+    "original_sha256": "69b431b9f46f0ff0d71311bfb369e840a0cd83cc2bc1fa3f9f397412a4120923",
+    "receipt": {
+      "utc": "2026-11-24T21:17:26.123847+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-empty-guest-gate.json": {
+    "original_sha256": "244665cccf1527ad7163905c465f5483a22d076367a006aec3a8dd8f5fb7a96d",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:30.900269+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-334-empty-host-gate.json": {
+    "original_sha256": "b82b3e12987f5f04fd888d7e008fa7e023b7f3d45dd7b9c1ce17c1b9ec69fd00",
+    "receipt": {
+      "utc": "2026-11-24T21:17:31.085643+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-empty-namespace-gate.json": {
+    "original_sha256": "897aa38874f851125d35ad2812968267a8da5e4a6ae1c923c3a43269c1a56784",
+    "receipt": {
+      "utc": "2026-11-24T21:17:31.248312+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-zero-guest-gate.json": {
+    "original_sha256": "829e254ef0320efe0996b2081c4b771fd8fc92c81c27eea65ca2f2509fa1e92d",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:16:46.386568+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-334-zero-host-gate.json": {
+    "original_sha256": "0d2004e1a766136b50c8beea2f75274c97d66a11203410dd032b757b786f18ce",
+    "receipt": {
+      "utc": "2026-11-24T21:16:46.552118+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-334-zero-namespace-gate.json": {
+    "original_sha256": "43dd9e2d29b75ce0926b704f460b5cf2e1e1301eae63b74f2120ad27e3c6e3af",
+    "receipt": {
+      "utc": "2026-11-24T21:16:46.713690+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-absent-guest-gate.json": {
+    "original_sha256": "d202bffee19290ad4039b31e064c149e09b1a82faa0268c04dbd047f55124eda",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:36.435152+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-337-absent-host-gate.json": {
+    "original_sha256": "fd1ef38dcf4b99333de296b603ee593bc3ea6ec848af47931caf6268f7c442b0",
+    "receipt": {
+      "utc": "2026-11-24T21:17:36.623875+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-absent-namespace-gate.json": {
+    "original_sha256": "13397decb262ef5b1064891c430d1be0c7d64d4776881e52ca870605e185f9cf",
+    "receipt": {
+      "utc": "2026-11-24T21:17:36.798279+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-empty-guest-gate.json": {
+    "original_sha256": "8753fd66fe01dc21ba669018ea0491cfef408ca203f14b687a8e66a9bb91f179",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:41.728779+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-337-empty-host-gate.json": {
+    "original_sha256": "f998a69445900fd0ab4975ccaf3b662a2c5985a80c868cbe08a0790d1b8a5cb4",
+    "receipt": {
+      "utc": "2026-11-24T21:17:41.889063+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-empty-namespace-gate.json": {
+    "original_sha256": "3559645c97d3ef37117e92cdc7b27f4b727c921688c626ea72590104530642e1",
+    "receipt": {
+      "utc": "2026-11-24T21:17:42.058099+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-zero-guest-gate.json": {
+    "original_sha256": "cbdbe4f1611de8c9defb20d9f20905a1e4986884eac78fdb9e8b1055a5fa4241",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:46.763822+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "body-337-zero-host-gate.json": {
+    "original_sha256": "fef2de7bec5ab6c4e103c8403aa1b704c75bc2c6e8e21451d3850755c08202c6",
+    "receipt": {
+      "utc": "2026-11-24T21:17:46.940433+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "body-337-zero-namespace-gate.json": {
+    "original_sha256": "c6aa3020e838dc175dc834b75957c9b23dbf6e86a82064e06c4246868266d62b",
+    "receipt": {
+      "utc": "2026-11-24T21:17:47.113725+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "disk-ready.json": {
+    "original_sha256": "97e641374041fe67e0679fa9ddaf5668eea2b430a0fc9c44bdfeec02808c2752",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:13:55.986898+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "netns_inode": 4026532521,
+      "phase": "disk",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "guest-ready.json": {
+    "original_sha256": "d4977913417d848a2271a7a9d2ab0661ee8d833f2e62ac233d498f0c7950d089",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:14:13.203159+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "host-ready.json": {
+    "original_sha256": "c34dee92c38ec59cfca49783ed4a253f32b5c26a7d7e29f14ea39f3304d08fda",
+    "receipt": {
+      "utc": "2026-11-24T21:13:52.022602+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "namespace-ready.json": {
+    "original_sha256": "d7df488d9bf9f6626baa8a9935723c41106dc9a0aefc0dc6a64ee200129ae99a",
+    "receipt": {
+      "utc": "2026-11-24T21:13:57.902313+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "postflight-guest-gate.json": {
+    "original_sha256": "d2f86f5d7f07294b0a3a8a254786bfaccb8a54852a04776c1c61898d49e51d4a",
+    "receipt": {
+      "checked_utc": "2026-11-24T21:17:49.161469+00:00",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "exe_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+      "guest_dev": 2097,
+      "guest_fd": 16,
+      "guest_inode": 5403746793,
+      "guest_pcap": "guest.pcap",
+      "header24": "d4c3b2a1020004000000000000000000ffff000001000000",
+      "netns_inode": 4026532521,
+      "phase": "capture",
+      "pid": 1874593,
+      "start_ticks": 97952802,
+      "uid": 1000,
+      "working_dev": 2097,
+      "working_image": "working.dsk",
+      "working_inode": 658970214
+    }
+  },
+  "postflight-host-gate.json": {
+    "original_sha256": "d7b612121cf944fd4f54c8df30948bc49da3faec37817bc090b62487394d6ec8",
+    "receipt": {
+      "utc": "2026-11-24T21:17:49.320111+00:00",
+      "unit": "gap016-news-post-20261124-01-host.service",
+      "pid": 1874468,
+      "start_ticks": 97952604,
+      "netns_inode": 4026531840,
+      "fd": 5,
+      "capture": "host.pcap",
+      "dev": 2097,
+      "inode": 5384657514,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979526056638",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874468",
+        "KillMode": "control-group"
+      }
+    }
+  },
+  "postflight-namespace-gate.json": {
+    "original_sha256": "f2e0251030a65464ffef7a5324d9b0b0ed7053b64475d06a2e51601bce93e586",
+    "receipt": {
+      "utc": "2026-11-24T21:17:49.496587+00:00",
+      "unit": "gap016-news-post-20261124-01-ns.service",
+      "pid": 1874914,
+      "start_ticks": 97953192,
+      "netns_inode": 4026532521,
+      "fd": 5,
+      "capture": "namespace.pcap",
+      "dev": 2097,
+      "inode": 5401952124,
+      "header24": "d4c3b2a10200040000000000000000000000040001000000",
+      "deadline_utc": "2026-11-24T21:26:50+00:00",
+      "unit_properties": {
+        "ActiveState": "active",
+        "SubState": "running",
+        "ActiveEnterTimestampMonotonic": "979531943666",
+        "RuntimeMaxUSec": "15min",
+        "MainPID": "1874914",
+        "KillMode": "control-group"
+      }
+    }
+  }
+}

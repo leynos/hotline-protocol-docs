@@ -12,6 +12,13 @@
       "output_bytes": 61,
       "last_line": "Verified nine native article reads at both packet boundaries"
     },
+    "evidence-verify: PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/news-post-presence-01/verify.py": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "b7c5a3cfe6ab4602b3b07a1fd25d795fd9ac8c65e9a2cebfd8013081494277f2",
+      "output_bytes": 87,
+      "last_line": "Verified nine native root posts and their article body reads at both packet boundaries"
+    },
     "evidence-verify: PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py": {
       "target": "evidence-verify",
       "exit_code": 0,

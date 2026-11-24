@@ -72,6 +72,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-105",
       "reason": "Revision 105 records the GAP-016 request 400 article read presence controls."
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/news-post-presence-01",
+      "reason": "Nine native root posts and their independent body reads on one growing news category."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-106",
+      "reason": "Audit revision recording native request 410 root posting controls for GAP-016."
     }
   ]
 }
