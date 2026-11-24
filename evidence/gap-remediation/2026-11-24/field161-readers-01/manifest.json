@@ -1,0 +1,17 @@
+{
+  "gap": "GAP-026",
+  "kind": "Static analysis of the server image",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "toolset_commit": "2278968b622eab731e4ba2be0484cedfbab73bb7",
+  "search_scope": "Scalar D-form loads, lmw and addi with a nonzero base register and an immediate within the field. The load search tests byte-range intersection with offsets 0x41c through 0x41f. Register values are not inferred by the scan. Indexed loads, pointer aliases and split base calculations are outside its coverage.",
+  "projection": "Program identity omits two local path fields. Query arguments and results are retained.",
+  "original_query_sha256": {
+    "constructor-caller.c": "905e24f56fb80a6a609a669268d96ab0b319cdaff718cf1ecc1e20ca42f0cf9a",
+    "constructor-caller.json": "4d7570854cfe4939032944a2c32d3f0dffaf95ab9bf5b116c2f3030cce0cce02",
+    "constructor-refs.json": "3b5a79c9933654ad43c96aa8e10cc53aebcd91e291435cd70f935f9168815489",
+    "field161-load.json": "d667f273add9532dc7a07f5773d74ffdaaebfeafeca94ce9bdb41111824f069c",
+    "field161-width.c": "d141b10a77c3224a69e152b4fc7cac391380b2f5ef7e663c7bd8666a8f9cf0c0",
+    "field161-width.json": "894af32bd11012f41d2b87ecc4f8051545f5b3933e6629a567803755ca902982",
+    "login-builder-refs.json": "f08f770941cbfdeaa62910d36eba3befc628e5f43e210fe37801bab41260c72d"
+  }
+}

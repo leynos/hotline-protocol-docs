@@ -1,0 +1,14 @@
+374f4a7b5f00d587701ea00ca5ea507d405cf00fcf3f7ebe2e28c5d6d1515d44  evidence/gap-remediation/2026-11-24/field161-readers-01/constructor-plan.json
+3d196a03b517f340667d4787194effb2aabb760bdfecb6a63d9723234b72055c  evidence/gap-remediation/2026-11-24/field161-readers-01/discover-reads.py.as-run.txt
+3958e457862ed70e8e2242b60c9649dd4bab0c38cc86ccccbaeb0c4fcb32a61f  evidence/gap-remediation/2026-11-24/field161-readers-01/manifest.json
+b45873ba0184e363da83866468f91bae290cd921c9dfda1c37a68c571fe49885  evidence/gap-remediation/2026-11-24/field161-readers-01/plan.json
+905e24f56fb80a6a609a669268d96ab0b319cdaff718cf1ecc1e20ca42f0cf9a  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/constructor-caller.c
+aad82e549a466b0e51af61518e7dac3ac22f9dc91e011d45fee69ad635b989c4  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/constructor-caller.json
+9408e6a45a57ec3da3bf3cbf8f686efb9ff0d55cdc71152610343345be3895be  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/constructor-refs.json
+4e49228cc9efca2c5d3a7ce1ec140da07051a7e20ca0aa3e989537a5ff28371e  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/field161-load.json
+d141b10a77c3224a69e152b4fc7cac391380b2f5ef7e663c7bd8666a8f9cf0c0  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/field161-width.c
+2e7e154eccac8f23e55a326b48043a58ed3f90210dc9b12a5716ff3edb3f3c20  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/field161-width.json
+252a7a3466dd325164427f2c3a7d64bf06ebc1a881367dd6bee8f3b22ac8a3c8  evidence/gap-remediation/2026-11-24/field161-readers-01/queries/login-builder-refs.json
+2b01cbeca6fe0c5d15f548a84246c4f00eb37c03dd3e79b7c5ccb8ccefd155fb  evidence/gap-remediation/2026-11-24/field161-readers-01/read-candidates.json
+917adb8fcdf2b3d331a9994063ca7231c0aaf553f03f2783be89000767f37fef  evidence/gap-remediation/2026-11-24/field161-readers-01/read-site-plan.json
+db39f1708ff9c9a034be4de80da9e0011b318183af0a85ab864de9105ca01c4d  evidence/gap-remediation/2026-11-24/field161-readers-01/verify.jq

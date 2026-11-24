@@ -70,8 +70,20 @@
       "reason": "Integrate the GAP-016 correction in revision 107 with the GAP-011 status link in revision 113."
     },
     {
+      "path": "evidence/gap-remediation/2026-11-24/field161-readers-01",
+      "reason": "New bounded static field 161 reader inventory and Ghidra records for GAP-026."
+    },
+    {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-100",
       "reason": "Revision 100 records the GAP-026 field 161 reader inventory."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-108",
+      "reason": "Integrate the recorded GAP-026 observations from revision 100 with the GAP-011 and GAP-016 register in revision 107."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-115",
+      "reason": "Integrate the GAP-026 reader inventory in revision 108 with the register from revision 114."
     },
     {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-101",

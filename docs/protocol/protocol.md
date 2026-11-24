@@ -362,6 +362,20 @@ no new 161/162 refresh is observed for the existing online/waiting sessions in
 the accepted 20-second sequence. Field 161 stays two zero bytes across these
 name and banner modes, but its purpose remains unresolved.
 
+A [scan of the server image][field161-readers] found one direct load
+overlapping the four-byte field at offset `0x41c` among the displacement-based
+load instructions checked. The login builder passes the entire word to the
+numeric writer as field 161. The writer selects two bytes for values through
+`0xffff` and four bytes above it. Four bytes here is a source prediction. The
+server captures cited above contain only the two-byte zero value.
+
+The constructor's one indexed caller saves the constructed object in a global
+and passes it to startup. The scan found no `addi` instruction with a nonzero
+base register and an immediate from `0x41c` to `0x41f`. Indexed accesses,
+aliases and address calculations in multiple instructions remain unmeasured.
+
+[field161-readers]: ../../evidence/gap-remediation/2026-11-24/field161-readers-01/manifest.json
+
 The [pinned Classic client baseline](../peers/classic-native-baseline.md)
 accepted the unchanged two-zero-byte 161, completed 121 and roster 300, and
 received 58 banner bytes. A separate
