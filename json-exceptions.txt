@@ -67,3 +67,4 @@ af15d8a9063453a7bcd45db85c526c580a934a4cdfd91724a5ed3ea3c5479edb  evidence/proto
 31b44203dd4744c24e98b7e6168bfef1b0dcdcac184eb7c9374cdea33f88ee3c  evidence/protocol-gap-analysis/2026-11-12/revision-07/sections.json
 51c1bbb03f6331d6b20262de3c50b17c1a988d2dc73e8c006de2b46db3d4f69c  evidence/protocol-gap-analysis/2026-11-14/revision-80/sections.json
 435ac3cffeaf68186c5359ba3ddb1780bbf744ed625067d676766da626a30ff0  evidence/protocol-gap-analysis/2026-11-14/revision-81/sections.json
+2cd8d9cc62188f5c1b0e1a3251e8288b6cb18416bbf3b53631a987b49ac23afd  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/inputs-plan.json

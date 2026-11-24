@@ -66,6 +66,22 @@ explicit mxd limits, inclusive boundaries, overflow checks and boundary
 fixtures. This static origin trace does not supply those mxd decisions or close
 the gap.
 
+The [24 November query records][prefs-trace] identify one indexed call to
+`10008fd0`, at `10000b9c`. At this call, the second and third arguments are
+`r31 + 0xd8` and `r31 + 0x44`. The [startup listing][startup-asm] sets `r31` to
+the stack pointer. The loader therefore writes its second and third outputs
+into the startup stack frame. Its first argument is the object in `r29`. The
+[loader listing][config] passes `100902d9` to the open helper. The new query
+identifies the Pascal string there as `Prefs`.
+
+The next startup call, at `10000ba8`, passes the same object to `1000a460`. Its
+helper `1000a070` opens a separate input named `Banned`. The listings identify
+these two input paths. Writes through the first argument, indirect calls and
+later runtime changes still need separate evidence. The records contain no
+observation of either file on a running installation.
+
+[prefs-trace]: ../../evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/manifest.json
+
 ## Reproduce the bounded query
 
 From a fresh private workspace with the same recorded directory layout and

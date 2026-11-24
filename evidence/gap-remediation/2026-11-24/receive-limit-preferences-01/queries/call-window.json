@@ -1,0 +1,125 @@
+{
+  "captured_at_utc": "2026-11-24T15:07:48.829046+00:00",
+  "query": {
+    "id": "call-window",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "100007b0",
+      "offset": 234,
+      "limit": 11
+    }
+  },
+  "program": {
+    "name": "HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"items\": [\n    {\n      \"address\": \"10000b84\",\n      \"bytes\": \"3c000008\",\n      \"instruction\": \"lis r0,0x8\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b88\",\n      \"bytes\": \"38624330\",\n      \"instruction\": \"addi r3,r2,0x4330\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b8c\",\n      \"bytes\": \"90030000\",\n      \"instruction\": \"stw r0,0x0(r3)\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b90\",\n      \"bytes\": \"7fa3eb78\",\n      \"instruction\": \"or r3,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b94\",\n      \"bytes\": \"389f00d8\",\n      \"instruction\": \"addi r4,r31,0xd8\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b98\",\n      \"bytes\": \"38bf0044\",\n      \"instruction\": \"addi r5,r31,0x44\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000b9c\",\n      \"bytes\": \"48008435\",\n      \"instruction\": \"bl 0x10008fd0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000ba0\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000ba4\",\n      \"bytes\": \"7fa3eb78\",\n      \"instruction\": \"or r3,r29,r29\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000ba8\",\n      \"bytes\": \"480098b9\",\n      \"instruction\": \"bl 0x1000a460\",\n      \"comment\": null\n    },\n    {\n      \"address\": \"10000bac\",\n      \"bytes\": \"60000000\",\n      \"instruction\": \"ori r0,r0,0x0\",\n      \"comment\": null\n    }\n  ],\n  \"offset\": 234,\n  \"limit\": 11,\n  \"total\": 592,\n  \"has_more\": true\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "items": [
+        {
+          "address": "10000b84",
+          "bytes": "3c000008",
+          "instruction": "lis r0,0x8",
+          "comment": null
+        },
+        {
+          "address": "10000b88",
+          "bytes": "38624330",
+          "instruction": "addi r3,r2,0x4330",
+          "comment": null
+        },
+        {
+          "address": "10000b8c",
+          "bytes": "90030000",
+          "instruction": "stw r0,0x0(r3)",
+          "comment": null
+        },
+        {
+          "address": "10000b90",
+          "bytes": "7fa3eb78",
+          "instruction": "or r3,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "10000b94",
+          "bytes": "389f00d8",
+          "instruction": "addi r4,r31,0xd8",
+          "comment": null
+        },
+        {
+          "address": "10000b98",
+          "bytes": "38bf0044",
+          "instruction": "addi r5,r31,0x44",
+          "comment": null
+        },
+        {
+          "address": "10000b9c",
+          "bytes": "48008435",
+          "instruction": "bl 0x10008fd0",
+          "comment": null
+        },
+        {
+          "address": "10000ba0",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        },
+        {
+          "address": "10000ba4",
+          "bytes": "7fa3eb78",
+          "instruction": "or r3,r29,r29",
+          "comment": null
+        },
+        {
+          "address": "10000ba8",
+          "bytes": "480098b9",
+          "instruction": "bl 0x1000a460",
+          "comment": null
+        },
+        {
+          "address": "10000bac",
+          "bytes": "60000000",
+          "instruction": "ori r0,r0,0x0",
+          "comment": null
+        }
+      ],
+      "offset": 234,
+      "limit": 11,
+      "total": 592,
+      "has_more": true
+    },
+    "isError": false
+  }
+}
