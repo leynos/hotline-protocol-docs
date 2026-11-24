@@ -156,10 +156,15 @@ def build_plan(
     if suite in {
         "login-version-presence",
         "news-delete-presence",
+        "news-delete-presence-setup",
         "news-post-presence",
         "news-read-presence",
     }:
         endpoints = {"control": {"host": "127.0.0.1", "port": ISOLATED_CONTROL_PORT}}
+    if suite == "news-delete-presence-setup" and any(
+        step.get("endpoint") == "data" for step in steps
+    ):
+        endpoints["data"] = {"host": "127.0.0.1", "port": ISOLATED_CONTROL_PORT + 1}
     return {
         "schema_version": 1,
         "profile": "native-mac-oracle",

@@ -1,14 +1,29 @@
 """Plan deletion field contrasts for two independently observed native trees."""
 
 from native_folder_cases import path
-from native_news_delete_cases import Cases, deletion_steps
-from native_news_delete_specs import ROOT
+from native_metadata_cases import upload
+from native_mkdir_cases import exchange
+from native_news_delete_cases import (
+    TYPE_370,
+    TYPE_371,
+    Cases,
+    cleanup,
+    deletion_steps,
+    preflight,
+    publish_cleanup,
+    remove_publisher,
+    resume_category,
+    seed,
+)
+from native_news_delete_specs import BASE, ROOT
 from native_news_steps import (
     FIELD_ARTICLE_ID,
     FIELD_FLAGS,
     FIELD_NEWS_PATH,
     FIELD_RECURSIVE,
 )
+from native_plan import close, login
+from native_wire_names import TYPE_EMPTY_ACK
 
 
 def delete_presence() -> Cases:
@@ -38,3 +53,34 @@ def delete_presence() -> Cases:
                 {"kind": "news-delete-presence", "field": field, "encoding": shape},
             )
     return result
+
+
+def delete_presence_setup() -> Cases:
+    """Prepare, inspect and remove the two owned presence-control categories.
+
+    Returns
+    -------
+    Cases
+        Separate plans for the preflight, root, two paced seeds, final
+        publication of the current lists, cleanup and publisher retirement.
+    """
+    cases = {
+        **preflight(),
+        **seed(),
+        **cleanup(),
+        **publish_cleanup(),
+        **remove_publisher(),
+    }
+    steps = [*login(), *upload(80, b"m-nd24-flush", bytes(2))]
+    for identifier, name in enumerate(("missing-id-field", "parent-four-zero"), 100):
+        cases[f"seed-{name}"] = resume_category(name)[name]
+        steps += exchange(
+            TYPE_371, identifier, [(FIELD_NEWS_PATH, path((ROOT, name.encode())))]
+        )
+    steps += [
+        *exchange(TYPE_370, 900, [(FIELD_NEWS_PATH, BASE)]),
+        *exchange(TYPE_EMPTY_ACK, 90, []),
+        close(),
+    ]
+    cases["flush"] = (steps, {"kind": "news-delete-presence-flush"})
+    return cases

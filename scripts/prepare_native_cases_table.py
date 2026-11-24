@@ -74,6 +74,7 @@ SUITES = (
     "news-remove-publisher",
     "news-files-preflight",
     "news-bodies",
+    "news-delete-presence-setup",
     "news-delete-presence",
     "news-post-presence",
     "news-read-presence",

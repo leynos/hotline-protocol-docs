@@ -1,6 +1,10 @@
 {
   "schema_version": 1,
   "records": {
+    "test_news_delete_presence_setup.test_preparation_uses_owned_categories_and_original_cleanup": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_news_delete_presence.test_delete_presence_preserves_reference_and_followup": {
       "outcome": "ok",
       "detail": ""
