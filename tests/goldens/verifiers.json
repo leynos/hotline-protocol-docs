@@ -5,6 +5,13 @@
     "evidence-verify-known-red"
   ],
   "records": {
+    "evidence-verify: d=evidence/gap-remediation/2026-11-24/receive-limit-preferences-01; jq -se -f \"$d/verify.jq\" \"$d\"/queries/*.json": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a17fcf0a2f50e2d495e4f90ce263410edc183add6c62699a2facbccf60410f74",
+      "output_bytes": 5,
+      "last_line": "true"
+    },
     "evidence-verify: python3 scripts/verify_native_path_fields.py --corpus evidence/gap-remediation/2026-11-14/native-path-fields-01": {
       "target": "evidence-verify",
       "exit_code": 0,

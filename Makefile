@@ -244,6 +244,7 @@ endef
 
 # One recipe per line, in mothra's order, so a failure names its line.
 evidence-verify: ## Verify every retained Hotline corpus with its legacy verifier
+	d=evidence/gap-remediation/2026-11-24/receive-limit-preferences-01; jq -se -f "$$d/verify.jq" "$$d"/queries/*.json
 	python3 scripts/verify_native_path_fields.py --corpus evidence/gap-remediation/2026-11-14/native-path-fields-01
 	python3 -m unittest discover -s scripts -p 'test_verify_native_path_fields.py'
 	python3 scripts/verify_native_rate304_sequence.py --corpus evidence/gap-remediation/2026-11-14/native-rate304-sequence-01

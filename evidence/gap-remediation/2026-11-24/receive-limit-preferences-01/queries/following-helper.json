@@ -1,0 +1,57 @@
+{
+  "captured_at_utc": "2026-11-24T15:07:16.119679+00:00",
+  "query": {
+    "id": "following-helper",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000a070"
+    }
+  },
+  "program": {
+    "name": "HLserver19.pef",
+    "executable_format": "Preferred Executable Format (PEF)",
+    "language_id": "PowerPC:BE:32:default",
+    "compiler_spec": "default",
+    "processor": "PowerPC",
+    "endian": "big",
+    "pointer_size": 4,
+    "image_base": "00000000",
+    "min_address": "10000000",
+    "max_address": "1009734f",
+    "memory_size": 619336,
+    "function_count": 1840,
+    "external_function_count": 4,
+    "entry_points": [
+      "1007e970"
+    ],
+    "md5": "ca7a3b85106797ee80b59aea05816825",
+    "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+  },
+  "mcp_server": {
+    "name": "ghidra-mcp",
+    "title": null,
+    "version": "1.30.0",
+    "websiteUrl": null,
+    "icons": null
+  },
+  "result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"function\": {\n    \"name\": \"FUN_1000a070\",\n    \"address\": \"1000a070\"\n  },\n  \"code\": \"\\nvoid FUN_1000a070(undefined4 param_1,undefined4 param_2)\\n\\n{\\n  int iVar1;\\n  char cVar7;\\n  int iVar2;\\n  int iVar3;\\n  undefined1 *puVar4;\\n  int iVar5;\\n  uint uVar6;\\n  undefined1 auStack_110 [128];\\n  ushort local_50 [2];\\n  int local_4c;\\n  int local_48;\\n  int local_44 [6];\\n  undefined1 *local_2c;\\n  \\n  iVar1 = FUN_1002af80(0xfffffffe,0,0x100902ed,0,0);\\n  local_4c = iVar1;\\n  cVar7 = FUN_1002b750(iVar1,0);\\n  if (cVar7 == '\\\\0') {\\n    if (local_4c != 0) {\\n      FUN_1002b2f0(local_4c);\\n    }\\n  }\\n  else {\\n    local_48 = iVar1;\\n    FUN_1002c220(iVar1,0x21);\\n    local_2c = auStack_110 + 0x80;\\n    iVar2 = FUN_1002c3b0(iVar1,0,local_50,2,0);\\n    if (local_50[0] < 3) {\\n      local_44[0] = 0;\\n      iVar3 = FUN_1002c3b0(iVar1,iVar2,local_44,4,0);\\n      iVar2 = iVar2 + iVar3;\\n      if (local_44[0] == 0) {\\n        FUN_1002b880(iVar1);\\n        FUN_1002c2c0(local_48);\\n        if (local_4c != 0) {\\n          FUN_1002b2f0(local_4c);\\n        }\\n      }\\n      else {\\n        while (local_44[0] != 0) {\\n          local_44[0] = local_44[0] + -1;\\n          puVar4 = (undefined1 *)FUN_1006d260(0x74);\\n          if (puVar4 != (undefined1 *)0x0) {\\n            *(undefined4 *)(puVar4 + 0xc) = 0;\\n            *(undefined4 *)(puVar4 + 8) = 0;\\n            *(undefined4 *)(puVar4 + 4) = 0xffffffff;\\n            *puVar4 = 1;\\n            puVar4[0x10] = 0;\\n            puVar4[0x31] = 0;\\n          }\\n          iVar3 = FUN_1002c3b0(iVar1,iVar2,puVar4,1,0);\\n          iVar5 = FUN_1002c3b0(iVar1,iVar2 + iVar3,puVar4 + 8,4,0);\\n          iVar5 = iVar2 + iVar3 + iVar5;\\n          if (local_50[0] == 1) {\\n            *(undefined4 *)(puVar4 + 0xc) = *(undefined4 *)(puVar4 + 8);\\n          }\\n          else {\\n            iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0xc,4,0);\\n            iVar5 = iVar5 + iVar2;\\n          }\\n          iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0x10,0x21,0);\\n          iVar5 = iVar5 + iVar2;\\n          if (local_50[0] == 1) {\\n            local_50[1] = 0;\\n            iVar2 = FUN_1002c3b0(iVar1,iVar5,local_50 + 1,2,0);\\n            iVar5 = iVar5 + iVar2;\\n          }\\n          iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0x31,1,0);\\n          if (iVar2 != 1) {\\n            FUN_1006d290(puVar4);\\n            FUN_1002c2c0(local_48);\\n            if (local_4c == 0) {\\n              return;\\n            }\\n            FUN_1002b2f0(local_4c);\\n            return;\\n          }\\n          if (0x3f < (byte)puVar4[0x31]) {\\n            FUN_1006d290(puVar4);\\n            FUN_1002c2c0(local_48);\\n            if (local_4c == 0) {\\n              return;\\n            }\\n            FUN_1002b2f0(local_4c);\\n            return;\\n          }\\n          uVar6 = FUN_1002c3b0(iVar1,iVar5 + 1,puVar4 + 0x32,puVar4[0x31],0);\\n          if ((byte)puVar4[0x31] != uVar6) {\\n            FUN_1006d290(puVar4);\\n            FUN_1002c2c0(local_48);\\n            if (local_4c == 0) {\\n              return;\\n            }\\n            FUN_1002b2f0(local_4c);\\n            return;\\n          }\\n          iVar2 = iVar5 + 1 + (uint)(byte)puVar4[0x31];\\n          FUN_100554e0(param_2,puVar4);\\n        }\\n        local_44[0] = local_44[0] + -1;\\n        FUN_1002c2c0(local_48);\\n        if (local_4c != 0) {\\n          FUN_1002b2f0(local_4c);\\n        }\\n      }\\n    }\\n    else {\\n      FUN_1002c2c0(local_48);\\n      if (local_4c != 0) {\\n        FUN_1002b2f0(local_4c);\\n      }\\n    }\\n  }\\n  return;\\n}\\n\\n\",\n  \"truncated\": false\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": {
+      "function": {
+        "name": "FUN_1000a070",
+        "address": "1000a070"
+      },
+      "code": "\nvoid FUN_1000a070(undefined4 param_1,undefined4 param_2)\n\n{\n  int iVar1;\n  char cVar7;\n  int iVar2;\n  int iVar3;\n  undefined1 *puVar4;\n  int iVar5;\n  uint uVar6;\n  undefined1 auStack_110 [128];\n  ushort local_50 [2];\n  int local_4c;\n  int local_48;\n  int local_44 [6];\n  undefined1 *local_2c;\n  \n  iVar1 = FUN_1002af80(0xfffffffe,0,0x100902ed,0,0);\n  local_4c = iVar1;\n  cVar7 = FUN_1002b750(iVar1,0);\n  if (cVar7 == '\\0') {\n    if (local_4c != 0) {\n      FUN_1002b2f0(local_4c);\n    }\n  }\n  else {\n    local_48 = iVar1;\n    FUN_1002c220(iVar1,0x21);\n    local_2c = auStack_110 + 0x80;\n    iVar2 = FUN_1002c3b0(iVar1,0,local_50,2,0);\n    if (local_50[0] < 3) {\n      local_44[0] = 0;\n      iVar3 = FUN_1002c3b0(iVar1,iVar2,local_44,4,0);\n      iVar2 = iVar2 + iVar3;\n      if (local_44[0] == 0) {\n        FUN_1002b880(iVar1);\n        FUN_1002c2c0(local_48);\n        if (local_4c != 0) {\n          FUN_1002b2f0(local_4c);\n        }\n      }\n      else {\n        while (local_44[0] != 0) {\n          local_44[0] = local_44[0] + -1;\n          puVar4 = (undefined1 *)FUN_1006d260(0x74);\n          if (puVar4 != (undefined1 *)0x0) {\n            *(undefined4 *)(puVar4 + 0xc) = 0;\n            *(undefined4 *)(puVar4 + 8) = 0;\n            *(undefined4 *)(puVar4 + 4) = 0xffffffff;\n            *puVar4 = 1;\n            puVar4[0x10] = 0;\n            puVar4[0x31] = 0;\n          }\n          iVar3 = FUN_1002c3b0(iVar1,iVar2,puVar4,1,0);\n          iVar5 = FUN_1002c3b0(iVar1,iVar2 + iVar3,puVar4 + 8,4,0);\n          iVar5 = iVar2 + iVar3 + iVar5;\n          if (local_50[0] == 1) {\n            *(undefined4 *)(puVar4 + 0xc) = *(undefined4 *)(puVar4 + 8);\n          }\n          else {\n            iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0xc,4,0);\n            iVar5 = iVar5 + iVar2;\n          }\n          iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0x10,0x21,0);\n          iVar5 = iVar5 + iVar2;\n          if (local_50[0] == 1) {\n            local_50[1] = 0;\n            iVar2 = FUN_1002c3b0(iVar1,iVar5,local_50 + 1,2,0);\n            iVar5 = iVar5 + iVar2;\n          }\n          iVar2 = FUN_1002c3b0(iVar1,iVar5,puVar4 + 0x31,1,0);\n          if (iVar2 != 1) {\n            FUN_1006d290(puVar4);\n            FUN_1002c2c0(local_48);\n            if (local_4c == 0) {\n              return;\n            }\n            FUN_1002b2f0(local_4c);\n            return;\n          }\n          if (0x3f < (byte)puVar4[0x31]) {\n            FUN_1006d290(puVar4);\n            FUN_1002c2c0(local_48);\n            if (local_4c == 0) {\n              return;\n            }\n            FUN_1002b2f0(local_4c);\n            return;\n          }\n          uVar6 = FUN_1002c3b0(iVar1,iVar5 + 1,puVar4 + 0x32,puVar4[0x31],0);\n          if ((byte)puVar4[0x31] != uVar6) {\n            FUN_1006d290(puVar4);\n            FUN_1002c2c0(local_48);\n            if (local_4c == 0) {\n              return;\n            }\n            FUN_1002b2f0(local_4c);\n            return;\n          }\n          iVar2 = iVar5 + 1 + (uint)(byte)puVar4[0x31];\n          FUN_100554e0(param_2,puVar4);\n        }\n        local_44[0] = local_44[0] + -1;\n        FUN_1002c2c0(local_48);\n        if (local_4c != 0) {\n          FUN_1002b2f0(local_4c);\n        }\n      }\n    }\n    else {\n      FUN_1002c2c0(local_48);\n      if (local_4c != 0) {\n        FUN_1002b2f0(local_4c);\n      }\n    }\n  }\n  return;\n}\n\n",
+      "truncated": false
+    },
+    "isError": false
+  }
+}

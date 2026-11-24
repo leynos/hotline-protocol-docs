@@ -1,0 +1,4 @@
+[
+  {"id":"call-window","tool":"disassemble_function","arguments":{"address":"100007b0","offset":234,"limit":11}},
+  {"id":"following-input-name","tool":"read_memory","arguments":{"address":"100902ed","length":16}}
+]

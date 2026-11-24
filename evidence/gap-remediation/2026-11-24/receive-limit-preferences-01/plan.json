@@ -1,0 +1,16 @@
+[
+  {
+    "id": "preferences-callers",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10008fd0"
+    }
+  },
+  {
+    "id": "post-preferences",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "1000a460"
+    }
+  }
+]
