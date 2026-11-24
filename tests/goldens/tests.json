@@ -1,6 +1,14 @@
 {
   "schema_version": 1,
   "records": {
+    "test_news_post_presence.test_post_matrix_preserves_reference_and_brackets_each_post": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_post_presence.test_post_plan_targets_isolated_control_and_names_gap": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_news_read_presence.test_matrix_changes_only_the_named_field": {
       "outcome": "ok",
       "detail": ""
