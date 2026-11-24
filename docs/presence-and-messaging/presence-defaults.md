@@ -117,19 +117,37 @@ give the actual variant/recipient contexts. In particular, PM delivery 104,
 refusal feedback 104, console data-only 104 and kick notice 104 cannot share
 one 101/103/113 default table (GAP-044).
 
+In four delayed logins on the same dedicated administrator account, request 107
+omitted version field 160 or supplied zero, one or two value bytes. All present
+bytes were zero. The server returned the same success reply in all four cases,
+with field 160 = `00be` and field 161 = `0000`. Both packet captures also
+contain the same agreement notification after the reply. The driver closed
+after reading the reply. These observations establish the server output through
+that point. They leave the saved client version and later version-dependent
+behaviour unmeasured.
+[Native login version captures](../../evidence/gap-remediation/2026-11-24/login-version-presence-01/manifest.json).
+
+The retained room formatting session also covers zero-length chat text. At
+action 100, request 105 supplied an empty field 101. At action 109 it omitted
+that field for the same room. The main and reader connections each received a
+106 with the same 17-byte formatted sender prefix and room identifier in both
+cases. The speaker and zero connections read only their barrier replies in
+those intervals.
+[Room formatting report](../../evidence/gap-remediation/2026-11-13/native-rooms-01/formatting/report.json).
+
 ## Explicitly unmeasured cells
 
 Existing native fixtures cover the high-priority credentials, 304 settings, 353
 replacement and bitmap contrasts above; they do **not** constitute a four-case
 matrix for every core field. Finite remaining groups are:
 
-1. 107 password and name with one decoded NUL; 107 version absent/E/zero on
-   the same account; separate 121 `102/104/113` E/zero width controls and
-   one-NUL 215 feedback. 304 one-NUL 102/215 and present one-byte-zero 104/113.
+1. 107 password and name with one decoded NUL; separate 121 `102/104/113`
+   E/zero width controls and one-NUL 215 feedback. 304 one-NUL 102/215 and
+   present one-byte-zero 104/113.
 2. 350 create and 353 account-key 105 absent/E/NUL; 351/352 key 105
    absent/E/NUL; 353 name102/attribute111 one-NUL. Nested 349 one-NUL old/new
    key/name and E/zero repeated-value contrasts are not a complete matrix.
-3. 105 text101 one-NUL/zero-byte delivery, 108 text101 and quote214 E/NUL,
+3. 105 text101 one-NUL delivery, 108 text101 and quote214 E/NUL,
    108 option113/target103 explicit zeros, and 110 reason101 E/NUL with stored
    option-2 outcome. The exact notification variant must be retained.
 4. 112/113 repeated target103 E/zero/NUL, room114 E/zero per 113–116/120,
