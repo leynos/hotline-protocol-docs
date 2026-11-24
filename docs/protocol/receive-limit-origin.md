@@ -80,6 +80,15 @@ these two input paths. Writes through the first argument, indirect calls and
 later runtime changes still need separate evidence. The records contain no
 observation of either file on a running installation.
 
+> Status note (2026-11-24): GAP-011 remains Investigating. After the four
+> login controls, the [stopped guest catalogue][post-session] contained
+> `/Hotline19/Prefs`. Its 119-byte data fork began with format word 5.
+> Those values satisfy the size and version checks at the start of the
+> [preferences loader][config]. This predicts which branch a full read of
+> this file would take. The capture did not observe a startup read or a
+> change to the receive limit. The same directory had no `Banned` entry.
+
+[post-session]: ../../evidence/gap-remediation/2026-11-24/post-session-preferences-01/provenance.txt
 [prefs-trace]: ../../evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/manifest.json
 
 ## Reproduce the bounded query

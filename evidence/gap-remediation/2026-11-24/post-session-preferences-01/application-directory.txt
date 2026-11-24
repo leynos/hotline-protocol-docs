@@ -1,0 +1,8 @@
+-/r 11188:	Agreement.txt
+d/d 11192:	Files
+-/r 11187:	HLserver19
+-/r 11194:	MessageBoard.txt
+d/d 11193:	News
+-/r 11198:	Prefs
+-/r 11189:	source-manifest.json
+d/d 11191:	Users

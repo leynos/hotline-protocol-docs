@@ -46,6 +46,14 @@
       "reason": "Revision 98 records the GAP-011 startup preferences trace."
     },
     {
+      "path": "evidence/gap-remediation/2026-11-24/post-session-preferences-01",
+      "reason": "Stopped HFS+ guest catalogue and fork summary from the four same-account login controls, collected after the evidence import."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-104",
+      "reason": "Record the stopped guest preferences file and its correspondence to the loader format guard."
+    },
+    {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-99",
       "reason": "Revision 99 records where the five remaining GAP-016 fixture groups are listed."
     }

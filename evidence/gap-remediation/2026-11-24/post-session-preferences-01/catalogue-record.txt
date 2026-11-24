@@ -1,0 +1,16 @@
+File Path: /Hotline19/Prefs
+Catalog Record: 11198
+Allocated
+Type:	File
+Mode:	r---------
+Size:	119
+uid / gid: 99 / 99
+Link count:	1
+
+File Name: Prefs
+Admin flags: 0
+Owner flags: 0
+File type:	70726566  pref
+File creator:	48544c53  HTLS
+Text encoding:	0 = MacRoman
+Resource fork size:	0

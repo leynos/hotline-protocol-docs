@@ -1,0 +1,14 @@
+The disposable Hotline Server 1.9 guest used in documentation PR #9 was
+shut down before inspection. The public session record is at commit
+1682c2788fc997b4d327241fd25bec894a2cde95, under
+evidence/gap-remediation/2026-11-24/login-version-presence-01.
+
+The working HFS+ image was read with fls, istat and icat after checking
+for open descriptors with root fuser. The base image had no top-level
+Hotline19 directory. The working image had directory ID 11186.
+application-directory.txt records its immediate children. staged-directory.txt
+lists the host staging folder, including hidden entries. catalogue-record.txt
+is the istat output from File Path through Resource fork size. The fork
+summary hashes the entire data fork and decodes its first big-endian word.
+The outer loader guard is taken from the retained 10008fd0 decompilation.
+The time of the file read and any effect on the receive limit remain unknown.
