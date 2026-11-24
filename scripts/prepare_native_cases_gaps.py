@@ -92,7 +92,7 @@ GAP_RULES: tuple[tuple[Test, tuple[str, ...]], ...] = (
             "GAP-084",
         ),
     ),
-    (is_suite("news-delete-presence"), ("GAP-016",)),
+    (is_suite("news-delete-presence", "news-delete-presence-setup"), ("GAP-016",)),
     (is_suite("news-post-presence"), ("GAP-016",)),
     (is_suite("news-read-presence"), ("GAP-016",)),
     (has_prefix("news-boundary-"), ("GAP-067", "GAP-068", "GAP-084")),

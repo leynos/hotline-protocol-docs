@@ -48,6 +48,53 @@
     "prepare_native_cases.py": "dispatcher"
   },
   "records": {
+    "prepare_native_cases.py news-delete-presence-setup": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "e58cc2f8a5f3b600eda7f7a47427240f3f553aa03de18a6750e03e59f3b5f74b",
+      "files": {
+        "cleanup.json": {
+          "sha256": "eda4afb017a9d71fbc93ddf087244faf57d7a5010d2bb088c587bbfd63c02df4",
+          "size": 2698,
+          "embeds_script_digests": []
+        },
+        "flush.json": {
+          "sha256": "b3f99e74ddf87e49bdd854ae6c441b67623567605098855c1d2a1bec64bea93a",
+          "size": 4118,
+          "embeds_script_digests": []
+        },
+        "preflight.json": {
+          "sha256": "f28641aab14853d786ec18c1bb623b4c5fe1edd4e5d946b25677b581b674e09f",
+          "size": 2353,
+          "embeds_script_digests": []
+        },
+        "publish.json": {
+          "sha256": "c4bf0c2368f7f6de7b2dc5919afd04bef95de69fa94d784c5aa1dcf2b28f02bd",
+          "size": 3314,
+          "embeds_script_digests": []
+        },
+        "remove.json": {
+          "sha256": "554dfd71d4cc2dc6c696e30d5832085ea37ef61a6fec10cf99b6966c3da75fcc",
+          "size": 2667,
+          "embeds_script_digests": []
+        },
+        "root.json": {
+          "sha256": "60e95f9e72ac4a3c15f6daa8933256f969ea020226b931f202c8273df24001db",
+          "size": 2083,
+          "embeds_script_digests": []
+        },
+        "seed-missing-id-field.json": {
+          "sha256": "56ec2fc0f9d194dc7b0e004862e398424c53aba84c71603b41afacbcbb71418d",
+          "size": 5963,
+          "embeds_script_digests": []
+        },
+        "seed-parent-four-zero.json": {
+          "sha256": "80f6dd8c03e61eb3969ee76be61d8590dabe830253355f882ec8955442c794a9",
+          "size": 5963,
+          "embeds_script_digests": []
+        }
+      }
+    },
     "prepare_native_cases.py news-delete-presence": {
       "status": "emitted",
       "exit_code": 0,
