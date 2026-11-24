@@ -346,7 +346,9 @@ Quoted text is taken from the register.
   one-NUL delivery remains open. Nine native article reads cover omitted, empty
   and four-zero-byte encodings of 326, 334 and 337 on request 400. The three
   article-ID cases gave the same error. Flags and recursive-field cases
-  returned the same body with article ID 1. Posting, deletion and transfer
+  returned the same body with article ID 1. Nine request 410 posts compared
+  those same encodings independently. Each produced one root with flags zero,
+  and an independent read returned its submitted body. Deletion and transfer
   controls remain open.
 - **Prepared:**
   [presence defaults](../presence-and-messaging/presence-defaults.md).
