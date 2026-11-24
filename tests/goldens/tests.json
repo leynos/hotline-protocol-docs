@@ -1,6 +1,14 @@
 {
   "schema_version": 1,
   "records": {
+    "test_news_delete_presence.test_delete_presence_preserves_reference_and_followup": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence.test_delete_plan_uses_isolated_endpoint": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_news_post_presence.test_post_matrix_preserves_reference_and_brackets_each_post": {
       "outcome": "ok",
       "detail": ""
