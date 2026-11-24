@@ -1,0 +1,18 @@
+{
+  "kind": "Static Ghidra queries; no native run",
+  "gap": "GAP-011",
+  "toolset_commit": "2278968b622eab731e4ba2be0484cedfbab73bb7",
+  "binary_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "projection": "The public records omit the two local path fields from program identity. Query arguments and results are complete. The first startup-arguments window starts after both calls. The call-window follow-up covers them.",
+  "original_sha256": {
+    "call-window.json": "f5324658211f408d1f5722b34f35231990eac0402f48436e129d4d2477123af8",
+    "following-helper.c": "06a34e03f24507b1ec6f22b66f313dbb9c9359a361f8410b0db6234ddd98733b",
+    "following-helper.json": "7abc20a7de7678bcb2c6c4f904b311ecacc09e1570e36e48890c3b3c89904d04",
+    "following-input-name.json": "1561ca9091d042f3a9041b5b95e037935eb14ecf0dda2461138dd5c6e812a814",
+    "post-preferences.c": "96689e888f7b1ccebf8c791bbd5ff2d82d7c0a3d3b5e6af656bd33f458959bb7",
+    "post-preferences.json": "84c58044fcbdbd019d4fdf6a6a0a50255e24484e9c7ea473a0208173457a79b2",
+    "preferences-callers.json": "eb73645b0fb0be6117871dfa3d193261260db732e57c3add221f656e93140c5b",
+    "preferences-input-name.json": "ba70745422c43b160b905fb3b15d3500ec6e7077b203bfbfc47c713d27e253ec",
+    "startup-arguments.json": "87f8cfc0beb593ff752e5d9e4761ff625d92683bf60edbe8b375e7cd26af21c1"
+  }
+}

@@ -1,0 +1,14 @@
+620d4fce33415fc35b6990615c309b3fdd21a37dcbfcfc528c13481d2361ba08  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/follow-up.json
+2cd8d9cc62188f5c1b0e1a3251e8288b6cb18416bbf3b53631a987b49ac23afd  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/inputs-plan.json
+13a9dde999edb707a9bb4cf90259f33b0f21d001afda519863be627f4539a568  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/manifest.json
+55792840d0f1cbc21a76b7c35cc4beb4570911df9373db287ea748957aae3685  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/plan.json
+0a1d55eeafea9630a14a76a47fe91bb277ab461a0c49edac46bb7897813cf27d  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/call-window.json
+06a34e03f24507b1ec6f22b66f313dbb9c9359a361f8410b0db6234ddd98733b  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/following-helper.c
+4736f424f86400b452557f71810924c85d51b9081d7e79b09c3cf0864ef30b6b  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/following-helper.json
+df3a16f2c9289e4b71953becacb847260c54c197da111049f5f37b6b3b4deb63  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/following-input-name.json
+96689e888f7b1ccebf8c791bbd5ff2d82d7c0a3d3b5e6af656bd33f458959bb7  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/post-preferences.c
+3040d2b6d0ba6a90229ebdff3331a2b667b5dd12d39b4ab0dfd1c3d75808fc3c  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/post-preferences.json
+11a4c4c7201e09073da47e7487d380d639687bf79a12b66caa3f813571fb48c8  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/preferences-callers.json
+dd8b125a6562dcd54d8d45dc9c6755a9acd3bc7304dc82fbb7f1d8148c5c3f56  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/preferences-input-name.json
+eb59aec00a5f15361c265b6a7acb435f89771f141f0854a24119e2ddae47ac14  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/startup-arguments.json
+8e5f84412fbc8ea2008fbb02db87a1d31517de8a0d759e98e9329a84dec5609d  evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/verify.jq

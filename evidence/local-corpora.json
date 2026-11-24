@@ -38,6 +38,10 @@
       "reason": "Revision 97: the HOPE extensions document joins the peers set"
     },
     {
+      "path": "evidence/gap-remediation/2026-11-24/receive-limit-preferences-01",
+      "reason": "New read-only startup preferences queries for GAP-011."
+    },
+    {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-98",
       "reason": "Revision 98 records the GAP-011 startup preferences trace."
     },

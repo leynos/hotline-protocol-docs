@@ -12,7 +12,7 @@ This document belongs to the [provenance](README.md) set; the
 
 ## Purpose and status
 
-The register's `last_updated` date is 2026-11-15. It records 87 gaps: 62 are
+The register's `last_updated` date is 2026-11-24. It records 87 gaps: 62 are
 Resolved, 24 are Investigating and 1 is Open. The 25 gaps that are not Resolved
 appear in Table 1, ordered by priority (P0, then P1, then P2) and then by
 identifier. Of these, 5 are P0, 18 are P1 and 2 are P2.
@@ -59,7 +59,7 @@ condensed from the register and the sources of each claim.
 | ---------------------------------------- | -------- | ------------- | ------------------------------------------------------ | --------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | [GAP-001](../../gap-analysis.md#gap-001) | P1       | Open          | Define the supported 1.9 subset                        | Decision        | Operation-by-profile scope matrix                                                                               | [mxd reconciliation](../mxd/assertion-reconciliation.md)                                        | None; owner unassigned                        | [mxd validation](../mxd/validation-status.md)                                                   |
 | [GAP-005](../../gap-analysis.md#gap-005) | P0       | Investigating | Connection timers and liveness                         | Native capture  | Timer and state table; native clock, wake cause, configuration, idle beyond 600 s                               | [Liveness witness](../native-evidence/native-liveness-witness.md)                               | None                                          | [Liveness witness](../native-evidence/native-liveness-witness.md)                               |
-| [GAP-011](../../gap-analysis.md#gap-011) | P0       | Investigating | Frame, transaction and buffering limits                | Static analysis | Later-write trace and native configuration; aggregate buffering; release policy                                 | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     | None                                          | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     |
+| [GAP-011](../../gap-analysis.md#gap-011) | P0       | Investigating | Frame, transaction and buffering limits                | Static analysis | Later writes and aggregate buffering; startup Prefs outputs traced                                              | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     | None                                          | [Receive-limit origin](../protocol/receive-limit-origin.md)                                     |
 | [GAP-016](../../gap-analysis.md#gap-016) | P0       | Investigating | Absent, empty and zero-valued fields                   | Native capture  | Five remaining fixture groups, not named in the register                                                        | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             | None; GAP-072 waits on it                     | [Presence defaults](../presence-and-messaging/presence-defaults.md)                             |
 | [GAP-018](../../gap-analysis.md#gap-018) | P0       | Investigating | Text encoding and transformations                      | Peer capture    | Identified-peer byte fixtures; peer text policy                                                                 | [Identified client source](../peers/identified-client-source.md)                                | None; GAP-082 waits on it                     | [Identified client source](../peers/identified-client-source.md)                                |
 | [GAP-019](../../gap-analysis.md#gap-019) | P0       | Investigating | Semantic length limits and truncation                  | Native capture  | Unmeasured length cells; 1024-byte diagnostic boundary                                                          | [Diagnostic boundary preparation](../native-evidence/native-diagnostic-boundary-preparation.md) | None; packet needs parent approval            | [Diagnostic boundary preparation](../native-evidence/native-diagnostic-boundary-preparation.md) |
@@ -319,7 +319,9 @@ Quoted text is taken from the register.
   lists native later-write and configuration questions, aggregate buffering,
   global buffering bounds and a release policy as open.
 - **Kind chosen by the scribe:** static analysis. The next step is the
-  later-write trace. Native configuration capture follows it.
+  later-write trace. The 24 November trace identifies two stack outputs of the
+  startup preferences loader and the following banned-list input. Native
+  configuration capture remains outstanding.
 - **Prepared:** [receive-limit origin](../protocol/receive-limit-origin.md),
   [mxd limit contracts](../mxd/corrections.md), and the framing corpus
   `evidence/gap-remediation/2026-11-12/native-framing-01/manifest.json`.
