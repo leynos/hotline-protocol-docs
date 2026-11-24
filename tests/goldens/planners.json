@@ -48,6 +48,58 @@
     "prepare_native_cases.py": "dispatcher"
   },
   "records": {
+    "prepare_native_cases.py news-read-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "0333675b81fab2be081d95150b005620ffa998f2579d16b60562237cc07ffe4e",
+      "files": {
+        "326-absent.json": {
+          "sha256": "51e35221ada4a8242b8d42efecf050c9ef7b9c881d3259ec2cda8837ac4ca228",
+          "size": 2261,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "cb9a7351347e5f43db52fc76121796964dbc67a6aaecc65f8cb065d0410d159c",
+          "size": 2268,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "29c2fd5f19c91ab486cb7899fc87ab4625d623ff075162f9c8c307aebad8f2a2",
+          "size": 2275,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "215af09b75f933f61cbcbfca28c6baab4b0c70defbf6ab8d83c9438c1d38329a",
+          "size": 2277,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "83a3c49aa926b122e60c6a3b10ae56d51bceb3077b611ddf6935b921e4863b51",
+          "size": 2284,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "92b1b27ea90440735debdd31c581d50d06d25fa9129b3f0f8486776750a82134",
+          "size": 2291,
+          "embeds_script_digests": []
+        },
+        "337-absent.json": {
+          "sha256": "d725513bb5023d5811513c5e8ed5b5f86ff390d0ae60c46b19591b7d937c9eda",
+          "size": 2277,
+          "embeds_script_digests": []
+        },
+        "337-empty.json": {
+          "sha256": "cb3ddbce7bfd516f0ce20172c92918af9af266f3bbd50d3714b3bfbf4dd15d9c",
+          "size": 2284,
+          "embeds_script_digests": []
+        },
+        "337-zero.json": {
+          "sha256": "84102802d5b185040202fd48f7e7c18c8380c521f5d8b679b17a0b826764b658",
+          "size": 2291,
+          "embeds_script_digests": []
+        }
+      }
+    },
     "native_121_default_cases.py": {
       "status": "emitted",
       "exit_code": 0,

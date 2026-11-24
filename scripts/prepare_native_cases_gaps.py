@@ -92,6 +92,7 @@ GAP_RULES: tuple[tuple[Test, tuple[str, ...]], ...] = (
             "GAP-084",
         ),
     ),
+    (is_suite("news-read-presence"), ("GAP-016",)),
     (has_prefix("news-boundary-"), ("GAP-067", "GAP-068", "GAP-084")),
     (has_prefix("news-"), ("GAP-003", "GAP-065", "GAP-066", "GAP-070", "GAP-084")),
     (

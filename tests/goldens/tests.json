@@ -1,6 +1,14 @@
 {
   "schema_version": 1,
   "records": {
+    "test_news_read_presence.test_matrix_changes_only_the_named_field": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_read_presence.test_read_plan_targets_isolated_control_and_names_gap": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_account_attribute.AccountAttributeEvidenceTests.test_frozen_oracle_and_stored_records_verify": {
       "outcome": "ok",
       "detail": ""

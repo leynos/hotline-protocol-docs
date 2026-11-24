@@ -76,7 +76,7 @@ MAX_ARTICLE_PARENT = 0xFFFFFFFF
 
 # Namespace-local server forward for the GAP-016 run, separate from the
 # isolated runtime's fixed relay to host loopback at 15500.
-LOGIN_VERSION_CONTROL_PORT = 16140
+ISOLATED_CONTROL_PORT = 16140
 
 
 def refuse(message: str) -> typ.NoReturn:
@@ -114,13 +114,13 @@ def check_inputs(suite: str, inputs: Inputs) -> None:
         )
     if suite == "agreement-restore-stage" and inputs.original_agreement is None:
         refuse("agreement-restore-stage requires --original-agreement")
-    if suite.startswith("news-thread-") and not (
-        0 < inputs.article_parent <= MAX_ARTICLE_PARENT
-    ):
-        refuse(
-            "news-thread suites require a positive --article-parent "
-            "from a captured list"
-        )
+    needs_listed_article = suite in {
+        "news-thread-children",
+        "news-thread-grandchild",
+        "news-read-presence",
+    }
+    if needs_listed_article and not 0 < inputs.article_parent <= MAX_ARTICLE_PARENT:
+        refuse(f"{suite} requires a positive --article-parent from a captured list")
     if suite == "article-delete-resume" and inputs.case_name is None:
         refuse("article-delete-resume requires --case-name from the retained inventory")
 
@@ -153,10 +153,8 @@ def build_plan(
         "control": {"host": "127.0.0.1", "port": 15500},
         "data": {"host": "127.0.0.1", "port": 15501},
     }
-    if suite == "login-version-presence":
-        endpoints = {
-            "control": {"host": "127.0.0.1", "port": LOGIN_VERSION_CONTROL_PORT}
-        }
+    if suite in {"login-version-presence", "news-read-presence"}:
+        endpoints = {"control": {"host": "127.0.0.1", "port": ISOLATED_CONTROL_PORT}}
     return {
         "schema_version": 1,
         "profile": "native-mac-oracle",
@@ -223,7 +221,7 @@ def prepare(  # ruff: ignore[too-many-arguments]  # pylint: disable=too-many-arg
     original_agreement : str | None
         The retained original agreement, for ``agreement-restore-stage``.
     article_parent : int
-        The parent article identifier, for the ``news-thread-`` suites.
+        The listed article ID for news thread or read-presence fixtures.
     case_name : str | None
         The retained category name, for ``article-delete-resume``.
     completed_nodes : int

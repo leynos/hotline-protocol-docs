@@ -40,6 +40,7 @@ FIELD_FLAVOUR = 327
 FIELD_TITLE = 328
 FIELD_BODY = 333
 FIELD_FLAGS = 334
+FIELD_RECURSIVE = 337
 # The index of the login request in the steps that login() plans.
 LOGIN_REQUEST_STEP = 3
 
@@ -149,6 +150,65 @@ def structures() -> Cases:
     return result
 
 
+def body_steps(fields: list[tuple[int, bytes]]) -> list[Action]:
+    """Build one correlated body read followed by the liveness and quiet checks.
+
+    Parameters
+    ----------
+    fields : list[tuple[int, bytes]]
+        Ordered fields for the article read.
+
+    Returns
+    -------
+    list[Action]
+        Login, read, liveness barrier, quiet check and close.
+    """
+    return [
+        *login(),
+        *exchange(TYPE_READ_NEWS_ARTICLE, 10, fields),
+        *exchange(TYPE_EMPTY_ACK, 90, []),
+        {"op": "expect_quiet", "connection": "main", "timeout": 1},
+        close(),
+    ]
+
+
+def read_presence(identifier: int) -> Cases:
+    """Plan field-presence controls for an article identified by a prior listing.
+
+    Parameters
+    ----------
+    identifier : int
+        Public article ID from the fixture category listing.
+
+    Returns
+    -------
+    Cases
+        One separately capturable plan for each field and encoding.
+    """
+    result: Cases = {}
+    for field in (FIELD_ARTICLE_ID, FIELD_FLAGS, FIELD_RECURSIVE):
+        for shape, value in (("absent", None), ("empty", b""), ("zero", bytes(4))):
+            fields = [(FIELD_NEWS_PATH, path((ROOT, b"category")))]
+            article_id = (
+                value if field == FIELD_ARTICLE_ID else identifier.to_bytes(4, "big")
+            )
+            if article_id is not None:
+                fields.append((FIELD_ARTICLE_ID, article_id))
+            fields.append((FIELD_FLAVOUR, b"text/plain"))
+            if field != FIELD_ARTICLE_ID and value is not None:
+                fields.append((field, value))
+            result[f"{field}-{shape}"] = (
+                body_steps(fields),
+                {
+                    "kind": "news-read-presence",
+                    "field": field,
+                    "encoding": shape,
+                    "listed_article_id": identifier,
+                },
+            )
+    return result
+
+
 def bodies() -> Cases:
     """Plan the reads of the news bodies, including the invalid requests.
 
@@ -169,20 +229,11 @@ def bodies() -> Cases:
         ("flavour-case", 1, b"TEXT/PLAIN"),
         ("unknown-article", 99, b"text/plain"),
     ]:
-        steps = login() + exchange(
-            TYPE_READ_NEWS_ARTICLE,
-            10,
-            [
-                (FIELD_NEWS_PATH, path((ROOT, b"category"))),
-                (FIELD_ARTICLE_ID, identifier.to_bytes(4, "big")),
-                (FIELD_FLAVOUR, flavour),
-            ],
-        )
-        steps += [
-            *exchange(TYPE_EMPTY_ACK, 90, []),
-            {"op": "expect_quiet", "connection": "main", "timeout": 1},
-            close(),
-        ]
+        steps = body_steps([
+            (FIELD_NEWS_PATH, path((ROOT, b"category"))),
+            (FIELD_ARTICLE_ID, identifier.to_bytes(4, "big")),
+            (FIELD_FLAVOUR, flavour),
+        ])
         result[label] = (
             steps,
             {

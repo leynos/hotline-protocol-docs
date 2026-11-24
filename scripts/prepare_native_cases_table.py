@@ -74,6 +74,7 @@ SUITES = (
     "news-remove-publisher",
     "news-files-preflight",
     "news-bodies",
+    "news-read-presence",
     "news-thread-children",
     "news-thread-grandchild",
     "news-posts",
