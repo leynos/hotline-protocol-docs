@@ -1,5 +1,5 @@
 {
-  "usage": "Rule overrides for CodeScene. Only the retained hx-family source under evidence/ is exempted; every other file keeps the defaults.",
+  "usage": "Rule overrides for retained historical hx-family source and individually named immutable Ghidra listings. All other files keep the defaults.",
   "rule_sets": [
     {
       "matching_content_path": "evidence/hotline-server-1.9/synhxd-source/**",
@@ -469,6 +469,28 @@
         },
         {
           "name": "Lines of Declarations in a Single File",
+          "weight": 0.0
+        }
+      ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/queries/following-helper.c",
+      "matching_content_path_doc": "Verbatim third-party decompiler output pinned by the GAP-011 corpus SHA256SUMS. The four findings describe the original executable.",
+      "rules": [
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Bumpy Road Ahead",
+          "weight": 0.0
+        },
+        {
+          "name": "Deep, Nested Complexity",
           "weight": 0.0
         }
       ]
