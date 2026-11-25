@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "environment": {
+    "runtime": "gap016-news-post-20261124-01",
+    "stage": "isolated native news capture",
+    "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "working_inode": 658970214,
+    "server_fork_hashes": {
+      "HLserver19": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+      ".rsrc/HLserver19": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+    },
+    "article_category_sha256": "fe1154b4561e932c29ac7dab45d9e9a0dad7b6e8083c7e77efa0f3da1b8252f6",
+    "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+    "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "control_endpoint": "isolated namespace loopback 16140 to guest 5500"
+  },
+  "gap_ids": [
+    "GAP-016"
+  ],
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 16140
+    }
+  },
+  "expectation": {
+    "kind": "news-post-presence",
+    "field": 337,
+    "encoding": "absent"
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000036000000360005006900059e9b929691006a000892908b978d9ecec600a0000200be0066000f6672616d696e672d66697874757265006800020001",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001730000000b00000000000000230000002300010145001d000200000d6d6f746872612d6e657773323300000863617465676f7279",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 11
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000019a0000001400000000000000590000005900050145001d000200000d6d6f746872612d6e657773323300000863617465676f72790148000a466972737420726f6f74014e0004000000000147000a746578742f706c61696e014d000e66697273742d626f64790d0a00ff",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 20
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001730000002800000000000000230000002300010145001d000200000d6d6f746872612d6e657773323300000863617465676f7279",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 40
+      }
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "000001f40000005a0000000000000002000000020000",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 90
+      }
+    },
+    {
+      "op": "expect_quiet",
+      "connection": "main",
+      "timeout": 1
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "gap": "GAP-016",
+  "scope": "Nine request 410 posts on one initially empty category, with a listing before and after each post and a body read using the new public ID.",
+  "cases": [
+    "326-absent",
+    "326-empty",
+    "326-zero",
+    "334-absent",
+    "334-empty",
+    "334-zero",
+    "337-absent",
+    "337-empty",
+    "337-zero",
+    "body-326-absent",
+    "body-326-empty",
+    "body-326-zero",
+    "body-334-absent",
+    "body-334-empty",
+    "body-334-zero",
+    "body-337-absent",
+    "body-337-empty",
+    "body-337-zero"
+  ],
+  "planner_commit": "66c2831fb4b6f4e086eadb49c9e674c649cea63b",
+  "toolset_commit": "2278968b622eab731e4ba2be0484cedfbab73bb7",
+  "staged_fixture": {
+    "source": "evidence/gap-remediation/2026-11-13/native-news-01/native-final/catalog-11587.data",
+    "sha256": "fe1154b4561e932c29ac7dab45d9e9a0dad7b6e8083c7e77efa0f3da1b8252f6",
+    "fork_bytes": 1034,
+    "cached_list_hex": "00000000000000000000",
+    "source_catalogue_id": 11587,
+    "finder_type": "HLNZ",
+    "finder_creator": "HTLS",
+    "resource_fork_bytes": 0
+  },
+  "versions": {
+    "PowerPC Enabler 9.0.4": {
+      "resource_fork_sha256": "425f3f87f651551dbc764345632ec8a271cb3885b69895683aaff9e03b801926",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "9.0.4"
+        }
+      ]
+    },
+    "Finder": {
+      "resource_fork_sha256": "8c5c92a272b6c3b596aac1e73ad09f273885bc63ed01220105d04d5de2d33ccf",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "9.0"
+        }
+      ]
+    },
+    "CarbonLib": {
+      "resource_fork_sha256": "ef70f7af54773bd4dff3a1736ce7f5e6e01881a960699f7672530e3d4aac2d1a",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "1.6"
+        }
+      ]
+    }
+  },
+  "installed_forks": {
+    "native-app-4352-0": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "native-app-4353-1": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+    "native-category-4352-0": "f38951f04d1c8cca5d23254925047ae03d766702f0630179cb848b72e88dc65d"
+  },
+  "catalogue_ids": {
+    "native-app-catalogue": 11182,
+    "native-category-catalogue": 11187
+  },
+  "disk_fuser_exit": 1,
+  "disk_fuser_output_bytes": 0,
+  "network_statistics": {
+    "host": {
+      "captured": 0,
+      "dropped": 0
+    },
+    "ns": {
+      "captured": 400,
+      "dropped": 0
+    }
+  },
+  "retired_services": {
+    "mothra-sheep-dcf94f0bac84": "inactive",
+    "mothra-xbridge-eea86db9a581": "inactive",
+    "mothra-bridge-eea86db9a581": "inactive",
+    "mothra-display-bab5319ff87a": "inactive"
+  },
+  "setup": "Finder copied the staged application and empty category to the guest volume. First launch created the fixture administrator. Each session used the isolated forward. The category accumulated one new root per post.",
+  "projections": "Readiness paths shortened to basenames. Original receipt digests retained. Namespace configuration is formatted JSON. Screens were captured at 800 by 600 pixels. Stopped-disk version records use vers resource 1.",
+  "limitations": "This comparison used one growing category. Each post used identical title, flavour and body. The observed listings distinguish articles by public ID. The results apply to these root posts only."
+}
