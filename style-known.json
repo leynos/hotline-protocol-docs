@@ -34,5 +34,17 @@
     "path": "docs/native-evidence/native-ui-focus-witness.md",
     "key": "One server Log focus event during a stalled native download: Log",
     "reason": "Log is the name of a window of the server software, kept as the software shows it."
+  },
+  {
+    "rule": "person",
+    "path": "AGENTS.md",
+    "key": "your: the change is unrelated to your work, commit it in a separat",
+    "reason": "The canonical generated spelling guidance directly addresses the agent; keep its wording stable across regeneration."
+  },
+  {
+    "rule": "person",
+    "path": "AGENTS.md",
+    "key": "your: request and stack your branch on it, so each review diff sta",
+    "reason": "The canonical generated spelling guidance directly addresses the agent; keep its wording stable across regeneration."
   }
 ]
