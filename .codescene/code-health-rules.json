@@ -504,6 +504,20 @@
           "weight": 0.0
         }
       ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py",
+      "matching_content_path_doc": "The GAP-016 corpus SHA256SUMS pins the replay verifier used for this capture. Reproducing the capture checks requires its original bytes.",
+      "rules": [
+        {
+          "name": "Complex Method",
+          "weight": 0.0
+        },
+        {
+          "name": "Large Method",
+          "weight": 0.0
+        }
+      ]
     }
   ]
 }

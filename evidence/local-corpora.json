@@ -100,6 +100,18 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-25/revision-116",
       "reason": "Integrate the GAP-031 label observations in revision 109 with the register from revision 115."
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/login-version-presence-01",
+      "reason": "New GAP-016 native login version matrix with both packet views."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-103",
+      "reason": "Revision 103 records the native same-account login version controls for GAP-016."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-110",
+      "reason": "Integrate the retained native same-account login version controls from revision 103 with the revision 108 register."
     }
   ]
 }
