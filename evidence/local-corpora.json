@@ -36,6 +36,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-16/revision-97",
       "reason": "Revision 97: the HOPE extensions document joins the peers set"
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-98",
+      "reason": "Revision 98 records the GAP-011 startup preferences trace."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-99",
+      "reason": "Revision 99 records where the five remaining GAP-016 fixture groups are listed."
     }
   ]
 }
