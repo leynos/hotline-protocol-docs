@@ -1,7 +1,15 @@
 {
   "schema_version": 1,
   "records": {
-    "test_news_delete_presence_setup.test_preparation_uses_owned_categories_and_original_cleanup": {
+    "test_news_delete_presence_setup.test_setup_reuses_scoped_historical_cases": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence_setup.test_flush_reads_both_owned_categories": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence_setup.test_setup_plans_bind_only_isolated_forwards": {
       "outcome": "ok",
       "detail": ""
     },
@@ -26,6 +34,10 @@
       "detail": ""
     },
     "test_news_read_presence.test_read_plan_targets_isolated_control_and_names_gap": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_read_presence.test_article_read_requires_a_listed_parent": {
       "outcome": "ok",
       "detail": ""
     },

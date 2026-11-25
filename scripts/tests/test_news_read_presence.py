@@ -2,11 +2,13 @@
 
 import typing as typ
 
+import pytest
 from native_news_steps import FIELD_ARTICLE_ID, FIELD_FLAGS, FIELD_RECURSIVE, bodies
-from prepare_native_cases import build_plan
+from prepare_native_cases import build_plan, check_inputs
 from prepare_native_cases_inputs import Inputs
 from prepare_native_cases_table import dispatch
 from protocol_capture_decode import decode_frame
+from script_cli import UsageError
 
 if typ.TYPE_CHECKING:
     from pathlib import Path
@@ -57,3 +59,23 @@ def test_read_plan_targets_isolated_control_and_names_gap(tmp_path: Path) -> Non
     assert plan["endpoints"] == {"control": {"host": "127.0.0.1", "port": 16140}}, (
         "wrong endpoint for the isolated guest"
     )
+
+
+@pytest.mark.parametrize("suite", ["news-read-presence", "news-thread-children"])
+def test_article_read_requires_a_listed_parent(suite: str) -> None:
+    """Reject an article ID of zero before planning either read suite."""
+    inputs = Inputs(
+        account_inventory=None,
+        original_agreement=None,
+        article_parent=0,
+        case_name=None,
+        completed_nodes=0,
+        category_exists=False,
+        first_child=1,
+        last_child=10,
+    )
+    with pytest.raises(
+        UsageError,
+        match=f"^{suite} requires a positive --article-parent from a captured list$",
+    ):
+        check_inputs(suite, inputs)
