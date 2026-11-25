@@ -71,7 +71,9 @@ def instruction(
     return opcode << 26 | register << 21 | base << 16 | displacement & 0xFFFF
 
 
-def scan(image: bytes, capsys: pytest.CaptureFixture[str]) -> dict[str, typ.Any]:
+def scan(
+    image: bytes, capsys: pytest.CaptureFixture[str], digest: str = DIGEST
+) -> dict[str, typ.Any]:
     """Execute the immutable scanner on the supplied synthetic bytes.
 
     Parameters
@@ -80,6 +82,8 @@ def scan(image: bytes, capsys: pytest.CaptureFixture[str]) -> dict[str, typ.Any]
         Test PEF image.
     capsys : pytest.CaptureFixture[str]
         Captured scanner output.
+    digest : str
+        Digest returned by the synthetic hash fixture.
 
     Returns
     -------
@@ -89,7 +93,7 @@ def scan(image: bytes, capsys: pytest.CaptureFixture[str]) -> dict[str, typ.Any]
     with (
         mock.patch.object(Path, "read_bytes", return_value=image),
         mock.patch(
-            "hashlib.sha256", return_value=SimpleNamespace(hexdigest=lambda: DIGEST)
+            "hashlib.sha256", return_value=SimpleNamespace(hexdigest=lambda: digest)
         ),
     ):
         runpy.run_path(str(ROOT / CORPUS / "discover-reads.py.as-run.txt"))
@@ -97,27 +101,29 @@ def scan(image: bytes, capsys: pytest.CaptureFixture[str]) -> dict[str, typ.Any]
 
 
 @pytest.mark.parametrize(
-    ("opcode", "width"),
+    ("opcode", "register", "width"),
     [
-        (32, 4),
-        (33, 4),
-        (34, 1),
-        (35, 1),
-        (40, 2),
-        (41, 2),
-        (42, 2),
-        (43, 2),
-        (48, 4),
-        (49, 4),
-        (50, 8),
-        (51, 8),
+        (32, 5, 4),
+        (33, 5, 4),
+        (34, 5, 1),
+        (35, 5, 1),
+        (40, 5, 2),
+        (41, 5, 2),
+        (42, 5, 2),
+        (43, 5, 2),
+        (46, 31, 4),
+        (46, 24, 32),
+        (48, 5, 4),
+        (49, 5, 4),
+        (50, 5, 8),
+        (51, 5, 8),
     ],
 )
 def test_direct_read_widths(
-    opcode: int, width: int, capsys: pytest.CaptureFixture[str]
+    opcode: int, register: int, width: int, capsys: pytest.CaptureFixture[str]
 ) -> None:
     """Every supported load opcode reports its actual width at field 161."""
-    report = scan(synthetic_image([instruction(opcode, 0x41C)]), capsys)
+    report = scan(synthetic_image([instruction(opcode, 0x41C, register)]), capsys)
     expected = {
         "address": "10011c3c",
         "opcode": opcode,
@@ -133,11 +139,13 @@ def test_direct_read_widths(
     [
         (34, 0x41B, 5, 29, 0),
         (32, 0x41B, 5, 29, 1),
+        (34, 0x41F, 5, 29, 1),
         (32, 0x420, 5, 29, 0),
         (46, 0x400, 31, 29, 0),
         (46, 0x400, 24, 29, 1),
         (14, 0x41C, 5, 0, 0),
         (14, 0x41C, 5, 29, 1),
+        (14, 0x41F, 5, 29, 1),
         (14, 0x420, 5, 29, 0),
         (13, 0x41C, 5, 29, 0),
     ],
@@ -156,6 +164,41 @@ def test_overlap_and_address_formation(
     assert len(rows) == expected, report
     if expected:
         assert rows[0]["opcode"] == opcode, report
+
+
+def test_scanner_rejects_wrong_image_digest(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """The archived scanner refuses a different PEF identity before parsing."""
+    image = synthetic_image([instruction(32, 0x41C)])
+    with pytest.raises(AssertionError):
+        scan(image, capsys, digest="0" * 64)
+
+
+@pytest.mark.parametrize(
+    "edits",
+    [
+        [(64, ">B", 1)],
+        [(52, ">I", 8)],
+        [(60, ">I", 0x1000)],
+        [(52, ">I", 2), (56, ">I", 2)],
+    ],
+    ids=[
+        "non-code-section",
+        "unpacked-mismatch",
+        "section-out-of-bounds",
+        "unaligned-code",
+    ],
+)
+def test_scanner_rejects_malformed_section(
+    edits: list[tuple[int, str, int]], capsys: pytest.CaptureFixture[str]
+) -> None:
+    """Each PEF section guard independently rejects malformed metadata."""
+    image = bytearray(synthetic_image([instruction(32, 0x41C)]))
+    for offset, packing, value in edits:
+        struct.pack_into(packing, image, offset, value)
+    with pytest.raises(AssertionError):
+        scan(bytes(image), capsys)
 
 
 def copied_make_recipe(tmp_path: Path) -> Path:
@@ -230,10 +273,14 @@ def test_make_recipe_rejects_falsified_copy(tmp_path: Path, mutation: str) -> No
     makefile = copied_make_recipe(tmp_path)
     if mutation == "candidate":
         candidate = tmp_path / CORPUS / "read-candidates.json"
-        document = json.loads(candidate.read_text())
+        original = candidate.read_text()
+        document = json.loads(original)
         assert len(document["candidates"]) == 1, document
+        assert json.dumps(document, indent=2) + "\n" == original, (
+            "no-op serialization must preserve the retained scanner bytes"
+        )
         document["candidates"] = []
-        candidate.write_text(json.dumps(document))
+        candidate.write_text(json.dumps(document, indent=2) + "\n")
     else:
         query = tmp_path / CORPUS / "queries/field161-load.json"
         document = json.loads(query.read_text())
