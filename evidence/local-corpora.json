@@ -68,6 +68,14 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-25/revision-114",
       "reason": "Integrate the GAP-016 correction in revision 107 with the GAP-011 status link in revision 113."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-100",
+      "reason": "Revision 100 records the GAP-026 field 161 reader inventory."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-24/revision-101",
+      "reason": "Revision 101 records the GAP-031 Classic editor label locations."
     }
   ]
 }
