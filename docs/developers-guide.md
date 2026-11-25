@@ -150,6 +150,17 @@ or the plan gives one, how long it takes.
 
 _Table 2: The make targets that a maintainer runs, and what each checks._
 
+The field-161 reader corpus has a `make evidence-verify` recipe. It runs the
+archived `discover-reads.py.as-run.txt` on the checksum-pinned server PEF,
+compares its output byte-for-byte with `read-candidates.json`, then runs
+`verify.jq` over five retained query records. The scan classifies direct
+PowerPC loads that overlap the four-byte field at `0x41c` and nonzero-base
+`addi` instructions that form an address within that field. The query gate
+requires the exact candidate, server image, and retained code and reference
+observations. `tests/test_field161_readers_verify.py` exercises the archived
+scanner with synthetic offline sections and checks that copied false records
+fail the Make recipe.
+
 The GAP-011 static verifier, `receive-limit-preferences-01/verify.jq`, takes
 seven query JSON records from `queries/`. It checks the identified server
 image, the single startup caller, its call arguments, the two observed input
