@@ -199,12 +199,18 @@ def test_static_verifier_rejects_falsified_queries(
 
 @pytest.mark.parametrize(
     ("field", "replacement"),
-    [("format_word", 3), ("bytes", 95), ("sha256", "0" * 64)],
+    [
+        ("format_word", 3),
+        ("format_word", 4),
+        ("bytes", 95),
+        ("bytes", 120),
+        ("sha256", "0" * 64),
+    ],
 )
 def test_stopped_verifier_rejects_falsified_summary(
     tmp_path: Path, field: str, replacement: int | str
 ) -> None:
-    """The format, size and file digest each constrain stopped-disk claims."""
+    """Exact format, size and digest checks reject independently false claims."""
     summary = json.loads((STOPPED / "fork-summary.json").read_text())
     summary[field] = replacement
     candidate = tmp_path / "fork-summary.json"
