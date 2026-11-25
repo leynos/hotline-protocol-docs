@@ -152,15 +152,18 @@ _Table 2: The make targets that a maintainer runs, and what each checks._
 
 The GAP-011 static verifier, `receive-limit-preferences-01/verify.jq`, takes
 seven query JSON records from `queries/`. It checks the identified server
-image, the single startup caller, its call arguments and the two observed input
-names. The stopped-disk verifier, `post-session-preferences-01/verify.jq`, takes
+image, the single startup caller, its call arguments, the two observed input
+names (`Prefs` and `Banned`), and the following helper call fragment. The
+stopped-disk verifier, `post-session-preferences-01/verify.jq`, takes
 `fork-summary.json`, the catalogue record, the application and staging
 directory listings, and the retained loader query. It checks the observed
-119-byte file, format word 5, fork digest and the loader's outer guard. A false
-verdict exits nonzero under `jq -e`. The tests in
-`tests/test_receive_limit_preferences_verify.py` run both original inputs and
-falsified copies through those recipes. The immutable corpus files, including
-both verifier programs, retain their recorded checksums.
+119-byte file, format word 5, fork digest, the loader's outer guard, the
+catalogue's `Allocated` entry, the application-directory `Prefs` entry, and the
+absence of `Banned` and staged `Prefs` entries. A false verdict exits nonzero
+under `jq -e`. The tests in `tests/test_receive_limit_preferences_verify.py`
+run both original inputs and falsified copies through those recipes. The
+immutable corpus files, including both verifier programs, retain their recorded
+checksums.
 
 `make all` runs its evidence gates only when `evidence/` is present, and its
 curation gate only when `evidence/curation.json` exists. One target is known
