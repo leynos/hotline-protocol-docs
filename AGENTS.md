@@ -64,12 +64,25 @@ at 120; tables unwrapped; a caption beneath every table and figure; a paragraph
 beginning "For screen readers:" before every Mermaid diagram; no first or
 second person outside `README.md`.
 
-`typos.toml` is generated; never edit it. Repository-specific spellings go in
-`typos.local.toml` as exact patterns.
-
 ## The mothra toolset
 
 Evidence is captured with the general toolset in `leynos/mothra`. That
 repository must not contain anything specific to this project. Link to it only
 by absolute GitHub URL, never by a relative path, and do not copy its set-up
 guidance here.
+
+<!-- typos-config-builder:agents-md:start -->
+
+## Spelling
+
+- `make spelling` runs the pinned `typos-config-builder gate`, which
+  regenerates `typos.toml` from the shared en-GB-oxendict dictionary and
+  `typos.local.toml`, then checks spelling and the shared phrase corrections.
+- `typos.toml` is generated: never edit it by hand. Put narrow
+  repository-specific exceptions in `typos.local.toml`, as exact or full-line
+  patterns rather than bare accepted words.
+- When `make spelling` changes `typos.toml`, commit the regenerated file. If
+  the change is unrelated to your work, commit it in a separate base pull
+  request and stack your branch on it, so each review diff stays focused.
+
+<!-- typos-config-builder:agents-md:end -->
