@@ -1,5 +1,5 @@
 {
-  "usage": "Rule overrides for retained historical hx-family source and individually named immutable Ghidra listings. All other files keep the defaults.",
+  "usage": "Rule overrides for retained historical hx-family source and individually named checksum-pinned evidence files. All other files keep the defaults.",
   "rule_sets": [
     {
       "matching_content_path": "evidence/hotline-server-1.9/synhxd-source/**",
@@ -491,6 +491,16 @@
         },
         {
           "name": "Deep, Nested Complexity",
+          "weight": 0.0
+        }
+      ]
+    },
+    {
+      "matching_content_path": "evidence/gap-remediation/2026-11-24/classic-privilege-labels-01/ClassicLabels.java",
+      "matching_content_path_doc": "Retained Classic client label locator pinned by the GAP-031 corpus SHA256SUMS (a3b7b5d576b95182b894c1a00b1bec472bbe7994f181a0421eeca9fdf4e8bbf7). Its recorded bytes cannot be refactored; the nested search is specific to this one-off evidence capture.",
+      "rules": [
+        {
+          "name": "Complex Method",
           "weight": 0.0
         }
       ]
