@@ -136,6 +136,10 @@
     {
       "path": "evidence/protocol-gap-analysis/2026-11-25/revision-112",
       "reason": "Integrate the retained native root posting presence controls from revision 106 with the revision 111 register."
+    },
+    {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-117",
+      "reason": "Revision 117 documents GAP-016 presence suite operator guidance in the native capture workflow against revision 112."
     }
   ]
 }
