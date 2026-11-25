@@ -1,4 +1,16 @@
-"""Exercise both GAP-011 evidence verifiers against falsified source records."""
+"""Test the GAP-011 preferences verifiers and their Makefile wiring.
+
+Run the immutable
+``evidence/gap-remediation/2026-11-24/receive-limit-preferences-01/verify.jq``
+and ``evidence/gap-remediation/2026-11-24/post-session-preferences-01/verify.jq``
+programs on retained records and single-change copies. The stopped-session
+checks also use the retained
+``evidence/gap-remediation/2026-11-13/receive-limit-origin-01/11-selected-consumer.json``
+loader record. Extract the GAP-011 lines from the root Makefile's
+``evidence-verify`` target and show that either changed corpus makes that
+target fail. The falsified cases guard predicate behaviour beyond the
+successful outputs recorded in ``tests/goldens/verifiers.json``.
+"""
 
 import json
 import shutil
