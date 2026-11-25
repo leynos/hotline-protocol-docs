@@ -1,0 +1,103 @@
+{
+  "gap": "GAP-016",
+  "scope": "Authenticated article body read 400 on one populated native HFS+ category.",
+  "planner_commit": "0aa767791555fc2c590a2e9a46ffa68c80967301",
+  "toolset_commit": "2278968b622eab731e4ba2be0484cedfbab73bb7",
+  "cases": [
+    "326-absent",
+    "326-empty",
+    "326-zero",
+    "334-absent",
+    "334-empty",
+    "334-zero",
+    "337-absent",
+    "337-empty",
+    "337-zero"
+  ],
+  "positive_control": "334-absent",
+  "staged_fixture": {
+    "source": "evidence/gap-remediation/2026-11-13/native-news-01/native-final/catalog-11586.data",
+    "sha256": "afdc1845d8e15d053330db97710bd84a4864dd1d391d3f3fc46de95ed01eb4ef",
+    "fork_bytes": 71563,
+    "finder_type": "HLNZ",
+    "finder_creator": "HTLS",
+    "resource_fork_bytes": 0,
+    "expected_cached_list_bytes": 395,
+    "expected_cached_list_sha256": "488887746d309afd5478bda0c193722c91f0e2c77db68b8acac170a93128f7ed",
+    "expected_listed_ids": [
+      1,
+      4,
+      6,
+      5,
+      2,
+      3
+    ],
+    "target_title": "First root",
+    "stage": "shared-folder input before native guest copy; actual native read unmeasured"
+  },
+  "versions": {
+    "PowerPC Enabler 9.0.4": {
+      "resource_fork_sha256": "425f3f87f651551dbc764345632ec8a271cb3885b69895683aaff9e03b801926",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "9.0.4"
+        }
+      ]
+    },
+    "Finder": {
+      "resource_fork_sha256": "8c5c92a272b6c3b596aac1e73ad09f273885bc63ed01220105d04d5de2d33ccf",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "9.0"
+        }
+      ]
+    },
+    "CarbonLib": {
+      "resource_fork_sha256": "ef70f7af54773bd4dff3a1736ce7f5e6e01881a960699f7672530e3d4aac2d1a",
+      "vers": [
+        {
+          "id": 1,
+          "short_version": "1.6"
+        }
+      ]
+    }
+  },
+  "installed_forks": {
+    "native-app-4352-0": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    "native-app-4353-1": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12",
+    "native-category-4352-0": "afdc1845d8e15d053330db97710bd84a4864dd1d391d3f3fc46de95ed01eb4ef"
+  },
+  "catalogue_ids": {
+    "native-app-catalogue": 11182,
+    "native-category-catalogue": 11187
+  },
+  "category_finder_info": {
+    "type": "HLNZ",
+    "creator": "HTLS",
+    "resource_fork_length": 0
+  },
+  "disk_fuser_exit": 1,
+  "disk_fuser_output_bytes": 0,
+  "network_statistics": {
+    "host": {
+      "captured": 0,
+      "dropped": 0
+    },
+    "ns": {
+      "captured": 184,
+      "dropped": 0
+    }
+  },
+  "retired_services": {
+    "mothra-sheep-79c7d3ab123a": "inactive",
+    "mothra-xbridge-f3302094af13": "inactive",
+    "mothra-bridge-f3302094af13": "inactive",
+    "mothra-display-5053e565703c": "inactive"
+  },
+  "setup": "Finder copied the staged application and category to the System 9 volume. First launch created the fixture administrator, loaded the agreement and started the server. The server disabled sounds. The general and banner settings were inspected and cancelled. The server quit before the owned emulator and recorders were stopped.",
+  "preparation_attempt": "The first host recorder requested a 1200-second runtime. Readiness rejected it before guest boot or client connections. It stopped with zero packets captured and zero kernel drops. A fresh recorder session used a 900-second runtime and a 13-minute deadline.",
+  "projections": "Readiness paths shortened to basenames. Original receipt digests retained. Namespace configuration is formatted JSON. Component versions were extracted from vers resource 1 on the stopped guest disk. Screens are PNG copies of the 800 by 600 JPEG screen captures.",
+  "limitations": "These sessions read article bodies. They do not measure article posting, deletion, transfer requests or other fixture groups."
+}

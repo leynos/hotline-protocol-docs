@@ -1,0 +1,15 @@
+{
+  "runtime": "gap016-news-read-20261124-01",
+  "stage": "isolated native news capture",
+  "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+  "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+  "working_inode": 5497037483,
+  "server_fork_hashes": {
+    "HLserver19": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+    ".rsrc/HLserver19": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+  },
+  "article_category_sha256": "afdc1845d8e15d053330db97710bd84a4864dd1d391d3f3fc46de95ed01eb4ef",
+  "emulator_sha256": "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "control_endpoint": "isolated namespace loopback 16140 to guest 5500"
+}
