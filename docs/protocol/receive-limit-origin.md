@@ -80,7 +80,8 @@ these two input paths. Writes through the first argument, indirect calls and
 later runtime changes still need separate evidence. The records contain no
 observation of either file on a running installation.
 
-> Status note (2026-11-24): GAP-011 remains Investigating. After the four
+> Status note (2026-11-24): [GAP-011](../../gap-analysis.md#gap-011) remains
+> Investigating. After the four
 > login controls, the [stopped guest catalogue][post-session] contained
 > `/Hotline19/Prefs`. Its 119-byte data fork began with format word 5.
 > Those values satisfy the size and version checks at the start of the

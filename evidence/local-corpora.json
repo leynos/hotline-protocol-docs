@@ -54,6 +54,10 @@
       "reason": "Record the stopped guest preferences file and its correspondence to the loader format guard."
     },
     {
+      "path": "evidence/protocol-gap-analysis/2026-11-25/revision-113",
+      "reason": "Link the GAP-011 status note to its canonical register entry"
+    },
+    {
       "path": "evidence/protocol-gap-analysis/2026-11-24/revision-99",
       "reason": "Revision 99 records where the five remaining GAP-016 fixture groups are listed."
     }
