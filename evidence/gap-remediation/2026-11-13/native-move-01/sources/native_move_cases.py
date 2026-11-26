@@ -87,7 +87,7 @@ def move_specs() -> list[dict]:
 
 
 def preflight() -> dict:
-    """Build the plan that confirms the fixture state before the move capture."""
+    """Build the plan that looks up the fixture state before the move capture."""
     steps = (
         login()
         + exchange(200, 10, [(202, b"\0\0")])

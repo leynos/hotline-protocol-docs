@@ -73,7 +73,7 @@ def settled() -> list[dict]:
 
 
 def preflight() -> tuple[list[dict], dict]:
-    """Build the plan that confirms the live and deleted accounts do not exist."""
+    """Build the plan that looks up the live and deleted accounts."""
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, key in [(20, LIVE), (21, DELETED)]:
         steps += exchange(352, identifier, [(105, key)])
