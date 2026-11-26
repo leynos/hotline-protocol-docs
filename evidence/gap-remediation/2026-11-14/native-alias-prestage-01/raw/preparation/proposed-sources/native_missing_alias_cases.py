@@ -31,6 +31,7 @@ ENV_KEYS = (
 
 
 def digest(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
@@ -67,6 +68,7 @@ def example_operator_receipt() -> dict:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
+    """Build the missing-alias plan for the owned control port, with the pre-staged Finder information hash."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only isolated control-only port 15960 is prepared")
     if any(not environment.get(key) for key in ENV_KEYS):
@@ -140,6 +142,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
 
 
 def request_hex(spec: dict, alias: bytes | None = None) -> str:
+    """Return a request as hexadecimal packet text, filling in the alias name when needed."""
     values = spec["fields"]
     if values is None:
         if spec["kind"] != 206 or alias is None or not 1 <= len(alias) <= 31:
@@ -153,6 +156,7 @@ def request_hex(spec: dict, alias: bytes | None = None) -> str:
 
 
 def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
+    """Write the plan and the hashes of its sources and return the plan's hash."""
     plan = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(plan, indent=2) + "\n").encode()
@@ -176,6 +180,7 @@ def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

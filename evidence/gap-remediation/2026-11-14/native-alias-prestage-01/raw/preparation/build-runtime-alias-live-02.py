@@ -58,11 +58,13 @@ assert closure_hashes == proposed["hashes"]
 
 
 def sha(path):
+    """Return the SHA-256 hex digest of a file."""
     with path.open("rb") as f:
         return hashlib.file_digest(f, "sha256").hexdigest()
 
 
 def command(argv):
+    """Run a command and return its output, failing on a non-zero exit or a timeout."""
     return subprocess.run(
         argv, capture_output=True, text=True, check=True, timeout=5
     ).stdout

@@ -18,6 +18,7 @@ SEEDS = OWNED | {
 
 
 def source(name: str) -> Path:
+    """Return the path of a named source file in the canonical tree."""
     return CANON / f"{name}.py"
 
 

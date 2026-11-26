@@ -179,6 +179,7 @@ class Recorder:
     """Retain every successful send/receive chunk and action-relative timing."""
 
     def __init__(self, plan: dict) -> None:
+        """Start a recording of one plan, with empty socket, event and frame lists."""
         self.plan = plan
         self.started = time.monotonic_ns()
         self.started_at_utc = datetime.now(timezone.utc).isoformat()
@@ -189,6 +190,7 @@ class Recorder:
         self.byte_count = 0
 
     def event(self, action: int, name: str, direction: str, data: bytes = b"") -> None:
+        """Append a timed event and refuse a session that exceeds the capture limit."""
         self.byte_count += len(data)
         self.events.append(
             {
@@ -204,6 +206,7 @@ class Recorder:
             raise ValueError("Session exceeds capture limit")
 
     def read(self, action: int, name: str, size: int | None, deadline: float) -> bytes:
+        """Receive bytes from a connection, recording each receive: until the size arrives, or until EOF without a size; EOFError on early EOF, TimeoutError at the deadline."""
         chunks = bytearray()
         connection = self.sockets[name]
         while size is None or len(chunks) < size:
@@ -223,6 +226,7 @@ class Recorder:
         return bytes(chunks)
 
     def execute(self, action: int, step: dict) -> None:
+        """Run one plan step against its connection and record its events."""
         name = step.get("connection", "")
         op = step["op"]
         deadline = time.monotonic() + step.get("timeout", 2)
@@ -321,6 +325,7 @@ class Recorder:
                 self.variables[variable] = bytes.fromhex(matches[0]["hex"])
 
     def streams(self) -> dict:
+        """Return the sent and received bytes of each connection as hexadecimal text."""
         streams = {}
         for event in self.events:
             name = event["connection"]

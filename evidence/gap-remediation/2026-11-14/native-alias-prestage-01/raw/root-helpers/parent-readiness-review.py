@@ -1,3 +1,4 @@
+"""Review the readiness of the second alias-live runtime: check the capture, regenerate the plan and compare it with the saved one."""
 import hashlib,json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path

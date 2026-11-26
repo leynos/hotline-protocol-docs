@@ -6,6 +6,7 @@ from native_plan import close, connect, eof, login, packet, payload, read, send
 
 
 def resource_fork() -> bytes:
+    """Build a small resource fork with one test resource."""
     value = b"native!"
     data = struct.pack(">I", len(value)) + value
     header = struct.pack(">IIII", 256, 256 + len(data), len(data), 50)
@@ -45,6 +46,7 @@ def file_stream(data: bytes, resource: bytes) -> bytes:
 
 
 def transfers() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plans that upload a file with forks and an empty file."""
     cases: dict[str, tuple[list[dict], dict]] = {}
     for name, data, resource in [
         (b"mothra-fork-fixture", b"data-fork\r\n\x00\xff", resource_fork()),
@@ -106,6 +108,7 @@ def transfers() -> dict[str, tuple[list[dict], dict]]:
 
 
 def downloads() -> dict[str, tuple[list[dict], dict]]:
+    """Build one plan per case that downloads a file raw, previewed or through a selector."""
     cases = {}
     for case, name, preview, handover, selector in [
         ("raw", b"mothra-fork-fixture", False, False, 0),
