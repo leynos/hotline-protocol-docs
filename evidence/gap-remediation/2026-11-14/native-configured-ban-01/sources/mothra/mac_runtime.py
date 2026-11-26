@@ -94,6 +94,7 @@ def managed_sheep(args: argparse.Namespace) -> None:
 
 
 def sheep_child_command(args: argparse.Namespace) -> list[str]:
+    """Return the command line that starts the emulator child process."""
     command = [
         sys.executable,
         str(Path(__file__).resolve()),

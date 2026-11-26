@@ -23,12 +23,15 @@ from protocol_capture import (
 
 
 class FakeRecorder(Recorder):
+    """A recorder that replays canned frames in place of a live connection."""
     def __init__(self, plan: dict) -> None:
+        """Start the fake recorder with a fixed start time and target identifier."""
         super().__init__(plan)
         self.started_at_utc = "2026-11-14T04:00:00+00:00"
         self.variables = {"target_uid": b"\0\5"}
 
     def execute(self, action: int, step: dict) -> None:
+        """Record a step as an event and supply the canned frame for a frame read."""
         name = step["connection"]
         op = step["op"]
         if op == "send":
@@ -61,8 +64,11 @@ class FakeRecorder(Recorder):
 
 
 class ConfiguredBanPreparationTest(unittest.TestCase):
+    """Tests of the configured-address ban preparation."""
     def test_identity_gate_requires_current_uid_name_and_distinct_roster(self) -> None:
+        """Check that the identity gate rejects a wrong identifier, name or roster."""
         def frame(connection, kind, identifier=0, *, reply=0, error=0, values=()):
+            """Build a frame record for a connection."""
             return {
                 "connection": connection,
                 "type": kind,
@@ -98,6 +104,7 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                 control.identity_gate(frames)
 
     def test_plan_has_complete_tail_and_no_110(self) -> None:
+        """Check the plan lengths, that the held apply plan ends with the EOF tail and that it sends no kick request."""
         steps = cases.plans()
         self.assertEqual(
             {name: len(value) for name, value in steps.items()},
@@ -123,6 +130,7 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                     self.assertNotEqual(bytes.fromhex(step["hex"])[2:4], b"\0\x6e")
 
     def test_plans_validate_and_reject_primary_port(self) -> None:
+        """Check that the plans validate and that the primary port is refused."""
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(ValueError, "owned lab port"):
                 cases.write_plans(
@@ -139,6 +147,7 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
                 validate_plan(json.loads(source))
 
     def test_pre_save_activity_fails_closed(self) -> None:
+        """Check that traffic before the reviewed save is refused."""
         sender, receiver = socket.socketpair()
         try:
             fake = FakeRecorder({})
@@ -156,6 +165,7 @@ class ConfiguredBanPreparationTest(unittest.TestCase):
             receiver.close()
 
     def test_report_producer_and_consumer_include_eof_tail(self) -> None:
+        """Check that the report that the recorder produces includes the EOF tail and passes the outcome check."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             plan = {
