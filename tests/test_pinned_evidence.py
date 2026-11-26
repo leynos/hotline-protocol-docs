@@ -6,6 +6,7 @@ import json
 import os
 import shutil
 import typing as typ
+from concurrent import futures
 
 import evidence_pin_view
 import pinned_evidence
@@ -263,6 +264,14 @@ def test_a_changed_shebang_or_encoding_line_is_named(tmp_path: Path) -> None:
     assert failure.endswith("by more than docstrings"), "a moved shebang is caught"
     (tmp_path / NAME).write_text("#!/usr/bin/env python3\n" + DOCUMENTED)
     assert pinned_evidence.check(tmp_path) == [], "docstrings keep the shebang valid"
+
+
+def test_concurrent_reads_all_see_the_pin(view: View) -> None:
+    """Threads that read while the record loads all see the pinned bytes."""
+    path = view.root / NAME
+    with futures.ThreadPoolExecutor(max_workers=16) as pool:
+        results = list(pool.map(lambda _: path.read_bytes(), range(64)))
+    assert set(results) == {ORIGINAL.encode()}, "no thread saw the live file"
 
 
 def test_a_write_reaches_the_live_file(view: View) -> None:

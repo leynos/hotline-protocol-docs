@@ -25,6 +25,7 @@ import os
 import shutil
 import stat
 import sys
+import threading
 import typing as typ
 from pathlib import Path
 
@@ -50,15 +51,27 @@ SEQUENCE = frozenset({
 })
 
 
+class _Thread(threading.local):
+    """The state that belongs to one thread: its own lookups and record load.
+
+    Both flags guard re-entrancy, which only the thread that is inside the call
+    can cause, so another thread must never see them set.
+    """
+
+    busy = False
+    loading = False
+
+
 class _View:
-    """The state of the view: its record, and whether it is loading or installed."""
+    """The state of the view: its record, its lock, and whether it is installed."""
 
     def __init__(self) -> None:
         """Start with no record loaded and nothing installed."""
         self.record: pinned_evidence.PinRecord | None = None
         self.loaded = False
-        self.busy = False
         self.installed = False
+        self.lock = threading.Lock()
+        self.local = _Thread()
 
 
 _view = _View()
@@ -96,9 +109,18 @@ def _record() -> pinned_evidence.PinRecord | None:
     pinned_evidence.PinRecord | None
         The record.
     """
-    if not _view.loaded:
-        _view.loaded = True  # reading the record opens files through the view
-        _view.record = _load_record()
+    if _view.loaded:
+        return _view.record
+    if _view.local.loading:
+        return None  # the loading thread's own reads of the record
+    with _view.lock:
+        if not _view.loaded:
+            _view.local.loading = True
+            try:
+                _view.record = _load_record()
+            finally:
+                _view.local.loading = False
+                _view.loaded = True
     return _view.record
 
 
@@ -158,14 +180,14 @@ def pinned_path(file: object) -> str | None:
     record = _record()
     if not isinstance(name, str) or not name.endswith(".py"):
         return None
-    if record is None or _view.busy:
+    if record is None or _view.local.busy:
         return None
     # The lookup itself stats files, so it must not be redirected in turn.
-    _view.busy = True
+    _view.local.busy = True
     try:
         return _lookup(name, record)
     finally:
-        _view.busy = False
+        _view.local.busy = False
 
 
 def pinned_bytes(file: object) -> bytes | None:
