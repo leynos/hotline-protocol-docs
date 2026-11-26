@@ -625,7 +625,7 @@ class Wire:
         self.terminals.setdefault(name, "bounded_no_eof")
 
     def close_all(self) -> None:
-        """Close every open connection, releasing each descriptor even when a close fails."""
+        """Close each open connection in turn; when a close fails, close that socket anyway and re-raise, leaving the later ones to the caller."""
         self.tail_mode = True
         for name in list(self.recorder.sockets):
             try:
