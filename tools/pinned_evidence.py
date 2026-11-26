@@ -188,20 +188,22 @@ def read_live(path: Path) -> bytes:
     return b"".join(chunks)
 
 
-def _interpreter_lines(source: bytes) -> list[bytes]:
-    """List the shebang and encoding lines among the first two lines.
+def _interpreter_lines(source: bytes) -> list[tuple[int, bytes]]:
+    """List the shebang and encoding lines among the first two lines, by position.
 
     They are comments, so the syntax tree does not hold them, but they decide how
-    the file is run and read.
+    the file is run and read, and a shebang works only on the first line.
 
     Returns
     -------
-    list[bytes]
-        The lines that are a shebang or an encoding declaration.
+    list[tuple[int, bytes]]
+        The index and text of each line that is a shebang or an encoding
+        declaration.
     """
+    lines = source.split(b"\n", 2)[:2]
     return [
-        line
-        for line in source.split(b"\n", 2)[:2]
+        (index, line)
+        for index, line in enumerate(lines)
         if line.startswith(b"#!") or ENCODING_LINE.match(line)
     ]
 

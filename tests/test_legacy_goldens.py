@@ -7,6 +7,7 @@ does that.
 """
 
 import json
+import os
 import re
 import subprocess  # ruff: ignore[suspicious-subprocess-import]  # the tests run the runner helper
 import sys
@@ -374,3 +375,10 @@ def test_unknown_oracle_is_a_usage_error(tree: Path) -> None:
     """A misspelt oracle name exits 2 instead of silently doing nothing."""
     argv = ["compare", "--root", str(tree), "--oracle", "verifier"]
     assert cg.main(argv) == 2, "an unknown oracle must exit 2"
+
+
+def test_recipe_environment_loads_the_pin_view_first(tree: Path) -> None:
+    """The recipes and the test helpers run with the evidence pin view on the path."""
+    run = gr.RecipeRun(tree, None, normaliser(tree, tree.parent))
+    first = run.recipe_environment()["PYTHONPATH"].split(os.pathsep)[0]
+    assert first == str(tree / "tools" / "pinview"), "the pin view comes first"

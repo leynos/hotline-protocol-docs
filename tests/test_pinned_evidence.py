@@ -223,6 +223,8 @@ def test_a_scratch_tree_is_served_only_with_the_record(
     record.parent.mkdir(parents=True)
     record.write_text("{}", encoding="utf-8")
     assert plain.read_bytes() == ORIGINAL.encode(), "a legacy layout is served"
+    (scratch / ".git").write_text("gitdir: elsewhere\n", encoding="utf-8")
+    assert plain.read_text(encoding="utf-8") == "scratch\n", "another checkout is kept"
 
 
 def test_the_view_keeps_the_other_stat_fields(view: View, tmp_path: Path) -> None:
@@ -256,6 +258,9 @@ def test_a_changed_shebang_or_encoding_line_is_named(tmp_path: Path) -> None:
     (tmp_path / NAME).write_text(interpreter.replace("env python3", "false"))
     (failure,) = pinned_evidence.check(tmp_path)
     assert failure.endswith("by more than docstrings"), "a new shebang is caught"
+    (tmp_path / NAME).write_text("\n" + interpreter)
+    (failure,) = pinned_evidence.check(tmp_path)
+    assert failure.endswith("by more than docstrings"), "a moved shebang is caught"
     (tmp_path / NAME).write_text("#!/usr/bin/env python3\n" + DOCUMENTED)
     assert pinned_evidence.check(tmp_path) == [], "docstrings keep the shebang valid"
 

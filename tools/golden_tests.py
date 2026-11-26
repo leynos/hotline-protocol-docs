@@ -67,7 +67,7 @@ def capture_tests(
     done = subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv, no shell
         [gm.PYTHON3, str(RUNNER), str(result), start, pattern, *filters],
         cwd=run.root,
-        env={**os.environ, **run.environment()},
+        env={**os.environ, **run.recipe_environment()},
         capture_output=True,
         check=False,
     )
@@ -93,7 +93,7 @@ def capture_pytests(
     """
     out = run.normaliser.scratch / "pytests.json"
     tools = Path(__file__).parent
-    env = {**os.environ, **run.environment(), "GOLDEN_PYTEST_OUT": str(out)}
+    env = {**os.environ, **run.recipe_environment(), "GOLDEN_PYTEST_OUT": str(out)}
     env["PYTHONPATH"] = os.pathsep.join([str(tools), env.get("PYTHONPATH", "")])
     options = ["-q", "-p", "no:cacheprovider", "-p", "golden_pytest_plugin"]
     subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv, no shell
