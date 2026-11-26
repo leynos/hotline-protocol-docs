@@ -23,7 +23,7 @@ SAVE_MARKER = b"reviewed-save\n"
 
 
 def account_gate(report: dict, *, absent: bool) -> None:
-    """Check the account guard (no owned key yet) or the seed (account created and read back)."""
+    """Check the account guard's lookup reply or the seed's creation and read-back replies."""
     require(report["status"] == "completed", "Account guard or seed incomplete")
     base.login_gate(report["frames"])
     record = reply(report, 30 if absent else 32)

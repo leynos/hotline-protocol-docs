@@ -197,7 +197,7 @@ def plan(name: str, steps: list[dict], environment: dict, port: int) -> dict:
 
 
 def write_plans(output: Path, environment: dict, port: int = 15800) -> dict[str, str]:
-    """Write every plan and its source hashes to the output directory."""
+    """Write every plan and a file of the plans' hashes to the output directory."""
     generated = {
         name: plan(name, steps, environment, port) for name, steps in plans().items()
     }
