@@ -21,15 +21,18 @@ MAX_BYTES = 65536
 
 
 def need(ok: bool, reason: str) -> None:
+    """Raise a value error with the reason unless the condition holds."""
     if not ok:
         raise ValueError(reason)
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def frame_key(frame: dict) -> tuple[str, int, int, int]:
+    """Return a frame's connection, reply marker, type and identifier, with unsolicited updates keyed by zero."""
     identifier = (
         0 if frame["type"] in (301, 302) and not frame["is_reply"] else frame["id"]
     )
@@ -39,12 +42,14 @@ def frame_key(frame: dict) -> tuple[str, int, int, int]:
 def expected_frame(
     frame: dict, connection: str, kind: int, identifier: int, is_reply: int
 ) -> bool:
+    """Say whether a frame has the given connection, type, identifier and reply marker."""
     return frame_key(frame) == (connection, is_reply, kind, identifier)
 
 
 def one(
     frames: list[dict], connection: str, kind: int, identifier: int, is_reply: int
 ) -> dict:
+    """Return the single frame that matches, requiring exactly one."""
     matches = [
         f for f in frames if expected_frame(f, connection, kind, identifier, is_reply)
     ]
@@ -59,6 +64,7 @@ def exact_rows(
     *,
     b_new: bool = False,
 ) -> tuple[int, int]:
+    """Check a roster reply of two members and return the two user identifiers."""
     need(
         frame["flags"] == 0
         and frame["is_reply"] == 1
@@ -90,6 +96,7 @@ def exact_rows(
 
 
 def check_setup(recorder: Recorder) -> tuple[int, int]:
+    """Check the frames of the two connections after setup and return their user identifiers."""
     a = [f for f in recorder.frames if f["connection"] == "a"]
     b = [f for f in recorder.frames if f["connection"] == "b"]
     need(len(a) == 5 and len(b) == 4, "Initial frame count differs")
@@ -138,6 +145,7 @@ class DualDrain:
     """Bounded two-socket byte collector; no expected arrival order."""
 
     def __init__(self, recorder: Recorder, epoch_deadline: float) -> None:
+        """Start the drain of the two connections with their buffers and the epoch deadline."""
         self.recorder = recorder
         self.deadline = epoch_deadline
         self.buffers = {"a": bytearray(), "b": bytearray()}
@@ -146,6 +154,7 @@ class DualDrain:
         self.frames_seen = 0
 
     def pump(self, until: float) -> None:
+        """Read what either connection has ready before the time limit and parse its frames."""
         active = {
             label: sock
             for label, sock in self.recorder.sockets.items()
@@ -201,6 +210,7 @@ class DualDrain:
     def until(
         self, required: set[tuple[str, int, int, int]], seconds: float
     ) -> list[dict]:
+        """Pump until the required frames have arrived and the buffers are empty, and return the new frames."""
         start = len(self.recorder.frames)
         stop = min(time.monotonic() + seconds, self.deadline)
         while not required.issubset(
@@ -211,6 +221,7 @@ class DualDrain:
 
 
 def check_overlap(frames: list[dict], a_uid: int, b_uid: int) -> str:
+    """Check the overlap replies and updates of both connections and return the roster outcome."""
     expected = {
         ("a", 1, 0, 11),
         ("a", 1, 0, 12),
@@ -246,6 +257,7 @@ def check_overlap(frames: list[dict], a_uid: int, b_uid: int) -> str:
 
 
 def prepared(path: Path) -> dict:
+    """Check the prepared plan against its hash and the source plan and return it."""
     raw = (path / "plan.json").read_bytes()
     plan = json.loads(raw)
     validate_plan(plan)
@@ -361,6 +373,7 @@ def verify_operation_map(plan: dict, report: dict) -> None:
 
 
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
+    """Check the plan, receipt and oracle, run the overlap case and write the report."""
     plan = prepared(plan_dir)
     receipt = json.loads(receipt_path.read_text())
     deadline = utc(receipt["deadline_utc"])
@@ -383,6 +396,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
     actions = 0
 
     def mark(label: str, event_start: int, frame_start: int) -> None:
+        """Record the event and frame ranges of a labelled operation."""
         operation_map.append(
             {
                 "label": label,
@@ -544,6 +558,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, run the capture, print the result and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan-dir", type=Path, required=True)
     parser.add_argument("--capture-receipt", type=Path, required=True)

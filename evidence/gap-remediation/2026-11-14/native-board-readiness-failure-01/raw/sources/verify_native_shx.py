@@ -31,16 +31,19 @@ LOGIN = "/server -o -l admin -p mothra19 -n shx-peer-a -i 500 127.0.0.1:15500"
 
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def fields(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields by identifier, refusing repeats."""
     values = {f["id"]: bytes.fromhex(f["hex"]) for f in frame["fields"]}
     require(len(values) == len(frame["fields"]), "Unexpected repeated scalar field")
     return values
 
 
 def frames(data: bytes) -> list[dict]:
+    """Decode every frame of a peer byte stream, refusing fragments and malformed fields."""
     result = []
     while data:
         require(len(data) >= 20, "Incomplete peer frame header")
@@ -67,6 +70,7 @@ def frames(data: bytes) -> list[dict]:
 def check_terminal(
     case: Path, source_hashes: set[str], *, commands: list[str] | None = None
 ) -> dict:
+    """Check a peer case's report, plan, profile and source hashes."""
     report = json.loads((case / "report.json").read_text())
     plan = json.loads((case / "plan.json").read_text())
     profile = json.loads((case / "peer-profile.json").read_text())
@@ -142,6 +146,7 @@ def check_terminal(
 
 
 def check_packets(case: Path, host: list[dict], guest: list[dict]) -> list[dict]:
+    """Match the peer's traced socket traffic with the host and guest packet captures."""
     trace = (case / "syscalls.log").read_text()
     records = socket_io(trace)
     require(bool(records), "Missing peer socket I/O")
@@ -201,6 +206,7 @@ def check_semantics(
     kind: str | None = None,
     login_name: bytes = b"",
 ) -> dict:
+    """Check a peer case's handshake, login and replies on the control connection."""
     case_name = kind or case.name
     control = next(c for c in connections if c["endpoint"] == 15500)
     require(
@@ -370,6 +376,7 @@ def check_semantics(
 
 
 def verify(directory: Path) -> dict:
+    """Verify the full-peer corpus and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     require(
         set(manifest["cases"]) == CASES
@@ -457,6 +464,7 @@ def verify(directory: Path) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus named on the command line and print the summary as JSON."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     args = parser.parse_args()

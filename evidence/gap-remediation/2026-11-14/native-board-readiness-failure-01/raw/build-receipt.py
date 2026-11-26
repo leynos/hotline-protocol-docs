@@ -1,11 +1,16 @@
+"""Check the running emulator against the recorded identities and build the capture receipt."""
 import datetime as dt, hashlib, json, os, shutil, subprocess
 from pathlib import Path
 R=Path('/data/leynos/Projects/mothra'); O=R/'state/native-sessions/native-board-epoch-01'; PID=1364862
 start=(O/'epoch-start.utc').read_text().strip(); deadline=(O/'case-deadline.utc').read_text().strip()
-def run(argv): return subprocess.run(argv,capture_output=True,text=True,check=True).stdout
+def run(argv):
+    """Run a command and return its output, failing on a non-zero exit."""
+    return subprocess.run(argv,capture_output=True,text=True,check=True).stdout
 def sha(p):
+ """Return the SHA-256 hex digest of a file."""
  with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 def tick(pid):
+ """Return a process's start time in clock ticks."""
  x=Path(f'/proc/{pid}/stat').read_text();return x[x.rfind(')')+2:].split()[19]
 assert tick(PID)=='7054838'
 assert Path(f'/proc/{PID}/fd/6').stat().st_ino==3290903959

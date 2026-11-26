@@ -24,15 +24,18 @@ SCHEDULE_EARLY_NS = 5_000_000  # Float seconds to monotonic-ns conversion allowa
 
 
 def need(condition: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not condition:
         raise ValueError(message)
 
 
 def digest(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def prepared(directory: Path) -> dict:
+    """Check the prepared plan against its hash and the frozen producer and return it."""
     raw = (directory / "plan.json").read_bytes()
     hashes = json.loads((directory / "source-hashes.json").read_text())
     need(hashes == {"plan.json": digest(raw)}, "Prepared plan hash differs")
@@ -48,6 +51,7 @@ class Timeline:
     """Retain complete receive chunks, parsed frames and all socket terminals."""
 
     def __init__(self, plan: dict, deadline: float) -> None:
+        """Start the timeline with its plan, deadline, recorder and empty frame lists."""
         self.plan = plan
         self.deadline = deadline
         self.recorder = Recorder({"endpoints": {"control": plan["endpoint"]}})
@@ -63,11 +67,13 @@ class Timeline:
         self.tail_bytes: dict[str, int] = {}
 
     def action(self) -> int:
+        """Return the next action number and advance it."""
         result = self.next_action
         self.next_action += 1
         return result
 
     def execute(self, step: dict) -> None:
+        """Run one plan step within the global deadline and the capture byte cap."""
         need(time.monotonic() < self.deadline, "Global liveness deadline reached")
         self.recorder.execute(
             self.action(),
@@ -81,6 +87,7 @@ class Timeline:
         need(self.recorder.byte_count <= self.max_bytes, "128KiB capture cap reached")
 
     def connect(self, name: str) -> None:
+        """Open a named flow and exchange the handshake, within the flow limits."""
         need(name not in self.recorder.sockets, "Duplicate flow")
         need(
             len(self.recorder.sockets) < self.plan["schedule"]["max_simultaneous"],
@@ -99,11 +106,13 @@ class Timeline:
         self.buffers[name] = bytearray()
 
     def send(self, name: str, raw_hex: str) -> None:
+        """Send bytes on an open flow that has not ended."""
         need(name in self.recorder.sockets, f"Unknown flow {name}")
         need(name not in self.terminals, f"Flow {name} already ended")
         self.execute({"op": "send", "connection": name, "hex": raw_hex})
 
     def poll(self, seconds: float) -> None:
+        """Read from the flows that are still open for a while and parse what arrives."""
         until = min(time.monotonic() + seconds, self.deadline)
         while time.monotonic() < until and self.recorder.sockets:
             active = {
@@ -144,6 +153,7 @@ class Timeline:
                 self._parse(name)
 
     def _parse(self, name: str) -> None:
+        """Parse the complete frames in a flow's buffer, refusing unbounded sizes."""
         buffer = self.buffers[name]
         while len(buffer) >= 20:
             size = 20 + int.from_bytes(buffer[16:20], "big")
@@ -162,17 +172,20 @@ class Timeline:
             need(len(self.frames) <= 128, "128-frame cap reached")
 
     def wait_for(self, predicate, seconds: float, label: str) -> None:
+        """Poll until the predicate holds, failing when the time limit passes."""
         end = min(time.monotonic() + seconds, self.deadline)
         while not predicate():
             need(time.monotonic() < end, f"Missing {label}")
             self.poll(min(0.05, end - time.monotonic()))
 
     def close(self, name: str) -> None:
+        """Close a flow and record the close."""
         if name in self.recorder.sockets:
             self.recorder.sockets.pop(name).close()
             self.recorder.event(self.action(), name, "close")
 
     def final_drain(self) -> None:
+        """Shut down the writing side of every open flow, read what remains briefly and close them."""
         self.tail_mode = True
         for name, sock in list(self.recorder.sockets.items()):
             if name not in self.terminals:
@@ -189,6 +202,7 @@ class Timeline:
 
 
 def matching(frames: list[dict], name: str, identifier: int) -> list[dict]:
+    """Return the direct replies with the given identifier on a flow."""
     return [
         frame
         for frame in frames
@@ -200,6 +214,7 @@ def matching(frames: list[dict], name: str, identifier: int) -> list[dict]:
 
 
 def successful(frames: list[dict], name: str, identifier: int) -> bool:
+    """Say whether a flow has exactly one reply with the identifier and it succeeded."""
     return (
         len(matching(frames, name, identifier)) == 1
         and matching(frames, name, identifier)[0]["error"] == 0
@@ -207,6 +222,7 @@ def successful(frames: list[dict], name: str, identifier: int) -> bool:
 
 
 def agreement_ok(frames: list[dict], name: str) -> bool:
+    """Say whether a flow received the one controlled agreement notice."""
     notices = [f for f in frames if f["connection"] == name and f["type"] == 109]
     return (
         len(notices) == 1
@@ -217,6 +233,7 @@ def agreement_ok(frames: list[dict], name: str) -> bool:
 
 
 def check_observer(timeline: Timeline) -> None:
+    """Check that the observer logged in, came online and received the controlled agreement."""
     need(successful(timeline.frames, "o", 1), "Observer107 failed")
     need(
         any(f["connection"] == "o" and f["type"] == 354 for f in timeline.frames),
@@ -229,6 +246,7 @@ def check_observer(timeline: Timeline) -> None:
 
 
 def check_b_preonline(timeline: Timeline) -> None:
+    """Check that flow B logged in but was not online and not on the observer's roster."""
     frames = timeline.frames
     need(successful(frames, "b", 1), "B valid107 did not succeed")
     need(
@@ -250,11 +268,13 @@ def check_b_preonline(timeline: Timeline) -> None:
 
 
 def check_failure(timeline: Timeline) -> None:
+    """Check that the failing login of flow F got one failure reply."""
     replies = matching(timeline.frames, "f", 1)
     need(len(replies) == 1 and replies[0]["error"] != 0, "F failure107 differs")
 
 
 def check_complete(timeline: Timeline) -> None:
+    """Check the completed window: the observer, flow B and the failure, the 500 replies and no reply to the incomplete 121."""
     view = Timeline(timeline.plan, time.monotonic() + 1)
     view.frames = timeline.frames[: timeline.window_frame_count]
     view.window_status = timeline.window_status
@@ -484,6 +504,7 @@ def verify_report(plan: dict, report: dict) -> None:
 
 
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
+    """Check the plan, receipt and namespace, run the liveness timeline and write the report."""
     plan = prepared(plan_dir)
     receipt = json.loads(receipt_path.read_text())
     deadline_utc = utc(receipt["deadline_utc"])
@@ -625,6 +646,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, run the capture and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan-dir", type=Path, required=True)
     parser.add_argument("--capture-receipt", type=Path, required=True)

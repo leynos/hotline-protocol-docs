@@ -19,6 +19,7 @@ MAX_PORT = 15820
 
 
 def login_steps(connection: str, name: bytes, icon: bytes) -> list[dict]:
+    """Return the steps that connect, handshake and log in a named connection with a name and icon."""
     return [
         connect(connection),
         send("54525450484f544c00010002", connection),
@@ -39,6 +40,7 @@ def login_steps(connection: str, name: bytes, icon: bytes) -> list[dict]:
 
 
 def exchange(connection: str, kind: int, identifier: int) -> list[dict]:
+    """Return the steps that send a request on a connection and read its reply."""
     return [
         send(packet(kind, identifier), connection),
         read(connection, match_frame={"is_reply": 1, "id": identifier}),
@@ -46,6 +48,7 @@ def exchange(connection: str, kind: int, identifier: int) -> list[dict]:
 
 
 def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
+    """Build the roster overlap plan for the reserved port after checking the runtime identity."""
     if port != MAX_PORT:
         raise ValueError("Roster overlap requires reserved port15820")
     required = (
@@ -174,6 +177,7 @@ def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
 
 
 def write_plan(output: Path, environment: dict, port: int = MAX_PORT) -> str:
+    """Write the plan and its hash and return the plan's hash."""
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -184,6 +188,7 @@ def write_plan(output: Path, environment: dict, port: int = MAX_PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

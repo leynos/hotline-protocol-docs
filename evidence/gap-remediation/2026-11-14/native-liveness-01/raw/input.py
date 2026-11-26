@@ -1,3 +1,4 @@
+"""Send one recorded keyboard or pointer input to display :117 through X11 and XTest."""
 import ctypes
 import sys
 import time
