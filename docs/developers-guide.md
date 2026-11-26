@@ -533,11 +533,12 @@ Four pieces use the record:
   `make import-check` does the same before it compares a file with mothra.
 - `tools/evidence_pin_view.py` serves the capture-time bytes to the verifiers
   and the tests: every read, size, copy and hard link of a pinned file inside
-  this checkout, or inside the scratch tree of the `in_legacy_layout` macro,
-  returns the pinned bytes. The targets that run verifiers or tests load it
-  through `tools/pinview/sitecustomize.py` and the root `conftest.py`, so
-  neither the verifiers nor the evidence-held scripts change. A test's own
-  scratch corpus, which may reuse a real corpus name, is not redirected.
+  this checkout, or a hard link of one (as in the scratch tree of the
+  `in_legacy_layout` macro), returns the pinned bytes. The targets that run
+  verifiers or tests load it through `tools/pinview/sitecustomize.py` and the
+  root `conftest.py`, so neither the verifiers nor the evidence-held scripts
+  change. A test's own scratch corpus, which may reuse a real corpus name, is
+  not redirected.
 - Every other recorded hash stays as it is: the non-Python evidence (images,
   packet captures, decompiler output and binaries), and the hashes of the
   pinned scripts in `scripts/pinned-sources.json`.

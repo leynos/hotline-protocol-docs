@@ -8,11 +8,11 @@ a pinned file return the bytes at its capture commit instead. The verifiers and
 tests themselves are unchanged and reach the same verdict as before.
 
 A path is pinned when it ends in a path of the record, starting at an
-``evidence`` directory that sits directly below this checkout or below the
-scratch tree of the Makefile's ``in_legacy_layout`` recipe. A test's own scratch
-corpus, which may reuse a real corpus name, is therefore left alone, and a
-symbolic link to a pinned file is followed. A write, an append or an update is
-never redirected.
+``evidence`` directory, and it is this checkout's own file or a link to it: a
+symbolic link is followed, and the hard links of the scratch tree that the
+Makefile's ``in_legacy_layout`` recipe builds are recognised. A test's own
+scratch corpus, which may reuse a real corpus name, is therefore left alone. A
+write, an append or an update is never redirected.
 
 The Makefile loads this through ``tools/pinview/sitecustomize.py`` for every
 recipe, so the subprocesses that verifiers start see the same view. The root
@@ -34,8 +34,6 @@ if typ.TYPE_CHECKING:
     import pinned_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
-# The Makefile's in_legacy_layout recipe names its scratch tree in this variable.
-ROOT_VARIABLE = "EVIDENCE_PIN_VIEW_ROOT"
 WRITE_MODES = frozenset("wax+")
 # The fields of a stat result that are also its first ten sequence items.
 SEQUENCE = frozenset({
@@ -104,28 +102,25 @@ def _record() -> pinned_evidence.PinRecord | None:
     return _view.record
 
 
-def _roots() -> tuple[Path, ...]:
-    """List the directories whose ``evidence`` directory the view serves.
+def _is_checkout_file(path: Path, relative: str) -> bool:
+    """Say whether ``path`` is the checkout's ``relative`` file, or a hard link of it.
 
-    Returns
-    -------
-    tuple[pathlib.Path, ...]
-        This checkout, and the scratch tree that a recipe names in
-        ``EVIDENCE_PIN_VIEW_ROOT``.
-    """
-    scratch = os.environ.get(ROOT_VARIABLE)
-    return (ROOT, Path(scratch).resolve()) if scratch else (ROOT,)
-
-
-def _held(parts: tuple[str, ...], index: int, roots: tuple[Path, ...]) -> bool:
-    """Say whether ``parts[index]`` is the evidence directory of a served root.
+    The Makefile's ``in_legacy_layout`` recipe builds its scratch tree by hard
+    links (``cp -al``), so a file that is not this checkout's own file or a link
+    to it, such as a test's scratch corpus that reuses a real name, is left alone.
 
     Returns
     -------
     bool
-        ``True`` if it is named ``evidence`` directly below one of the roots.
+        ``True`` for the checkout's file or a link to it.
     """
-    return index > 0 and parts[index] == "evidence" and Path(*parts[:index]) in roots
+    own = ROOT / relative
+    if path == own:
+        return True
+    try:
+        return os.path.samestat(path.stat(), own.stat())
+    except OSError:
+        return False
 
 
 def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
@@ -136,12 +131,13 @@ def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
     str | None
         The repository-relative path, or ``None``.
     """
-    roots = _roots()
     for resolved in (Path(name).absolute(), Path(name).resolve()):
         parts = resolved.parts
-        for index in range(len(parts)):
+        for index in range(1, len(parts)):
             candidate = "/".join(parts[index:])
-            if _held(parts, index, roots) and candidate in record.pins:
+            if parts[index] != "evidence" or candidate not in record.pins:
+                continue
+            if _is_checkout_file(resolved, candidate):
                 return candidate
     return None
 
