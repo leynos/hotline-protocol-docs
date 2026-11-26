@@ -16,11 +16,13 @@ PCAP_MAGIC = {
 
 
 def require(condition: bool, reason: str) -> None:
+    """Raise a value error with the reason unless the condition holds."""
     if not condition:
         raise ValueError(reason)
 
 
 def parse_show(output: str) -> dict[str, str]:
+    """Parse the key=value lines of systemctl show output."""
     return dict(line.split("=", 1) for line in output.splitlines() if "=" in line)
 
 
@@ -43,11 +45,13 @@ def duration_us(value: str) -> int:
 
 def process_start(pid: int) -> int:
     # The comm field can contain spaces and parentheses; count after its last ')'.
+    """Return a process's start time in clock ticks from its stat file."""
     fields = pathlib.Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
     return int(fields[19])  # field 22, after state (field 3)
 
 
 def namespace_inode(pid: int) -> int:
+    """Return the inode number of a process's network namespace."""
     link = os.readlink(f"/proc/{pid}/ns/net")
     match = re.fullmatch(r"net:\[(\d+)\]", link)
     if match is None:
@@ -56,6 +60,7 @@ def namespace_inode(pid: int) -> int:
 
 
 def writable_capture_fd(pid: int, capture: pathlib.Path) -> int:
+    """Return the descriptor on which a process holds the capture file open for writing."""
     expected = capture.stat()
     require(stat.S_ISREG(expected.st_mode), "capture is not a regular file")
     for entry in pathlib.Path(f"/proc/{pid}/fd").iterdir():
@@ -93,6 +98,7 @@ def validate(
     now_utc: dt.datetime,
     deadline_utc: dt.datetime,
 ) -> None:
+    """Require the capture unit, process, namespace, file and header to be as expected before the deadline."""
     require(show.get("ActiveState") == "active", "capture unit is not active")
     require(show.get("SubState") == "running", "capture unit is not running")
     require(int(show.get("MainPID", "0")) == pid and pid > 0, "dead or changed MainPID")
@@ -125,6 +131,7 @@ def check(
     expected_netns: int,
     deadline_utc: dt.datetime,
 ) -> dict[str, object]:
+    """Inspect the capture unit and process and return the readiness record."""
     require(
         re.fullmatch(r"[a-zA-Z0-9_.@-]+\.service", unit) is not None,
         "invalid unit name",
@@ -196,6 +203,7 @@ def check(
 
 
 def main() -> None:
+    """Parse the command line, check the capture is ready and print the record."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--unit", required=True)
     parser.add_argument("--pcap", type=pathlib.Path, required=True)

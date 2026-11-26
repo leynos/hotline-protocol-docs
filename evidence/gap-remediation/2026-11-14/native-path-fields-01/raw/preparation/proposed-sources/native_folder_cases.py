@@ -24,17 +24,20 @@ ORDER = [
 
 
 def path(parts: tuple[bytes, ...]) -> bytes:
+    """Encode path components as a protocol path field."""
     return struct.pack(">H", len(parts)) + b"".join(
         b"\0\0" + bytes([len(p)]) + p for p in parts
     )
 
 
 def descriptor(parts: tuple[bytes, ...], directory: bool) -> bytes:
+    """Encode a folder item descriptor from its path and whether it is a directory."""
     value = struct.pack(">H", int(directory)) + path(parts)
     return struct.pack(">H", len(value)) + value
 
 
 def word(value: int) -> dict:
+    """Return the plan step that reads a two-byte word from the folder connection and expects its value."""
     return {
         "op": "read",
         "connection": "folder",
@@ -47,6 +50,7 @@ def word(value: int) -> dict:
 def upload_start(
     root: bytes, count: int, size: int, resume: bool = False
 ) -> list[dict]:
+    """Build the steps that open a folder upload and read the server's first reply."""
     values = [
         (201, root),
         (220, count.to_bytes(2, "big")),
@@ -70,6 +74,7 @@ def upload_start(
 
 
 def upload_fresh() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plan that uploads a fresh folder tree item by item."""
     items = [
         (True, (b"empty",)),
         (True, (b"inner",)),
@@ -106,6 +111,7 @@ def upload_fresh() -> dict[str, tuple[list[dict], dict]]:
 
 
 def download_start(root: bytes, empty: bool = False) -> list[dict]:
+    """Build the steps that open a folder download and, unless it is empty, connect its transfer channel."""
     steps = session("a") + [send(packet(210, 10, payload([(201, root)])), "a")]
     if empty:
         return steps + [read("a", match_frame={"is_reply": 1, "id": 10}), close("a")]
@@ -121,6 +127,7 @@ def download_start(root: bytes, empty: bool = False) -> list[dict]:
 
 
 def read_descriptor(index: int) -> list[dict]:
+    """Build the steps that request and read one item descriptor of a folder download."""
     return [
         send("0003", "folder"),
         {
@@ -140,6 +147,7 @@ def read_descriptor(index: int) -> list[dict]:
 
 
 def skip_all() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plan that skips every item of a folder download."""
     steps = download_start(ROOT)
     for index in range(5):
         steps += read_descriptor(index)
@@ -157,6 +165,7 @@ def skip_all() -> dict[str, tuple[list[dict], dict]]:
 
 
 def downloads() -> dict[str, tuple[list[dict], dict]]:
+    """Build one plan per variant that downloads a folder, with full, resumed, mixed and unusual control sequences."""
     cases = {}
     for variant in ["full", "resume", "mixed", "unknown-control", "delayed-choice"]:
         steps = download_start(ROOT)

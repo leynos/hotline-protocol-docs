@@ -19,6 +19,7 @@ MARKER_TEXT = b"a41-explicit-auto"
 
 
 def barrier(identifier: int) -> list[dict]:
+    """Return the steps that make both connections answer a request and then go quiet."""
     steps = []
     for name in ("main", "subject"):
         steps += [
@@ -30,6 +31,7 @@ def barrier(identifier: int) -> list[dict]:
 
 
 def message(identifier: int, text: bytes, *, automatic: bool) -> list[dict]:
+    """Return the steps that send a private message, with its replies and the barrier that follows."""
     steps = [
         variable_message(
             108,
@@ -46,6 +48,7 @@ def message(identifier: int, text: bytes, *, automatic: bool) -> list[dict]:
 
 
 def observation(phase: int) -> tuple[list[dict], dict]:
+    """Build the steps and expectation of one persistence phase: logins, identity, baseline message and settings stages."""
     steps = login() + [
         send(packet(300, 10)),
         read(match_frame={"is_reply": 1, "id": 10}),
@@ -139,6 +142,7 @@ def observation(phase: int) -> tuple[list[dict], dict]:
 
 
 def plans(runtime: dict, port: int) -> dict[str, dict]:
+    """Build the plans of both phases for an unprivileged control port after checking the provenance."""
     if runtime.get("source_a7_sha256") != A7_SHA:
         raise ValueError("A7 provenance differs")
     if not 1024 <= port <= 65532 or port in {15500, 15501}:
@@ -172,6 +176,7 @@ def plans(runtime: dict, port: int) -> dict[str, dict]:
 
 
 def main() -> None:
+    """Write each phase plan and the hashes of the plans and their sources to the output directory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--port", type=int, required=True)

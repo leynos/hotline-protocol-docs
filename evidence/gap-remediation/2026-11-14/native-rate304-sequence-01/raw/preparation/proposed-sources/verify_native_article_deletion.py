@@ -38,6 +38,7 @@ CATEGORY_ERROR = (
 
 
 def scalar_controls(specifications: list[dict]) -> None:
+    """Check that the deletion cases have the expected scalar values and recursion flags."""
     expected = {
         "absent": (None, False),
         "empty": ("", False),
@@ -66,10 +67,12 @@ def scalar_controls(specifications: list[dict]) -> None:
 
 
 def graph(mode: str) -> tuple[list[int], dict[int, tuple[int, int, int, int]]]:
+    """Return the traversal order and the link fields of the article tree in a mode."""
     roots, children = TREES[mode]
     order, links = [], {}
 
     def visit(siblings: list[int], parent: int) -> None:
+        """Record the links of one sibling list and then of each sibling's descendants."""
         for index, identifier in enumerate(siblings):
             descendants = children.get(identifier, [])
             links[identifier] = (
@@ -86,6 +89,7 @@ def graph(mode: str) -> tuple[list[int], dict[int, tuple[int, int, int, int]]]:
 
 
 def list_records(value: bytes, mode: str) -> dict[int, dict]:
+    """Decode an article list and check its order and metadata against the tree."""
     rows = articles(value)
     order, links = graph(mode)
     require([r["id"] for r in rows] == order, "Deletion traversal differs")
@@ -105,6 +109,7 @@ def list_records(value: bytes, mode: str) -> dict[int, dict]:
 
 
 def error(frame: dict, message: bytes) -> None:
+    """Require a failed reply with the given message."""
     require(
         frame["error"] == 1 and fields(frame) == {100: message},
         "Deletion error differs",
@@ -112,6 +117,7 @@ def error(frame: dict, message: bytes) -> None:
 
 
 def body(frame: dict, identifier: int, rows: dict[int, dict], mode: str) -> None:
+    """Check the reply that reads an article body, or its error when the article is gone."""
     if identifier not in rows:
         error(frame, BODY_ERROR)
         return
@@ -134,6 +140,7 @@ def body(frame: dict, identifier: int, rows: dict[int, dict], mode: str) -> None
 
 
 def measured_wait(report: dict, operation: str) -> None:
+    """Require a pause or quiet event that lasted at least three seconds."""
     event_name = "quiet" if operation == "expect_quiet" else "pause"
     events = report["events"]
     found = [i for i, e in enumerate(events) if e["event"] == event_name]
@@ -146,6 +153,7 @@ def measured_wait(report: dict, operation: str) -> None:
 
 
 def deletion(report: dict, spec: dict) -> bytes:
+    """Check one deletion case's replies and the surviving article list."""
     before = list_records(fields(reply(report, 10))[321], "unchanged")
     after_value = fields(reply(report, 20))[321]
     after = list_records(after_value, spec["mode"])
@@ -189,6 +197,7 @@ def deletion(report: dict, spec: dict) -> bytes:
 
 
 def catalogue(directory: Path, references: dict[str, bytes]) -> None:
+    """Check the final storage catalogue against the article tree."""
     final = directory / "native-final"
     rows = json.loads((final / "extraction.json").read_text())["records"]
     require(len(rows) == 27, "Deletion positive catalogue inventory differs")
@@ -255,6 +264,7 @@ def catalogue(directory: Path, references: dict[str, bytes]) -> None:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the article deletion corpus and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     inventory = json.loads((directory / "resume-inventory.json").read_text())
     specifications = cases.specs()

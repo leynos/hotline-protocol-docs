@@ -4,6 +4,7 @@ from native_plan import close, connect, eof, login, packet, payload, read, send
 
 
 def session(name: str) -> list[dict]:
+    """Return the login steps on a named connection."""
     return [{**s, "connection": name} for s in login()]
 
 
@@ -16,6 +17,7 @@ def request(
     empty: bool = False,
     empty_preview: bool = False,
 ) -> list[dict]:
+    """Return the steps that request a fixture download in a mode and save its reference and size."""
     filename = b"mothra-empty-fixture" if empty else b"mothra-fork-fixture"
     values = [(201, filename)]
     if mode is not None:
@@ -30,6 +32,7 @@ def request(
 
 
 def cancel(owner: str, identifier: int, variable: str | None) -> list[dict]:
+    """Return the steps that cancel a download by its saved reference and read the reply."""
     value = payload([(107, b"REF!")]) if variable else b"\0\0"
     encoded = packet(214, identifier, value)
     if variable:
@@ -41,6 +44,7 @@ def cancel(owner: str, identifier: int, variable: str | None) -> list[dict]:
 
 
 def pump(owner: str, identifier: int, seconds: int = 3) -> list[dict]:
+    """Return the steps that pause and then exchange a request so that the queue advances."""
     return [
         {"op": "pause", "seconds": seconds},
         send(packet(500, identifier), owner),
@@ -49,6 +53,7 @@ def pump(owner: str, identifier: int, seconds: int = 3) -> list[dict]:
 
 
 def attach(variable: str) -> list[dict]:
+    """Return the steps that open the data connection of a saved reference."""
     return [
         connect(variable, "data"),
         send("48545846{" + variable + "}0000000000000000", variable),
@@ -56,6 +61,7 @@ def attach(variable: str) -> list[dict]:
 
 
 def take(owner: str, variable: str, identifier: int) -> list[dict]:
+    """Return the steps that read a whole download, cancel it and close its connection."""
     return (
         attach(variable)
         + [
@@ -72,6 +78,7 @@ def take(owner: str, variable: str, identifier: int) -> list[dict]:
 
 
 def queues() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plan that queues downloads in every mode and then takes them in order."""
     modes = session("a") + request("a", 10, "blocker")
     specs = [
         (0, False),
@@ -131,6 +138,7 @@ def queues() -> dict[str, tuple[list[dict], dict]]:
 
 
 def timer() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plan that lets a queued download wait until its pending timeout expires."""
     steps = session("a") + request("a", 10, "expired") + request("a", 11, "waiting")
     for index in range(12):
         steps += pump("a", 100 + index, 45)
