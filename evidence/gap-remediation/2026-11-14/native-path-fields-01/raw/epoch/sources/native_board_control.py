@@ -346,7 +346,7 @@ def check_segment(
 def post(
     wire: Wire, index: int, data: bytes, overhead: int | None
 ) -> tuple[bytes, int | None]:
-    """Post a body from the sender connection and check the update that the readers receive."""
+    """Post a body from the sender connection and check the update that the readers receive, or for the oversized post the error reply and the absence of an update."""
     before = len(wire.recorder.frames)
     wire.send("sender", bytes.fromhex(cases.post_packet(index, data)))
     identifier = 1000 + index
