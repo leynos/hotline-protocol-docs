@@ -546,6 +546,13 @@ Four pieces use the record:
 
 The pinned commits must be in the local history, so a shallow clone fails.
 
+A verifier that is run by hand, outside `make` and outside `pytest`, reads the
+documented files as they are, so its hash checks of an evidence `.py` file
+fail. Run it with the view on the path, for example
+`PYTHONPATH=tools/pinview python3
+scripts/verify_native_roster_overlap.py --corpus <corpus>`,
+or through the `make` target that already does.
+
 ### Capture identity
 
 A script that records its own identity in a capture declares a literal
