@@ -26,7 +26,10 @@ Read this file before changing anything.
 - Never add, remove, re-status or re-word a gap in the register as a side
   effect of other work.
 - Never rewrite, reformat or lint a file under `evidence/`. Its bytes are
-  covered by recorded hashes.
+  covered by recorded hashes. The one exception is a `.py` file there, which
+  may gain docstrings and nothing else: `scripts/pinned-evidence.json` names
+  the commit at which each carries its recorded hash, and `make pins-check`
+  rejects any other change to the code.
 - Never alter a quoted byte string, hash, address or wire token to satisfy the
   spelling gate. Put the token in backticks, or add an exact entry to
   `typos.local.toml`.

@@ -126,7 +126,7 @@ or the plan gives one, how long it takes.
 | `make spelling`                  | en-GB-oxendict spelling, through `typos-config-builder`                                                                                                                                  | Through `markdownlint`                                                | No                                                             | Not stated      |
 | `make nixie`                     | Mermaid diagrams validate                                                                                                                                                                | After a change to a diagram                                           | No                                                             | Not stated      |
 | `make json-check`                | Every tracked JSON file is in canonical layout; evidence files are exempt by hash                                                                                                        | After editing JSON                                                    | Yes                                                            | Not stated      |
-| `make pins-check`                | Each pinned script is in the local history and carries its recorded hash                                                                                                                 | After a change to `scripts/pinned-sources.json` or to a pinned script | Yes                                                            | Not stated      |
+| `make pins-check`                | Each pinned script and evidence `.py` file is in the local history, and carries its recorded hash or only docstrings                                                                     | After a change to `scripts/pinned-sources.json` or to a pinned script | Yes                                                            | Not stated      |
 | `make links-check`               | Every Markdown link, fragment and mothra reference. The run must examine at least 2000 links                                                                                             | After any Markdown change                                             | Yes                                                            | Not stated      |
 | `make evidence-check`            | Cited identifiers, scripts, gap statuses, the remaining-work ledger, corpus families and the evidence indexes. The run must examine at least 400 ledger citations and 700 evidence links | After changing a citation or a status                                 | Yes                                                            | Not stated      |
 | `make evidence-index`            | Regenerates `docs/<set>/evidence.md` for every set. It writes files                                                                                                                      | After citations change                                                | No                                                             | Not stated      |
@@ -507,6 +507,42 @@ module reports the shallow clone as the cause. A pin also depends on its commit
 remaining in the history. The plan lists a pushed tag on `efea44a` as a step
 that is still to be done before a squash merge, which would otherwise leave the
 three scripts pinned to that commit without it.
+
+### Pinned evidence scripts
+
+Every `.py` file under `evidence/` is named by hashes that were recorded when
+it was captured: in the corpus's `SHA256SUMS`, in manifests and reports, and in
+constants held by the verifiers. `scripts/pinned-evidence.json` (schema version
+one) names, for each of those files, the `commit` whose copy carries the
+recorded hash. All of them were added by the import commits `7e85eae` and
+`efea44a`. The recorded hashes are unchanged and remain true statements about
+the bytes at that commit, so a file may gain docstrings without any record
+being rewritten.
+
+Four pieces use the record:
+
+- `tools/pinned_evidence_cli.py check` (part of `make pins-check`) requires
+  every tracked `evidence/**/*.py` file to be in the record, reads its bytes
+  from the pinned commit, and accepts the working file only when it equals them
+  or differs only by docstrings, that is, when the two syntax trees are equal
+  once every docstring is removed. Any other edit fails, so documenting a
+  capture cannot change what it does. The `generate` command rebuilds the
+  record from the history of a tree whose evidence files are still as imported.
+- `tools/check_sums.py` hashes a pinned file as the pinned commit holds it, so
+  `make sums-check` and the `SHA256SUMS` files are unchanged.
+  `make import-check` does the same before it compares a file with mothra.
+- `tools/evidence_pin_view.py` serves the capture-time bytes to the verifiers
+  and the tests: every read, size, copy and hard link of a pinned file inside
+  this checkout, or inside the scratch tree of the `in_legacy_layout` macro,
+  returns the pinned bytes. The targets that run verifiers or tests load it
+  through `tools/pinview/sitecustomize.py` and the root `conftest.py`, so
+  neither the verifiers nor the evidence-held scripts change. A test's own
+  scratch corpus, which may reuse a real corpus name, is not redirected.
+- Every other recorded hash stays as it is: the non-Python evidence (images,
+  packet captures, decompiler output and binaries), and the hashes of the
+  pinned scripts in `scripts/pinned-sources.json`.
+
+The pinned commits must be in the local history, so a shallow clone fails.
 
 ### Capture identity
 

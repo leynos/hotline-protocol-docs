@@ -23,6 +23,7 @@ from pathlib import Path
 import cyclopts
 from evidence_corpus import corpus_of, load_excluded
 from lfs_rule import POINTER_PREFIX, check_lfs
+from pinned_evidence import RECORD_RELATIVE, PinRecord, load_record
 from sums_parse import SumsEntry, parse_sums
 from tool_support import MissingInputError, invoke
 from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
@@ -122,9 +123,13 @@ class Run:
     excluded: frozenset[str]
     report: SumsReport
     hashes: dict[Path, str] = dc.field(default_factory=dict)
+    pins: PinRecord | None = None
 
     def hash_of(self, path: Path) -> str | None:
         """Hash a file, or return ``None`` for a Git LFS pointer.
+
+        A pinned evidence ``.py`` file is hashed as it is at its capture commit,
+        because the recorded hashes name those bytes (``scripts/pinned-evidence.json``).
 
         Returns
         -------
@@ -132,6 +137,10 @@ class Run:
             The hexadecimal SHA-256 of the content.
         """
         if path not in self.hashes:
+            name = path.relative_to(self.root).as_posix()
+            if self.pins is not None and name in self.pins.pins:
+                self.hashes[path] = hashlib.sha256(self.pins.read(name)).hexdigest()
+                return self.hashes[path]
             with path.open("rb") as handle:
                 if handle.read(len(POINTER_PREFIX)) == POINTER_PREFIX:
                     return None
@@ -265,7 +274,8 @@ def check(request: SumsRequest) -> SumsReport:
     excluded = frozenset()
     if request.curation or curation_path.is_file():
         excluded = load_excluded(curation_path)
-    run = Run(root, withheld, excluded, SumsReport())
+    pins = load_record(root) if (root / RECORD_RELATIVE).is_file() else None
+    run = Run(root, withheld, excluded, SumsReport(), pins=pins)
     for sums in sorted((root / "evidence").rglob(SUMS_NAME)):
         run.report.files += 1
         _read_file(run, sums)
