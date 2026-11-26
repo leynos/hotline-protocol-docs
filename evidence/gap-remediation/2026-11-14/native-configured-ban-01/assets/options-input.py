@@ -43,7 +43,7 @@ def click(x, y):
     time.sleep(.12)
 
 def type_public(value):
-    """Type the public address 10.0.2.2, refusing any other value."""
+    """Type the address 10.0.2.2, refusing any other value."""
     if value != '10.0.2.2':
         raise SystemExit('unexpected public IP input')
     for char in value:
