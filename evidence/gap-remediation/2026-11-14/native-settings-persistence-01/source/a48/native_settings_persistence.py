@@ -37,7 +37,7 @@ def frame_at(report: dict, index: int, connection: str, kind: int) -> dict:
 
 
 def gate_readiness(report: dict, plan: dict) -> None:
-    """Check the readiness capture and its plan, naming the readiness check in any failure."""
+    """Check the readiness capture and its plan, prefixing a missing-field or value failure with the readiness check's name."""
     try:
         require(report["status"] == "completed", "capture failed")
         require(plan["expectation"]["case"] == "control-readiness", "wrong case")
