@@ -298,6 +298,28 @@ def test_a_failed_record_load_is_not_served_as_live_bytes(
     assert evidence_pin_view._view.loaded, "the record is loaded once it is complete"
 
 
+def test_an_unreadable_record_is_not_a_missing_one(
+    view: View, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A record that cannot be read fails the reader; only an absent one yields none."""
+    record = view.root / pinned_evidence.RECORD_RELATIVE
+    record.chmod(0)
+    monkeypatch.setattr(evidence_pin_view, "_view", evidence_pin_view._View())
+    try:
+        if os.access(record, os.R_OK):
+            pytest.skip("the file mode is not enforced for this user")
+        with pytest.raises(PermissionError):
+            (view.root / NAME).read_bytes()
+        with pytest.raises(PermissionError):
+            pinned_evidence.optional_record(view.root)
+    finally:
+        record.chmod(0o644)
+    record.unlink()
+    assert pinned_evidence.optional_record(view.root) is None, (
+        "an absent record is none"
+    )
+
+
 def test_a_write_reaches_the_live_file(view: View) -> None:
     """Only reads are redirected, so a rewritten live file is still caught."""
     (view.root / NAME).write_text(CHANGED, encoding="utf-8")

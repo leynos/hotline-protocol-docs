@@ -142,16 +142,19 @@ def load_record(root: Path) -> PinRecord:
     Raises
     ------
     MissingInputError
-        If the record file does not exist.
+        If the record file does not exist. A record that exists but cannot be
+        read raises the ``OSError``, never ``MissingInputError``.
     PinRecordError
         If it is malformed.
     """
     record = root / RECORD_RELATIVE
-    if not record.is_file():
-        message = f"{RECORD_RELATIVE} does not exist"
-        raise MissingInputError(message)
     try:
-        document = json.loads(record.read_text(encoding="utf-8"))
+        text = record.read_text(encoding="utf-8")
+    except FileNotFoundError as error:
+        message = f"{RECORD_RELATIVE} does not exist"
+        raise MissingInputError(message) from error
+    try:
+        document = json.loads(text)
         pins = {item["path"]: item["commit"] for item in document["files"]}
     except (ValueError, KeyError, TypeError) as error:
         message = f"cannot read {RECORD_RELATIVE}: {error}"
@@ -164,6 +167,21 @@ def load_record(root: Path) -> PinRecord:
             message = f"the commit of {path} is not 40 lower-case hexadecimal digits"
             raise PinRecordError(message)
     return PinRecord(root, pins)
+
+
+def optional_record(root: Path) -> PinRecord | None:
+    """Read the pin record, or return ``None`` when the tree has none.
+
+    Returns
+    -------
+    PinRecord | None
+        The record. An unreadable or malformed record raises, so that no caller
+        falls back to the live bytes.
+    """
+    try:
+        return load_record(root)
+    except MissingInputError:
+        return None
 
 
 def read_live(path: Path) -> bytes:

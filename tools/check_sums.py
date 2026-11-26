@@ -23,7 +23,7 @@ from pathlib import Path
 import cyclopts
 from evidence_corpus import corpus_of, load_excluded
 from lfs_rule import POINTER_PREFIX, check_lfs
-from pinned_evidence import RECORD_RELATIVE, PinRecord, load_record
+from pinned_evidence import PinRecord, optional_record
 from sums_parse import SumsEntry, parse_sums
 from tool_support import MissingInputError, invoke
 from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
@@ -274,7 +274,7 @@ def check(request: SumsRequest) -> SumsReport:
     excluded = frozenset()
     if request.curation or curation_path.is_file():
         excluded = load_excluded(curation_path)
-    pins = load_record(root) if (root / RECORD_RELATIVE).is_file() else None
+    pins = optional_record(root)
     run = Run(root, withheld, excluded, SumsReport(), pins=pins)
     for sums in sorted((root / "evidence").rglob(SUMS_NAME)):
         run.report.files += 1

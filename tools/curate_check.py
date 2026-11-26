@@ -19,10 +19,9 @@ from evidence_files import CitingRoot, cited_paths, citing_files, list_files
 from git_lossless import as_arg, git_names, git_text
 from lfs_rule import POINTER_PREFIX
 from pinned_evidence import (
-    RECORD_RELATIVE,
     PinRecord,
     PinUnavailableError,
-    load_record,
+    optional_record,
 )
 from tool_support import MissingInputError
 from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
@@ -184,11 +183,7 @@ def _judge(request: CheckRequest, pins: PinRecord | None, name: str) -> str | No
 
 def _compare(request: CheckRequest, names: list[str], result: CheckResult) -> None:
     """Compare the content of ``names`` here and in the source."""
-    pins = (
-        load_record(request.root)
-        if (request.root / RECORD_RELATIVE).is_file()
-        else None
-    )
+    pins = optional_record(request.root)
     with futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
         verdicts = list(pool.map(functools.partial(_judge, request, pins), names))
     result.failures += [v for v in verdicts if v]
