@@ -9,10 +9,10 @@ import dataclasses as dc
 import sys
 import typing as typ
 
-import cyclopts
-
 if typ.TYPE_CHECKING:
     import collections.abc as cabc
+
+    import cyclopts
 
 EXIT_OK = 0
 EXIT_FINDINGS = 1
@@ -68,6 +68,10 @@ def invoke(app: cyclopts.App, argv: cabc.Sequence[str] | None) -> int:
         ``--help`` handled the invocation, or ``EXIT_MISSING`` for usage errors
         and missing inputs.
     """
+    # Imported here so that the plain tool modules, and the evidence pin view that
+    # loads in every verifier, import under an interpreter without Cyclopts.
+    import cyclopts
+
     try:
         result = app(None if argv is None else list(argv), exit_on_error=False)
     except cyclopts.CycloptsError as exc:

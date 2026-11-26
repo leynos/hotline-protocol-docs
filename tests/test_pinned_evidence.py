@@ -5,8 +5,10 @@ import io
 import json
 import os
 import shutil
-import typing as typ
+import subprocess  # ruff: ignore[suspicious-subprocess-import]  # a clean interpreter
+import sys
 from concurrent import futures
+from pathlib import Path
 
 import evidence_pin_view
 import pinned_evidence
@@ -16,9 +18,7 @@ from git_helpers import commit_files
 from repo_files import git
 from tool_support import EXIT_FINDINGS, EXIT_MISSING, EXIT_OK
 
-if typ.TYPE_CHECKING:
-    from pathlib import Path
-
+TOOLS = Path(__file__).resolve().parents[1] / "tools"
 NAME = "evidence/gap-remediation/2026-11-13/native-pm-01/verify.py"
 ORIGINAL = "import json\n\n\ndef verify(path):\n    return json.loads(path)\n"
 DOCUMENTED = (
@@ -318,6 +318,23 @@ def test_an_unreadable_record_is_not_a_missing_one(
     assert pinned_evidence.optional_record(view.root) is None, (
         "an absent record is none"
     )
+
+
+def test_the_view_loads_without_cyclopts(view: View) -> None:
+    """An interpreter that cannot import Cyclopts still serves the captured bytes."""
+    code = (
+        "import sys, pathlib\n"
+        "sys.modules['cyclopts'] = None\n"
+        f"sys.path.insert(0, {str(TOOLS)!r})\n"
+        "import evidence_pin_view as v\n"
+        f"v.ROOT = pathlib.Path({str(view.root.resolve())!r})\n"
+        "v.install()\n"
+        f"sys.stdout.write(open({str(view.root / NAME)!r}).read())\n"
+    )
+    done = subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true]  # fixed argv
+        [sys.executable, "-c", code], capture_output=True, text=True, check=False
+    )
+    assert done.stdout == ORIGINAL, done.stderr
 
 
 def test_a_write_reaches_the_live_file(view: View) -> None:
