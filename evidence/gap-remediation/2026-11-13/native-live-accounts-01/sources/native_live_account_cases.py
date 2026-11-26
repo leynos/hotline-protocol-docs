@@ -148,7 +148,7 @@ def delete() -> tuple[list[dict], dict]:
 
 
 def probe(label: str) -> tuple[list[dict], dict]:
-    """Build the plan that logs in with one of the account states and records whether it succeeds."""
+    """Build the plan that logs in with one of the account states, recording the result that the case expects."""
     values = {
         "old": (LIVE, OLD, False),
         "intermediate": (LIVE, CHANGED, False),

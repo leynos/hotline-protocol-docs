@@ -44,7 +44,7 @@ def seed() -> tuple[list[dict], dict]:
 
 
 def append(first: int, last: int) -> tuple[list[dict], dict]:
-    """Build the plan that appends a bounded range of child articles and lists the category twice."""
+    """Build the plan that lists the category, appends a bounded range of child articles and lists the category twice more."""
     if not 1 <= first <= last <= 102 or last - first >= 10:
         raise ValueError("Child append must be a bounded range within 1..102")
     steps = login() + exchange(371, 10, [(325, CATEGORY)])

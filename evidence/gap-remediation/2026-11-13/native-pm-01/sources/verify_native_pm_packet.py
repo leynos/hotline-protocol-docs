@@ -47,7 +47,7 @@ def inventory(root: Path) -> None:
 
 
 def full_readback(root: Path, label: str, source: dict) -> dict:
-    """Check that a preflight or postflight capture replays the full baseline sequence with the same replies."""
+    """Check that a preflight or postflight capture replays the full baseline sequence and that replies 10, 11 and 12 match the baseline's."""
     path = root / label
     report = verify_capture(path)
     plan_raw = (path / "plan.json").read_bytes()
@@ -111,7 +111,7 @@ def full_readback(root: Path, label: str, source: dict) -> dict:
 
 
 def check_pm(root: Path) -> tuple[dict, dict]:
-    """Check the observe capture and its saved semantic receipt and return the main and peer identifiers."""
+    """Check the observe capture and its saved semantic receipt and return the capture report and the semantic result."""
     report = verify_capture(root / "observe")
     plan = json.loads((root / "observe/plan.json").read_text())
     require(report["completed_actions"] == 151, "PM action count differs")

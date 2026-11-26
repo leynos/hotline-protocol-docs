@@ -218,7 +218,7 @@ def specs() -> list[dict]:
 
 
 def create() -> dict:
-    """Build one plan per case that creates an alias and reads the folders around it."""
+    """Build one plan per case that attempts to create an alias, including the missing-source and permission cases, and reads the folders around it."""
     result = {}
     for expected in specs():
         steps = login()

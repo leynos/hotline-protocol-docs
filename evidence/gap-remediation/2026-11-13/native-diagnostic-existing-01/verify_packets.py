@@ -108,7 +108,7 @@ def check_case(case: str, baseline: dict) -> dict:
 
 
 def main() -> None:
-    """Verify both captures against the preflight baseline and print or write the result."""
+    """Verify both captures against the preflight baseline; write the result to --output when given, and print only its status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     arguments = parser.parse_args()

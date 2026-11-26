@@ -297,8 +297,6 @@ enable = [
 
 [tool.interrogate]
 fail-under = 100
-# Two decimals, so that one missed docstring in thousands cannot round up to 100.
-precision = 2
 verbose = 1
 
 [tool.pytest.ini_options]

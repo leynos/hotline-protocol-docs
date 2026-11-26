@@ -106,7 +106,7 @@ def mutate(label: str) -> tuple[list[dict], dict]:
 
 
 def probe(label: str, password: bytes, success: bool) -> tuple[list[dict], dict]:
-    """Build the plan that logs in with a password and records whether it succeeds."""
+    """Build the plan that logs in with a password, recording whether the case expects it to succeed."""
     steps = login()[:3] + [authentication(key(label), password), read()]
     if success:
         steps += [read(), read()] + exchange(500, 90, [])

@@ -259,7 +259,7 @@ def deletions() -> dict:
 
 
 def finalization() -> dict:
-    """Build the plan that flushes and reads back every folder the cases touched."""
+    """Build the plan that flushes and reads back the root, base, source and destination folders."""
     steps = login() + upload(80, b"flush", BASE)
     steps += (
         exchange(200, 90, [(202, b"\0\0")])

@@ -265,7 +265,7 @@ def states() -> dict:
 
 
 def reauthentication() -> dict:
-    """Build the plans that authenticate a second time, before and after the first request."""
+    """Build the plans that send acceptance before the first authentication, or authenticate twice before acceptance."""
     cases = {}
     for before in [False, True]:
         steps = [{**s, "connection": "observer"} for s in login()] + roster(10)

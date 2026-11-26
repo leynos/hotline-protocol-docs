@@ -319,7 +319,7 @@ def conditional_cleanup(
 
 
 def main() -> None:
-    """Write the plan for the chosen case, or the conditional cleanup plans, to the output directory."""
+    """Write the plan for the chosen case to the output file, or the conditional cleanup plans to the output directory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("case", choices=CASES)
     parser.add_argument("--runtime-record", required=True, type=Path)
