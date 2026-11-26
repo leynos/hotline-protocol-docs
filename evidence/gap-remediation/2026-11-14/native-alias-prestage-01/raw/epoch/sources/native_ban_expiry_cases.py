@@ -57,7 +57,7 @@ def target_login(key: bytes, password: bytes, name: bytes) -> list[dict]:
 
 
 def account_guard(key: bytes) -> list[dict]:
-    """Return the plan that checks an account key does not exist."""
+    """Return the plan that looks an account key up."""
     return login() + exchange(352, 30, [(105, key)]) + [close()]
 
 

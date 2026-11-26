@@ -61,7 +61,7 @@ def login_gate(frames: list[dict]) -> None:
 
 
 def readiness(report: dict) -> None:
-    """Check that the short readiness capture completed and every control reply matches the baseline."""
+    """Check that the short readiness capture completed, that the control replies succeed and match their baselines where one exists, and the roster count."""
     require(
         report["status"] == "completed" and report["completed_actions"] == 18,
         "Short readiness incomplete",
@@ -258,7 +258,7 @@ def after(report: dict) -> None:
 
 
 def capture_gate(receipt: dict) -> None:
-    """Check the capture receipt: no primary contact, no external route and valid capture files."""
+    """Check the capture receipt's primary-contact count and route fields and the PCAP magic bytes of its capture files, which is not a validity check."""
     require(
         receipt["primary_syn_count"] == 0 and receipt["ns_routes"] == [],
         "Primary contact or external route",

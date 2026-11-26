@@ -56,7 +56,7 @@ def values(label: str) -> list[tuple[int, bytes]]:
 
 
 def preflight() -> tuple[list[dict], dict]:
-    """Build the plan that confirms no owned account exists before the capture."""
+    """Build the plan that looks up the owned accounts before the capture."""
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -127,7 +127,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
-    """Build the plan that deletes the owned accounts and flush files."""
+    """Build the plan that deletes the owned accounts and moves the flush files to Trash."""
     steps = login()
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(351, identifier, [(105, complement(key(label)))])
