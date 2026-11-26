@@ -107,8 +107,9 @@ def _is_checkout_file(path: Path, relative: str) -> bool:
 
     A checkout is this one, or a legacy layout that the Makefile's
     ``in_legacy_layout`` recipe builds (hard links or copies of ``evidence/``
-    beside a copy of ``scripts/``, which holds the pin record). A test's own
-    scratch corpus, which may reuse a real corpus name, holds no such record.
+    beside a copy of ``scripts/``, which holds the pin record, and no ``.git``).
+    A test's own scratch corpus holds no such record, and another checkout has
+    its own history and bytes.
 
     Returns
     -------
@@ -116,7 +117,9 @@ def _is_checkout_file(path: Path, relative: str) -> bool:
         ``True`` for a file of a checkout or of a legacy layout.
     """
     root = path.parents[len(Path(relative).parts) - 1]
-    return root == ROOT or (root / RECORD_RELATIVE).is_file()
+    if root == ROOT:
+        return True
+    return (root / RECORD_RELATIVE).is_file() and not (root / ".git").exists()
 
 
 def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
