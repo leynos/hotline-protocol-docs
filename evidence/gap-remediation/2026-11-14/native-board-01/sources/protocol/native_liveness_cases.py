@@ -17,10 +17,12 @@ MAX_SECONDS = 135
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
+    """Build the liveness plan for the reserved control port after checking the runtime identity."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only reserved control-only port15840 is prepared")
     required = (
@@ -160,6 +162,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
 
 
 def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
+    """Write the plan and its hash and return the plan's hash."""
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -172,6 +175,7 @@ def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

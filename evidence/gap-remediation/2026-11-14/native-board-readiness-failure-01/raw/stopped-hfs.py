@@ -1,7 +1,9 @@
+"""Check that the emulator is gone and nothing holds the working image, then extract the expected files from it and record their hashes."""
 import datetime as dt,hashlib,json,os,subprocess
 from pathlib import Path
 R=Path('/data/leynos/Projects/mothra');O=R/'state/native-sessions/native-board-epoch-01';W=R/'state/mac-runtime/native-board-01/working.dsk'; B=R/'tools/sleuthkit/usr/bin';E=dict(os.environ,LD_LIBRARY_PATH=str(R/'tools/sleuthkit/usr/lib64'))
 def run(label,argv,env=None):
+ """Run a command and save its output and exit status under the label."""
  p=subprocess.run(argv,capture_output=True,env=env,check=False);(O/f'{label}.stdout').write_bytes(p.stdout);(O/f'{label}.stderr').write_bytes(p.stderr);(O/f'{label}.exit').write_text(str(p.returncode)+'\n');return p
 assert not Path('/proc/1364862').exists()
 fuser=run('stopped-fuser',['sudo','-n','fuser',str(W)]);assert fuser.returncode==1 and not fuser.stdout and not fuser.stderr

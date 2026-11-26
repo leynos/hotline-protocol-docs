@@ -1,3 +1,4 @@
+"""Prepare the board runtime: copy the image, record every identity and write the evidence."""
 from __future__ import annotations
 
 import datetime as dt
@@ -30,10 +31,12 @@ EXPECTED = {
 }
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file."""
     with path.open('rb') as f:
         return hashlib.file_digest(f, 'sha256').hexdigest()
 
 def meta(path: Path, with_hash=True) -> dict:
+    """Return a path's inode, device, size, mode and modification time, and optionally its hash."""
     s = path.stat()
     d = {'path': str(path), 'inode': s.st_ino, 'dev': s.st_dev, 'size': s.st_size,
          'mode': oct(stat.S_IMODE(s.st_mode)), 'mtime_ns': s.st_mtime_ns}
@@ -42,6 +45,7 @@ def meta(path: Path, with_hash=True) -> dict:
     return d
 
 def run(label: str, argv: list[str], *, env=None, binary=False) -> subprocess.CompletedProcess:
+    """Run a command, save its output and exit status and fail on an unexpected non-zero exit."""
     p = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, check=False)
     (OUT / f'{label}.stdout').write_bytes(p.stdout)
     (OUT / f'{label}.stderr').write_bytes(p.stderr)

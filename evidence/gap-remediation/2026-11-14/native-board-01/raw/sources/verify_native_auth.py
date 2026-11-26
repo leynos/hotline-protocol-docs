@@ -31,6 +31,7 @@ BYPASS = bytes.fromhex("0000003000000000")
 
 
 def cases() -> dict:
+    """Return every authentication case plan."""
     return (
         seed()
         | lookup(missing_guest=True)
@@ -43,10 +44,12 @@ def cases() -> dict:
 
 
 def selected(report: dict, connection: str) -> list[dict]:
+    """Return a connection's frames from the report."""
     return [f for f in report["frames"] if f["connection"] == connection]
 
 
 def reply(report: dict, identifier: int, connection: str = "main") -> dict:
+    """Return the one reply frame with the given identifier on a connection."""
     matches = [
         f
         for f in selected(report, connection)
@@ -57,6 +60,7 @@ def reply(report: dict, identifier: int, connection: str = "main") -> dict:
 
 
 def roster(frame: dict) -> list[dict]:
+    """Decode the roster records of a user list reply."""
     records = []
     for item in frame["fields"]:
         require(item["id"] == 300, "Unexpected roster parameter")
@@ -77,6 +81,7 @@ def roster(frame: dict) -> list[dict]:
 
 
 def check_lookup(report: dict, expected: dict, agreement: bytes) -> None:
+    """Check a lookup case's login outcome against its expectation."""
     frames = report["frames"]
     if expected["success"]:
         require(
@@ -125,6 +130,7 @@ def check_lookup(report: dict, expected: dict, agreement: bytes) -> None:
 def check_state(
     name: str, report: dict, expected: dict, agreement: bytes | None
 ) -> dict:
+    """Check one session-state case: the subject's login replies and what the observer's roster showed."""
     subject = selected(report, "subject")
     views = {
         f["id"]: roster(f)
@@ -260,6 +266,7 @@ def check_state(
 
 
 def verify_accounts(directory: Path) -> bytes:
+    """Check the extracted account snapshot against the expected accounts and return the agreement bytes."""
     root = directory / "native-accounts"
     extraction = json.loads((root / "extraction.json").read_text())
     files = [r for r in extraction["records"] if not r["directory"]]
@@ -314,6 +321,7 @@ def verify_accounts(directory: Path) -> bytes:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the authentication corpus (cases, accounts, packets and reports) and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     expected = cases()
     require(
@@ -489,6 +497,7 @@ def verify(directory: Path) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus named on the command line and print the case count."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     result = verify(parser.parse_args().directory)

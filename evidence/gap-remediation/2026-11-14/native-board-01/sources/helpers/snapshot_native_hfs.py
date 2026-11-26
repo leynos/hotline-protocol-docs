@@ -108,6 +108,7 @@ def snapshot(
 
 
 def main() -> None:
+    """Parse the command line and write a snapshot of the HFS catalogue entries under the given roots."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--image", type=Path, required=True)
     parser.add_argument("--tsk-bin", type=Path, required=True)

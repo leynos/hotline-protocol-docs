@@ -10,6 +10,7 @@ BASE = path((ROOT,))
 
 
 def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> list[dict]:
+    """Return the steps that send one request and read its reply."""
     return [
         send(packet(kind, identifier, payload(values))),
         read(match_frame={"is_reply": 1, "id": identifier}),
@@ -17,6 +18,7 @@ def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> lis
 
 
 def seed() -> dict:
+    """Build the plan that creates the folders and file the cases use."""
     steps = login() + exchange(200, 9, [(202, b"\0\0")])
     for identifier, name, parent in [
         (10, ROOT, b"\0\0"),
@@ -60,6 +62,7 @@ def seed() -> dict:
 
 
 def specs() -> list[dict]:
+    """Return the folder creation cases, each with its name, parent, view and role."""
     cases = []
 
     def add(
@@ -69,6 +72,7 @@ def specs() -> list[dict]:
         view: bytes = BASE,
         role: str = "admin",
     ) -> None:
+        """Append one folder creation case to the list."""
         cases.append(
             {
                 "case": label,
@@ -157,6 +161,7 @@ def specs() -> list[dict]:
 
 
 def creation() -> dict:
+    """Build one plan per case that creates a folder and reads the parent back."""
     cases = {}
     for expected in specs():
         steps = login()
@@ -177,6 +182,7 @@ def creation() -> dict:
 
 
 def finalization() -> dict:
+    """Build the plan that uploads a flush file and reads back the folders the cases made."""
     body = file_stream(b"", b"")
     steps = login() + [
         send(
@@ -222,6 +228,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the owned folders and the flush file."""
     names = (
         [ROOT]
         + [bytes.fromhex(c["name_hex"]) for c in specs() if c["view_hex"] == "0000"]
