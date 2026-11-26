@@ -22,6 +22,7 @@ SYNTHETIC_PORTS = range(15650, 15660)
 
 
 def validate_target(port: int, *, synthetic: bool) -> tuple[str, int]:
+    """Require a fixed loopback target port to be allowed and return its address."""
     if (synthetic and port not in SYNTHETIC_PORTS) or (
         not synthetic and port not in (15500, 15501)
     ):
@@ -30,12 +31,14 @@ def validate_target(port: int, *, synthetic: bool) -> tuple[str, int]:
 
 
 def abstract_x_address(display: str) -> bytes:
+    """Return the abstract socket address of a local X display."""
     if re.fullmatch(r":[0-9]{1,3}", display) is None:
         raise ValueError("Expected one local X display number")
     return b"\0/tmp/.X11-unix/X" + display[1:].encode("ascii")
 
 
 def bind_abstract_x(display: str) -> socket.socket:
+    """Bind a listening socket to the abstract address of an X display."""
     listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
     try:
         listener.bind(abstract_x_address(display))
@@ -47,6 +50,7 @@ def bind_abstract_x(display: str) -> socket.socket:
 
 
 def check_socket_path(path: Path) -> None:
+    """Require the bridge socket to sit in a private existing directory below the state tree."""
     if not path.is_absolute() or not path.parent.resolve().is_relative_to(
         ROOT / "state"
     ):
@@ -78,6 +82,7 @@ def bind_unix(path: Path) -> tuple[socket.socket, int]:
 
 
 def connect_unix(path: Path) -> socket.socket:
+    """Connect to a bridge socket through its checked parent directory descriptor."""
     check_socket_path(path)
     peer = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
     try:
@@ -105,6 +110,7 @@ def safe_unlink(path: Path, inode: int) -> bool:
 
 
 def wait_for_bridge(path: Path, timeout: float = 5) -> None:
+    """Wait until the bridge socket and its ready record exist, or time out."""
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         if (path.parent / f"{path.stem}-ready.json").is_file() and path.is_socket():
@@ -119,6 +125,7 @@ def relay_pair(left: socket.socket, right: socket.socket) -> None:
     right.settimeout(None)
 
     def pump(source: socket.socket, destination: socket.socket) -> None:
+        """Copy bytes from one socket to the other until the source closes, then shut down the destination's writing side."""
         try:
             while data := source.recv(65536):
                 destination.sendall(data)
@@ -146,6 +153,7 @@ def serve(
     listener.settimeout(0.2)
 
     def handle(client: socket.socket) -> None:
+        """Relay one accepted client to a freshly dialled peer and release its capacity slot."""
         try:
             with client:
                 remote = dial()
@@ -174,6 +182,7 @@ def serve(
 def run_host_bridge(
     path: Path, target: object, dial: Callable[[], socket.socket]
 ) -> None:
+    """Listen on a socket path, write the ready record and relay every client to the fixed target."""
     listener, inode = bind_unix(path)
     ready = path.parent / f"{path.stem}-ready.json"
     stop = threading.Event()
@@ -201,6 +210,7 @@ def run_host_bridge(
 
 
 def host_bridge(path: Path, target_port: int, *, synthetic: bool) -> None:
+    """Run a host bridge to a validated loopback TCP port."""
     target = validate_target(target_port, synthetic=synthetic)
     run_host_bridge(
         path,
@@ -210,9 +220,11 @@ def host_bridge(path: Path, target_port: int, *, synthetic: bool) -> None:
 
 
 def host_x_bridge(path: Path, display: str) -> None:
+    """Run a host bridge to a local X display."""
     address = abstract_x_address(display)
 
     def dial() -> socket.socket:
+        """Connect to the X display's abstract socket."""
         peer = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         try:
             peer.connect(address)
@@ -225,6 +237,7 @@ def host_x_bridge(path: Path, display: str) -> None:
 
 
 def check_namespace() -> None:
+    """Require the network namespace to hold only the loopback interface and no routes."""
     ip = shutil.which("ip")
     if ip is None:
         raise FileNotFoundError("ip")
@@ -247,6 +260,7 @@ def check_namespace() -> None:
 
 
 def namespace_bootstrap(args: argparse.Namespace) -> None:
+    """Bring up loopback, check the namespace and run the supervisor as the target identity."""
     if os.geteuid() != 0 or args.uid <= 0 or args.gid <= 0:
         raise ValueError("Bootstrap needs root and a non-root target identity")
     ip = shutil.which("ip")
@@ -282,6 +296,7 @@ def namespace_bootstrap(args: argparse.Namespace) -> None:
 
 
 def checked_bridge_pidfd(path: Path, expected_target: object | None = None) -> int:
+    """Check a bridge's ready record against its socket and return a descriptor for its process."""
     check_socket_path(path)
     ready = json.loads((path.parent / f"{path.stem}-ready.json").read_text())
     if (
@@ -294,6 +309,7 @@ def checked_bridge_pidfd(path: Path, expected_target: object | None = None) -> i
 
 
 def tcp_target_record(port: int, *, synthetic: bool) -> dict:
+    """Return the record that describes a TCP bridge target."""
     return {
         "kind": "tcp",
         "address": list(validate_target(port, synthetic=synthetic)),
@@ -302,6 +318,7 @@ def tcp_target_record(port: int, *, synthetic: bool) -> dict:
 
 
 def namespace_supervise(args: argparse.Namespace) -> int:
+    """Run the namespace's listeners and bridges and supervise the child command."""
     check_namespace()
     if args.listen_port != 15500 or not args.command:
         raise ValueError("Namespace listener must be fixed at 15500 with a child")
@@ -393,6 +410,7 @@ def namespace_supervise(args: argparse.Namespace) -> int:
 
 
 def main() -> None:
+    """Parse the command line and run the chosen bridge or namespace role."""
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="role", required=True)
     bridge = commands.add_parser("host-bridge")

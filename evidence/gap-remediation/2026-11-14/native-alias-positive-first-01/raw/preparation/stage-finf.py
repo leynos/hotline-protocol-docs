@@ -1,3 +1,4 @@
+"""Stage the Finder information payload for the alias target and record the result."""
 from __future__ import annotations
 
 import datetime as dt
@@ -20,10 +21,12 @@ EXPECTED_SOURCE = '3121708131dd9398a22d1ae3f1035b4e1d99613a13cbbb1b27d9b874a024b
 
 
 def sha(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def details(s: os.stat_result) -> dict:
+    """Return a file's device, inode, size, mode, owner, link count and modification time."""
     return {'device': s.st_dev, 'inode': s.st_ino, 'size': s.st_size,
             'mode': oct(stat.S_IMODE(s.st_mode)), 'uid': s.st_uid,
             'gid': s.st_gid, 'nlink': s.st_nlink, 'mtime_ns': s.st_mtime_ns}

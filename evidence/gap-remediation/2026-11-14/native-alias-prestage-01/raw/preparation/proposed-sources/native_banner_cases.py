@@ -59,6 +59,7 @@ def metadata(phase: str, tag: bytes | None, link: bytes | None) -> dict:
 
 
 def request() -> list[dict]:
+    """Return the steps that request the banner and save its reference and size."""
     return [
         send(packet(212, 10)),
         read(
@@ -69,6 +70,7 @@ def request() -> list[dict]:
 
 
 def attach(reference: str = "{ref}", selector: int = 2) -> list[dict]:
+    """Return the steps that open the banner data connection with a reference and selector."""
     return [
         connect("banner", "data"),
         send("48545846" + reference + "00000000" + f"{selector:04x}0000", "banner"),
@@ -76,6 +78,7 @@ def attach(reference: str = "{ref}", selector: int = 2) -> list[dict]:
 
 
 def image() -> dict:
+    """Build the plans that fetch the banner image with each selector and reference."""
     cases = metadata("local-a", b"GIFf", LINK)
     for name, selector, reference in [
         ("raw", 2, "{ref}"),

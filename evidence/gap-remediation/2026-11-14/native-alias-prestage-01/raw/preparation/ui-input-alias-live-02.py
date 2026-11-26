@@ -19,15 +19,18 @@ ACTIONS = ("capture", "move", "click", "double-click", "down", "up", "escape")
 
 
 def digest(path):
+    """Return the SHA-256 hex digest of a file."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def case_window(start, now):
+    """Say whether now falls within 110 seconds after the case start."""
     start = dt.datetime.fromisoformat(start)
     return start.tzinfo is not None and start <= now < start + dt.timedelta(seconds=110)
 
 
 def managed(unit, user=False):
+    """Require a managed unit to be running and return its main process identifier."""
     argv = (
         [
             "sudo",
@@ -53,6 +56,7 @@ def managed(unit, user=False):
 
 
 def display_identity():
+    """Check the display service's command and process and return its identity."""
     display = json.loads((D / "display-service.json").read_text())
     argv = display["command"][display["command"].index("--") + 1 :]
     assert argv == [
@@ -86,6 +90,7 @@ def display_identity():
 
 
 def gate(phase):
+    """Check the deadline, display identity, disk readiness and emulator identity before any input."""
     deadline = dt.datetime.fromisoformat((O / "case-deadline.utc").read_text().strip())
     assert deadline.tzinfo is not None and dt.datetime.now(dt.UTC) < deadline
     assert json.loads((O / "display-identity.json").read_text()) == display_identity()
@@ -176,6 +181,7 @@ def gate(phase):
 
 
 def append_log(path, event):
+    """Append one JSON event to the root-owned input log and sync it."""
     fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT | os.O_NOFOLLOW, 0o600)
     try:
         os.fchmod(fd, 0o600)
@@ -187,6 +193,7 @@ def append_log(path, event):
 
 
 def main():
+    """Check the gates, send one recorded input action to the display and log it."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("phase", choices=PHASES)
     parser.add_argument("action", choices=ACTIONS)

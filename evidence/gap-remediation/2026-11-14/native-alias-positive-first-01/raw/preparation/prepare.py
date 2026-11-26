@@ -1,3 +1,4 @@
+"""Prepare the alias-live runtime: copy the image, record every identity and write the evidence."""
 from __future__ import annotations
 
 import datetime as dt
@@ -34,10 +35,12 @@ record = {'scope': 'C133 stopped alias-live preparation only', 'started_utc': dt
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def meta(path: Path, *, hash_bytes: bool = True) -> dict:
+    """Return a path's device, inode, size, mode, times and owner, and optionally its hash."""
     s = path.stat()
     answer = {'path': str(path), 'dev': s.st_dev, 'inode': s.st_ino,
               'size': s.st_size, 'mode': oct(stat.S_IMODE(s.st_mode)),
@@ -49,6 +52,7 @@ def meta(path: Path, *, hash_bytes: bool = True) -> dict:
 
 
 def run(name: str, argv: list[str], *, env=None, expected: int = 0) -> bytes:
+    """Run a command, save its output and exit status and require the expected exit status."""
     proc = subprocess.run(argv, cwd=ROOT, env=env, capture_output=True, check=False)
     (OUT / f'{name}.stdout').write_bytes(proc.stdout)
     (OUT / f'{name}.stderr').write_bytes(proc.stderr)
@@ -61,6 +65,7 @@ def run(name: str, argv: list[str], *, env=None, expected: int = 0) -> bytes:
 
 
 def tick(pid: int) -> str:
+    """Return a process's start time in clock ticks."""
     raw = Path(f'/proc/{pid}/stat').read_text()
     return raw[raw.rfind(')') + 2:].split()[19]
 
