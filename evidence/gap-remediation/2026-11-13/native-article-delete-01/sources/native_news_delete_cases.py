@@ -21,7 +21,7 @@ NODES = [
 
 
 def specs() -> list[dict]:
-    """Return the article deletion cases, each with its category, article, recursion flag and role."""
+    """Return the article deletion cases, each with its case name, hexadecimal value and mode."""
     result = []
     for label, value, recursive in [
         ("absent", None, False),
@@ -222,7 +222,7 @@ def deletions() -> dict:
 
 
 def finalization() -> dict:
-    """Build the plan that flushes and reads back every category and article."""
+    """Build the plan that flushes, lists every category and reads back the articles of the denied category."""
     steps = login() + upload(80, b"m-nd24-flush", b"\0\0")
     for identifier, spec in enumerate(specs(), 100):
         steps += exchange(371, identifier, [(325, path((ROOT, spec["case"].encode())))])
@@ -241,7 +241,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the root category and the flush file."""
+    """Build the plan that deletes the root category and moves the flush file to Trash."""
     steps = (
         login()
         + exchange(380, 10, [(325, BASE)])

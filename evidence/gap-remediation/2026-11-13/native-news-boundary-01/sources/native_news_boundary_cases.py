@@ -89,7 +89,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
-    """Build the plan that deletes the news folder and the flush file."""
+    """Build the plan that deletes the news folder and moves the flush file to Trash."""
     steps = login() + exchange(380, 10, [(325, BASE)])
     steps += exchange(204, 11, [(201, b"m-nb25-flush")])
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])

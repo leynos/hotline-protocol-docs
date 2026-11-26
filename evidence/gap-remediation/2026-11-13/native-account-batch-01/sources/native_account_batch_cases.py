@@ -351,7 +351,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup(existing: list[str]) -> tuple[list[dict], dict]:
-    """Build the plan that deletes the observed owned accounts and flush files."""
+    """Build the plan that deletes the observed owned accounts and moves the flush files to Trash."""
     if len(set(existing)) != len(existing) or not set(existing) <= set(OWNED + EXTRA):
         raise ValueError("Cleanup requires a unique observed owned inventory")
     steps = login()
