@@ -29,43 +29,19 @@ PYTHON_TARGETS = $(shell git ls-files --cached --others \
 	--exclude-standard 'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py' \
 	'scripts/*.py' 'scripts/**/*.py')
 # Interrogate scans these directories recursively, so a new Python file under
-# them is measured without a list to update. The evidence directories join as each
-# is documented (the docstrings are held to the pinned code by pins-check). Interrogate
+# them is measured without a list to update, evidence/ included (its docstrings are
+# held to the pinned code by pins-check). Interrogate
 # rounds to the decimals of its threshold, so one missed docstring among thousands
 # passes at 100; the second invocation in lint-python fails on any MISSED row.
-INTERROGATE_TARGETS ?= tools tests scripts evidence/gap-remediation/2026-11-13 \
-	evidence/gap-remediation/2026-11-14/native-board-01 \
-	evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01 \
-	evidence/gap-remediation/2026-11-14/native-liveness-01 \
-	evidence/gap-remediation/2026-11-14/native-roster-overlap-01 \
-	evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01 \
-	evidence/gap-remediation/2026-11-14/native-alias-positive-first-01 \
-	evidence/gap-remediation/2026-11-14/native-alias-prestage-01 \
-	evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01
+INTERROGATE_TARGETS ?= tools tests scripts evidence
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
-# More documented evidence corpora (rate limit, path fields, persistence).
-INTERROGATE_TARGETS += evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01 \
-	evidence/gap-remediation/2026-11-14/native-rate304-sequence-01 \
-	evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01 \
-	evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01 \
-	evidence/gap-remediation/2026-11-14/native-path-fields-01 \
-	evidence/gap-remediation/2026-11-14/native-settings-persistence-01
 # Recipes run the inherited scripts as `python3`, as the documents do. The project
 # environment leads PATH so that a script already brought to the df12 standard
 # finds Cyclopts and cuprum, and an evidence-held verifier that imports one of
 # the scripts runs under the same interpreter.
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
-# More documented evidence corpora (the ban corpora and the rest).
-INTERROGATE_TARGETS += evidence/gap-remediation/2026-11-14/account-write-ordering-01 \
-	evidence/gap-remediation/2026-11-14/native-121-defaults-01 \
-	evidence/gap-remediation/2026-11-14/native-ban-control-01 \
-	evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01 \
-	evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01 \
-	evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01 \
-	evidence/gap-remediation/2026-11-14/native-ban-reload-01 \
-	evidence/gap-remediation/2026-11-14/native-configured-ban-01
 # Every interpreter that these targets start reads each evidence .py file as it was
 # captured (scripts/pinned-evidence.json), so the file may gain docstrings while the
 # hashes recorded for it stay true; see tools/evidence_pin_view.py.
@@ -228,7 +204,7 @@ curation-skip:
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(RUFF_ROOT) $(PYTHON_TARGETS)
 	$(UV) run --group dev interrogate --fail-under 100 $(INTERROGATE_TARGETS)
-	@! $(UV) run --group dev interrogate -vv $(INTERROGATE_TARGETS) | grep -q ' MISSED ' || { printf 'interrogate: a definition has no docstring\n' >&2; exit 1; }
+	@! $(UV) run --group dev interrogate -vv $(INTERROGATE_TARGETS) | grep '| *MISSED *|' >/dev/null || { printf 'interrogate: a definition has no docstring\n' >&2; exit 1; }
 	$(PYLINT) $(PYTHON_TARGETS)
 	$(DF12_PYLINT) $(PYTHON_TARGETS)
 
