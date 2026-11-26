@@ -17,6 +17,7 @@ A7_SHA = "5d0aa3dccf65fc6523678aa729c9ace72cd6caffbef768b7f5bf949e6568b43e"
 
 
 def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> list[dict]:
+    """Return the steps that send one request and read its reply."""
     return [
         send(packet(kind, identifier, payload(values))),
         read(match_frame={"is_reply": 1, "id": identifier}),
@@ -25,6 +26,7 @@ def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> lis
 
 def plans() -> dict[str, list[dict]]:
     # 7 login + five correlated exchanges + close = 18. No 202/HTXF.
+    """Build the ban control plans: the ready sequence and the probes that follow it."""
     ready = login()
     ready += exchange(348, 10, [])
     ready += exchange(200, 11, [(202, b"\0\0")])
@@ -80,6 +82,7 @@ def plans() -> dict[str, list[dict]]:
 
 
 def write_plans(output: Path, environment: dict, port: int) -> dict:
+    """Write the ban control plans for an owned lab port and return their identities."""
     if port in {15500, 15501} or not 1024 <= port <= 65534:
         raise ValueError("Control endpoint must be an owned lab port")
     if environment.get("source_a7_sha256") != A7_SHA:

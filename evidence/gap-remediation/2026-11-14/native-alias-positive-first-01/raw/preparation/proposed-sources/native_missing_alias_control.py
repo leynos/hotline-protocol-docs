@@ -34,20 +34,24 @@ SCREEN_KEYS = (
 
 
 class Wire(RateWire):
+    """A control wire that also counts requests and keeps partial results."""
     request_count: int = 0
     partial: dict
 
 
 def need(ok: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not ok:
         raise ValueError(message)
 
 
 def digest(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def prepared(directory: Path) -> dict:
+    """Check the prepared plan against its source hashes and return it."""
     raw = (directory / "plan.json").read_bytes()
     expected = {
         "plan.json": digest(raw),
@@ -67,6 +71,7 @@ def prepared(directory: Path) -> dict:
 
 
 def host_state(plan: dict) -> dict:
+    """Record the identity and content of the owned target and its Finder record on the host."""
     runtime = Path(plan["environment"]["owned_runtime"])
     need(
         runtime.is_absolute() and runtime.name == "native-alias-live-01",
@@ -131,6 +136,7 @@ def host_state(plan: dict) -> dict:
 
 
 def same_data_target(before: dict, after: dict) -> None:
+    """Require the owned target's identity and content to be unchanged."""
     for key in (
         "path",
         "dev",
@@ -149,6 +155,7 @@ def same_data_target(before: dict, after: dict) -> None:
 
 
 def same_target(before: dict, after: dict) -> None:
+    """Require the owned parents, target and Finder record to be unchanged across the interface step."""
     need(before["parents"] == after["parents"], "Owned parent changed across UI")
     same_data_target(before, after)
     for key in (
@@ -169,6 +176,7 @@ def same_target(before: dict, after: dict) -> None:
 
 
 def operator_gate(receipt: dict, plan: dict) -> bytes:
+    """Check the operator receipt against the plan and return the receipt bytes."""
     need(
         receipt.get("schema_version") == 1
         and receipt.get("target_name_hex") == plan["target"]["basename_hex"]
@@ -217,6 +225,7 @@ def operator_gate(receipt: dict, plan: dict) -> bytes:
 
 
 def check_screens(receipt: dict, directory: Path) -> None:
+    """Check that each Finder screenshot exists and matches its recorded hash."""
     need(
         (directory / "screens").is_dir() and not (directory / "screens").is_symlink(),
         "Finder screenshot directory differs",
@@ -232,6 +241,7 @@ def check_screens(receipt: dict, directory: Path) -> None:
 
 
 def exact_fields(frame: dict) -> dict[int, bytes]:
+    """Return a well-formed reply's fields, refusing malformed or repeated ones."""
     value = fields(frame)
     need(
         frame["flags"] == 0
@@ -245,6 +255,7 @@ def exact_fields(frame: dict) -> dict[int, bytes]:
 
 
 def direct(frames: list[dict], identifier: int) -> dict:
+    """Return the one successful direct reply with the given identifier."""
     matches = [
         f
         for f in frames
@@ -263,6 +274,7 @@ def direct(frames: list[dict], identifier: int) -> dict:
 
 
 def positive_alias(frame: dict, name: bytes) -> dict:
+    """Check that a reply identifies the resolved tagged alias and describe it."""
     value = exact_fields(frame)
     need(
         value.get(201) == name
@@ -280,6 +292,7 @@ def positive_alias(frame: dict, name: bytes) -> dict:
 
 
 def exchange(wire: Wire, spec: dict, alias: bytes | None = None) -> dict:
+    """Send one planned request, wait for its reply and count it."""
     raw = cases.request_hex(spec, alias)
     wire.send("main", raw, spec["label"])
     wire.request_count += 1
@@ -291,6 +304,7 @@ def exchange(wire: Wire, spec: dict, alias: bytes | None = None) -> dict:
 
 
 def perform(wire: Wire, plan: dict, receipt_path: Path, guard) -> None:
+    """Run the missing-alias sequence: host checks, operator step, requests and the positive alias check."""
     wire.partial = {
         "request_count": 0,
         "mutation_count": 0,
@@ -395,6 +409,7 @@ def run(
     binary: Path,
     output: Path,
 ) -> dict:
+    """Check the plans and receipts, run the capture and write the result."""
     plan = prepared(plan_dir)
     receipt_raw = capture_receipt.read_bytes()
     receipt = json.loads(receipt_raw)
@@ -484,6 +499,7 @@ def run(
 
 
 def main() -> None:
+    """Parse the command line, run the capture and print its status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan-dir", type=Path, required=True)
     parser.add_argument("--capture-receipt", type=Path, required=True)

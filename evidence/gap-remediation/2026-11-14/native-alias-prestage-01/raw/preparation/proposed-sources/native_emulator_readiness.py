@@ -20,22 +20,26 @@ class NotReady(Exception):
 
 
 def require(condition: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not condition:
         raise ValueError(message)
 
 
 def utc_deadline(value: str) -> dt.datetime:
+    """Parse an ISO deadline that carries an offset and return it in UTC."""
     deadline = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
     require(deadline.tzinfo is not None, "deadline needs a UTC offset")
     return deadline.astimezone(dt.timezone.utc)
 
 
 def start_ticks(pid: int) -> int:
+    """Return a process's start time in clock ticks."""
     fields = pathlib.Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
     return int(fields[19])
 
 
 def netns_inode(pid: int) -> int:
+    """Return the inode number of a process's network namespace."""
     match = re.fullmatch(r"net:\[(\d+)\]", os.readlink(f"/proc/{pid}/ns/net"))
     require(match is not None, "invalid network namespace")
     assert match is not None
@@ -43,6 +47,7 @@ def netns_inode(pid: int) -> int:
 
 
 def exact_file(path: pathlib.Path) -> os.stat_result:
+    """Require an absolute path to a regular file that is not a symbolic link and return its stat."""
     require(
         path.is_absolute() and not path.is_symlink(),
         "path must be absolute and not symlink",
@@ -53,6 +58,7 @@ def exact_file(path: pathlib.Path) -> os.stat_result:
 
 
 def fd_identity(pid: int, number: int, path: pathlib.Path) -> tuple[int, int]:
+    """Require a descriptor to refer to the expected file and return its device and inode."""
     fd = pathlib.Path(f"/proc/{pid}/fd/{number}")
     require(os.readlink(fd) == str(path), f"FD{number} path differs")
     actual, expected = fd.stat(), exact_file(path)
@@ -64,6 +70,7 @@ def fd_identity(pid: int, number: int, path: pathlib.Path) -> tuple[int, int]:
 
 
 def candidate_pids(working: pathlib.Path) -> list[int]:
+    """List the processes that hold the working image open on descriptor 6."""
     expected = exact_file(working)
     matches = []
     for proc in pathlib.Path("/proc").iterdir():
@@ -83,6 +90,7 @@ def candidate_pids(working: pathlib.Path) -> list[int]:
 
 
 def exe_hash(pid: int) -> str:
+    """Return the SHA-256 of a process's executable."""
     digest = hashlib.sha256()
     with pathlib.Path(f"/proc/{pid}/exe").open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
@@ -93,6 +101,7 @@ def exe_hash(pid: int) -> str:
 def disk_snapshot(
     pid: int, working: pathlib.Path, inode: int, expected_hash: str, uid: int
 ) -> dict[str, object]:
+    """Check the emulator's image, owner, executable and namespace and return its identity."""
     dev, actual_inode = fd_identity(pid, 6, working)
     require(actual_inode == inode, "working image inode differs")
     proc_uid = pathlib.Path(f"/proc/{pid}").stat().st_uid
@@ -116,6 +125,7 @@ def disk_snapshot(
 
 
 def capture_snapshot(pid: int, guest: pathlib.Path) -> dict[str, object]:
+    """Check the emulator's capture descriptor and PCAP header and return the snapshot."""
     dev, inode = fd_identity(pid, 16, guest)
     flags_line = next(
         x
@@ -159,6 +169,7 @@ def check(
     guest: pathlib.Path | None = None,
     wait_seconds: float = 30,
 ) -> dict[str, object]:
+    """Wait for the emulator to be ready for the phase and return the readiness record."""
     require(phase in ("disk", "capture"), "invalid phase")
     require(
         len(expected_hash) == 64
@@ -232,6 +243,7 @@ def check(
 
 
 def write_exclusive(path: pathlib.Path, result: dict[str, object]) -> None:
+    """Write the record to a new file and remove it again if the write fails."""
     require(
         path.is_absolute() and not path.is_symlink(),
         "output needs absolute nonsymlink path",
@@ -249,6 +261,7 @@ def write_exclusive(path: pathlib.Path, result: dict[str, object]) -> None:
 
 
 def main() -> None:
+    """Parse the command line, check the emulator is ready and write the record."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", choices=("disk", "capture"), required=True)
     parser.add_argument("--working-image", type=pathlib.Path, required=True)

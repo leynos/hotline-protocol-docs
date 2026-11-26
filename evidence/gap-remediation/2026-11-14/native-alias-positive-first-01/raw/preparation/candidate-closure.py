@@ -15,6 +15,7 @@ SEEDS = OWNED | {'native_ban_control_cases', 'native_control_readiness',
 
 
 def source(name: str) -> Path:
+    """Return the path of a named source file, from the private or the canonical tree."""
     return (PRIVATE if name in OWNED else CANON) / f'{name}.py'
 
 
