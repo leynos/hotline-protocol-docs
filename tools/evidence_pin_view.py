@@ -83,17 +83,19 @@ def _load_record() -> pinned_evidence.PinRecord | None:
     Returns
     -------
     pinned_evidence.PinRecord | None
-        The record, or ``None`` when this checkout has none.
+        The record, or ``None`` when this checkout has none. A record that
+        exists but cannot be read or is malformed raises instead, so that no
+        reader falls back to the live bytes.
     """
     tools = str(Path(__file__).resolve().parent)
     sys.path.insert(0, tools)
     try:
         import pinned_evidence
-        from tool_support import ToolError
+        from tool_support import MissingInputError
 
         try:
             return pinned_evidence.load_record(ROOT)
-        except ToolError:
+        except MissingInputError:
             return None
     except ImportError:  # an interpreter without Cyclopts runs no verifier
         return None
@@ -118,9 +120,9 @@ def _record() -> pinned_evidence.PinRecord | None:
             _view.local.loading = True
             try:
                 _view.record = _load_record()
+                _view.loaded = True  # only a complete load; a failure is retried
             finally:
                 _view.local.loading = False
-                _view.loaded = True
     return _view.record
 
 

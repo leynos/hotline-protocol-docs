@@ -274,6 +274,30 @@ def test_concurrent_reads_all_see_the_pin(view: View) -> None:
     assert set(results) == {ORIGINAL.encode()}, "no thread saw the live file"
 
 
+def test_a_failed_record_load_is_not_served_as_live_bytes(
+    view: View, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A record that cannot be read fails every reader, and a later read can retry."""
+    record = view.root / pinned_evidence.RECORD_RELATIVE
+    good = record.read_bytes()
+    record.write_bytes(b"{ not json")
+    monkeypatch.setattr(evidence_pin_view, "_view", evidence_pin_view._View())
+    path = view.root / NAME
+
+    def read(_: int) -> str:
+        try:
+            return path.read_text(encoding="utf-8")
+        except Exception as error:  # ruff: ignore[blind-except]
+            return type(error).__name__
+
+    with futures.ThreadPoolExecutor(max_workers=8) as pool:
+        outcomes = set(pool.map(read, range(32)))
+    assert outcomes == {"PinRecordError"}, "every reader fails and none sees live bytes"
+    record.write_bytes(good)
+    assert path.read_bytes() == ORIGINAL.encode(), "the next read loads the record"
+    assert evidence_pin_view._view.loaded, "the record is loaded once it is complete"
+
+
 def test_a_write_reaches_the_live_file(view: View) -> None:
     """Only reads are redirected, so a rewritten live file is still caught."""
     (view.root / NAME).write_text(CHANGED, encoding="utf-8")
