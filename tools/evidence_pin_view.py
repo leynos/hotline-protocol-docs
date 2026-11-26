@@ -78,7 +78,7 @@ _view = _View()
 
 
 def _load_record() -> pinned_evidence.PinRecord | None:
-    """Import the record loader on first use, because it loads Cyclopts.
+    """Import the record loader on first use, so that start-up stays light.
 
     Returns
     -------
@@ -97,8 +97,6 @@ def _load_record() -> pinned_evidence.PinRecord | None:
             return pinned_evidence.load_record(ROOT)
         except MissingInputError:
             return None
-    except ImportError:  # an interpreter without Cyclopts runs no verifier
-        return None
     finally:
         sys.path.remove(tools)
 
