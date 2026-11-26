@@ -17,7 +17,7 @@ def request(
     empty: bool = False,
     empty_preview: bool = False,
 ) -> list[dict]:
-    """Return the steps that request a fixture download in a mode and save its reference and size."""
+    """Return the steps that request a fixture download in a mode and, unless the preview is empty, save its reference and size."""
     filename = b"mothra-empty-fixture" if empty else b"mothra-fork-fixture"
     values = [(201, filename)]
     if mode is not None:
@@ -78,7 +78,7 @@ def take(owner: str, variable: str, identifier: int) -> list[dict]:
 
 
 def queues() -> dict[str, tuple[list[dict], dict]]:
-    """Build the plan that queues downloads in every mode and then takes them in order."""
+    """Build the three queue plans: downloads in every mode taken in order, cancellation of queued downloads, and fairness between two owners."""
     modes = session("a") + request("a", 10, "blocker")
     specs = [
         (0, False),

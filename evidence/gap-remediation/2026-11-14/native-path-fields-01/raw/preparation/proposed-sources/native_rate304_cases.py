@@ -26,7 +26,7 @@ def digest(data: bytes) -> str:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
-    """Build the rate-limit plan for the reserved control port after checking the runtime identity."""
+    """Build the rate-limit plan for the reserved control port after checking that the runtime identity fields are present."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only reserved control-only port15880 is prepared")
     required = (
@@ -147,7 +147,7 @@ def observer_control(
 
 
 def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
-    """Write the plan and its source hash and return the plan's hash."""
+    """Write the plan and the hash of the plan file, and return that hash."""
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()

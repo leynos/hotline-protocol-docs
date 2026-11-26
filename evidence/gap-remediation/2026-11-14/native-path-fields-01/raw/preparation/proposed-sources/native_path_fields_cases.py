@@ -122,7 +122,7 @@ def raw_request(spec: dict, dynamic_parent: bytes | None = None) -> str:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
-    """Build the path field plan for the owned control port after checking the runtime identity."""
+    """Build the path field plan for the owned control port after checking that the runtime identity fields are present."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only isolated control-only 15900 profile is prepared")
     if any(not environment.get(key) for key in REQUIRED_ENV):
