@@ -161,7 +161,7 @@ def specs() -> list[dict]:
 
 
 def creation() -> dict:
-    """Build one plan per case that creates a folder and reads the parent back."""
+    """Build one plan per case that attempts to create a folder, including the permission and missing-parent failures, and reads the parent back."""
     cases = {}
     for expected in specs():
         steps = login()
@@ -228,7 +228,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the owned folders and the flush file."""
+    """Build the plan that moves the owned folders and the flush file to Trash."""
     names = (
         [ROOT]
         + [bytes.fromhex(c["name_hex"]) for c in specs() if c["view_hex"] == "0000"]

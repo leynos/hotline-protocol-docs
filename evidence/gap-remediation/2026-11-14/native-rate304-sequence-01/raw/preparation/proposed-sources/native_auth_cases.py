@@ -315,7 +315,7 @@ def reauthentication() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the owned authentication accounts."""
+    """Build the plan that deletes the owned authentication accounts, except the 32-byte key account that seed also attempts to create."""
     steps = login()
     for identifier, key in enumerate(
         [b"guest"] + [key for key, _, _ in ACCOUNTS if key != KEY32], 10

@@ -4,7 +4,7 @@ from native_plan import close, eof, login, packet, payload, quiet, read, send
 
 
 def framing() -> dict[str, tuple[list[dict], dict]]:
-    """Build one plan per malformed frame case."""
+    """Build one plan per framing case: the malformed frames and the valid controls."""
     cases = {}
 
     def add(name, data, expectation):
