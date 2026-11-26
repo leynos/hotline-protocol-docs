@@ -285,6 +285,13 @@ def test_a_failed_record_load_is_not_served_as_live_bytes(
     path = view.root / NAME
 
     def read(_: int) -> str:
+        """Read the pinned file.
+
+        Returns
+        -------
+        str
+            Its text, or the type name of the failure.
+        """
         try:
             return path.read_text(encoding="utf-8")
         except Exception as error:  # ruff: ignore[blind-except]  # the test reports the type

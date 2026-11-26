@@ -29,8 +29,9 @@ PYTHON_TARGETS = $(shell git ls-files --cached --others \
 	--exclude-standard 'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py' \
 	'scripts/*.py' 'scripts/**/*.py')
 # Interrogate scans these directories recursively, so a new Python file under
-# them is measured without a list to update.
-INTERROGATE_TARGETS ?= tools tests scripts
+# them is measured without a list to update. The evidence directories join as each
+# is documented (the docstrings are held to the pinned code by pins-check).
+INTERROGATE_TARGETS ?= tools tests scripts evidence/gap-remediation/2026-11-13
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
