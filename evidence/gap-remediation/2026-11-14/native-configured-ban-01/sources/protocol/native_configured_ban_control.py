@@ -208,7 +208,7 @@ def report_from_recorder(
 
 
 def wait_for_reviewed_save(recorder: Recorder, trigger: Path, deadline: float) -> None:
-    """Wait for the reviewed save trigger, failing if any traffic arrives first."""
+    """Wait for the reviewed save trigger, failing on traffic first, on a trigger that already exists or differs, or on timeout."""
     require(not trigger.exists(), "Save trigger already exists before hold")
     while time.monotonic() < deadline:
         ready, _, _ = select.select(list(recorder.sockets.values()), [], [], 0.05)
