@@ -134,6 +134,7 @@ def verify(directory: Path) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus named on the command line and print the summary as JSON."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     args = parser.parse_args()

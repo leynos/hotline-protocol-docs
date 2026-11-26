@@ -23,10 +23,12 @@ from verify_native_shx import fields
 
 
 def digest(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def inventory(root: Path) -> dict:
+    """Check the corpus status, file hashes, protocol sources and checksum list and return the manifest."""
     manifest = json.loads((root / "manifest.json").read_text())
     require(manifest["status"] == "native-121-defaults-a37", "Wrong corpus status")
     for name, expected in manifest["files"].items():
@@ -46,6 +48,7 @@ def inventory(root: Path) -> dict:
 
 
 def stage_gates(root: Path, result: dict) -> None:
+    """Require all 27 stage gates to have passed and to match the verified gates."""
     gates = json.loads((root / "stage-gates.json").read_text())
     require(gates["status"] == "completed" and not gates["error"], "Stage gate failed")
     require(gates["passed"] == result["gates"], "Stage gate result differs")
@@ -53,6 +56,7 @@ def stage_gates(root: Path, result: dict) -> None:
 
 
 def packet_views(root: Path, reports: dict[str, dict]) -> dict:
+    """Reassemble the seven connections of the host and guest captures and compare them with the reports."""
     host = read_packets(root / "host-seven-flows.pcap")
     guest = read_packets(root / "guest-seven-flows.pcap")
     for label, packets, port in (("host", host, 15500), ("guest", guest, 5500)):
@@ -119,6 +123,7 @@ def packet_views(root: Path, reports: dict[str, dict]) -> dict:
 
 
 def snapshot_provenance(root: Path, raw_session: Path | None) -> dict:
+    """Check the snapshot provenance record and, when the raw session is present, its snapshots."""
     proof = json.loads((root / "snapshot-provenance.json").read_text())
     require(proof["prefix_verified"] is True, "Guest prefix assertion absent")
     if raw_session is not None:
@@ -147,6 +152,7 @@ def snapshot_provenance(root: Path, raw_session: Path | None) -> dict:
 
 
 def agreement(report: dict) -> dict:
+    """Check the agreement notice and admin privilege of a capture and return their identity."""
     notices = [f for f in report["frames"] if f["type"] == 109]
     privileges = [f for f in report["frames"] if f["type"] == 354]
     require(len(notices) == len(privileges) == 1, "A7 agreement/access count differs")
@@ -165,6 +171,7 @@ def agreement(report: dict) -> dict:
 
 
 def verify(root: Path, raw_session: Path | None = None) -> dict:
+    """Verify the default-text corpus and return the summary."""
     manifest = inventory(root)
     require(
         manifest["baseline_plan_sha256"] == BASELINE_SHA256,
@@ -244,6 +251,7 @@ def verify(root: Path, raw_session: Path | None = None) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus named on the command line and print the summary as JSON."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "corpus", type=Path, nargs="?", default=Path(__file__).resolve().parent

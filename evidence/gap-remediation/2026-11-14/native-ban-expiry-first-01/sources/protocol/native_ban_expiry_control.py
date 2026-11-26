@@ -32,19 +32,23 @@ POST_LATEST = 2400
 
 
 def require(ok: bool, reason: str) -> None:
+    """Raise a value error with the reason unless the condition holds."""
     if not ok:
         raise ValueError(reason)
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def load(path: Path) -> dict:
+    """Read a JSON file."""
     return json.loads(path.read_text())
 
 
 def utc(value: str) -> datetime:
+    """Parse an ISO timestamp that carries an offset and return it in UTC."""
     result = datetime.fromisoformat(value.replace("Z", "+00:00"))
     require(result.tzinfo is not None, "Missing UTC offset")
     return result.astimezone(timezone.utc)
@@ -52,6 +56,7 @@ def utc(value: str) -> datetime:
 
 @dataclass(frozen=True)
 class TimingBounds:
+    """The host time bracket of the ban request and acknowledgement, with the emulator identity."""
     request_utc: datetime
     ack_utc: datetime
     image_inode: int
@@ -62,6 +67,7 @@ class TimingBounds:
 
     @classmethod
     def from_json(cls, value: dict) -> "TimingBounds":
+        """Build the bounds from their JSON form, requiring a short request to acknowledgement bracket."""
         result = cls(
             request_utc=utc(value["request_utc"]),
             ack_utc=utc(value["ack_utc"]),
@@ -80,6 +86,7 @@ class TimingBounds:
         return result
 
     def to_json(self) -> dict:
+        """Return the bounds in JSON form, with the note about guest clock progression."""
         return {
             "request_utc": self.request_utc.isoformat(),
             "ack_utc": self.ack_utc.isoformat(),
@@ -92,6 +99,7 @@ class TimingBounds:
         }
 
     def gate(self, phase: str, now: datetime, receipt: dict) -> dict:
+        """Check a later probe against the bounds and the live emulator identity."""
         require(phase in {"pre", "post"}, "Only later probes use timing gate")
         require(
             (
@@ -131,6 +139,7 @@ class TimingBounds:
 
 
 def field_map(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields by identifier, refusing duplicates."""
     result = fields(frame)
     require(len(result) == len(frame["fields"]), "Duplicate frame field")
     return result
@@ -144,6 +153,7 @@ def relevant(
     identifier: int | None = None,
     reply_marker: int | None = None,
 ) -> list[dict]:
+    """Select a connection's frames by type, identifier and reply marker."""
     return [
         f
         for f in report["frames"]
@@ -157,6 +167,7 @@ def relevant(
 def identity_before_110(
     frames: list[dict], saved_uid: bytes, *, protected: bool
 ) -> None:
+    """Check the administrator and target logins before the kick request and the target's identity."""
     report = {"frames": frames}
     main = relevant(report, "main")
     target = relevant(report, "target")
@@ -216,6 +227,7 @@ def identity_before_110(
 
 
 def account_gate(report: dict, name: str) -> None:
+    """Check that the guard found no account, or that the seed created one."""
     key, expected_name, access = (
         (cases.ZERO_KEY, cases.ZERO_NAME, cases.ZERO_ACCESS)
         if name.endswith("zero")
@@ -246,6 +258,7 @@ def account_gate(report: dict, name: str) -> None:
 
 
 def probe_gate(report: dict, accepted: bool) -> None:
+    """Check that a probe login was accepted or refused as expected."""
     response = reply(report, 1)
     if accepted:
         require(
@@ -291,6 +304,7 @@ def probe_gate(report: dict, accepted: bool) -> None:
 
 
 def outcome_gate(report: dict, name: str) -> None:
+    """Check that a case completed and met the gate for its kind."""
     require(
         report["status"] == "completed"
         and report["completed_actions"] == len(cases.plans()[name]),
@@ -361,6 +375,7 @@ def outcome_gate(report: dict, name: str) -> None:
 
 
 def plan_gate(plan_path: Path) -> tuple[dict, str]:
+    """Check that a prepared plan is the expected one and return it with its case name."""
     raw = plan_path.read_bytes()
     value = load(plan_path)
     name = value["expectation"]["case"]
@@ -379,6 +394,7 @@ def plan_gate(plan_path: Path) -> tuple[dict, str]:
 
 
 def live_service(meta: dict, deadline_utc: datetime) -> None:
+    """Check that the managed unit is running with the expected limits before the deadline."""
     unit = meta["unit"]
     require(
         unit.startswith("mothra-") and unit.endswith(".service"),
@@ -471,6 +487,7 @@ def settle_first_epoch(summary: dict, deadline_utc: datetime) -> None:
 
 
 def runtime_gate(receipt: dict, env: dict, deadline_utc: datetime) -> None:
+    """Check that the runtime receipt matches the plan and the live emulator."""
     require(os.geteuid() == 0, "Live runner requires root for /proc identity")
     require(
         all(
@@ -633,6 +650,7 @@ def run_case(plan: dict, name: str, output: Path, epoch_deadline: datetime) -> d
 
 
 def ban_timing(report: dict, receipt: dict) -> TimingBounds:
+    """Return the time bracket of the temporary ban's request and acknowledgement."""
     require(
         report["case"] == "tempban" and report["status"] == "completed",
         "No completed option-one case",
@@ -686,6 +704,7 @@ def run_epoch(
     *,
     bounds_path: Path | None = None,
 ) -> dict:
+    """Run the cases of one expiry epoch under the gates and write the result."""
     require(phase in EPOCH_CASES, "Unknown expiry epoch")
     receipt = load(receipt_path)
     first = load(plans_dir / f"{EPOCH_CASES[phase][0]}.json")
@@ -775,6 +794,7 @@ def run_epoch(
 
 
 def main() -> None:
+    """Parse the command line, run the epoch and print the result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", action="store_true", required=True)
     parser.add_argument("--phase", choices=tuple(EPOCH_CASES), required=True)

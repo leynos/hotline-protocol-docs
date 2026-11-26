@@ -4,6 +4,7 @@ import struct
 
 
 def payload(fields: list[tuple[int, bytes]]) -> bytes:
+    """Encode a list of field identifiers and values as a protocol payload."""
     return struct.pack(">H", len(fields)) + b"".join(
         struct.pack(">HH", k, len(v)) + v for k, v in fields
     )
@@ -20,6 +21,7 @@ def packet(
     reply: int = 0,
     error: int = 0,
 ) -> str:
+    """Encode a protocol packet header and payload as hexadecimal text."""
     return (
         struct.pack(
             ">BBHIIII",
@@ -36,14 +38,17 @@ def packet(
 
 
 def send(value: str, connection: str = "main") -> dict:
+    """Return the plan step that sends the given hexadecimal bytes."""
     return {"op": "send", "connection": connection, "hex": value, "timeout": 30}
 
 
 def read(connection: str = "main", **options) -> dict:
+    """Return the plan step that reads one frame."""
     return {"op": "read_frame", "connection": connection, "timeout": 30, **options}
 
 
 def connect(connection: str = "main", endpoint: str = "control") -> dict:
+    """Return the plan step that opens a connection to an endpoint."""
     return {
         "op": "connect",
         "connection": connection,
@@ -53,18 +58,22 @@ def connect(connection: str = "main", endpoint: str = "control") -> dict:
 
 
 def close(connection: str = "main") -> dict:
+    """Return the plan step that closes a connection."""
     return {"op": "close", "connection": connection}
 
 
 def quiet() -> dict:
+    """Return the plan step that expects no traffic for a short time."""
     return {"op": "expect_quiet", "connection": "main", "timeout": 3}
 
 
 def eof(connection: str = "main") -> dict:
+    """Return the plan step that expects the peer to close the connection."""
     return {"op": "read_eof", "connection": connection, "timeout": 30, "expect_hex": ""}
 
 
 def login() -> list[dict]:
+    """Return the plan steps that connect, handshake and log in as the admin account."""
     credentials = [
         (105, bytes(v ^ 255 for v in b"admin")),
         (106, bytes(v ^ 255 for v in b"mothra19")),
