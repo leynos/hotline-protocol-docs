@@ -132,7 +132,7 @@ def barrier(identifier: int) -> str:
 def observer_control(
     kind: int, identifier: int, observer_uid: int | None = None
 ) -> str:
-    """Return an approved observer control packet, resolving the user identifier for the information request."""
+    """Return an approved observer control packet, inserting the caller's user identifier for the information request."""
     if kind not in (348, 200, 206, 300, 303):
         raise ValueError("Unapproved observer control")
     if kind == 303:

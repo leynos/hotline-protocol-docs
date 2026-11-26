@@ -82,7 +82,7 @@ def plans() -> dict[str, list[dict]]:
 
 
 def write_plans(output: Path, environment: dict, port: int) -> dict:
-    """Write the ban control plans for an owned lab port and return their identities."""
+    """Write the ban control plans for an owned lab port and return their hashes, refusing a reserved port or a mismatched A7 source-plan hash."""
     if port in {15500, 15501} or not 1024 <= port <= 65534:
         raise ValueError("Control endpoint must be an owned lab port")
     if environment.get("source_a7_sha256") != A7_SHA:

@@ -226,7 +226,7 @@ class Recorder:
         return bytes(chunks)
 
     def execute(self, action: int, step: dict) -> None:
-        """Run one plan step against its connection and record its events."""
+        """Run one plan step against its connection, record its events and raise on a step failure."""
         name = step.get("connection", "")
         op = step["op"]
         deadline = time.monotonic() + step.get("timeout", 2)
