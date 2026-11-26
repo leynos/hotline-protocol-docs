@@ -60,7 +60,7 @@ def namespace_inode(pid: int) -> int:
 
 
 def writable_capture_fd(pid: int, capture: pathlib.Path) -> int:
-    """Return the descriptor on which a process holds the capture file open for writing."""
+    """Return the descriptor on which a process holds the capture file open for writing, failing if the file is not a regular file or no writable descriptor matches."""
     expected = capture.stat()
     require(stat.S_ISREG(expected.st_mode), "capture is not a regular file")
     for entry in pathlib.Path(f"/proc/{pid}/fd").iterdir():

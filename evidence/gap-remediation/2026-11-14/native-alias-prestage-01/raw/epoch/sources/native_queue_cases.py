@@ -32,7 +32,7 @@ def request(
 
 
 def cancel(owner: str, identifier: int, variable: str | None) -> list[dict]:
-    """Return the steps that cancel a download by its saved reference and read the reply."""
+    """Return the steps that cancel a download, by its saved reference when it has one, and read the reply."""
     value = payload([(107, b"REF!")]) if variable else b"\0\0"
     encoded = packet(214, identifier, value)
     if variable:

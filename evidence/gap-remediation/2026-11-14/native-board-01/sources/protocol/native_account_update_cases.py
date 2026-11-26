@@ -20,7 +20,7 @@ LABELS = [
 
 
 def key(label: str) -> bytes:
-    """Return the account key bytes for an owned update case label."""
+    """Return the account key bytes for an owned update case label, refusing an unknown label."""
     if label not in LABELS:
         raise ValueError("Unknown owned account case")
     return ("m-au26-" + label).encode()

@@ -131,7 +131,7 @@ def inspect_seed() -> dict:
 
 
 def resume_category(case: str, completed: int = 0, exists: bool = False) -> dict:
-    """Build the plan that creates a case's category and the remaining articles."""
+    """Build the plan that creates a case's category unless it exists and then posts the remaining articles; it rejects an invalid case or prefix."""
     if (
         case not in {s["case"] for s in specs()}
         or not 0 <= completed <= len(NODES)

@@ -53,7 +53,7 @@ TARGET_PASSWORD = b"target-pass28"
 
 
 def key(label: str) -> bytes:
-    """Return the account key bytes for an owned batch account label."""
+    """Return the account key bytes for an owned batch account label, refusing an unknown label."""
     if label not in OWNED + EXTRA:
         raise ValueError("Unknown owned batch account")
     return ("m-b28-" + label).encode()
