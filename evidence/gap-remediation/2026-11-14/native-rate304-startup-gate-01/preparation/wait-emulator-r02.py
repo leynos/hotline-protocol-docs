@@ -16,6 +16,7 @@ EXE_SHA = '9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4'
 
 
 def identity(pid: int) -> dict | None:
+    """Return the identity of a process if it is the owned emulator, or none if it is not."""
     proc = pathlib.Path(f'/proc/{pid}')
     try:
         if os.readlink(proc / 'fd/6') != str(WORKING):
@@ -54,6 +55,7 @@ def identity(pid: int) -> dict | None:
 
 
 def main() -> None:
+    """Wait briefly for the owned emulator to appear before the deadline and write its identity."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=pathlib.Path)
     parser.add_argument('--deadline', required=True)

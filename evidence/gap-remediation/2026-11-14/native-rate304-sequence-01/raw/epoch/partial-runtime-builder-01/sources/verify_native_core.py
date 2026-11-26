@@ -30,12 +30,15 @@ def verify(directory: Path) -> dict:
         reports[name] = report
 
     def frames(name: str) -> list[dict]:
+        """Return the frames of a named report."""
         return reports[name]["frames"]
 
     def fields(frame: dict) -> dict[int, bytes]:
+        """Return a frame's fields as a map from identifier to bytes."""
         return {f["id"]: bytes.fromhex(f["hex"]) for f in frame["fields"]}
 
     def requests(name: str) -> list[dict]:
+        """Decode the requests that a named report sent after the handshake."""
         data = bytes.fromhex(reports[name]["streams"]["main"]["sent_hex"])
         require(
             data[:12] == bytes.fromhex("54525450484f544c00010002"),
@@ -82,6 +85,7 @@ def verify(directory: Path) -> dict:
     )
 
     def sequence(name: str, expected: list[tuple[int, int, int]]) -> None:
+        """Require a report's frames to have the expected reply, type and error sequence."""
         observed = [(f["is_reply"], f["type"], f["error"]) for f in frames(name)]
         require(observed == expected, name + ": reply/notification sequence changed")
 

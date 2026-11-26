@@ -22,15 +22,18 @@ AGREEMENT_SHA = "5288d060a4270cf6ae899302c52b2ac784b30dea99f01d2d4cd1c1037c4bd1c
 
 
 def need(ok: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not ok:
         raise ValueError(message)
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def strict(raw: bytes) -> dict:
+    """Decode one physical frame, refusing short, fragmented or malformed ones."""
     need(len(raw) >= 22, "Short physical frame")
     size = int.from_bytes(raw[16:20], "big")
     need(len(raw) == 20 + size and size <= 65541, "Frame size/fragment differs")
@@ -47,12 +50,14 @@ def strict(raw: bytes) -> dict:
 
 
 def frame_fields(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields by identifier, refusing duplicates."""
     result = fields(frame)
     need(len(result) == len(frame["fields"]), "Duplicate board TLV")
     return result
 
 
 def one(frames: list[dict], name: str, kind: int, identifier: int, reply: int) -> dict:
+    """Return the single frame that matches a connection, type, identifier and reply marker."""
     matches = [
         frame
         for frame in frames
@@ -69,6 +74,7 @@ class Wire:
     """Collect all bytes from four sockets; never assume a cross-socket order."""
 
     def __init__(self, recorder: Recorder, deadline: float) -> None:
+        """Start the wire with its recorder and deadline."""
         self.recorder = recorder
         self.deadline = deadline
         self.buffers: dict[str, bytearray] = {}
@@ -78,6 +84,7 @@ class Wire:
         self.action = 0
 
     def connect(self, name: str, endpoint: tuple[str, int]) -> None:
+        """Connect a named non-blocking connection, record it and send the handshake."""
         need(len(self.recorder.sockets) < 4, "Too many board sockets")
         sock = socket.create_connection(
             endpoint, min(5, self.deadline - time.monotonic())
@@ -98,6 +105,7 @@ class Wire:
         need(hello.hex() == cases.HELLO_REPLY, "Board TRTP handshake differs")
 
     def send(self, name: str, data: bytes) -> None:
+        """Send all the bytes on a connection within the deadline, recording each send."""
         sock = self.recorder.sockets[name]
         offset = 0
         while offset < len(data):
@@ -114,12 +122,14 @@ class Wire:
         self.action += 1
 
     def mark(self, name: str, label: str) -> None:
+        """Record a labelled operation event for a connection."""
         self.recorder.event(-1, name, "operation")
         self.recorder.events[-1]["label"] = label
 
     def poll(
         self, until: float, handshake: tuple[str, bytearray] | None = None
     ) -> None:
+        """Read what the open connections have ready until the time limit, parsing complete frames."""
         active = {
             name: sock
             for name, sock in self.recorder.sockets.items()
@@ -170,17 +180,20 @@ class Wire:
                 )
 
     def until(self, predicate, seconds: float = 5) -> None:
+        """Poll until the predicate holds, failing when the time limit passes."""
         stop = min(self.deadline, time.monotonic() + seconds)
         while not predicate():
             need(time.monotonic() < stop, "Required board frame missing")
             self.poll(stop)
 
     def observe(self, seconds: float) -> None:
+        """Poll for a fixed time, collecting whatever arrives."""
         stop = min(self.deadline, time.monotonic() + seconds)
         while time.monotonic() < stop:
             self.poll(stop)
 
     def close(self, name: str) -> None:
+        """Shut down a connection's writing side and wait briefly for the peer's EOF."""
         sock = self.recorder.sockets.get(name)
         if sock is None:
             return
@@ -209,6 +222,7 @@ class Wire:
 
 
 def success(frame: dict, identifier: int) -> dict[int, bytes]:
+    """Require a direct successful reply with the given identifier and return its fields."""
     need(
         frame["id"] == identifier
         and frame["is_reply"] == 1
@@ -220,6 +234,7 @@ def success(frame: dict, identifier: int) -> dict[int, bytes]:
 
 
 def login(wire: Wire, name: str, raw: bytes, access: bytes | None) -> None:
+    """Connect, send a login and check the acknowledgement and the effective access."""
     wire.connect(name, ("127.0.0.1", cases.PORT))
     wire.send(name, raw)
     wire.until(
@@ -283,6 +298,7 @@ def read_board(
     *,
     denied: bool = False,
 ) -> bytes:
+    """Request the board text and check the reply against the expected text, or a denial."""
     before = len(wire.recorder.frames)
     wire.send(name, bytes.fromhex(packet(101, identifier)))
     wire.until(
@@ -309,6 +325,7 @@ def read_board(
 def check_segment(
     frame: dict, data: bytes, expected_overhead: int | None
 ) -> tuple[bytes, int]:
+    """Check one board update segment against the posted data and its expected overhead."""
     need(
         frame["type"] == 102 and frame["is_reply"] == 0 and frame["error"] == 0,
         "Board update header differs",
@@ -329,6 +346,7 @@ def check_segment(
 def post(
     wire: Wire, index: int, data: bytes, overhead: int | None
 ) -> tuple[bytes, int | None]:
+    """Post a body from the sender connection and check the update that the readers receive."""
     before = len(wire.recorder.frames)
     wire.send("sender", bytes.fromhex(cases.post_packet(index, data)))
     identifier = 1000 + index
@@ -391,6 +409,7 @@ def post(
 
 
 def verify_report(plan: dict, report: dict) -> None:
+    """Check the finished board report: plan hash, status, bounds, storage claim and recorded frames."""
     need(
         report["plan_sha256"] == sha((json.dumps(plan, indent=2) + "\n").encode()),
         "Plan hash changed",
@@ -621,6 +640,7 @@ def verify_report(plan: dict, report: dict) -> None:
 
 
 def _streams(events: list[dict]) -> dict:
+    """Return the sent and received bytes of each connection as hexadecimal text."""
     result: dict[str, dict[str, str]] = {}
     for event in events:
         name = event["connection"]
@@ -634,6 +654,7 @@ def _streams(events: list[dict]) -> dict:
 
 
 def prepared(directory: Path) -> dict:
+    """Check the prepared plan against its source hashes and the frozen producer and return it."""
     raw = (directory / "plan.json").read_bytes()
     plan = json.loads(raw)
     need(
@@ -661,6 +682,7 @@ def execute_case(
     reads: dict[str, str],
     pace_seconds: float = 1.0,
 ) -> None:
+    """Run the board operations in order: reads, posts and their checks, recording segments and payloads."""
     overhead: int | None = None
     operations = {item["label"]: item for item in plan["operations"]}
     need(
@@ -759,6 +781,7 @@ def execute_case(
 
 
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
+    """Check the plan, receipt, namespace and oracle, run the board case and write the report."""
     plan = prepared(plan_dir)
     receipt = json.loads(receipt_path.read_text())
     deadline_utc = utc(receipt["deadline_utc"])
@@ -834,6 +857,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, run the case and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan", required=True, type=Path)
     parser.add_argument("--receipt", required=True, type=Path)

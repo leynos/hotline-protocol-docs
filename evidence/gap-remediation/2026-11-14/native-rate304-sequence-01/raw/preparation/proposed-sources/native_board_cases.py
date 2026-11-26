@@ -21,10 +21,12 @@ HARD_SECONDS = 210
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def post_data(index: int) -> bytes:
+    """Return the fixed body of a numbered board post."""
     if index == 0:
         return b""
     if index == 1:
@@ -45,10 +47,12 @@ def post_data(index: int) -> bytes:
 
 
 def post_packet(index: int, data: bytes) -> str:
+    """Return the packet that posts a body on the board."""
     return packet(103, 1000 + index, payload([(101, data)]))
 
 
 def planned_operations() -> list[dict]:
+    """Return the planned board operations in order."""
     operations = [
         {
             "label": "initial101",
@@ -104,6 +108,7 @@ def planned_operations() -> list[dict]:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
+    """Build the board plan for the reviewed control port after checking the runtime identity and the stopped board baseline."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only the reviewed control-only port15860 is prepared")
     required = (
@@ -177,6 +182,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
 
 
 def write_plan(directory: Path, environment: dict, port: int = PORT) -> str:
+    """Write the plan and the hashes of its sources and return the plan's hash."""
     value = source_plan(environment, port)
     directory.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -198,6 +204,7 @@ def write_plan(directory: Path, environment: dict, port: int = PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

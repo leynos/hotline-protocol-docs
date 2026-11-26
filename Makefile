@@ -38,7 +38,13 @@ INTERROGATE_TARGETS ?= tools tests scripts evidence/gap-remediation/2026-11-13 \
 	evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01 \
 	evidence/gap-remediation/2026-11-14/native-liveness-01 \
 	evidence/gap-remediation/2026-11-14/native-roster-overlap-01 \
-	evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01
+	evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01 \
+	evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01 \
+	evidence/gap-remediation/2026-11-14/native-rate304-sequence-01 \
+	evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01 \
+	evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01 \
+	evidence/gap-remediation/2026-11-14/native-path-fields-01 \
+	evidence/gap-remediation/2026-11-14/native-settings-persistence-01
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python

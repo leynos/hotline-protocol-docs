@@ -1,3 +1,4 @@
+"""Record the supplementary identity of the rate-limit runtime: the working image, its holders and the emulator."""
 from __future__ import annotations
 import datetime as dt
 import hashlib

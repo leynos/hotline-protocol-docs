@@ -19,6 +19,7 @@ def rflt(entries: list[tuple[bytes, int]]) -> bytes:
 
 
 def downloads() -> dict[str, tuple[list[dict], dict]]:
+    """Build one plan per resume offset variant that downloads a file with a resume record."""
     cases = {}
     variants = {
         "zero-entries": [],
@@ -171,6 +172,7 @@ def upload_probes() -> dict[str, tuple[list[dict], dict]]:
 
 
 def finish_upload(filename: bytes, inconsistent: bool) -> tuple[list[dict], dict]:
+    """Build the plan that completes a resumed upload with consistent or inconsistent forks."""
     data = b"data-fork\r\n\x00\xff" if inconsistent else b""
     resource = resource_fork() if inconsistent else resource_fork()[5:]
     body = file_stream(data, resource)
@@ -216,6 +218,7 @@ def finish_upload(filename: bytes, inconsistent: bool) -> tuple[list[dict], dict
 
 
 def upload_continuations() -> dict[str, tuple[list[dict], dict]]:
+    """Build the plans that continue a partial upload and an inconsistent one."""
     other = b"mothra-resume-inconsistent"
     return {
         "resume-upload-complete": finish_upload(b"mothra-resume-partial", False),
