@@ -40,8 +40,12 @@ class PinRecordError(ToolError):
     """The pin record is absent, unreadable or malformed."""
 
 
-class PinUnavailableError(ToolError):
-    """A pinned file's bytes could not be read from the history."""
+class PinUnavailableError(ToolError, OSError):
+    """A pinned file's bytes could not be read from the history.
+
+    It is an ``OSError`` too, so that code which reads a pinned file through
+    the evidence pin view handles the failure as it handles any unreadable file.
+    """
 
 
 def run_git(root: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
@@ -283,8 +287,9 @@ def check(root: Path) -> list[str]:
         f"{name}: tracked but not pinned" for name in tracked if name not in record.pins
     ]
     for path in sorted(record.pins):
-        live = root / path
-        if not live.is_file():
+        try:
+            live = read_live(root / path)
+        except OSError:
             failures.append(f"{path}: pinned but not in the tree")
             continue
         try:
@@ -292,7 +297,7 @@ def check(root: Path) -> list[str]:
         except PinUnavailableError as error:
             failures.append(f"{path}: {error}")
             continue
-        if not differs_only_by_docstrings(read_live(live), pinned):
+        if not differs_only_by_docstrings(live, pinned):
             failures.append(
                 f"{path}: differs from {record.pins[path]} by more than docstrings"
             )

@@ -34,10 +34,36 @@ if typ.TYPE_CHECKING:
     import pinned_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
-# The scratch tree of the Makefile's in_legacy_layout recipe is named like this.
-SCRATCH_ROOT = "hotline-protocol-docs"
+# The Makefile's in_legacy_layout recipe names its scratch tree in this variable.
+ROOT_VARIABLE = "EVIDENCE_PIN_VIEW_ROOT"
 WRITE_MODES = frozenset("wax+")
-_state: dict[str, pinned_evidence.PinRecord | bool | None] = {}
+# The fields of a stat result that are also its first ten sequence items.
+SEQUENCE = frozenset({
+    "st_mode",
+    "st_ino",
+    "st_dev",
+    "st_nlink",
+    "st_uid",
+    "st_gid",
+    "st_size",
+    "st_atime",
+    "st_mtime",
+    "st_ctime",
+})
+
+
+class _View:
+    """The state of the view: its record, and whether it is loading or installed."""
+
+    def __init__(self) -> None:
+        """Start with no record loaded and nothing installed."""
+        self.record: pinned_evidence.PinRecord | None = None
+        self.loaded = False
+        self.busy = False
+        self.installed = False
+
+
+_view = _View()
 
 
 def _load_record() -> pinned_evidence.PinRecord | None:
@@ -72,26 +98,34 @@ def _record() -> pinned_evidence.PinRecord | None:
     pinned_evidence.PinRecord | None
         The record.
     """
-    if "record" not in _state:
-        _state["record"] = None  # reading the record opens files through the view
-        _state["record"] = _load_record()
-    record = _state["record"]
-    return record if not isinstance(record, bool) else None
+    if not _view.loaded:
+        _view.loaded = True  # reading the record opens files through the view
+        _view.record = _load_record()
+    return _view.record
 
 
-def _held(parts: tuple[str, ...], index: int) -> bool:
-    """Say whether ``parts[index]`` is an evidence directory of this checkout.
+def _roots() -> tuple[Path, ...]:
+    """List the directories whose ``evidence`` directory the view serves.
+
+    Returns
+    -------
+    tuple[pathlib.Path, ...]
+        This checkout, and the scratch tree that a recipe names in
+        ``EVIDENCE_PIN_VIEW_ROOT``.
+    """
+    scratch = os.environ.get(ROOT_VARIABLE)
+    return (ROOT, Path(scratch).resolve()) if scratch else (ROOT,)
+
+
+def _held(parts: tuple[str, ...], index: int, roots: tuple[Path, ...]) -> bool:
+    """Say whether ``parts[index]`` is the evidence directory of a served root.
 
     Returns
     -------
     bool
-        ``True`` if it is named ``evidence`` below the checkout or scratch root.
+        ``True`` if it is named ``evidence`` directly below one of the roots.
     """
-    return (
-        index > 0
-        and parts[index] == "evidence"
-        and parts[index - 1] in {ROOT.name, SCRATCH_ROOT}
-    )
+    return index > 0 and parts[index] == "evidence" and Path(*parts[:index]) in roots
 
 
 def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
@@ -102,11 +136,12 @@ def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
     str | None
         The repository-relative path, or ``None``.
     """
+    roots = _roots()
     for resolved in (Path(name).absolute(), Path(name).resolve()):
         parts = resolved.parts
         for index in range(len(parts)):
             candidate = "/".join(parts[index:])
-            if _held(parts, index) and candidate in record.pins:
+            if _held(parts, index, roots) and candidate in record.pins:
                 return candidate
     return None
 
@@ -128,14 +163,14 @@ def pinned_path(file: object) -> str | None:
     record = _record()
     if not isinstance(name, str) or not name.endswith(".py"):
         return None
-    if record is None or _state.get("busy"):
+    if record is None or _view.busy:
         return None
     # The lookup itself stats files, so it must not be redirected in turn.
-    _state["busy"] = True
+    _view.busy = True
     try:
         return _lookup(name, record)
     finally:
-        _state["busy"] = False
+        _view.busy = False
 
 
 def pinned_bytes(file: object) -> bytes | None:
@@ -269,16 +304,18 @@ def _sizer(
             return result
         fields = list(result)
         fields[stat.ST_SIZE] = len(data)
-        return os.stat_result(fields)
+        named = {name for name in dir(result) if name.startswith("st_")}
+        extra = {name: getattr(result, name) for name in named if name not in SEQUENCE}
+        return os.stat_result(fields, extra)
 
     return view_stat
 
 
 def install() -> None:
     """Redirect reads of pinned files; calling it again changes nothing."""
-    if _state.get("installed"):
+    if _view.installed:
         return
-    _state["installed"] = True
+    _view.installed = True
     real_open = io.open
     view_open = _opener(real_open)
     patches = (

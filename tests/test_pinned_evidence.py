@@ -149,9 +149,10 @@ def view(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> View:
     View
         The repository.
     """
-    repo = View(tmp_path / "hotline-protocol-docs")
-    monkeypatch.setattr(evidence_pin_view, "ROOT", repo.root)
-    monkeypatch.setattr(evidence_pin_view, "_state", {})
+    repo = View(tmp_path / "checkout")
+    monkeypatch.setattr(evidence_pin_view, "ROOT", repo.root.resolve())
+    monkeypatch.setattr(evidence_pin_view, "_view", evidence_pin_view._View())
+    monkeypatch.delenv(evidence_pin_view.ROOT_VARIABLE, raising=False)
     for owner, name in (
         (io, "open"),
         (os, "stat"),
@@ -207,6 +208,39 @@ def test_the_view_leaves_other_files_alone(view: View, tmp_path: Path) -> None:
     assert (view.root / pinned_evidence.RECORD_RELATIVE).read_text().startswith("{"), (
         "the record is plain JSON"
     )
+
+
+def test_a_scratch_tree_is_served_only_when_named(
+    view: View, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A tree that only shares a name is left alone; a named tree is served."""
+    scratch = tmp_path / "hotline-protocol-docs"
+    target = scratch / NAME
+    target.parent.mkdir(parents=True)
+    target.write_text("scratch\n", encoding="utf-8")
+    assert target.read_text(encoding="utf-8") == "scratch\n", "an unnamed tree is kept"
+    monkeypatch.setenv(evidence_pin_view.ROOT_VARIABLE, str(scratch))
+    assert target.read_bytes() == ORIGINAL.encode(), "the named tree is served"
+
+
+def test_the_view_keeps_the_other_stat_fields(view: View, tmp_path: Path) -> None:
+    """Only the size changes, so copying a pinned file with its metadata works."""
+    path = view.root / NAME
+    shutil.copy2(path, tmp_path / "copied.py")
+    assert (tmp_path / "copied.py").read_bytes() == ORIGINAL.encode(), "copy2 works"
+    assert path.stat().st_mtime_ns > 0, "the modification time is kept"
+
+
+def test_an_unreadable_pin_is_an_os_error(
+    view: View, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A pinned file whose commit is missing fails like an unreadable file."""
+    record = pinned_evidence.load_record(view.root)
+    record.pins[NAME] = "0" * 40
+    monkeypatch.setattr(evidence_pin_view._view, "record", record)
+    monkeypatch.setattr(evidence_pin_view._view, "loaded", True)
+    with pytest.raises(OSError, match="does not provide"):
+        (view.root / NAME).read_bytes()
 
 
 def test_a_write_reaches_the_live_file(view: View) -> None:
