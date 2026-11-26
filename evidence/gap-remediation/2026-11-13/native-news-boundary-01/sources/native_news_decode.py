@@ -2,11 +2,13 @@
 
 
 def require(condition: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not condition:
         raise ValueError(message)
 
 
 def categories(frame: dict) -> list[dict]:
+    """Decode the categories of a news listing reply."""
     require(
         frame["is_reply"] == 1 and frame["type"] == 0 and frame["error"] == 0,
         "News listing failed",
@@ -55,9 +57,11 @@ def categories(frame: dict) -> list[dict]:
 
 
 def articles(value: bytes) -> list[dict]:
+    """Decode the article records of a news article list."""
     offset = 0
 
     def take(size: int) -> bytes:
+        """Take the next bytes of the article list, requiring that they exist."""
         nonlocal offset
         require(0 <= size <= len(value) - offset, "Truncated article record")
         result = value[offset : offset + size]
@@ -65,9 +69,11 @@ def articles(value: bytes) -> list[dict]:
         return result
 
     def integer(size: int) -> int:
+        """Take a big-endian unsigned integer of the given size."""
         return int.from_bytes(take(size), "big")
 
     def pascal() -> bytes:
+        """Take a length-prefixed byte string."""
         return take(integer(1))
 
     require(take(4) == bytes(4), "Article-list leading word differs")

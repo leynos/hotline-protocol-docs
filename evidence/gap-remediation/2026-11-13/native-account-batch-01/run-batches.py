@@ -1,3 +1,4 @@
+"""Run one stage of the account-batch captures (seed, batches, cleanup and the supplementary stages) against the retained runtime."""
 import copy,json,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')
@@ -6,6 +7,7 @@ from protocol_capture import run_plan
 from verify_native_auth import reply
 r=Path('state/native-sessions/runtime-28');template=json.loads(Path('state/native-sessions/runtime-27/preflight/plan.json').read_text());template['environment']=json.loads((r/'runtime.json').read_text());template['gap_ids']=['GAP-003','GAP-016','GAP-017','GAP-019','GAP-021','GAP-031','GAP-071','GAP-072','GAP-078','GAP-084']
 def run(name,pair):
+ """Build a plan from a step list and expectation, run it and return the report."""
  steps,expected=pair;plan=copy.deepcopy(template);plan.update(steps=steps,expectation=expected);p=r/(name+'.plan.json');p.write_text(json.dumps(plan,indent=2)+'\n');report=run_plan(p,Path('evidence/hotline-server-1.9/inputs/HLserver19.pef'),r/name);print(name,report['status'],report['error'],flush=True);return report
 stage=sys.argv[1]
 if stage=='seed':

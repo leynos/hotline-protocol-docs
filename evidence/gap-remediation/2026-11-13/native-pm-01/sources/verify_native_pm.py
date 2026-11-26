@@ -20,6 +20,7 @@ def check_variant(
     text: bytes | None,
     quote: bytes | None = None,
 ) -> None:
+    """Check that a delivered private message has the expected fields, identifier, name, option, text and quote."""
     require(
         set(actual)
         == ({103, 102, 113, 101, 214} if quote is not None else {103, 102, 113, 101}),
@@ -40,6 +41,7 @@ def check_variant(
 
 
 def semantic(report: dict, plan: dict) -> dict:
+    """Check the private message capture's roster, announcements and deliveries and return the semantic result."""
     require(report["status"] == "completed", "PM capture did not complete")
     require(plan["expectation"]["case"] == "observe", "Wrong PM case")
     first = roster(reply(report, 10))
@@ -150,6 +152,7 @@ def semantic(report: dict, plan: dict) -> dict:
 
 
 def main() -> None:
+    """Verify a capture and write its semantic result to the output file."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("capture", type=Path)
     parser.add_argument("--output", type=Path, required=True)

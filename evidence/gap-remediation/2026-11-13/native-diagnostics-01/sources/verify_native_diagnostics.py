@@ -42,6 +42,7 @@ def diagnostic_text(nickname: bytes, name: bytes, account: bytes) -> bytes:
 
 
 def sent(report: dict, kind: int, identifier: int, connection: str = "main") -> dict:
+    """Return the single request of the given type and identifier that the report sent on a connection."""
     matches = [
         decode_frame(bytes.fromhex(event["hex"]))
         for event in report["events"]
@@ -56,12 +57,14 @@ def sent(report: dict, kind: int, identifier: int, connection: str = "main") -> 
 
 
 def uid_field(frame: dict) -> bytes:
+    """Return the two-byte user identifier of a diagnostic request."""
     values = fields(frame)
     require(set(values) == {103} and len(values[103]) == 2, "303 UID shape differs")
     return values[103]
 
 
 def success(frame: dict, nickname: bytes, name: bytes, account: bytes) -> None:
+    """Require a successful diagnostic reply with the expected text and nickname."""
     actual = fields(frame)
     expected = diagnostic_text(nickname, name, account)
     require(
@@ -75,6 +78,7 @@ def success(frame: dict, nickname: bytes, name: bytes, account: bytes) -> None:
 
 
 def failure(frame: dict, text: bytes) -> None:
+    """Require a failed diagnostic reply with the expected text."""
     require(
         frame["type"] == 0 and frame["error"] == 1 and fields(frame) == {100: text},
         "303 failure fields/status differ",
@@ -187,6 +191,7 @@ def semantic(reports: dict[str, dict]) -> dict:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the diagnostic corpus (reports, runtime identity, packet captures and unread tails) and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     require(
         manifest["reports"] == list(NAMES)

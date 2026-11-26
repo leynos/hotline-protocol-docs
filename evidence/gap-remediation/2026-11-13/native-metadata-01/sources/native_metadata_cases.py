@@ -23,6 +23,7 @@ ACCOUNTS = {
 
 
 def specs() -> list[dict]:
+    """Return the metadata update cases, each with its name, comment and role."""
     patterns = [
         ("both-omitted", None, None, "admin"),
         ("empty-name", b"", None, "admin"),
@@ -62,6 +63,7 @@ def specs() -> list[dict]:
 
 
 def preflight() -> dict:
+    """Build the plan that confirms none of the owned accounts exists."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 20):
         steps += exchange(352, identifier, [(105, name)])
@@ -69,6 +71,7 @@ def preflight() -> dict:
 
 
 def upload(identifier: int, name: bytes, parent: bytes = BASE) -> list[dict]:
+    """Build the steps that upload the metadata fixture file with the given name and parent."""
     value = body(b"metadata-data", b"", b"TEXT", b"MOTH", b"base-comment")
     channel, reference = f"up{identifier}", f"ref{identifier}"
     return [
@@ -101,6 +104,7 @@ def upload(identifier: int, name: bytes, parent: bytes = BASE) -> list[dict]:
 
 
 def seed() -> dict:
+    """Build the plan that creates the accounts, folder and files the cases need."""
     steps = login()
     for identifier, (name, privileges) in enumerate(ACCOUNTS.values(), 20):
         steps += exchange(
@@ -132,6 +136,7 @@ def seed() -> dict:
 
 
 def mutations() -> dict:
+    """Build one plan per case that updates a file's metadata and reads it back."""
     result = {}
     for spec in specs():
         steps = login()
@@ -160,6 +165,7 @@ def mutations() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the folder, accounts and flush file."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     steps += exchange(204, 20, [(201, ROOT)])
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 30):
@@ -170,6 +176,7 @@ def cleanup() -> dict:
 
 
 def account_cleanup() -> dict:
+    """Build the plan that deletes only the owned accounts."""
     steps = login()
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 30):
         steps += exchange(351, identifier, [(105, complement(name))])
@@ -179,6 +186,7 @@ def account_cleanup() -> dict:
 
 
 def final_name(spec: dict) -> bytes:
+    """Return the name a case's file has once its update has run."""
     renamed = spec["case"].split("-", 1)[1] in {
         "name-only",
         "both-new",
@@ -188,6 +196,7 @@ def final_name(spec: dict) -> bytes:
 
 
 def finalization() -> dict:
+    """Build the plan that flushes and reads back every case's file."""
     steps = login() + upload(80, b"flush")
     for identifier, spec in enumerate(specs(), 100):
         steps += exchange(206, identifier, [(201, final_name(spec)), (202, BASE)])
@@ -196,6 +205,7 @@ def finalization() -> dict:
 
 
 def boundaries() -> dict:
+    """Build the plans that update a file and a folder with comments of boundary sizes."""
     result = {}
     sizes = [0, 1, 198, 199, 200, 201, 254, 255, 256, 300, 65535]
     for label, name in [("file", b"f15"), ("dir", b"d15")]:

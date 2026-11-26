@@ -19,6 +19,7 @@ BODY = file_stream(data_fork(), resource_fork())
 
 
 def exchange(kind: int, identifier: int, fields: list[tuple[int, bytes]]) -> list[dict]:
+    """Return the steps that send one request and read its reply on the main connection."""
     return [
         send(packet(kind, identifier, payload(fields)), "a"),
         read("a", match_frame={"is_reply": 1, "id": identifier}),
@@ -26,6 +27,7 @@ def exchange(kind: int, identifier: int, fields: list[tuple[int, bytes]]) -> lis
 
 
 def request(owner: str, identifier: int, variable: str) -> list[dict]:
+    """Return the steps that request the fixture file and save its reference and size."""
     return [
         send(packet(202, identifier, payload([(201, NAME)])), owner),
         read(
@@ -37,6 +39,7 @@ def request(owner: str, identifier: int, variable: str) -> list[dict]:
 
 
 def roster(identifier: int = 14) -> list[dict]:
+    """Return the steps that fetch the user list and save the admin's user identifier."""
     return [
         send(packet(300, identifier), "a"),
         read(
@@ -48,6 +51,7 @@ def roster(identifier: int = 14) -> list[dict]:
 
 
 def diagnostic(identifier: int, uid: str | bytes = "admin_uid") -> list[dict]:
+    """Return the steps that send a diagnostic request for a user and read its reply."""
     return [
         diagnostic_request("a", identifier, uid),
         read("a", match_frame={"is_reply": 1, "id": identifier}),
@@ -55,6 +59,7 @@ def diagnostic(identifier: int, uid: str | bytes = "admin_uid") -> list[dict]:
 
 
 def preflight() -> list[dict]:
+    """Return the preflight steps that check the fixture file and roster before the load cases."""
     return (
         session("a")
         + exchange(348, 10, [])
@@ -67,6 +72,7 @@ def preflight() -> list[dict]:
 
 
 def seed() -> list[dict]:
+    """Return the steps that upload the fixture file."""
     steps = session("a") + [
         send(
             packet(
@@ -94,6 +100,7 @@ def seed() -> list[dict]:
 
 
 def active_queue() -> list[dict]:
+    """Return the steps for one active and one queued download, with diagnostics and cancellations."""
     steps = session("a") + roster(10)
     steps += request("a", 11, "active")
     steps += attach("active")
@@ -109,6 +116,7 @@ def active_queue() -> list[dict]:
 
 
 def boundary() -> list[dict]:
+    """Return the steps for eight active and eight queued downloads with diagnostics, then cancel them all."""
     steps = session("a") + roster(10)
     for index in range(8):
         steps += request("a", 20 + index, f"active{index}")
@@ -130,6 +138,7 @@ def boundary() -> list[dict]:
 
 
 def cleanup() -> list[dict]:
+    """Return the steps that delete the fixture file and check the roster."""
     return (
         session("a")
         + exchange(204, 10, [(201, NAME)])
@@ -187,6 +196,7 @@ def conditional_cleanup(
     suffix += exchange(348, 14, []) + roster(15) + diagnostic(16) + [close("a")]
 
     def plan(steps: list[dict], branch: str) -> dict:
+        """Return a cleanup plan for one branch of the conditional cleanup."""
         return {
             "schema_version": 1,
             "profile": "native-mac-oracle",
@@ -309,6 +319,7 @@ def conditional_cleanup(
 
 
 def main() -> None:
+    """Write the plan for the chosen case, or the conditional cleanup plans, to the output directory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("case", choices=CASES)
     parser.add_argument("--runtime-record", required=True, type=Path)

@@ -53,6 +53,7 @@ TARGET_PASSWORD = b"target-pass28"
 
 
 def key(label: str) -> bytes:
+    """Return the account key bytes for an owned batch account label."""
     if label not in OWNED + EXTRA:
         raise ValueError("Unknown owned batch account")
     return ("m-b28-" + label).encode()
@@ -66,6 +67,7 @@ def record(
     password: bytes | None = None,
     access: bytes = bytes(8),
 ) -> bytes:
+    """Build one account record for a batch row, optionally renaming an old account."""
     values = [
         (105, complement(key(label))),
         (102, b"Batch28-" + label.encode() if name is None else name),
@@ -79,10 +81,12 @@ def record(
 
 
 def deletion(label: str) -> bytes:
+    """Build the payload that deletes the labelled account."""
     return payload([(101, complement(key(label)))])
 
 
 def padded(label: str, length: int) -> bytes:
+    """Build a record padded with an unknown field to the requested length."""
     raw = record(label)
     return (
         (int.from_bytes(raw[:2], "big") + 1).to_bytes(2, "big")
@@ -94,6 +98,7 @@ def padded(label: str, length: int) -> bytes:
 
 
 def specifications() -> list[dict]:
+    """Return the batch cases, each with its role, rows and account names."""
     return [
         {
             "case": "ordered-outer-ids",
@@ -269,6 +274,7 @@ def specifications() -> list[dict]:
 
 
 def preflight() -> tuple[list[dict], dict]:
+    """Build the plan that confirms no owned account exists before the capture."""
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, label in enumerate(OWNED, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -276,6 +282,7 @@ def preflight() -> tuple[list[dict], dict]:
 
 
 def seed() -> tuple[list[dict], dict]:
+    """Build the plan that creates the seed accounts the batches act on."""
     steps = login()
     for identifier, label in enumerate(OWNED[:14], 100):
         access = (
@@ -300,6 +307,7 @@ def seed() -> tuple[list[dict], dict]:
 
 
 def batch(spec: dict) -> tuple[list[dict], dict]:
+    """Build the plan that sends one batch case as its role and checks the connection afterwards."""
     steps = login()
     if spec["role"] != "admin":
         steps[3] = authentication(key("actor-" + spec["role"]), PASSWORD)
@@ -312,6 +320,7 @@ def batch(spec: dict) -> tuple[list[dict], dict]:
 
 
 def inspect(spec: dict) -> tuple[list[dict], dict]:
+    """Build the plan that reads back the named accounts around a batch case."""
     steps = login()
     for identifier, label in enumerate(spec["names"], 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -324,6 +333,7 @@ def inspect(spec: dict) -> tuple[list[dict], dict]:
 
 
 def probe_nul() -> tuple[list[dict], dict]:
+    """Build the plan that logs in with a password that contains a NUL byte."""
     steps = (
         login()[:3]
         + [authentication(key("nul-new"), b"\xff"), read(), read(), read()]
@@ -333,6 +343,7 @@ def probe_nul() -> tuple[list[dict], dict]:
 
 
 def finalization() -> tuple[list[dict], dict]:
+    """Build the plan that flushes and reads back every owned account."""
     steps = login() + upload(80, b"m-b28-final-flush", b"\0\0")
     for identifier, label in enumerate(OWNED, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -340,6 +351,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup(existing: list[str]) -> tuple[list[dict], dict]:
+    """Build the plan that deletes the observed owned accounts and flush files."""
     if len(set(existing)) != len(existing) or not set(existing) <= set(OWNED + EXTRA):
         raise ValueError("Cleanup requires a unique observed owned inventory")
     steps = login()
@@ -357,6 +369,7 @@ def cleanup(existing: list[str]) -> tuple[list[dict], dict]:
 
 
 def supplementary_seed() -> tuple[list[dict], dict]:
+    """Build the plan that seeds the accounts of the rename-collision case."""
     steps = login()
     for identifier, label in enumerate(EXTRA, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -380,6 +393,7 @@ def supplementary_seed() -> tuple[list[dict], dict]:
 
 
 def supplementary_spec() -> dict:
+    """Return the rename-collision batch case."""
     return {
         "case": "distinct-rename-collision",
         "role": "admin",
@@ -401,6 +415,7 @@ def supplementary_spec() -> dict:
 
 
 def supplementary_probe(label: str) -> tuple[list[dict], dict]:
+    """Build the plan that logs in with one account and password pair of the collision case."""
     key_label, password, success = {
         "source": ("clash2-old", SOURCE_PASSWORD, True),
         "destination-source": ("clash2-new", SOURCE_PASSWORD, True),
@@ -417,6 +432,7 @@ def supplementary_probe(label: str) -> tuple[list[dict], dict]:
 
 
 def supplementary_final() -> tuple[list[dict], dict]:
+    """Build the plan that reads back every owned and extra account after the collision case."""
     steps = login() + upload(80, b"m-b28-supp-final-flush", b"\0\0")
     for identifier, label in enumerate(OWNED + EXTRA, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -426,12 +442,14 @@ def supplementary_final() -> tuple[list[dict], dict]:
 
 
 def publish_cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that publishes the account changes with a flush file."""
     steps = login() + upload(80, b"m-b28-publish", b"\0\0")
     steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-batch-publish"}
 
 
 def remove_publisher() -> tuple[list[dict], dict]:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-b28-publish")])
     steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-batch-remove"}

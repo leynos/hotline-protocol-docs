@@ -24,6 +24,7 @@ def account_values(
     access: bytes,
     attribute: bytes = b"live27",
 ) -> list[tuple[int, bytes]]:
+    """Return the field list that creates or replaces a live account."""
     return [
         (105, complement(key)),
         (106, complement(password)),
@@ -34,6 +35,7 @@ def account_values(
 
 
 def subject(name: str, key: bytes, password: bytes, icon: int) -> list[dict]:
+    """Return the steps that log a named connection in as a subject with a requested name and icon."""
     steps = [{**s, "connection": name} for s in login()[:3]]
     return steps + [
         authentication(
@@ -55,6 +57,7 @@ def request(
     identifier: int,
     values: list[tuple[int, bytes]] | None = None,
 ) -> list[dict]:
+    """Return the steps that send a request on a connection and read its reply."""
     return [
         send(packet(kind, identifier, payload(values or [])), connection),
         read(connection, match_frame={"is_reply": 1, "id": identifier}),
@@ -62,6 +65,7 @@ def request(
 
 
 def settled() -> list[dict]:
+    """Return the steps that expect every connection to be quiet."""
     return [
         {"op": "expect_quiet", "connection": name, "timeout": 3}
         for name in ["one", "two", "main"]
@@ -69,6 +73,7 @@ def settled() -> list[dict]:
 
 
 def preflight() -> tuple[list[dict], dict]:
+    """Build the plan that confirms the live and deleted accounts do not exist."""
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, key in [(20, LIVE), (21, DELETED)]:
         steps += exchange(352, identifier, [(105, key)])
@@ -76,6 +81,7 @@ def preflight() -> tuple[list[dict], dict]:
 
 
 def seed() -> tuple[list[dict], dict]:
+    """Build the plan that creates the live and deleted accounts."""
     steps = login()
     for identifier, key, password, name in [
         (10, LIVE, OLD, ALPHA),
@@ -87,6 +93,7 @@ def seed() -> tuple[list[dict], dict]:
 
 
 def edit() -> tuple[list[dict], dict]:
+    """Build the plan that edits the live account while two sessions are logged in."""
     steps = login() + subject("one", LIVE, OLD, 7) + subject("two", LIVE, OLD, 8)
     steps += exchange(300, 10, []) + request("one", 500, 80) + request("two", 500, 80)
     steps += exchange(353, 11, account_values(LIVE, CHANGED, BETA, bytes(8)))
@@ -118,6 +125,7 @@ def edit() -> tuple[list[dict], dict]:
 
 
 def delete() -> tuple[list[dict], dict]:
+    """Build the plan that deletes an account while two sessions are logged in."""
     steps = (
         login()
         + subject("one", DELETED, DELETE_PASSWORD, 7)
@@ -140,6 +148,7 @@ def delete() -> tuple[list[dict], dict]:
 
 
 def probe(label: str) -> tuple[list[dict], dict]:
+    """Build the plan that logs in with one of the account states and records whether it succeeds."""
     values = {
         "old": (LIVE, OLD, False),
         "intermediate": (LIVE, CHANGED, False),
@@ -158,6 +167,7 @@ def probe(label: str) -> tuple[list[dict], dict]:
 
 
 def finalize() -> tuple[list[dict], dict]:
+    """Build the plan that flushes and reads back the live and deleted accounts."""
     steps = login() + upload(80, b"m-live27-flush", b"\0\0")
     steps += exchange(352, 10, [(105, LIVE)]) + exchange(352, 11, [(105, DELETED)])
     steps += exchange(348, 20, [])
@@ -165,6 +175,7 @@ def finalize() -> tuple[list[dict], dict]:
 
 
 def inspect() -> tuple[list[dict], dict]:
+    """Build the plan that reads back the live and deleted accounts after a restart."""
     steps = (
         login() + exchange(352, 10, [(105, LIVE)]) + exchange(352, 11, [(105, DELETED)])
     )
@@ -173,6 +184,7 @@ def inspect() -> tuple[list[dict], dict]:
 
 
 def stopped() -> tuple[list[dict], dict]:
+    """Build the plan that tries to handshake while the application is stopped."""
     steps = [{**s, "timeout": 3} for s in login()[:3]] + [close()]
     return steps, {
         "kind": "live-account-stopped-listener",
@@ -181,6 +193,7 @@ def stopped() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that deletes the live account and the flush file."""
     steps = login() + exchange(351, 10, [(105, complement(LIVE))])
     steps += exchange(204, 11, [(201, b"m-live27-flush")])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
@@ -188,12 +201,14 @@ def cleanup() -> tuple[list[dict], dict]:
 
 
 def publish_cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that publishes the account changes with a flush file."""
     steps = login() + upload(80, b"m-live27-publish", b"\0\0")
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
     return steps + [close()], {"kind": "live-account-publish"}
 
 
 def remove_publisher() -> tuple[list[dict], dict]:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-live27-publish")])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])
     return steps + [close()], {"kind": "live-account-remove"}

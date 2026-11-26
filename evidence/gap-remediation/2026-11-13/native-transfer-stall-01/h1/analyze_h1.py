@@ -13,10 +13,12 @@ from pcap_tcp import lifetime, read_packets, stream  # noqa: E402
 
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def main() -> None:
+    """Analyse the failed capture for hypothesis H1 and write the result."""
     out = Path(__file__).resolve().parent
     failed = ROOT / "state/native-sessions/native-banlab-c35"
     boot = ROOT / "state/native-sessions/native-banlab-boot-c34"

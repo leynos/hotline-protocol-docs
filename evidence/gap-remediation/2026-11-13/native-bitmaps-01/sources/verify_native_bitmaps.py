@@ -20,6 +20,7 @@ EXE_SHA256 = "9c943042993f46cea841812a28975bb4b91de283a37396cddb7604307fb743c4"
 
 
 def sent(report: dict, kind: int, identifier: int, connection: str = "main") -> dict:
+    """Return the single request of the given type and identifier that the report sent on a connection."""
     frames = []
     for event in report["events"]:
         if event["event"] != "send" or event["connection"] != connection:
@@ -35,6 +36,7 @@ def sent(report: dict, kind: int, identifier: int, connection: str = "main") -> 
 
 
 def account(frame: dict, access: bytes) -> None:
+    """Require a reply that reads back the owned account with the expected access bitmap."""
     require(
         frame["type"] == 0
         and frame["is_reply"] == 1
@@ -53,6 +55,7 @@ def account(frame: dict, access: bytes) -> None:
 def replacement(
     report: dict, update_id: int, read_id: int, submitted: bytes | None, observed: bytes
 ) -> None:
+    """Require that an account replacement sent the expected fields and succeeded, and that its readback matches."""
     request = fields(sent(report, 353, update_id))
     expected = {
         105: complement(cases.KEY),
@@ -72,6 +75,7 @@ def replacement(
 
 
 def ordered_replies(report: dict, identifiers: list[int]) -> None:
+    """Require the replacement and readback replies to arrive in the given order."""
     actual = [
         frame["id"]
         for frame in report["frames"]
@@ -178,6 +182,7 @@ def semantic(reports: dict[str, dict]) -> dict:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the bitmap corpus (reports, runtime identity, packet captures and walking bits) and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     require(
         manifest["reports"] == list(NAMES)

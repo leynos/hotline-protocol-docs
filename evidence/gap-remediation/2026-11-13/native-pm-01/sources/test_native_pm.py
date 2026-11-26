@@ -14,8 +14,10 @@ from verify_native_pm import check_variant
 
 
 class NativePMPlanTests(unittest.TestCase):
+    """Tests of the private message plan builders."""
     @classmethod
     def setUpClass(cls) -> None:
+        """Load the A7 baseline plan and its runtime record."""
         cls.baseline_raw = (
             Path(__file__).resolve().parents[2]
             / "mothra/evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/capture/plan.json"
@@ -24,6 +26,7 @@ class NativePMPlanTests(unittest.TestCase):
         cls.runtime = cls.baseline["environment"]
 
     def test_bounded_plan_and_baselines(self) -> None:
+        """Check that the three plans are valid, bounded and tied to the baseline."""
         plans = cases.plans(self.runtime, self.baseline_raw)
         self.assertEqual(set(plans), {"preflight", "observe", "postflight"})
         for plan in plans.values():
@@ -57,6 +60,7 @@ class NativePMPlanTests(unittest.TestCase):
         self.assertEqual(observe["steps"][-1]["op"], "close")
 
     def test_uid_substitutions_are_current_session_only(self) -> None:
+        """Check that the observe plan takes user identifiers from the current session only."""
         observe = cases.plans(self.runtime, self.baseline_raw)["observe"]
         sent = "".join(s["hex"] for s in observe["steps"] if s["op"] == "send")
         self.assertIn("{main_uid}", sent)
@@ -64,6 +68,7 @@ class NativePMPlanTests(unittest.TestCase):
         self.assertNotIn("00000067", sent)
 
     def test_unique_case_texts_and_negative_barriers(self) -> None:
+        """Check that case texts are unique and that the plan has its quiet barriers."""
         texts = [case.text for case in cases.CASES.values() if case.text]
         self.assertEqual(len(texts), len(set(texts)))
         observe = cases.plans(self.runtime, self.baseline_raw)["observe"]
@@ -72,6 +77,7 @@ class NativePMPlanTests(unittest.TestCase):
         )
 
     def test_variant_rejects_wrong_option_and_missing_quote(self) -> None:
+        """Check that a wrong option or a missing quote is rejected."""
         fields = {
             103: b"\0\x02",
             102: cases.MAIN,
@@ -93,11 +99,13 @@ class NativePMPlanTests(unittest.TestCase):
             )
 
     def test_variant_rejects_empty_generated_text(self) -> None:
+        """Check that empty generated message text is rejected."""
         fields = {103: b"\0\x02", 102: cases.PEER, 113: b"\0\x02", 101: b""}
         with self.assertRaisesRegex(ValueError, "Generated PM text"):
             check_variant(fields, b"\0\x02", cases.PEER, 2, None)
 
     def test_baseline_rejects_mutation_or_short_readback(self) -> None:
+        """Check that a changed, shortened or mismatched baseline or runtime is rejected."""
         with self.assertRaisesRegex(ValueError, "SHA-256"):
             cases.load_baseline(self.baseline_raw + b" ")
         short = copy.deepcopy(self.baseline)
@@ -113,6 +121,7 @@ class NativePMPlanTests(unittest.TestCase):
             cases.plans(wrong_runtime, self.baseline_raw)
 
     def test_export_preserves_full_baseline_bytes(self) -> None:
+        """Check that exporting the plans keeps the baseline bytes unchanged."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             record = root / "runtime.json"

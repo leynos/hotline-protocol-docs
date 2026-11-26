@@ -17,6 +17,7 @@ started = time.monotonic()
 limit = 8_000_000
 with out.open("w") as record:
     def emit(item):
+        """Write one JSON record to the watch log unless the log has reached its size limit."""
         if record.tell() > limit:
             return
         record.write(json.dumps(item, ensure_ascii=False) + "\n")

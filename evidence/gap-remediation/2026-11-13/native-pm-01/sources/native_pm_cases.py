@@ -20,6 +20,7 @@ FULL_STREAM_BYTES = 1049073
 
 
 def check_baseline_structure(plan: dict) -> None:
+    """Require the A7 baseline plan to have the recorded identity, expectation, steps and endpoints."""
     validate_plan(plan)
     if plan["profile"] != "native-mac-oracle" or plan["oracle_sha256"] != ORACLE_SHA256:
         raise ValueError("A7 baseline oracle identity differs")
@@ -52,6 +53,7 @@ def check_baseline_structure(plan: dict) -> None:
 
 
 def load_baseline(raw: bytes) -> dict:
+    """Check the A7 baseline's hash and structure and return the plan."""
     if hashlib.sha256(raw).hexdigest() != BASELINE_SHA256:
         raise ValueError("A7 baseline input SHA-256 differs")
     plan = json.loads(raw)
@@ -61,6 +63,7 @@ def load_baseline(raw: bytes) -> dict:
 
 @dataclass(frozen=True)
 class Case:
+    """One private message case: its option, text, quote and push settings."""
     option: int
     text: bytes
     quote: bytes = b""
@@ -87,6 +90,7 @@ def variable_message(
     fields: list[tuple[int, bytes]],
     connection: str = "main",
 ) -> dict:
+    """Build a private message request step whose target user identifier is substituted at run time."""
     if uid not in {"main_uid", "peer_uid"}:
         raise ValueError("UID must come from the current observed connection")
     body = (1 + len(fields)).to_bytes(2, "big").hex() + "00670002{" + uid + "}"
@@ -104,6 +108,7 @@ def variable_message(
 def settings(
     connection: str, identifier: int, name: bytes, options: int, auto: bytes = b""
 ) -> list[dict]:
+    """Return the steps that set a connection's name and options, then wait for both connections to settle."""
     values = [(102, name), (104, b"\0\x01"), (113, options.to_bytes(2, "big"))]
     if auto:
         values.append((215, auto))
@@ -113,6 +118,7 @@ def settings(
 
 
 def barrier(identifier: int) -> list[dict]:
+    """Return the steps that make both connections answer a request and then go quiet."""
     steps = []
     for connection in ("main", "peer"):
         steps += request(connection, 500, identifier)
@@ -123,6 +129,7 @@ def barrier(identifier: int) -> list[dict]:
 
 
 def observe() -> list[dict]:
+    """Return the observe plan's steps: log in two connections and send the private message cases."""
     steps = login() + [
         send(packet(300, 10)),
         read(
@@ -176,6 +183,7 @@ def observe() -> list[dict]:
 
 
 def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
+    """Build the preflight, observe and postflight plans after checking the runtime against the baseline."""
     baseline = load_baseline(baseline_raw)
     identity = ("oracle_sha256", "emulator_pid", "emulator_sha256", "guest_pcap")
     if any(runtime.get(key) != baseline["environment"].get(key) for key in identity):
@@ -201,6 +209,7 @@ def plans(runtime: dict, baseline_raw: bytes) -> dict[str, dict]:
 
 
 def main() -> None:
+    """Write the preflight, observe and postflight plans to the output directory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime-record", type=Path, required=True)
     parser.add_argument("--baseline-plan", type=Path, required=True)

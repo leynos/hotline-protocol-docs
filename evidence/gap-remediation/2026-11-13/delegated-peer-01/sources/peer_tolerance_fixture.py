@@ -16,6 +16,7 @@ CASES = ("control", "omit-161", "vary-161", "unknown-login", "early-122")
 
 
 def login_reply(original: bytes, case: str) -> bytes:
+    """Return the recorded login reply, altered for the named tolerance case."""
     frame = frames(original)[0]
     values = [(f["id"], bytes.fromhex(f["hex"])) for f in frame["fields"]]
     if case == "omit-161":
@@ -30,6 +31,7 @@ def login_reply(original: bytes, case: str) -> bytes:
 
 
 def serve(evidence: Path, case: str, port: int, output: Path) -> dict:
+    """Serve one controlled login exchange on a loopback port and write the event report."""
     if case not in CASES or not 15600 <= port <= 15609:
         raise ValueError("Case or reserved loopback port differs")
     original = fixture_frames(evidence)
@@ -61,6 +63,7 @@ def serve(evidence: Path, case: str, port: int, output: Path) -> dict:
                 report["server_address"] = list(connection.getsockname())
 
                 def read(size: int) -> bytes:
+                    """Receive exactly the requested number of bytes from the peer, recording each chunk."""
                     value = bytearray()
                     while len(value) < size:
                         chunk = connection.recv(size - len(value))
@@ -77,6 +80,7 @@ def serve(evidence: Path, case: str, port: int, output: Path) -> dict:
                     return bytes(value)
 
                 def send(value: bytes) -> None:
+                    """Send bytes to the peer and record the send event."""
                     connection.sendall(value)
                     events.append(
                         {
@@ -87,6 +91,7 @@ def serve(evidence: Path, case: str, port: int, output: Path) -> dict:
                     )
 
                 def request() -> dict:
+                    """Read one bounded request frame from the peer and decode it."""
                     header = read(20)
                     size = int.from_bytes(header[16:20], "big")
                     if size > 65535:
@@ -132,6 +137,7 @@ def serve(evidence: Path, case: str, port: int, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, serve the chosen case and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence", type=Path, required=True)
     parser.add_argument("--case", choices=CASES, required=True)

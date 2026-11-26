@@ -1,3 +1,4 @@
+"""Run one cleanup phase of the news boundary capture and check the resulting listings."""
 import json,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')

@@ -1,3 +1,4 @@
+"""Resume the suspended timer thread of the emulator and record the action."""
 import ctypes,json,signal,subprocess
 from pathlib import Path
 from datetime import datetime,timezone

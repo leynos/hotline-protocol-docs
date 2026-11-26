@@ -23,10 +23,12 @@ A7 = (
 
 
 def sha256(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def saved_semantic(case: str, baseline: dict) -> tuple[dict, dict]:
+    """Verify a saved capture and require its semantic result to equal the saved verification."""
     report = verify_capture(BATCH / case)
     report["_plan_path"] = BATCH / case / "plan.json"
     checked = semantic(case, report, baseline)
@@ -39,6 +41,7 @@ def saved_semantic(case: str, baseline: dict) -> tuple[dict, dict]:
 
 
 def packet_views(case: str, report: dict) -> dict:
+    """Reassemble each connection of the host and guest packet captures for a case."""
     start_us = int(
         datetime.datetime.fromisoformat(report["started_at_utc"]).timestamp()
         * 1_000_000
@@ -102,6 +105,7 @@ def packet_views(case: str, report: dict) -> dict:
 
 
 def check_density(report: dict, checked: dict, views: dict, full: bytes) -> dict:
+    """Check the density case's references, queue positions, text lengths and per-connection streams."""
     if len(checked["references"]) != 16 or checked["waiting_positions"] != list(
         range(1, 9)
     ):
@@ -148,6 +152,7 @@ def check_density(report: dict, checked: dict, views: dict, full: bytes) -> dict
 
 
 def check_postflight(report: dict, views: dict) -> None:
+    """Check that the postflight packet captures hold only the control stream and that it matches the report."""
     for view in views.values():
         if set(view) != {"a"}:
             raise ValueError("Unexpected postflight data socket")
@@ -160,6 +165,7 @@ def check_postflight(report: dict, views: dict) -> None:
 
 
 def strip_streams(views: dict) -> dict:
+    """Remove the private reassembled streams from the packet views."""
     return {
         filename: {
             connection: {
@@ -172,6 +178,7 @@ def strip_streams(views: dict) -> dict:
 
 
 def main() -> None:
+    """Verify the density corpus against the A7 baseline and print or write the result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     arguments = parser.parse_args()

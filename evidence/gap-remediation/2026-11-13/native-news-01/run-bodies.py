@@ -1,3 +1,4 @@
+"""Run each news body plan against the retained runtime and require it to complete."""
 import sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')

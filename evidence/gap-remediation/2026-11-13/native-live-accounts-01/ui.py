@@ -1,3 +1,4 @@
+"""Run one recorded input command against the display, save a screenshot and log the event."""
 import json,subprocess,sys
 from datetime import datetime,timezone
 from pathlib import Path

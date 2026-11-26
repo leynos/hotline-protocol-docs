@@ -17,6 +17,7 @@ COMMENT = b"move-comment"
 
 
 def move_specs() -> list[dict]:
+    """Return the move cases for files and folders, each with its names, destination and role."""
     result = []
     for folder in [False, True]:
         labels = [
@@ -86,6 +87,7 @@ def move_specs() -> list[dict]:
 
 
 def preflight() -> dict:
+    """Build the plan that confirms the fixture state before the move capture."""
     steps = (
         login()
         + exchange(200, 10, [(202, b"\0\0")])
@@ -96,15 +98,18 @@ def preflight() -> dict:
 
 
 def seed() -> dict:
+    """Build the plan that creates the folders and files the moves act on."""
     steps = login()
     counter = 100
 
     def folder(name: bytes, parent: bytes) -> None:
+        """Append the steps that create one folder."""
         nonlocal counter, steps
         steps += exchange(205, counter, [(201, name), (202, parent)])
         counter += 1
 
     def file(name: bytes, parent: bytes, data: bytes = DATA) -> None:
+        """Append the steps that upload one file with forks."""
         nonlocal counter, steps
         steps += upload(
             counter,
@@ -176,6 +181,7 @@ def seed() -> dict:
 
 
 def moves() -> dict:
+    """Build one plan per move case that moves an item and reads both folders back."""
     result = {}
     for spec in move_specs():
         name = bytes.fromhex(spec["name_hex"])
@@ -202,6 +208,7 @@ def moves() -> dict:
 
 
 def deletion_specs() -> list[dict]:
+    """Return the deletion cases, each with its name, parent and role."""
     result = []
     for label, name, parent, role in [
         ("ordinary-file", b"del-file", BASE, "admin"),
@@ -226,6 +233,7 @@ def deletion_specs() -> list[dict]:
 
 
 def deletions() -> dict:
+    """Build one plan per deletion case that deletes an item and reads its folder back."""
     result = {}
     for spec in deletion_specs():
         parent = bytes.fromhex(spec["parent_hex"])
@@ -251,6 +259,7 @@ def deletions() -> dict:
 
 
 def finalization() -> dict:
+    """Build the plan that flushes and reads back every folder the cases touched."""
     steps = login() + upload(80, b"flush", BASE)
     steps += (
         exchange(200, 90, [(202, b"\0\0")])
@@ -263,6 +272,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the owned folders."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     names = [ROOT] + [
         bytes.fromhex(s["name_hex"])

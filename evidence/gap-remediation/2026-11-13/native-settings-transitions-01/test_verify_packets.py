@@ -14,7 +14,9 @@ ROOT = Path(__file__).resolve().parent
 
 
 class NativeSettingsCorpusTests(unittest.TestCase):
+    """Tests of the settings transition corpus verifier."""
     def test_portable_replay(self) -> None:
+        """Check that the portable replay verifies with eight stages and six connections."""
         result = corpus.verify(ROOT)
         self.assertEqual(result["status"], "verified")
         self.assertEqual(len(result["stages"]), 8)
@@ -22,6 +24,7 @@ class NativeSettingsCorpusTests(unittest.TestCase):
         self.assertFalse(result["raw_snapshots_replayed"])
 
     def test_missing_default_104_is_not_a_pass(self) -> None:
+        """Check that a missing default notification is rejected."""
         report = copy.deepcopy(verify_capture(ROOT / "observe"))
         plan = json.loads((ROOT / "observe/plan.json").read_text())
         omitted = plan["expectation"]["windows"][1]
@@ -38,6 +41,7 @@ class NativeSettingsCorpusTests(unittest.TestCase):
             semantic(report, plan)
 
     def test_modified_tcp_stream_and_tail_identity_fail(self) -> None:
+        """Check that an altered stream or a wrong departure tail is rejected."""
         reports = {
             name: verify_capture(ROOT / name)
             for name in ("preflight", "observe", "postflight")
@@ -51,6 +55,7 @@ class NativeSettingsCorpusTests(unittest.TestCase):
             corpus.packet_views(ROOT, reports, b"\0\x33")
 
     def test_corrupt_inventory_rejected(self) -> None:
+        """Check that a wrong file hash is rejected by the inventory."""
         actual = corpus.digest
         with (
             patch.object(

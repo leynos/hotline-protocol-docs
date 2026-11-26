@@ -27,6 +27,7 @@ WIDTHS: dict[str, bytes | None] = {
 
 
 def walking_bit(bit: int) -> bytes:
+    """Return the access bitmap with only the given bit set, most significant bit first."""
     if not 0 <= bit < 64:
         raise ValueError("Bit outside field-110 registry")
     result = bytearray(8)
@@ -35,6 +36,7 @@ def walking_bit(bit: int) -> bytes:
 
 
 def replacement(access: bytes | None) -> list[tuple[int, bytes]]:
+    """Return the account update fields, with the access bitmap when one is given."""
     values = [
         (105, complement(KEY)),
         (102, NAME),
@@ -47,6 +49,7 @@ def replacement(access: bytes | None) -> list[tuple[int, bytes]]:
 
 
 def suites() -> dict[str, tuple[list[dict], dict]]:
+    """Return the preflight, seed, walking-bit, width and cleanup plans of the bitmap capture."""
     plans = {}
     plans["preflight"] = (
         login() + exchange(348, 10, []) + exchange(352, 11, [(105, KEY)]) + [close()],
@@ -97,6 +100,7 @@ def suites() -> dict[str, tuple[list[dict], dict]]:
 
 
 def main() -> None:
+    """Write each bitmap plan to the output directory with the runtime record."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime-record", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

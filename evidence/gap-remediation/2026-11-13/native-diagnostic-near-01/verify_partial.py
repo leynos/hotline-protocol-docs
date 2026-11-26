@@ -33,10 +33,12 @@ A7 = (
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def guest_ack_tail(tail: bytes) -> dict:
+    """Require the guest-only tail to be one successful cancellation acknowledgement and describe it."""
     require(len(tail) == 22, "Guest-only control tail is not one 22-byte ACK")
     frame = decode_frame(tail)
     require(
@@ -51,6 +53,7 @@ def guest_ack_tail(tail: bytes) -> dict:
 
 
 def packet_views(report: dict, filename: str, *, guest: bool) -> dict:
+    """Reassemble each connection of a packet capture for the report."""
     start_us = int(
         datetime.datetime.fromisoformat(report["started_at_utc"]).timestamp()
         * 1_000_000
@@ -114,6 +117,7 @@ def packet_views(report: dict, filename: str, *, guest: bool) -> dict:
 
 
 def public_view(view: dict) -> dict:
+    """Remove the private reassembled streams from a packet view."""
     return {
         name: {key: value for key, value in item.items() if not key.startswith("_")}
         for name, item in view.items()
@@ -121,6 +125,7 @@ def public_view(view: dict) -> dict:
 
 
 def check_plan_identity(report: dict) -> dict:
+    """Require the prepared, executed and captured plans and the reported plan hash to agree."""
     prepared = json.loads((BATCH / "near-prepared-plan.json").read_text())
     executed = json.loads((BATCH / "near-execution-plan.json").read_text())
     require(
@@ -144,6 +149,7 @@ def check_plan_identity(report: dict) -> dict:
 
 
 def check_partial(report: dict, host: dict, guest: dict, full: bytes) -> dict:
+    """Check that the near capture failed where it was recorded to fail and that its prefix is as planned."""
     require(report["status"] == "failed", "Near capture is not the saved failure")
     require(report["completed_actions"] == 94, "Failure action differs")
     require(
@@ -266,6 +272,7 @@ def check_partial(report: dict, host: dict, guest: dict, full: bytes) -> dict:
 
 
 def main() -> None:
+    """Verify the partial near capture and the restored postflight against the baseline."""
     near = verify_capture(BATCH / "near")
     near["_plan_path"] = BATCH / "near/plan.json"
     postflight = verify_capture(BATCH / "postflight")
