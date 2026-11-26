@@ -85,7 +85,7 @@ def coverage(
     now: dt.datetime,
     mono_us: int,
 ) -> None:
-    """Require the managed unit to be running with the expected properties until the deadline."""
+    """Require the managed unit to be running now with the expected properties and a runtime cap that covers the deadline."""
     require(
         set(props) == set(PROPERTIES), "Managed unit properties incomplete or extra"
     )
@@ -289,7 +289,7 @@ def lease_probe(
 
 
 def isolated_routes(pid: int) -> None:
-    """Require the isolated namespace to have no routes and only the loopback interface."""
+    """Require the isolated namespace's IPv4 and IPv6 main routing tables to be empty and only the loopback interface to exist."""
     base = ["/usr/sbin/nsenter", "-t", str(pid), "-n", "/usr/sbin/ip", "-j"]
     for family in ("-4", "-6"):
         require(
