@@ -241,7 +241,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the root category and the flush file."""
+    """Build the plan that deletes the root category and moves the flush file to Trash."""
     steps = (
         login()
         + exchange(380, 10, [(325, BASE)])

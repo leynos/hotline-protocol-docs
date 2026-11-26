@@ -445,7 +445,7 @@ def supplementary() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the owned alias tree."""
+    """Build the plan that requests moving the owned tree and three other named entries to Trash."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     names = [ROOT, b"m-al20-absent", b"m-al20-empty", b"m-al20-zero"]
     for identifier, name in enumerate(names, 20):
