@@ -287,7 +287,7 @@ def test_a_failed_record_load_is_not_served_as_live_bytes(
     def read(_: int) -> str:
         try:
             return path.read_text(encoding="utf-8")
-        except Exception as error:  # ruff: ignore[blind-except]
+        except Exception as error:  # ruff: ignore[blind-except]  # the test reports the type
             return type(error).__name__
 
     with futures.ThreadPoolExecutor(max_workers=8) as pool:
