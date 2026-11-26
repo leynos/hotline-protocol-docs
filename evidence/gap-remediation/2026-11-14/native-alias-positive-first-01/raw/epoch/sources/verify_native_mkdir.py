@@ -201,7 +201,7 @@ def check_root_empty(report: dict, initial: dict[bytes, bytes]) -> None:
 
 
 def uploaded(report: dict, data: bytes) -> None:
-    """Check the upload reference and the bytes sent for the fixture file."""
+    """Check the upload reference, taken from the first reply that has field 107, and the bytes sent for the fixture file."""
     values = fields(
         next(
             f
