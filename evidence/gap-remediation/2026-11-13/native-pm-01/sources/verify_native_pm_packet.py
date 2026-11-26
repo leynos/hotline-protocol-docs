@@ -19,10 +19,12 @@ from verify_native_shx import fields, frames
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def inventory(root: Path) -> None:
+    """Check the manifest status and that every file matches its recorded hash and the checksum list."""
     manifest = json.loads((root / "manifest.json").read_text())
     require(manifest["status"] == "bounded-native-pm-a29", "PM manifest status differs")
     for path, expected in manifest["files"].items():
@@ -45,6 +47,7 @@ def inventory(root: Path) -> None:
 
 
 def full_readback(root: Path, label: str, source: dict) -> dict:
+    """Check that a preflight or postflight capture replays the full baseline sequence with the same replies."""
     path = root / label
     report = verify_capture(path)
     plan_raw = (path / "plan.json").read_bytes()
@@ -108,6 +111,7 @@ def full_readback(root: Path, label: str, source: dict) -> dict:
 
 
 def check_pm(root: Path) -> tuple[dict, dict]:
+    """Check the observe capture and its saved semantic receipt and return the main and peer identifiers."""
     report = verify_capture(root / "observe")
     plan = json.loads((root / "observe/plan.json").read_text())
     require(report["completed_actions"] == 151, "PM action count differs")
@@ -191,6 +195,7 @@ def check_pm(root: Path) -> tuple[dict, dict]:
 
 
 def packet_views(root: Path, reports: dict[str, dict], peer_uid: bytes) -> dict:
+    """Reassemble each capture's host and guest connections and compare them with the saved reconciliation."""
     saved = json.loads((root / "packet-reconciliation.json").read_text())
     observed = {}
     for label, report in reports.items():
@@ -276,6 +281,7 @@ def packet_views(root: Path, reports: dict[str, dict], peer_uid: bytes) -> dict:
 
 
 def verify(root: Path) -> dict:
+    """Verify the whole private message corpus and return the summary."""
     inventory(root)
     source = json.loads((root / "a7-report.json").read_text())
     pre = full_readback(root, "preflight", source)
@@ -296,6 +302,7 @@ def verify(root: Path) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus and print or write the status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("batch", type=Path)
     parser.add_argument("--output", type=Path)

@@ -33,6 +33,7 @@ def diagnostic_request(connection: str, identifier: int, uid: str | bytes) -> di
 
 
 def suites(stale_uid: bytes | None = None) -> dict[str, tuple[list[dict], dict]]:
+    """Return the preflight, seed, observe, self and cleanup plans of the diagnostic capture."""
     preflight = login() + exchange(348, 10, []) + exchange(352, 11, [(105, KEY)])
     preflight += exchange(300, 12, []) + [close()]
     seed = login() + exchange(350, 10, account_values(KEY, PASSWORD, NAME, ACCESS))
@@ -76,6 +77,7 @@ def suites(stale_uid: bytes | None = None) -> dict[str, tuple[list[dict], dict]]
 
 
 def main() -> None:
+    """Write each diagnostic plan to the output directory with the runtime record."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime-record", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

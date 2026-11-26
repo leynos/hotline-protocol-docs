@@ -17,6 +17,7 @@ from verify_native_diagnostic_existing import semantic
 
 
 def check_case(case: str, baseline: dict) -> dict:
+    """Verify one capture, compare its semantic result with the saved one and check its packet views."""
     report = verify_capture(BATCH / case)
     report["_plan_path"] = BATCH / case / "plan.json"
     checked = semantic(case, report, baseline)
@@ -107,6 +108,7 @@ def check_case(case: str, baseline: dict) -> dict:
 
 
 def main() -> None:
+    """Verify both captures against the preflight baseline and print or write the result."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     arguments = parser.parse_args()

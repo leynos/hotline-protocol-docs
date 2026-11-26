@@ -11,6 +11,7 @@ CATEGORY = path((ROOT, b"siblings"))
 
 
 def post(identifier: int, number: int) -> list[dict]:
+    """Return the steps that post the parent article or one numbered child article."""
     title = b"parent" if number == 0 else f"child-{number:03}".encode()
     return exchange(
         410,
@@ -26,11 +27,13 @@ def post(identifier: int, number: int) -> list[dict]:
 
 
 def preflight() -> tuple[list[dict], dict]:
+    """Build the plan that checks the news and file trees before the capture."""
     steps = login() + exchange(370, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     return steps + [close()], {"kind": "news-boundary-preflight"}
 
 
 def seed() -> tuple[list[dict], dict]:
+    """Build the plan that creates the folder and category and posts the parent article."""
     steps = login() + exchange(381, 10, [(201, ROOT)])
     steps += exchange(382, 11, [(322, b"siblings"), (325, BASE)])
     steps += post(12, 0)
@@ -41,6 +44,7 @@ def seed() -> tuple[list[dict], dict]:
 
 
 def append(first: int, last: int) -> tuple[list[dict], dict]:
+    """Build the plan that appends a bounded range of child articles and lists the category twice."""
     if not 1 <= first <= last <= 102 or last - first >= 10:
         raise ValueError("Child append must be a bounded range within 1..102")
     steps = login() + exchange(371, 10, [(325, CATEGORY)])
@@ -56,6 +60,7 @@ def append(first: int, last: int) -> tuple[list[dict], dict]:
 
 
 def observe() -> tuple[list[dict], dict]:
+    """Build the plan that reads the first and last articles and lists the category."""
     steps = login() + exchange(371, 10, [(325, CATEGORY)])
     for identifier in [1, 2, 100, 101, 102, 103]:
         steps += exchange(
@@ -76,6 +81,7 @@ def observe() -> tuple[list[dict], dict]:
 
 
 def finalization() -> tuple[list[dict], dict]:
+    """Build the plan that flushes the volume and reads back the category."""
     steps = login() + upload(80, b"m-nb25-flush", b"\0\0")
     steps += exchange(371, 10, [(325, CATEGORY)])
     steps += exchange(370, 20, [(325, BASE)])
@@ -83,6 +89,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that deletes the news folder and the flush file."""
     steps = login() + exchange(380, 10, [(325, BASE)])
     steps += exchange(204, 11, [(201, b"m-nb25-flush")])
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
@@ -90,12 +97,14 @@ def cleanup() -> tuple[list[dict], dict]:
 
 
 def publish_cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that publishes the news changes with a flush file."""
     steps = login() + upload(80, b"m-nb25-publish", b"\0\0")
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "news-boundary-publish"}
 
 
 def remove_publisher() -> tuple[list[dict], dict]:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-nb25-publish")])
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "news-boundary-remove"}

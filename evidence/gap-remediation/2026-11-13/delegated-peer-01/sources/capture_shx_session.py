@@ -18,12 +18,14 @@ from protocol_capture import ORACLE_SHA256
 
 
 def digest(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def capture(
     plan_path: Path, binary: Path, profile_path: Path, oracle: Path, output: Path
 ) -> dict:
+    """Drive the compiled peer through the plan's steps in a pseudo-terminal and return the session report."""
     root = Path(__file__).resolve().parents[2] / "mothra"
     root = root.resolve()
     binary, output = binary.resolve(), output.resolve()
@@ -53,6 +55,7 @@ def capture(
     guarded_home_file = Path.home() / ".hxvars"
 
     def home_file_state() -> dict:
+        """Report whether the guarded real HOME file exists, with its size, modification time and hash."""
         if not guarded_home_file.exists():
             return {"exists": False}
         stat = guarded_home_file.stat()
@@ -140,6 +143,7 @@ def capture(
     code = None
 
     def event(kind: str, data: bytes = b"", step: int = -1) -> None:
+        """Append a timed event to the session's event list."""
         events.append(
             {
                 "event": kind,
@@ -150,6 +154,7 @@ def capture(
         )
 
     def poll(timeout: float, step: int) -> bytes:
+        """Read any terminal output that is ready, record it as an event and note when the peer exits."""
         nonlocal ended, code
         data = b""
         if select.select([fd], [], [], timeout)[0]:
@@ -241,6 +246,7 @@ def capture(
 
 
 def main() -> None:
+    """Parse the command line, run the capture and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("plan", type=Path)
     parser.add_argument("--binary", type=Path, required=True)

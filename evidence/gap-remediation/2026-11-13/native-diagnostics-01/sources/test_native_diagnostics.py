@@ -16,17 +16,21 @@ CORPUS = (
 
 
 class DiagnosticPlanTests(unittest.TestCase):
+    """Tests of the diagnostic plan builders."""
     def test_uid_substitution_is_two_bytes(self) -> None:
+        """Check that a substituted user identifier is two bytes in field 103."""
         step = cases.diagnostic_request("main", 11, "target_uid")
         frame = decode_frame(bytes.fromhex(step["hex"].replace("{target_uid}", "1234")))
         self.assertEqual(frame["data_size"], 8)
         self.assertEqual(frame["fields"], [{"id": 103, "hex": "1234"}])
 
     def test_unknown_uid_substitution_rejected(self) -> None:
+        """Check that an unknown identifier variable is refused."""
         with self.assertRaises(ValueError):
             cases.diagnostic_request("main", 11, "other")
 
     def test_self_case_saves_uid_from_current_roster(self) -> None:
+        """Check that the self case reads the user identifier from the current roster."""
         steps, _ = cases.suites()["self"]
         roster = next(
             step for step in steps if step.get("save", {}).get("name") == "admin_uid"
@@ -38,22 +42,27 @@ class DiagnosticPlanTests(unittest.TestCase):
         )
 
     def test_owned_account_is_unique_and_zero_privilege(self) -> None:
+        """Check that the owned account has no privileges and a bounded unique key."""
         self.assertEqual(cases.ACCESS, bytes(8))
         self.assertTrue(cases.KEY.startswith(b"m-diag31-"))
         self.assertLessEqual(len(cases.KEY), 31)
 
 
 class DiagnosticEvidenceTests(unittest.TestCase):
+    """Tests of the retained diagnostic evidence."""
     def reports(self) -> dict:
+        """Load the report of every diagnostic suite from the corpus."""
         return {
             name: json.loads((CORPUS / name / "report.json").read_text())
             for name in ("preflight", "seed", "observe", "self", "cleanup")
         }
 
     def test_complete_corpus(self) -> None:
+        """Check that the retained corpus verifies with five completed reports."""
         self.assertEqual(verify(CORPUS)["completed_reports"], 5)
 
     def test_wrong_field_is_rejected(self) -> None:
+        """Check that a wrong field identifier in a reply is rejected."""
         reports = self.reports()
         reply = next(
             f for f in reports["observe"]["frames"] if f["id"] == 10 and f["is_reply"]
@@ -63,6 +72,7 @@ class DiagnosticEvidenceTests(unittest.TestCase):
             semantic(reports)
 
     def test_wrong_error_is_rejected(self) -> None:
+        """Check that a wrong error code in a reply is rejected."""
         reports = self.reports()
         reply = next(
             f
@@ -74,6 +84,7 @@ class DiagnosticEvidenceTests(unittest.TestCase):
             semantic(reports)
 
     def test_stale_uid_cannot_be_relabelled_self(self) -> None:
+        """Check that a stale user identifier cannot pass as the self case."""
         reports = self.reports()
         send = next(
             e
@@ -85,6 +96,7 @@ class DiagnosticEvidenceTests(unittest.TestCase):
             semantic(reports)
 
     def test_multiple_self_roster_candidates_are_rejected(self) -> None:
+        """Check that a roster with two self candidates is rejected."""
         reports = self.reports()
         roster = next(
             f for f in reports["self"]["frames"] if f["id"] == 10 and f["is_reply"]
@@ -94,6 +106,7 @@ class DiagnosticEvidenceTests(unittest.TestCase):
             semantic(reports)
 
     def test_diagnostic_reply_reordering_is_rejected(self) -> None:
+        """Check that diagnostic replies in the wrong order are rejected."""
         reports = self.reports()
         frames = reports["observe"]["frames"]
         left = next(

@@ -18,15 +18,18 @@ from verify_native_shx import PEER
 
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def free(port: int) -> None:
+    """Check that a loopback port can be bound."""
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", port))
 
 
 def run(root: Path, evidence: Path, work: Path, destination: Path) -> None:
+    """Run every tolerance case against the peer binary and publish the corpus to the evidence directory."""
     root, evidence, work, destination = (
         path.resolve() for path in (root, evidence, work, destination)
     )
@@ -210,6 +213,7 @@ def run(root: Path, evidence: Path, work: Path, destination: Path) -> None:
 
 
 def main() -> None:
+    """Parse the command line and run the tolerance cases."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

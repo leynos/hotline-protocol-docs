@@ -1,3 +1,4 @@
+"""Run one stage of the account-identity captures against the retained runtime."""
 import copy,json,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')
@@ -9,6 +10,7 @@ template=json.loads(Path('state/native-sessions/runtime-28/preflight/plan.json')
 template['environment']=json.loads((root/'runtime.json').read_text())
 template['gap_ids']=['GAP-003','GAP-021','GAP-031','GAP-036','GAP-072','GAP-074','GAP-084']
 def run(name,pair):
+ """Build a plan from a step list and expectation, run it, print the frames and require completion."""
  steps,expectation=pair
  plan=copy.deepcopy(template);plan.update(steps=steps,expectation=expectation)
  p=root/(name+'.plan.json');p.write_text(json.dumps(plan,indent=2)+'\n')

@@ -1,3 +1,4 @@
+"""Run the news boundary plans in order, appending child articles in ranges and checking each listing."""
 import copy,json,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')
@@ -9,6 +10,7 @@ from verify_native_shx import fields
 r=Path('state/native-sessions/runtime-25')
 template=json.loads(Path('state/native-sessions/runtime-24/deletions/parent-three-one/plan.json').read_text());template['environment']=json.loads((r/'runtime.json').read_text());template['gap_ids']=['GAP-067','GAP-068','GAP-084']
 def run(name,pair):
+ """Build a plan from a step list and expectation, run it and require every frame to succeed."""
  steps,expected=pair;plan=copy.deepcopy(template);plan['steps']=steps;plan['expectation']=expected;p=r/(name+'.plan.json');p.write_text(json.dumps(plan,indent=2)+'\n');report=run_plan(p,Path('evidence/hotline-server-1.9/inputs/HLserver19.pef'),r/name);print(name,report['status'],report['error'],flush=True);assert report['status']=='completed' and all(f['error']==0 for f in report['frames']);return report
 pre=run('preflight',cases.preflight());assert categories(reply(pre,10))==[]
 seed=run('seed',cases.seed());previous=fields(reply(seed,20))[321];assert [a['id'] for a in articles(previous)]==[1]

@@ -12,16 +12,19 @@ VERSIONS = [0, 1, 14, 15, 16, 149, 150, 190, 65535]
 
 
 def preflight() -> dict:
+    """Build the plan that checks the news tree before the capture."""
     steps = login() + exchange(370, 10, []) + exchange(500, 90, []) + [close()]
     return {"preflight": (steps, {"kind": "news-preflight"})}
 
 
 def files_preflight() -> dict:
+    """Build the plan that checks the file tree before the capture."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")]) + [close()]
     return {"files": (steps, {"kind": "news-files-preflight"})}
 
 
 def seed() -> dict:
+    """Build the plan that creates the news folders and categories."""
     steps = login() + exchange(381, 10, [(201, ROOT)])
     for identifier, name in [(20, b"bundle"), (21, b"empty"), (22, b"hi-\x9a")]:
         steps += exchange(381, identifier, [(201, name), (325, BASE)])
@@ -41,6 +44,7 @@ def seed() -> dict:
 
 
 def listings() -> dict:
+    """Build one plan per client version that lists the news folders and categories."""
     result = {}
     for version in VERSIONS:
         steps = login()
@@ -81,6 +85,7 @@ def listings() -> dict:
 
 
 def posts() -> dict:
+    """Build the plan that posts the root articles, including one without a body."""
     steps = login() + exchange(370, 10, [(325, BASE)])
     steps += exchange(371, 11, [(325, path((ROOT, b"category")))])
     for identifier, category, title, flags, content in [
@@ -116,6 +121,7 @@ def posts() -> dict:
 
 
 def thread_children(parent: int) -> dict:
+    """Build the plan that posts child articles under a parent article."""
     steps = login()
     for identifier, title, content in [
         (20, b"long-" + b"x" * 59, b"B" * 65535),
@@ -138,6 +144,7 @@ def thread_children(parent: int) -> dict:
 
 
 def thread_grandchild(parent: int) -> dict:
+    """Build the plan that posts a grandchild article and lists the category."""
     steps = login() + exchange(
         410,
         20,
@@ -158,6 +165,7 @@ def thread_grandchild(parent: int) -> dict:
 
 
 def structures() -> dict:
+    """Build one plan per case that creates folders or categories that conflict or lack a parent."""
     result = {}
     for label, kind, values, role in [
         ("folder-conflict-folder", 381, [(201, b"bundle"), (325, BASE)], "admin"),
@@ -209,6 +217,7 @@ def structures() -> dict:
 
 
 def finalization() -> dict:
+    """Build the plan that flushes the volume and reads back the news tree."""
     steps = login() + exchange(370, 10, [(325, BASE)])
     # File upload supplies the previously verified native volume-flush path.
     steps += upload(80, b"m-news23-flush", b"\0\0")
@@ -217,6 +226,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the news tree and the flush file."""
     steps = login() + exchange(380, 10, [(325, BASE)])
     steps += exchange(204, 11, [(201, b"m-news23-flush")])
     steps += exchange(370, 90, []) + exchange(500, 91, []) + [close()]
@@ -224,6 +234,7 @@ def cleanup() -> dict:
 
 
 def publish_cleanup() -> dict:
+    """Build the plan that publishes the news changes with a flush file."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     steps += upload(80, b"m-news23-publish", b"\0\0")
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")]) + [close()]
@@ -231,6 +242,7 @@ def publish_cleanup() -> dict:
 
 
 def remove_publisher() -> dict:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-news23-publish")])
     steps += (
         exchange(200, 90, [(202, b"\0\0")])
@@ -242,6 +254,7 @@ def remove_publisher() -> dict:
 
 
 def bodies() -> dict:
+    """Build one plan per case that requests an article body in a given flavour."""
     result = {}
     for label, identifier, flavour in [
         ("root-first", 1, b"text/plain"),

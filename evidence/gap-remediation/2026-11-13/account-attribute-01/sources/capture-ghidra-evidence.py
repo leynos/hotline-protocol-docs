@@ -12,6 +12,7 @@ from mcp.client.stdio import stdio_client
 
 
 async def capture(plan_path: Path, output: Path) -> None:
+    """Run the plan's Ghidra tool calls through the MCP server and record the program identity and results under the output directory."""
     root = Path(__file__).resolve().parent.parent
     plan = json.loads(plan_path.read_text())
     output.mkdir(parents=True, exist_ok=True)

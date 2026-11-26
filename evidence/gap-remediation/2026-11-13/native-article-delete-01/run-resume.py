@@ -1,3 +1,4 @@
+"""Resume the article deletion captures for each case and check the recreated article tree."""
 import json,subprocess,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')

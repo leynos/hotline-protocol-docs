@@ -14,10 +14,12 @@ from pcap_tcp import lifetime, read_packets, stream  # noqa: E402
 
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def headers(path: Path) -> dict[int, dict]:
+    """Read a packet capture and return the TCP headers of its packets by index."""
     result = {}
     with path.open("rb") as source:
         header = source.read(24)
@@ -67,6 +69,7 @@ def headers(path: Path) -> dict[int, dict]:
 
 
 def scale(packet: dict) -> int | None:
+    """Return the TCP window scale of a packet, or None when it has none."""
     values = [bytes.fromhex(value) for kind, value in packet["options"] if kind == 3]
     if not values:
         return None
@@ -76,6 +79,7 @@ def scale(packet: dict) -> int | None:
 
 
 def main() -> None:
+    """Analyse the failed capture for hypothesis H2 (a zero receiver window) and write the result."""
     out = Path(__file__).resolve().parent
     boot = ROOT / "state/native-sessions/native-banlab-boot-c34"
     report_path = ROOT / "state/native-sessions/native-banlab-c35/a7-capture/report.json"

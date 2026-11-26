@@ -17,10 +17,12 @@ from protocol_capture import verify_capture
 
 
 def sha256(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def frame(report: dict, identifier: int) -> dict:
+    """Return the one successful reply frame with the given identifier."""
     matches = [
         f for f in report["frames"] if f["is_reply"] == 1 and f["id"] == identifier
     ]
@@ -30,10 +32,12 @@ def frame(report: dict, identifier: int) -> dict:
 
 
 def fields(value: dict) -> dict[int, bytes]:
+    """Return a frame's fields as a map from identifier to bytes."""
     return {f["id"]: bytes.fromhex(f["hex"]) for f in value["fields"]}
 
 
 def main() -> None:
+    """Verify the preflight capture against the load baseline."""
     verify_capture(BATCH / "capture")
     report = json.loads((BATCH / "capture/report.json").read_text())
     baseline = json.loads(

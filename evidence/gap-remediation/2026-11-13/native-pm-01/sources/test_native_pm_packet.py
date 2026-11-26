@@ -16,10 +16,12 @@ BATCH = (
 
 
 def sha(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def rebuild_streams(report: dict) -> None:
+    """Recompute a report's sent and received streams from its events."""
     streams = {}
     for event in report["events"]:
         name = event["connection"]
@@ -34,6 +36,7 @@ def rebuild_streams(report: dict) -> None:
 
 
 def change_field(report: dict, action: int, field_id: int, new_value: bytes) -> None:
+    """Replace one field value of a frame with a value of the same width."""
     frame = next(f for f in report["frames"] if f["action"] == action)
     payload = bytearray.fromhex(frame["payload_hex"])
     offset = 2
@@ -60,7 +63,9 @@ def change_field(report: dict, action: int, field_id: int, new_value: bytes) -> 
 
 
 class PMPacketTests(unittest.TestCase):
+    """Tests of the private message packet verifier on altered copies of the corpus."""
     def setUp(self) -> None:
+        """Link every manifest file of the corpus into a scratch directory."""
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
@@ -71,12 +76,14 @@ class PMPacketTests(unittest.TestCase):
             target.symlink_to(BATCH / path)
 
     def replace(self, path: str, data: bytes) -> None:
+        """Replace one linked file with new bytes and record their hash in the manifest."""
         target = self.root / path
         target.unlink()
         target.write_bytes(data)
         self.manifest["files"][path] = sha(data)
 
     def seal(self) -> None:
+        """Rewrite the manifest and the checksum list to match the files."""
         data = (json.dumps(self.manifest, indent=2) + "\n").encode()
         (self.root / "manifest.json").write_bytes(data)
         checks = {**self.manifest["files"], "manifest.json": sha(data)}
@@ -85,13 +92,16 @@ class PMPacketTests(unittest.TestCase):
         )
 
     def report(self) -> dict:
+        """Return a private copy of the retained observe report."""
         return copy.deepcopy(json.loads((BATCH / "observe/report.json").read_text()))
 
     def test_original_corpus(self) -> None:
+        """Check that the unaltered corpus verifies."""
         self.seal()
         self.assertEqual(verify(self.root)["status"], "verified-bounded-native-pm")
 
     def test_rehashed_wrong_uid_option_and_quote(self) -> None:
+        """Check that a wrong user identifier, option or quote is rejected even after rehashing."""
         for action, field, value in [
             (33, 103, b"\0\x2d"),
             (33, 113, b"\0\x02"),
@@ -119,6 +129,7 @@ class PMPacketTests(unittest.TestCase):
                     verify(self.root)
 
     def test_missing_delivery_rejected(self) -> None:
+        """Check that a report without the message delivery is rejected after rehashing."""
         report = self.report()
         report["frames"] = [f for f in report["frames"] if f["action"] != 33]
         report["events"] = [e for e in report["events"] if e["action"] != 33]
@@ -139,6 +150,7 @@ class PMPacketTests(unittest.TestCase):
             verify(self.root)
 
     def test_packet_mismatch_rejected_after_rehash(self) -> None:
+        """Check that an altered packet capture is rejected after rehashing."""
         raw = (BATCH / "host-after-observe.pcap").read_bytes()
         self.assertIn(b"pm-a26-direct", raw)
         self.replace(
@@ -150,6 +162,7 @@ class PMPacketTests(unittest.TestCase):
             verify(self.root)
 
     def test_truncated_a7_rejected_after_rehash(self) -> None:
+        """Check that a truncated baseline plan is rejected after rehashing."""
         plan = json.loads((BATCH / "postflight/plan.json").read_text())
         plan["steps"] = plan["steps"][:18]
         self.replace(

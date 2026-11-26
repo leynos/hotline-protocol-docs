@@ -15,10 +15,12 @@ from verify_native_shx import PEER, REVISION, check_terminal, fields, frames
 
 
 def sha(path: Path) -> str:
+    """Return the SHA-256 hex digest of a file's bytes."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def verify(directory: Path, source: Path) -> dict:
+    """Check the corpus manifest, sources and per-case reports and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     require(
         manifest["cases"] == list(CASES)
@@ -192,6 +194,7 @@ def verify(directory: Path, source: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, verify the corpus and print the summary as JSON."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     parser.add_argument("--source", type=Path, required=True)

@@ -39,6 +39,7 @@ FILES = [
 def body(
     data: bytes, resource: bytes, kind: bytes, creator: bytes, comment: bytes
 ) -> bytes:
+    """Build a file transfer body from a data fork, a resource fork, type, creator and comment."""
     forks = decode(file_stream(data, resource))
     info = bytearray(forks["INFO"])
     info[4:12] = kind + creator
@@ -63,6 +64,7 @@ def body(
 def upload(
     identifier: int, name: bytes, parent: tuple[bytes, ...], value: bytes
 ) -> list[dict]:
+    """Build the steps that upload a file with the given name, parent and content."""
     channel, reference = f"up{identifier}", f"ref{identifier}"
     return [
         send(
@@ -98,6 +100,7 @@ def upload(
 
 
 def seed() -> dict:
+    """Build the plan that creates the alias capture's folders and files."""
     steps = login() + exchange(200, 9, [(202, b"\0\0")])
     for identifier, parts in enumerate(
         [
@@ -123,6 +126,7 @@ def seed() -> dict:
 
 
 def specs() -> list[dict]:
+    """Return the alias creation cases, each with its name, source, destination and role."""
     result = []
 
     def add(
@@ -136,6 +140,7 @@ def specs() -> list[dict]:
         role: str = "admin",
         extra: bool = False,
     ) -> None:
+        """Append one alias creation case to the list."""
         result.append(
             {
                 "case": label,
@@ -213,6 +218,7 @@ def specs() -> list[dict]:
 
 
 def create() -> dict:
+    """Build one plan per case that creates an alias and reads the folders around it."""
     result = {}
     for expected in specs():
         steps = login()
@@ -242,6 +248,7 @@ def create() -> dict:
 
 
 def information() -> dict:
+    """Build one plan per location that reads file information through aliases and chains."""
     locations = [
         ("ordinary-file", b"file", (ROOT,)),
         ("empty-file", b"empty", (ROOT,)),
@@ -276,6 +283,7 @@ def information() -> dict:
 
 
 def downloads() -> dict:
+    """Build one plan per case that downloads a file or folder through an alias."""
     result = {}
     for label, name, parent, folder in [
         ("file-alias", b"file", (ROOT, b"A"), False),
@@ -389,6 +397,7 @@ def damage() -> dict:
 
 
 def supplementary() -> dict:
+    """Build the supplementary plans: a download name collision, an unattached alias and comment updates."""
     transfers = downloads()
     steps, _ = transfers["file-alias"]
     steps = [dict(s) for s in steps]
@@ -436,6 +445,7 @@ def supplementary() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the owned alias tree."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     names = [ROOT, b"m-al20-absent", b"m-al20-empty", b"m-al20-zero"]
     for identifier, name in enumerate(names, 20):

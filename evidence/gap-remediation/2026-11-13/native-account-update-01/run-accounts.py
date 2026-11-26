@@ -1,3 +1,4 @@
+"""Run one stage of the account-update captures (seed, mutate, cleanup and the publisher stages)."""
 import copy,json,sys
 from pathlib import Path
 sys.path.insert(0,'../hotline-protocol-docs/scripts')
@@ -6,6 +7,7 @@ from protocol_capture import run_plan
 from verify_native_auth import reply
 r=Path('state/native-sessions/runtime-26');template=json.loads(Path('state/native-sessions/runtime-25/preflight/plan.json').read_text());template['environment']=json.loads((r/'runtime.json').read_text());template['gap_ids']=['GAP-016','GAP-019','GAP-071','GAP-072','GAP-073','GAP-084']
 def run(name,pair):
+ """Build a plan from a step list and expectation, run it and return the report."""
  steps,expectation=pair;plan=copy.deepcopy(template);plan.update(steps=steps,expectation=expectation);p=r/(name+'.plan.json');p.write_text(json.dumps(plan,indent=2)+'\n');report=run_plan(p,Path('evidence/hotline-server-1.9/inputs/HLserver19.pef'),r/name);print(name,report['status'],report['error'],flush=True);return report
 if sys.argv[1]=='seed':
  pre=run('preflight',cases.preflight());assert pre['status']=='completed';assert all(reply(pre,i)['error']==1 for i in range(100,108));seed=run('seed',cases.seed());assert seed['status']=='completed' and all(f['error']==0 for f in seed['frames'])

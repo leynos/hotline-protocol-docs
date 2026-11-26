@@ -21,11 +21,13 @@ HEADINGS = (
 
 
 def require(condition: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not condition:
         raise ValueError(message)
 
 
 def reply(report: dict, identifier: int, *, success: bool = True) -> dict:
+    """Return the one reply frame with the given identifier, optionally requiring success."""
     found = [
         frame
         for frame in report["frames"]
@@ -38,6 +40,7 @@ def reply(report: dict, identifier: int, *, success: bool = True) -> dict:
 
 
 def values(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields as a map from identifier to bytes, refusing duplicates."""
     result = {}
     for field in frame["fields"]:
         require(field["id"] not in result, "Duplicate scalar field")
@@ -46,6 +49,7 @@ def values(frame: dict) -> dict[int, bytes]:
 
 
 def current_uid(report: dict) -> bytes:
+    """Return the two-byte user identifier from the current roster reply."""
     fields = reply(report, 10)["fields"]
     require(len(fields) == 1 and fields[0]["id"] == 300, "Ambiguous current roster")
     encoded = bytes.fromhex(fields[0]["hex"])
@@ -54,6 +58,7 @@ def current_uid(report: dict) -> bytes:
 
 
 def check_references(report: dict, admitted: list[int], queued: list[int]) -> dict:
+    """Check the download replies: reference and size fields, and queue positions for the queued ones."""
     refs = []
     positions = []
     for identifier in admitted + queued:
@@ -76,6 +81,7 @@ def check_references(report: dict, admitted: list[int], queued: list[int]) -> di
 
 
 def check_diagnostic(report: dict, identifier: int, uid: bytes) -> dict:
+    """Check one diagnostic reply and the request that produced it."""
     item = values(reply(report, identifier))
     require(set(item) == {101, 102}, f"303 fields differ at {identifier}")
     require(item[102] == b"framing-fixture", "303 name differs")
@@ -158,6 +164,7 @@ def section_witness(text: bytes, active: int, waiting: int) -> dict:
 
 
 def check_cancellations(report: dict, targets: dict[int, bytes]) -> None:
+    """Check that each cancellation was sent once and targeted the expected transfer reference."""
     for identifier, expected_ref in targets.items():
         reply(report, identifier)
         sent = [
@@ -177,6 +184,7 @@ def check_cancellations(report: dict, targets: dict[int, bytes]) -> None:
 
 
 def semantic(case: str, report: dict, baseline: dict | None = None) -> dict:
+    """Check a diagnostic capture's plan and replies and return the semantic result."""
     require(report["status"] == "completed", "Capture incomplete")
     plan = json.loads(report["_plan_path"].read_text())
     require(plan["expectation"]["case"] == case, "Case differs")
@@ -267,6 +275,7 @@ def semantic(case: str, report: dict, baseline: dict | None = None) -> dict:
 
 
 def main() -> None:
+    """Verify a capture and write its semantic result to the output file."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("case", choices=CASES)
     parser.add_argument("capture", type=Path)
