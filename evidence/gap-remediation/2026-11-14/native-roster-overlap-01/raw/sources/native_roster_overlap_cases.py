@@ -48,7 +48,7 @@ def exchange(connection: str, kind: int, identifier: int) -> list[dict]:
 
 
 def source_plan(environment: dict, port: int = MAX_PORT) -> dict:
-    """Build the roster overlap plan for the reserved port after checking the runtime identity."""
+    """Build the roster overlap plan for the reserved port after checking that the runtime identity fields are present."""
     if port != MAX_PORT:
         raise ValueError("Roster overlap requires reserved port15820")
     required = (

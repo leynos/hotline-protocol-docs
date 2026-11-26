@@ -22,7 +22,7 @@ def digest(data: bytes) -> str:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
-    """Build the liveness plan for the reserved control port after checking the runtime identity."""
+    """Build the liveness plan for the reserved control port after checking that the runtime identity fields are present."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only reserved control-only port15840 is prepared")
     required = (
