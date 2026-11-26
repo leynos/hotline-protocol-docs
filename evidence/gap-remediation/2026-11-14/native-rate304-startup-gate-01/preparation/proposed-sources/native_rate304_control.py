@@ -24,15 +24,18 @@ MAX_TAIL_SECONDS = 2
 
 
 def need(ok: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not ok:
         raise ValueError(message)
 
 
 def digest(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def prepared(directory: Path) -> dict:
+    """Check the prepared plan against its hash and the frozen producer and return it."""
     raw = (directory / "plan.json").read_bytes()
     need(
         json.loads((directory / "source-hashes.json").read_text())
@@ -50,6 +53,7 @@ def prepared(directory: Path) -> dict:
 def one(
     frames: list[dict], connection: str, kind: int, identifier: int, reply: int
 ) -> dict:
+    """Return the single frame that matches a connection, type, identifier and reply marker."""
     matches = [
         frame
         for frame in frames
@@ -61,6 +65,7 @@ def one(
 
 
 def exact_fields(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields, refusing malformed, fragmented or repeated ones."""
     result = fields(frame)
     need(
         frame["total_size"] == frame["data_size"]
@@ -73,6 +78,7 @@ def exact_fields(frame: dict) -> dict[int, bytes]:
 
 
 def successful(frame: dict) -> None:
+    """Require a direct successful reply."""
     need(
         frame["flags"] == 0
         and frame["is_reply"] == 1
@@ -83,6 +89,7 @@ def successful(frame: dict) -> None:
 
 
 def agreement(frames: list[dict], connection: str) -> None:
+    """Require the one agreement notice of a connection to have the controlled bytes."""
     notices = [
         frame
         for frame in frames
@@ -97,6 +104,7 @@ def agreement(frames: list[dict], connection: str) -> None:
 
 
 def login_identity(frames: list[dict], connection: str, access: bytes) -> None:
+    """Require a connection's login reply and effective access to be as expected."""
     ack = one(frames, connection, 0, 1, 1)
     successful(ack)
     need(
@@ -116,6 +124,7 @@ def login_identity(frames: list[dict], connection: str, access: bytes) -> None:
 
 
 def subject_identity(frames: list[dict], connection: str) -> int:
+    """Check the subject's login and roster identity and return its user identifier."""
     login_identity(frames, connection, bytes.fromhex(cases.ZERO_ACCESS))
     reply = one(frames, connection, 0, 10, 1)
     successful(reply)
@@ -131,6 +140,7 @@ def subject_identity(frames: list[dict], connection: str) -> int:
 
 
 def update_frame(frame: dict, uid: int, icon: int) -> None:
+    """Require a user update notice to carry the expected identifier, name and icon."""
     need(
         frame["flags"] == 0
         and frame["is_reply"] == 0
@@ -335,6 +345,7 @@ def classify(plan: dict, report: dict) -> None:
 
 
 def expected_actions(plan: dict, idle_count: int) -> list[tuple[str, str, str]]:
+    """Return the actions that the plan should have run, as label, connection and bytes."""
     need(13 <= idle_count <= 15, "Observer idle cadence differs")
     actions = [
         ("observer-login", "observer", plan["logins"]["observer"]),
@@ -397,6 +408,7 @@ class Wire:
     """One bounded multi-socket collector retaining every observed byte."""
 
     def __init__(self, plan: dict, deadline: float, guard=None) -> None:
+        """Start the wire with its plan, deadline and optional guard."""
         self.plan, self.deadline = plan, deadline
         self.guard = guard
         self.recorder = Recorder({"endpoints": {"control": plan["endpoint"]}})
@@ -410,6 +422,7 @@ class Wire:
         self.identities: dict[str, int] = {}
 
     def execute(self, step: dict) -> None:
+        """Run one plan step within the case deadline and byte cap."""
         remaining = self.deadline - time.monotonic()
         need(remaining > 0, "Case deadline reached")
         self.recorder.execute(
@@ -423,6 +436,7 @@ class Wire:
         )
 
     def connect_login(self, name: str) -> None:
+        """Connect a named connection, handshake and send its login."""
         if self.guard is not None:
             self.guard()
         need(
@@ -455,6 +469,7 @@ class Wire:
         login_identity(self.frames, name, ADMIN if name == "observer" else bytes(8))
 
     def connect_login_probe(self, name: str) -> None:
+        """Connect a named connection and handshake, then send its login without waiting for the reply."""
         if self.guard is not None:
             self.guard()
         need(
@@ -475,6 +490,7 @@ class Wire:
         self.send(name, self.plan["logins"][name], f"{name}-login")
 
     def send(self, name: str, raw: str, label: str) -> None:
+        """Send bytes on an open connection and record the labelled action."""
         need(name in self.recorder.sockets, "Send on closed socket")
         start = len(self.recorder.events)
         self.execute({"op": "send", "connection": name, "hex": raw})
@@ -491,6 +507,7 @@ class Wire:
     def match(
         self, name: str, kind: int, identifier: int | None, reply: int
     ) -> list[dict]:
+        """Return the frames that match a connection, type, identifier and reply marker."""
         return [
             f
             for f in self.frames
@@ -501,6 +518,7 @@ class Wire:
         ]
 
     def poll(self, seconds: float) -> None:
+        """Read from the open connections for a while and parse what arrives."""
         until = min(time.monotonic() + seconds, self.deadline)
         while time.monotonic() < until:
             active = {
@@ -544,6 +562,7 @@ class Wire:
                 self.parse(name)
 
     def parse(self, name: str) -> None:
+        """Parse the complete frames in a connection's buffer."""
         buffer = self.buffers[name]
         while len(buffer) >= 20:
             size = 20 + int.from_bytes(buffer[16:20], "big")
@@ -568,12 +587,14 @@ class Wire:
             )
 
     def wait_for(self, predicate, seconds: float, label: str) -> None:
+        """Poll until the predicate holds, failing at the deadline."""
         until = min(time.monotonic() + seconds, self.deadline)
         while not predicate():
             need(time.monotonic() < until, f"Missing {label}")
             self.poll(min(0.05, until - time.monotonic()))
 
     def shutdown_and_close(self, name: str) -> None:
+        """Shut down a connection's socket and close it."""
         sock = self.recorder.sockets.get(name)
         if sock is None:
             return
@@ -591,6 +612,7 @@ class Wire:
         self.terminals.setdefault(name, "bounded_no_eof")
 
     def close_all(self) -> None:
+        """Close every open connection, releasing each descriptor even when a close fails."""
         self.tail_mode = True
         for name in list(self.recorder.sockets):
             try:
@@ -708,12 +730,14 @@ def validated_phase_progress(wire: Wire, name: str, uid: int) -> int:
 
 
 def roster_uid(wire: Wire, name: str) -> int:
+    """Fetch the roster on a connection and return the subject's user identifier."""
     wire.send(name, cases.observer_control(300, 10), f"{name}-roster")
     wire.wait_for(lambda: bool(wire.match(name, 0, 10, 1)), 2, f"{name} roster")
     return subject_identity(wire.frames, name)
 
 
 def observer_baseline(wire: Wire, plan: dict) -> None:
+    """Send the observer's control requests and wait for each reply."""
     for kind_text, identifier in plan["request_ids"]["observer_controls"].items():
         kind = int(kind_text)
         wire.send(
@@ -730,6 +754,7 @@ def observer_baseline(wire: Wire, plan: dict) -> None:
 
 
 def perform(wire: Wire, plan: dict) -> dict:
+    """Run the rate-limit sequence: the observer and the paced connection, with their update phases and timing."""
     wire.connect_login("observer")
     wire.send("observer", cases.observer_control(300, 10), "observer-roster-initial")
     wire.wait_for(
@@ -862,6 +887,7 @@ def perform(wire: Wire, plan: dict) -> dict:
 
 
 def verify_report(plan: dict, report: dict) -> None:
+    """Check the finished report's status, phase progress, hashes and event order against the plan."""
     need(report["status"] == "completed", "Rate304 run incomplete")
     need(report["native_clock_calibrated"] is False, "Native clock not calibrated")
     need(
@@ -1026,6 +1052,7 @@ def verify_report(plan: dict, report: dict) -> None:
 
 
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
+    """Check the plan, receipt, window and namespace, run the sequence and write the report."""
     plan = prepared(plan_dir)
     receipt_raw = receipt_path.read_bytes()
     receipt = json.loads(receipt_raw)
@@ -1120,6 +1147,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, run the capture and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan-dir", type=Path, required=True)
     parser.add_argument("--capture-receipt", type=Path, required=True)

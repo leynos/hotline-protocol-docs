@@ -1,3 +1,4 @@
+"""Send one recorded keyboard or pointer input to display :113 through X11 and XTest."""
 from __future__ import annotations
 
 import ctypes
@@ -25,11 +26,13 @@ if not display:
 
 
 def flush() -> None:
+    """Flush the display's pending events and pause briefly."""
     x11.XFlush(display)
     time.sleep(0.08)
 
 
 def click(x: int, y: int, count: int = 1) -> None:
+    """Move the pointer to a position and click the primary button the given number of times."""
     xtst.XTestFakeMotionEvent(display, -1, x, y, 0)
     flush()
     for _ in range(count):
@@ -41,6 +44,7 @@ def click(x: int, y: int, count: int = 1) -> None:
 
 
 def key(name: str, down: bool) -> None:
+    """Press or release a named key on the display."""
     code = x11.XKeysymToKeycode(display, x11.XStringToKeysym(name.encode()))
     if not code:
         raise ValueError(name)

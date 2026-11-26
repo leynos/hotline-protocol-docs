@@ -45,6 +45,13 @@ INTERROGATE_TARGETS ?= tools tests scripts evidence/gap-remediation/2026-11-13 \
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
+# More documented evidence corpora (rate limit, path fields, persistence).
+INTERROGATE_TARGETS += evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01 \
+	evidence/gap-remediation/2026-11-14/native-rate304-sequence-01 \
+	evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01 \
+	evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01 \
+	evidence/gap-remediation/2026-11-14/native-path-fields-01 \
+	evidence/gap-remediation/2026-11-14/native-settings-persistence-01
 # Recipes run the inherited scripts as `python3`, as the documents do. The project
 # environment leads PATH so that a script already brought to the df12 standard
 # finds Cyclopts and cuprum, and an evidence-held verifier that imports one of

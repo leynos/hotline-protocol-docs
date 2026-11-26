@@ -34,15 +34,18 @@ class Wire(RateWire):
 
 
 def need(ok: bool, message: str) -> None:
+    """Raise a value error with the message unless the condition holds."""
     if not ok:
         raise ValueError(message)
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def prepared(directory: Path) -> dict:
+    """Check the prepared plan against its source hashes and the source plan and return it."""
     raw = (directory / "plan.json").read_bytes()
     expected = {
         "plan.json": sha(raw),
@@ -62,6 +65,7 @@ def prepared(directory: Path) -> dict:
 
 
 def one(frames: list[dict], connection: str, identifier: int) -> dict:
+    """Return the single direct reply with the given identifier on a connection."""
     result = [
         f
         for f in frames
@@ -75,6 +79,7 @@ def one(frames: list[dict], connection: str, identifier: int) -> dict:
 
 
 def exact_fields(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields, refusing malformed, fragmented or repeated ones."""
     values = fields(frame)
     need(
         frame["flags"] == 0
@@ -88,6 +93,7 @@ def exact_fields(frame: dict) -> dict[int, bytes]:
 
 
 def success(frame: dict) -> None:
+    """Require a direct successful reply."""
     need(
         frame["flags"] == 0
         and frame["is_reply"] == 1
@@ -98,6 +104,7 @@ def success(frame: dict) -> None:
 
 
 def login_gate(frames: list[dict], connection: str) -> None:
+    """Check a connection's login reply, administrator grant and agreement."""
     ack = one(frames, connection, 1)
     success(ack)
     need(
@@ -117,14 +124,17 @@ def login_gate(frames: list[dict], connection: str) -> None:
 
 
 def file_view(frame: dict) -> list[str]:
+    """Return the names in a file list reply as hexadecimal text."""
     return [name.hex() for name in listing(frame)]
 
 
 def file_types(frame: dict) -> dict[str, str]:
+    """Return the type and creator bytes of each entry in a file list reply, by name."""
     return {name.hex(): record[:8].hex() for name, record in listing(frame).items()}
 
 
 def news_view(frame: dict) -> list[dict]:
+    """Return the field, kind and name of each entry in a news listing reply."""
     return [
         {"field": row["field"], "kind": row["kind"], "name_hex": row["name"].hex()}
         for row in categories(frame)
@@ -132,6 +142,7 @@ def news_view(frame: dict) -> list[dict]:
 
 
 def file_info(frame: dict, marker: bytes) -> dict:
+    """Check the information reply for the owned marker folder and describe it."""
     success(frame)
     data = exact_fields(frame)
     need(
@@ -146,6 +157,7 @@ def file_info(frame: dict, marker: bytes) -> dict:
 
 
 def check_names(actual: list[str], expected: set[bytes], label: str) -> None:
+    """Require a listing to hold exactly the expected owned names."""
     need(
         set(actual) == {name.hex() for name in expected}
         and len(actual) == len(expected),
@@ -154,6 +166,7 @@ def check_names(actual: list[str], expected: set[bytes], label: str) -> None:
 
 
 def location(views: dict[str, list[str]], marker: bytes) -> str | None:
+    """Return the one parent whose listing holds the marker, or none."""
     found = [parent for parent, names in views.items() if marker.hex() in names]
     need(len(found) <= 1, "Marker appears in multiple selected parents")
     return found[0] if found else None
@@ -345,6 +358,7 @@ def classify_views(plan: dict, report: dict) -> None:
 
 
 def verify_report(plan: dict, report: dict) -> None:
+    """Check the finished report's status, hashes, event order and streams against the plan."""
     need(report["status"] == "completed", "Path matrix incomplete")
     need(
         report["plan_sha256"] == sha((json.dumps(plan, indent=2) + "\n").encode())
@@ -490,6 +504,7 @@ def verify_report(plan: dict, report: dict) -> None:
 def exchange(
     wire: Wire, spec: dict, connection: str, parent: bytes | None = None
 ) -> dict:
+    """Send one planned request, count it and wait for its reply."""
     if connection == "main":
         need(wire.request_count < 99, "Per-connection request cap reached")
     raw = cases.raw_request(spec, parent)
@@ -511,6 +526,7 @@ def exchange(
 
 
 def connect_login(wire: Wire, name: str, guard) -> None:
+    """Connect the only open connection, handshake, log in and wait for the grant and agreement."""
     guard()
     need(len(wire.recorder.sockets) == 0, "Previous connection still open")
     wire.execute({"op": "connect", "connection": name, "endpoint": "control"})
@@ -535,6 +551,7 @@ def connect_login(wire: Wire, name: str, guard) -> None:
 
 
 def record_view(views: list[dict], label: str, reply: dict) -> dict:
+    """Record a view reply: its status, fields and the names it lists."""
     if reply["error"]:
         return {
             "label": label,
@@ -563,6 +580,7 @@ def record_view(views: list[dict], label: str, reply: dict) -> dict:
 
 
 def perform(wire: Wire, plan: dict, guard) -> dict:
+    """Run the path field matrix, recording views, results and progress."""
     views: list[dict] = []
     results: list[dict] = []
     progress: list[str] = []
@@ -749,6 +767,7 @@ def perform(wire: Wire, plan: dict, guard) -> dict:
 
 
 def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
+    """Check the plan, receipt and namespace, run the matrix and write the report."""
     plan = prepared(plan_dir)
     receipt_raw = receipt_path.read_bytes()
     receipt = json.loads(receipt_raw)
@@ -837,6 +856,7 @@ def run(plan_dir: Path, receipt_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line, run the capture and exit non-zero unless it completed."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan-dir", type=Path, required=True)
     parser.add_argument("--capture-receipt", type=Path, required=True)

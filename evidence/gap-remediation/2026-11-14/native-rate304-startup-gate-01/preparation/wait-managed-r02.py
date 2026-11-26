@@ -11,6 +11,7 @@ import time
 
 
 def show(unit: str) -> dict[str, str]:
+    """Return the state properties of a systemd unit."""
     raw = subprocess.run(
         [
             "systemctl",
@@ -28,6 +29,7 @@ def show(unit: str) -> dict[str, str]:
 
 
 def matching_fd(pid: int, target: pathlib.Path) -> int | None:
+    """Return the process's descriptor that refers to the target file, if any."""
     ref = target.stat()
     for entry in pathlib.Path(f"/proc/{pid}/fd").iterdir():
         try:
@@ -40,6 +42,7 @@ def matching_fd(pid: int, target: pathlib.Path) -> int | None:
 
 
 def main() -> None:
+    """Wait for the managed unit to hold its capture file or lock before the deadline and record it."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--unit", required=True)
     parser.add_argument("--deadline", required=True)

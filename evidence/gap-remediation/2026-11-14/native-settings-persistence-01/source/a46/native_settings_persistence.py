@@ -25,6 +25,7 @@ LIMIT_SECONDS = 720
 
 
 def frame_at(report: dict, index: int, connection: str, kind: int) -> dict:
+    """Return the one unsolicited frame of a type on a connection at an action index."""
     found = [
         frame
         for frame in report["frames"]
@@ -36,6 +37,7 @@ def frame_at(report: dict, index: int, connection: str, kind: int) -> dict:
 
 
 def gate_readiness(report: dict, plan: dict) -> None:
+    """Check the readiness capture and its plan, naming the readiness check in any failure."""
     try:
         require(report["status"] == "completed", "capture failed")
         require(plan["expectation"]["case"] == "control-readiness", "wrong case")
@@ -46,6 +48,7 @@ def gate_readiness(report: dict, plan: dict) -> None:
 
 
 def gate_identity(report: dict, plan: dict) -> tuple[bytes, bytes]:
+    """Check the observer's and the subject's login identities and return the subject's and own identifiers."""
     login_gate(report["frames"][:3])
     users = roster(reply(report, 10))
     require(
@@ -85,6 +88,7 @@ def gate_update(
     *,
     both: bool = True,
 ) -> None:
+    """Check that a settings update reached the connections with the expected identifier, name and icon."""
     stage = stage or plan["expectation"]["stages"][0]
     index = stage["update_action"]
     names = ("main", "subject") if both else ("main",)
@@ -107,6 +111,7 @@ def gate_pm(
     phase: int,
     stage: dict | None = None,
 ) -> None:
+    """Check the private message and its delivery for a phase and stage."""
     identifier = stage["pm_id"] if stage else 60
     text = (
         bytes.fromhex(stage["pm_text_hex"])
@@ -164,6 +169,7 @@ def gate_pm(
 
 
 def phase_gate(report: dict, plan: dict, index: int) -> str | None:
+    """Run the gate that applies to one action of a phase and return its name, or none."""
     phase = int(plan["expectation"]["case"][-1])
     identity = plan["expectation"]["identity_action"]
     if index == identity:
@@ -218,6 +224,7 @@ def semantic(report: dict, plan: dict) -> dict:
 
 
 def verify_plan(plan: dict) -> int:
+    """Check a persistence plan against the source plans and return its phase."""
     validate_plan(plan)
     case = plan["expectation"]["case"]
     require(
@@ -362,6 +369,7 @@ def run_gated(
 
 
 def main() -> None:
+    """Parse the command line, run the gated persistence capture and print its status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", action="store_true", required=True)
     parser.add_argument("--plan", type=Path, required=True)

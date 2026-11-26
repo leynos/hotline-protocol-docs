@@ -39,6 +39,7 @@ def exchange(
     fields: list[tuple[int, bytes]],
     connection: str = "main",
 ) -> list[dict]:
+    """Return the steps that send one request on a connection and read its reply."""
     return [
         send(packet(kind, identifier, payload(fields)), connection),
         read(connection, match_frame={"is_reply": 1, "id": identifier}),
@@ -46,6 +47,7 @@ def exchange(
 
 
 def target_login(key: bytes, password: bytes, name: bytes) -> list[dict]:
+    """Return the steps that log the target account in on its own connection."""
     return [{**step, "connection": "target"} for step in login()[:3]] + [
         authentication(key, password, name=name, connection="target"),
         read("target", match_frame={"is_reply": 1, "id": 1}),
@@ -55,10 +57,12 @@ def target_login(key: bytes, password: bytes, name: bytes) -> list[dict]:
 
 
 def account_guard(key: bytes) -> list[dict]:
+    """Return the plan that looks an account key up."""
     return login() + exchange(352, 30, [(105, key)]) + [close()]
 
 
 def account_seed(key: bytes, password: bytes, name: bytes, access: bytes) -> list[dict]:
+    """Return the plan that creates an account and reads it back."""
     return (
         login()
         + exchange(
@@ -77,6 +81,7 @@ def account_seed(key: bytes, password: bytes, name: bytes, access: bytes) -> lis
 
 
 def kick_case(key: bytes, password: bytes, name: bytes, option: int) -> list[dict]:
+    """Return the plan that kicks the target, or bans it temporarily, as the option says."""
     if option not in (0, 1):
         raise ValueError("Only kick 0 or temporary ban 1 is prepared")
     steps = login() + target_login(key, password, name)
@@ -102,6 +107,7 @@ def kick_case(key: bytes, password: bytes, name: bytes, option: int) -> list[dic
 
 
 def protected_case() -> list[dict]:
+    """Return the plan that tries to kick the protected account."""
     steps = login() + target_login(PROTECTED_KEY, PROTECTED_PASSWORD, PROTECTED_NAME)
     steps += [
         read(match_frame={"type": 301}, save_field={"name": "target_uid", "id": 103})
@@ -122,6 +128,7 @@ def protected_case() -> list[dict]:
 
 
 def probe(accepted: bool) -> list[dict]:
+    """Return the plan that tries to log in and expects it to be accepted or refused."""
     steps = login()[:3] + [
         authentication(ZERO_KEY, ZERO_PASSWORD, name=ZERO_NAME),
         read(match_frame={"is_reply": 1, "id": 1}),
@@ -133,6 +140,7 @@ def probe(accepted: bool) -> list[dict]:
 
 
 def plans() -> dict[str, list[dict]]:
+    """Return every plan of the ban expiry capture by name."""
     return {
         "readiness": control.plans()["readiness"],
         "guard-zero": account_guard(ZERO_KEY),
@@ -152,6 +160,7 @@ def plans() -> dict[str, list[dict]]:
 
 
 def plan(name: str, steps: list[dict], environment: dict, port: int) -> dict:
+    """Wrap a plan's steps with the checked environment, endpoints and expectation."""
     if port != 15800:
         raise ValueError("B66 frontend must be owned port 15800")
     if environment.get("source_a7_sha256") != A7_SHA:
@@ -188,6 +197,7 @@ def plan(name: str, steps: list[dict], environment: dict, port: int) -> dict:
 
 
 def write_plans(output: Path, environment: dict, port: int = 15800) -> dict[str, str]:
+    """Write every plan and its source hashes to the output directory."""
     generated = {
         name: plan(name, steps, environment, port) for name, steps in plans().items()
     }
@@ -202,6 +212,7 @@ def write_plans(output: Path, environment: dict, port: int = 15800) -> dict[str,
 
 
 def main() -> None:
+    """Write the plans for the runtime record and print their hashes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
