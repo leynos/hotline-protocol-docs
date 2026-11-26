@@ -18,7 +18,12 @@ from evidence_corpus import INCLUDED, corpus_of, load_curation
 from evidence_files import CitingRoot, cited_paths, citing_files, list_files
 from git_lossless import as_arg, git_names, git_text
 from lfs_rule import POINTER_PREFIX
-from pinned_evidence import RECORD_RELATIVE, PinRecord, load_record
+from pinned_evidence import (
+    RECORD_RELATIVE,
+    PinRecord,
+    PinUnavailableError,
+    load_record,
+)
 from tool_support import MissingInputError
 from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
 
@@ -165,7 +170,10 @@ def _judge(request: CheckRequest, pins: PinRecord | None, name: str) -> str | No
     """
     source = typ.cast("Path", request.source_root)
     if pins is not None and name in pins.pins:
-        here, pointer = hashlib.sha256(pins.read(name)).hexdigest(), False
+        try:
+            here, pointer = hashlib.sha256(pins.read(name)).hexdigest(), False
+        except PinUnavailableError as error:
+            return f"{name}: {error}"
     else:
         here, pointer = _digest_here(request.root / name)
     if here == _digest_source(source, request.source_commit, name):

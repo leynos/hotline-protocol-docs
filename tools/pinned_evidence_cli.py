@@ -16,6 +16,7 @@ from pinned_evidence import (
     RECORD_RELATIVE,
     PinRecord,
     PinRecordError,
+    PinUnavailableError,
     check,
     load_record,
     read_live,
@@ -48,6 +49,8 @@ def generate(root: Path) -> dict[str, str]:
     ------
     PinRecordError
         If a file has no adding commit or was edited since.
+    PinUnavailableError
+        If ``git log`` fails.
     """
     log = run_git(
         root,
@@ -59,6 +62,9 @@ def generate(root: Path) -> dict[str, str]:
         "--",
         ":(glob)evidence/**/*.py",
     )
+    if log.returncode != 0:
+        message = f"git log failed: {log.stderr.decode(errors='replace')}"
+        raise PinUnavailableError(message)
     added: dict[str, str] = {}
     for chunk in log.stdout.decode().split("\0")[1:]:
         commit, *names = chunk.split("\n")
