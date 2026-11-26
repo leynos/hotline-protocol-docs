@@ -210,18 +210,19 @@ def test_the_view_leaves_other_files_alone(view: View, tmp_path: Path) -> None:
     )
 
 
-def test_a_scratch_tree_is_served_only_through_hard_links(
+def test_a_scratch_tree_is_served_only_with_the_record(
     view: View, tmp_path: Path
 ) -> None:
-    """A tree that only shares a name is left alone; a hard-linked tree is served."""
-    scratch = tmp_path / "hotline-protocol-docs"
-    plain = scratch / "evidence" / NAME.removeprefix("evidence/")
+    """A tree that only reuses a corpus name is left alone; a layout is served."""
+    scratch = tmp_path / "scratch"
+    plain = scratch / NAME
     plain.parent.mkdir(parents=True)
     plain.write_text("scratch\n", encoding="utf-8")
     assert plain.read_text(encoding="utf-8") == "scratch\n", "an unrelated file is kept"
-    plain.unlink()
-    view.real_link(view.root / NAME, plain)
-    assert plain.read_bytes() == ORIGINAL.encode(), "a hard link is served as captured"
+    record = scratch / pinned_evidence.RECORD_RELATIVE
+    record.parent.mkdir(parents=True)
+    record.write_text("{}", encoding="utf-8")
+    assert plain.read_bytes() == ORIGINAL.encode(), "a legacy layout is served"
 
 
 def test_the_view_keeps_the_other_stat_fields(view: View, tmp_path: Path) -> None:
@@ -230,6 +231,10 @@ def test_the_view_keeps_the_other_stat_fields(view: View, tmp_path: Path) -> Non
     shutil.copy2(path, tmp_path / "copied.py")
     assert (tmp_path / "copied.py").read_bytes() == ORIGINAL.encode(), "copy2 works"
     assert path.stat().st_mtime_ns > 0, "the modification time is kept"
+    seconds = path.stat().st_mtime_ns / 1e9
+    assert path.stat().st_mtime == pytest.approx(seconds, abs=1e-3), (
+        "the float time is kept"
+    )
 
 
 def test_an_unreadable_pin_is_an_os_error(
@@ -242,6 +247,17 @@ def test_an_unreadable_pin_is_an_os_error(
     monkeypatch.setattr(evidence_pin_view._view, "loaded", True)
     with pytest.raises(OSError, match="does not provide"):
         (view.root / NAME).read_bytes()
+
+
+def test_a_changed_shebang_or_encoding_line_is_named(tmp_path: Path) -> None:
+    """The syntax tree ignores comments, so the shebang is compared separately."""
+    interpreter = "#!/usr/bin/env python3\n" + ORIGINAL
+    build(tmp_path, interpreter)
+    (tmp_path / NAME).write_text(interpreter.replace("env python3", "false"))
+    (failure,) = pinned_evidence.check(tmp_path)
+    assert failure.endswith("by more than docstrings"), "a new shebang is caught"
+    (tmp_path / NAME).write_text("#!/usr/bin/env python3\n" + DOCUMENTED)
+    assert pinned_evidence.check(tmp_path) == [], "docstrings keep the shebang valid"
 
 
 def test_a_write_reaches_the_live_file(view: View) -> None:

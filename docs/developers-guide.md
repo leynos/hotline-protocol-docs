@@ -525,9 +525,10 @@ Four pieces use the record:
   every tracked `evidence/**/*.py` file to be in the record, reads its bytes
   from the pinned commit, and accepts the working file only when it equals them
   or differs only by docstrings, that is, when the two syntax trees are equal
-  once every docstring is removed. Any other edit fails, so documenting a
-  capture cannot change what it does. The `generate` command rebuilds the
-  record from the history of a tree whose evidence files are still as imported.
+  once every docstring is removed and the shebang and encoding lines match. Any
+  other edit fails, so documenting a capture cannot change what it does. The
+  `generate` command rebuilds the record from the history of a tree whose
+  evidence files are still as imported.
 - `tools/check_sums.py` hashes a pinned file as the pinned commit holds it, so
   `make sums-check` and the `SHA256SUMS` files are unchanged.
   `make import-check` does the same before it compares a file with mothra.

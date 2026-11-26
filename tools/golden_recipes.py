@@ -52,6 +52,25 @@ class RecipeRun:
             env["MOTHRA_ROOT"] = str(self.mothra.resolve())
         return env
 
+    def recipe_environment(self) -> dict[str, str]:
+        """Build the environment of a recipe, as ``make`` gives it for the verifiers.
+
+        The Makefile loads the evidence pin view into every interpreter that these
+        recipes start (``tools/pinview``), so that an evidence ``.py`` file may gain
+        docstrings while its recorded hashes stay true.
+
+        Returns
+        -------
+        dict[str, str]
+            The environment, with the pin view first on ``PYTHONPATH``.
+        """
+        env = self.environment()
+        pinview = str(self.root / "tools" / "pinview")
+        env["PYTHONPATH"] = os.pathsep.join(
+            filter(None, [pinview, env.get("PYTHONPATH")])
+        )
+        return env
+
 
 def recipe_lines(root: Path, target: str, mothra: Path | None) -> list[str]:
     """List the recipe lines of a Makefile target without running them.
@@ -91,7 +110,7 @@ def run_line(run: RecipeRun, command: str) -> gm.Record:
     done = subprocess.run(  # ruff: ignore[subprocess-without-shell-equals-true]  # the recipe is the Makefile's own
         ["/bin/sh", "-c", command],
         cwd=run.root,
-        env=run.environment(),
+        env=run.recipe_environment(),
         capture_output=True,
         check=False,
     )

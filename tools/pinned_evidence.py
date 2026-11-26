@@ -34,6 +34,7 @@ RECORD_RELATIVE = "scripts/pinned-evidence.json"
 EVIDENCE_PREFIX = "evidence/"
 COMMIT_PATTERN = re.compile(r"[0-9a-f]{40}")
 READ_SIZE = 1 << 20
+ENCODING_LINE = re.compile(rb"^[ \t\f]*#.*?coding[:=][ \t]*[-\w.]+")
 
 
 class PinRecordError(ToolError):
@@ -187,6 +188,24 @@ def read_live(path: Path) -> bytes:
     return b"".join(chunks)
 
 
+def _interpreter_lines(source: bytes) -> list[bytes]:
+    """List the shebang and encoding lines among the first two lines.
+
+    They are comments, so the syntax tree does not hold them, but they decide how
+    the file is run and read.
+
+    Returns
+    -------
+    list[bytes]
+        The lines that are a shebang or an encoding declaration.
+    """
+    return [
+        line
+        for line in source.split(b"\n", 2)[:2]
+        if line.startswith(b"#!") or ENCODING_LINE.match(line)
+    ]
+
+
 def _is_docstring(statement: ast.stmt) -> bool:
     """Say whether a statement is a string expression, as a docstring is.
 
@@ -242,6 +261,8 @@ def differs_only_by_docstrings(live: bytes, pinned: bytes) -> bool:
     """
     if live == pinned:
         return True
+    if _interpreter_lines(live) != _interpreter_lines(pinned):
+        return False
     try:
         return _without_docstrings(live) == _without_docstrings(pinned)
     except SyntaxError, ValueError:
