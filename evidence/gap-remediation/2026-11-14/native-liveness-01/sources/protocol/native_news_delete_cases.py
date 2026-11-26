@@ -78,7 +78,7 @@ def specs() -> list[dict]:
 
 
 def preflight() -> dict:
-    """Build the plan that confirms the fixture state before the capture."""
+    """Build the plan that looks up the fixture state before the capture."""
     steps = login() + exchange(370, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     steps += exchange(352, 12, [(105, b"fixture-low")]) + [close()]
     return {"preflight": (steps, {"kind": "news-delete-preflight"})}

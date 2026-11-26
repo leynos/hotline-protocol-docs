@@ -63,7 +63,7 @@ def specs() -> list[dict]:
 
 
 def preflight() -> dict:
-    """Build the plan that confirms none of the owned accounts exists."""
+    """Build the plan that looks up the owned accounts."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 20):
         steps += exchange(352, identifier, [(105, name)])
