@@ -22,6 +22,7 @@ if not d:
     raise SystemExit('owned display unavailable')
 
 def key(name, down):
+    """Press or release a named key on the display."""
     code = X.XKeysymToKeycode(d, X.XStringToKeysym(name.encode()))
     if not code:
         raise SystemExit('unsupported key')
@@ -30,6 +31,7 @@ def key(name, down):
     time.sleep(.035)
 
 def click(x, y):
+    """Move the pointer to a position and click the primary button."""
     T.XTestFakeMotionEvent(d, -1, x, y, 0)
     X.XFlush(d)
     time.sleep(.15)
@@ -41,6 +43,7 @@ def click(x, y):
     time.sleep(.12)
 
 def type_public(value):
+    """Type the public address 10.0.2.2, refusing any other value."""
     if value != '10.0.2.2':
         raise SystemExit('unexpected public IP input')
     for char in value:

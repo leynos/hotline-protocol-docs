@@ -16,6 +16,7 @@ ADDRESS = b"10.0.2.2"
 
 
 def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> list[dict]:
+    """Return the steps that send one request and read its reply."""
     return [
         send(packet(kind, identifier, payload(values))),
         read(match_frame={"is_reply": 1, "id": identifier}),
@@ -23,12 +24,14 @@ def exchange(kind: int, identifier: int, values: list[tuple[int, bytes]]) -> lis
 
 
 def tail_eof(connection: str) -> dict:
+    """Return the step that reads the connection's EOF without checking its bytes."""
     step = eof(connection)
     del step["expect_hex"]
     return step
 
 
 def plans() -> dict[str, list[dict]]:
+    """Return the readiness, guard, seed and held-apply plans of the configured-address ban capture."""
     ready = login()
     ready += exchange(348, 10, [])
     ready += exchange(200, 11, [(202, b"\0\0")])
@@ -71,6 +74,7 @@ def plans() -> dict[str, list[dict]]:
 
 
 def write_plans(output: Path, environment: dict, port: int) -> dict[str, str]:
+    """Write each plan for an owned lab port and return the plans' hashes."""
     if port in {15500, 15501} or not 1024 <= port <= 65534:
         raise ValueError("Control endpoint must be an owned lab port")
     if environment.get("source_a7_sha256") != A7_SHA:

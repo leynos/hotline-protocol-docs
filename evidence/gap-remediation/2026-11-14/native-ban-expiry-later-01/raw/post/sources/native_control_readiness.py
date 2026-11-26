@@ -34,11 +34,13 @@ ORIGINAL_ACCOUNTS = {
 
 
 def field_digest(frame: dict) -> str:
+    """Return a digest of a frame's field identifiers and values."""
     data = [(item["id"], item["hex"]) for item in frame["fields"]]
     return hashlib.sha256(json.dumps(data, separators=(",", ":")).encode()).hexdigest()
 
 
 def login_gate(frames: list[dict]) -> None:
+    """Check that the administrator login, privilege bitmap and agreement match the baseline."""
     require(len(frames) >= 3, "Login sequence incomplete")
     ack, privileges, agreement = frames[:3]
     require(
@@ -59,6 +61,7 @@ def login_gate(frames: list[dict]) -> None:
 
 
 def readiness(report: dict) -> None:
+    """Check that the short readiness capture completed, that the control replies succeed and match their baselines where one exists, and the roster count."""
     require(
         report["status"] == "completed" and report["completed_actions"] == 18,
         "Short readiness incomplete",
@@ -95,6 +98,7 @@ def readiness(report: dict) -> None:
 
 
 def guarded_account(report: dict, *, absent: bool) -> None:
+    """Check the account guard (no owned key yet) or the seed (account created and read back)."""
     require(report["status"] == "completed", "Account guard or seed incomplete")
     login_gate(report["frames"])
     frame = reply(report, 30 if absent else 32)
@@ -121,6 +125,7 @@ def guarded_account(report: dict, *, absent: bool) -> None:
 
 
 def target_gate(frames: list[dict]) -> bytes:
+    """Check the target's login, zero access and join notice and return its saved user identifier."""
     main = [f for f in frames if f["connection"] == "main"]
     target = [f for f in frames if f["connection"] == "target"]
     login_gate(main)
@@ -169,6 +174,7 @@ def target_gate(frames: list[dict]) -> bytes:
 
 
 def execute_ban_step(recorder: Recorder, index: int, step: dict) -> None:
+    """Run one ban step, first checking the saved target identifier before the ban request."""
     if step["op"] == "send" and step["hex"].startswith("0000006e00000021"):
         require(
             recorder.variables.get("target_uid") == target_gate(recorder.frames),
@@ -178,6 +184,7 @@ def execute_ban_step(recorder: Recorder, index: int, step: dict) -> None:
 
 
 def outcome(report: dict) -> None:
+    """Check the permanent ban notice and that the target connection closed."""
     require(report["status"] == "completed", "Ban capture incomplete")
     target = [f for f in report["frames"] if f["connection"] == "target"]
     main = [f for f in report["frames"] if f["connection"] == "main"]
@@ -206,6 +213,7 @@ def outcome(report: dict) -> None:
 
 
 def probe(report: dict) -> None:
+    """Check that a fresh login of the banned account is rejected with the ban text."""
     require(report["status"] == "completed", "107 probe incomplete")
     frame = reply(report, 1)
     require(
@@ -222,6 +230,7 @@ def probe(report: dict) -> None:
 
 
 def after(report: dict) -> None:
+    """Check that the administrator's account list is unchanged after the ban."""
     require(report["status"] == "completed", "Post-ban admin readback incomplete")
     login_gate(report["frames"])
     owned = payload(
@@ -249,6 +258,7 @@ def after(report: dict) -> None:
 
 
 def capture_gate(receipt: dict) -> None:
+    """Check the capture receipt's primary-contact count and route fields and the PCAP magic bytes of its capture files, which is not a validity check."""
     require(
         receipt["primary_syn_count"] == 0 and receipt["ns_routes"] == [],
         "Primary contact or external route",
@@ -291,6 +301,7 @@ def capture_gate(receipt: dict) -> None:
 
 
 def require_controller_uid() -> None:
+    """Require the coordinator to run as root so that it can inspect the emulator."""
     if os.geteuid() != 0:
         raise PermissionError(
             "Live coordinator requires root to inspect emulator /proc identity"
@@ -298,6 +309,7 @@ def require_controller_uid() -> None:
 
 
 def plan_gate(directory: Path, emulator_pid: int) -> None:
+    """Check the prepared plans against their source hashes and the emulator identity."""
     names = {"readiness", "guard", "seed", "ban", "probe"}
     hashes = json.loads((directory / "source-hashes.json").read_text())
     require(set(hashes) == names, "Plan inventory differs")
@@ -319,6 +331,7 @@ def plan_gate(directory: Path, emulator_pid: int) -> None:
 
 
 def run_guarded_ban(plan_path: Path, binary: Path, output: Path) -> dict:
+    """Run the ban plan under its gates and write the report."""
     source = plan_path.read_bytes()
     plan = json.loads(source)
     validate_plan(plan)
@@ -375,6 +388,7 @@ def run_guarded_ban(plan_path: Path, binary: Path, output: Path) -> dict:
 
 
 def main() -> None:
+    """Parse the command line and prepare or run the readiness plans."""
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     prepare = sub.add_parser("prepare")

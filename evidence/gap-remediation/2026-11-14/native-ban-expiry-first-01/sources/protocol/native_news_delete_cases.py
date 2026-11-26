@@ -21,6 +21,7 @@ NODES = [
 
 
 def specs() -> list[dict]:
+    """Return the article deletion cases, each with its case name, hexadecimal value and mode."""
     result = []
     for label, value, recursive in [
         ("absent", None, False),
@@ -77,6 +78,7 @@ def specs() -> list[dict]:
 
 
 def preflight() -> dict:
+    """Build the plan that confirms the fixture state before the capture."""
     steps = login() + exchange(370, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     steps += exchange(352, 12, [(105, b"fixture-low")]) + [close()]
     return {"preflight": (steps, {"kind": "news-delete-preflight"})}
@@ -109,6 +111,7 @@ def initial_burst_seed() -> dict:
 
 
 def seed() -> dict:
+    """Build the plan that creates the root news category."""
     steps = (
         login()
         + exchange(381, 10, [(201, ROOT)])
@@ -119,6 +122,7 @@ def seed() -> dict:
 
 
 def inspect_seed() -> dict:
+    """Build the plan that lists the seeded categories."""
     steps = login() + exchange(370, 10, [(325, BASE)])
     for identifier, spec in enumerate(specs(), 100):
         steps += exchange(371, identifier, [(325, path((ROOT, spec["case"].encode())))])
@@ -127,6 +131,7 @@ def inspect_seed() -> dict:
 
 
 def resume_category(case: str, completed: int = 0, exists: bool = False) -> dict:
+    """Build the plan that creates a case's category and the remaining articles."""
     if (
         case not in {s["case"] for s in specs()}
         or not 0 <= completed <= len(NODES)
@@ -169,6 +174,7 @@ def resume_category(case: str, completed: int = 0, exists: bool = False) -> dict
 
 
 def seed_categories() -> dict:
+    """Build the plans that create every case's category and articles."""
     result = {}
     for spec in specs():
         result.update(resume_category(spec["case"]))
@@ -176,6 +182,7 @@ def seed_categories() -> dict:
 
 
 def deletions() -> dict:
+    """Build one plan per case that attempts to delete an article, including the denied and missing cases, and reads the category back."""
     result = {}
     for spec in specs():
         category = path((ROOT, spec["case"].encode()))
@@ -215,6 +222,7 @@ def deletions() -> dict:
 
 
 def finalization() -> dict:
+    """Build the plan that flushes, lists every category and reads back the articles of the denied category."""
     steps = login() + upload(80, b"m-nd24-flush", b"\0\0")
     for identifier, spec in enumerate(specs(), 100):
         steps += exchange(371, identifier, [(325, path((ROOT, spec["case"].encode())))])
@@ -233,6 +241,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the root category and moves the flush file to Trash."""
     steps = (
         login()
         + exchange(380, 10, [(325, BASE)])
@@ -243,12 +252,14 @@ def cleanup() -> dict:
 
 
 def publish_cleanup() -> dict:
+    """Build the plan that publishes the news changes with a flush file."""
     steps = login() + upload(80, b"m-nd24-publish", b"\0\0")
     steps += exchange(370, 90, []) + exchange(200, 91, [(202, b"\0\0")]) + [close()]
     return {"publish": (steps, {"kind": "news-delete-publish"})}
 
 
 def remove_publisher() -> dict:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-nd24-publish")])
     steps += (
         exchange(370, 90, [])

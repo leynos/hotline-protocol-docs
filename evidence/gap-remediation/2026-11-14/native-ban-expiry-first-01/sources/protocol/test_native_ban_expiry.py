@@ -19,6 +19,7 @@ from verify_native_auth import ADMIN
 
 
 def environment() -> dict:
+    """Return a runtime environment record for the tests."""
     return {
         "source_a7_sha256": cases.A7_SHA,
         "fixture_profile": "control-only",
@@ -41,6 +42,7 @@ def frame(
     is_reply: int = 0,
     error: int = 0,
 ) -> dict:
+    """Build a decoded frame for a connection from its type, identifier and fields."""
     result = decode_frame(
         bytes.fromhex(
             packet(kind, identifier, payload(values), reply=is_reply, error=error)
@@ -52,10 +54,12 @@ def frame(
 
 
 def roster_record(uid: int, name: bytes) -> bytes:
+    """Build one roster record from a user identifier and name."""
     return uid.to_bytes(2, "big") + b"\0\0\0\0" + len(name).to_bytes(2, "big") + name
 
 
 def identity_frames(protected: bool = False) -> list[dict]:
+    """Return the login, announcement and roster frames for the target."""
     access = cases.PROTECTED_ACCESS if protected else cases.ZERO_ACCESS
     name = cases.PROTECTED_NAME if protected else cases.ZERO_NAME
     return [
@@ -80,6 +84,7 @@ def identity_frames(protected: bool = False) -> list[dict]:
 
 
 def probe_frames(success: bool) -> list[dict]:
+    """Return the frames of a probe login that succeeded or was refused."""
     if not success:
         return [
             frame(0, 1, [(100, cases.TEMPORARY_NOTICE)], "main", is_reply=1, error=1)
@@ -98,6 +103,7 @@ class FakeRecorder:
     selected_frames: ClassVar[list[dict]] = []
 
     def __init__(self, plan: dict) -> None:
+        """Start a fake recorder that replays the selected frames."""
         self.plan = plan
         self.started = time.monotonic_ns()
         self.started_at_utc = datetime.now(timezone.utc).isoformat()
@@ -108,6 +114,7 @@ class FakeRecorder:
         self.remaining = iter(self.selected_frames)
 
     def execute(self, index: int, step: dict) -> None:
+        """Record a step as an event and take the next selected frame for a frame read."""
         event = "send" if step["op"] == "send" else step["op"]
         self.events.append(
             {
@@ -122,6 +129,7 @@ class FakeRecorder:
             self.frames.append(next(self.remaining))
 
     def event(self, index: int, label: str, kind: str) -> None:
+        """Record a labelled event."""
         self.events.append(
             {
                 "action": index,
@@ -133,11 +141,14 @@ class FakeRecorder:
         )
 
     def streams(self) -> dict:
+        """Return no streams."""
         return {}
 
 
 class BanExpiryTests(unittest.TestCase):
+    """Tests of the ban expiry plans and gates."""
     def test_production_plans_are_finite_and_byte_pinned(self) -> None:
+        """Check that the plans are finite, valid, control-only and send no transfer requests."""
         generated = cases.plans()
         self.assertEqual(
             set(generated),
@@ -168,6 +179,7 @@ class BanExpiryTests(unittest.TestCase):
         self.assertEqual(generated["kick0-probe"], generated["post-probe"])
 
     def test_plan_source_and_runtime_rejections(self) -> None:
+        """Check that a plan changed after it was written is rejected."""
         with tempfile.TemporaryDirectory() as tmp:
             target = Path(tmp) / "plans"
             hashes = cases.write_plans(target, environment())
@@ -196,6 +208,7 @@ class BanExpiryTests(unittest.TestCase):
             cases.plan("tempban", cases.plans()["tempban"], environment(), 15500)
 
     def test_identity_and_notice_negative_controls(self) -> None:
+        """Check that a wrong target identity or an extra roster row is rejected."""
         good = identity_frames()
         control.identity_before_110(good, b"\0\x32", protected=False)
         control.identity_before_110(identity_frames(True), b"\0\x32", protected=True)
@@ -237,6 +250,7 @@ class BanExpiryTests(unittest.TestCase):
             control.outcome_gate(report, "kick0")
 
     def test_timing_bounds_and_runtime_identity(self) -> None:
+        """Check the timing window of the bounds and that a wrong runtime identity is rejected."""
         start = datetime(2026, 11, 14, tzinfo=timezone.utc)
         value = {
             "request_utc": start.isoformat(),
@@ -278,6 +292,7 @@ class BanExpiryTests(unittest.TestCase):
             )
 
     def test_fake_consumer_preserves_semantic_failure(self) -> None:
+        """Check that a semantic failure is kept in the case result."""
         post = cases.plan(
             "post-probe", cases.plans()["post-probe"], environment(), 15800
         )
@@ -309,6 +324,7 @@ class BanExpiryTests(unittest.TestCase):
             self.assertEqual(len(bad["events"]), len(post["steps"]))
 
     def test_later_epochs_never_require_admin_login_readiness(self) -> None:
+        """Check that a later epoch runs without the administrator login readiness."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             cases.write_plans(root / "plans", environment())
@@ -361,6 +377,7 @@ class BanExpiryTests(unittest.TestCase):
                     self.assertEqual(run.call_args.args[1], f"{phase}-probe")
 
     def test_live_runtime_binding_and_namespace_routes(self) -> None:
+        """Check that each changed runtime field, and a wrong namespace, is rejected."""
         original = environment()
         with (
             patch.object(control.os, "geteuid", return_value=0),
@@ -385,6 +402,7 @@ class BanExpiryTests(unittest.TestCase):
         }
 
         def inode(value: int) -> SimpleNamespace:
+            """Return a stat result with the given inode."""
             return SimpleNamespace(st_ino=value)
 
         with (
@@ -418,6 +436,7 @@ class BanExpiryTests(unittest.TestCase):
             control.namespace_gate(receipt)
 
     def test_first_epoch_settles_before_any_account_socket(self) -> None:
+        """Check that the first epoch settles its readiness before it opens any account socket."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             cases.write_plans(root / "plans", environment())
@@ -449,6 +468,7 @@ class BanExpiryTests(unittest.TestCase):
             )
 
             def fake_case(_plan: dict, name: str, *_args) -> dict:
+                """Record the case name and report it as completed."""
                 sequence.append(name)
                 return {"status": "completed", "error": ""}
 

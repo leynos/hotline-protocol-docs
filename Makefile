@@ -57,6 +57,15 @@ INTERROGATE_TARGETS += evidence/gap-remediation/2026-11-14/native-rate304-first-
 # finds Cyclopts and cuprum, and an evidence-held verifier that imports one of
 # the scripts runs under the same interpreter.
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
+# More documented evidence corpora (the ban corpora and the rest).
+INTERROGATE_TARGETS += evidence/gap-remediation/2026-11-14/account-write-ordering-01 \
+	evidence/gap-remediation/2026-11-14/native-121-defaults-01 \
+	evidence/gap-remediation/2026-11-14/native-ban-control-01 \
+	evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01 \
+	evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01 \
+	evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01 \
+	evidence/gap-remediation/2026-11-14/native-ban-reload-01 \
+	evidence/gap-remediation/2026-11-14/native-configured-ban-01
 # Every interpreter that these targets start reads each evidence .py file as it was
 # captured (scripts/pinned-evidence.json), so the file may gain docstrings while the
 # hashes recorded for it stay true; see tools/evidence_pin_view.py.
