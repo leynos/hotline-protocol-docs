@@ -13,6 +13,7 @@ from verify_native_core import require
 
 
 def fields(frame: dict) -> dict[int, bytes]:
+    """Return a frame's fields by identifier, refusing duplicates."""
     values = {f["id"]: bytes.fromhex(f["hex"]) for f in frame["fields"]}
     require(len(values) == len(frame["fields"]), "Duplicate banner field")
     return values
@@ -194,6 +195,7 @@ def check_case(name: str, report: dict, plan: dict, packets: dict) -> dict:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the banner corpus and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     expected = (
         set(metadata("none", None, None))
@@ -290,6 +292,7 @@ def verify(directory: Path) -> dict:
 
 
 def main() -> None:
+    """Verify the corpus named on the command line and print the summary as JSON."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
     args = parser.parse_args()

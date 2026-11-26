@@ -1,3 +1,4 @@
+"""Capture the Ghidra queries about the rate-limit recipient predicate through the MCP server and save the report and raw results."""
 import asyncio
 import hashlib
 import json
@@ -48,10 +49,12 @@ report = {
 
 
 def save():
+    """Write the capture report to disk."""
     (OUT / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
 
 
 async def main():
+    """Start the Ghidra MCP server, run the recipient predicate queries and record the results."""
     params = StdioServerParameters(command=report['command'], args=args, env=env, cwd=str(ROOT))
     try:
         with (OUT / 'server.stderr.log').open('w') as err:
@@ -61,6 +64,7 @@ async def main():
                 init = await session.initialize()
 
                 async def query(label, tool, arguments):
+                    """Run one Ghidra tool call and save its raw result."""
                     result = await session.call_tool(tool, arguments, read_timeout_seconds=timedelta(seconds=300))
                     payload = {
                         'captured_at_utc': datetime.now(timezone.utc).isoformat(),

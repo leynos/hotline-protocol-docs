@@ -20,16 +20,19 @@ LABELS = [
 
 
 def key(label: str) -> bytes:
+    """Return the account key bytes for an owned update case label."""
     if label not in LABELS:
         raise ValueError("Unknown owned account case")
     return ("m-au26-" + label).encode()
 
 
 def initial_password(label: str) -> bytes:
+    """Return the password a case's account is created with."""
     return b"q" * 32 if label == "preserve32" else PASSWORD
 
 
 def result_password(label: str) -> bytes:
+    """Return the password a case's account is expected to have after its update."""
     if label in {"absent", "empty"}:
         return b""
     if label == "literal-x":
@@ -42,6 +45,7 @@ def result_password(label: str) -> bytes:
 
 
 def values(label: str) -> list[tuple[int, bytes]]:
+    """Return the field list that creates a case's account."""
     return [
         (105, complement(key(label))),
         (106, complement(initial_password(label))),
@@ -52,6 +56,7 @@ def values(label: str) -> list[tuple[int, bytes]]:
 
 
 def preflight() -> tuple[list[dict], dict]:
+    """Build the plan that looks up the owned accounts before the capture."""
     steps = login() + exchange(348, 10, []) + exchange(200, 11, [(202, b"\0\0")])
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -59,6 +64,7 @@ def preflight() -> tuple[list[dict], dict]:
 
 
 def seed() -> tuple[list[dict], dict]:
+    """Build the plan that creates the owned accounts and reads them back."""
     steps = login()
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(350, identifier, values(label))
@@ -70,6 +76,7 @@ def seed() -> tuple[list[dict], dict]:
 
 
 def mutate(label: str) -> tuple[list[dict], dict]:
+    """Build the plan that updates one account with the case's password field."""
     fields = values(label)
     fields = [(k, v) for k, v in fields if k != 106]
     encoded = (
@@ -99,6 +106,7 @@ def mutate(label: str) -> tuple[list[dict], dict]:
 
 
 def probe(label: str, password: bytes, success: bool) -> tuple[list[dict], dict]:
+    """Build the plan that logs in with a password, recording whether the case expects it to succeed."""
     steps = login()[:3] + [authentication(key(label), password), read()]
     if success:
         steps += [read(), read()] + exchange(500, 90, [])
@@ -111,6 +119,7 @@ def probe(label: str, password: bytes, success: bool) -> tuple[list[dict], dict]
 
 
 def finalization() -> tuple[list[dict], dict]:
+    """Build the plan that flushes and reads back every owned account."""
     steps = login() + upload(80, b"m-au26-final-flush", b"\0\0")
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(352, identifier, [(105, key(label))])
@@ -118,6 +127,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that deletes the owned accounts and moves the flush files to Trash."""
     steps = login()
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(351, identifier, [(105, complement(key(label)))])
@@ -128,12 +138,14 @@ def cleanup() -> tuple[list[dict], dict]:
 
 
 def publish_cleanup() -> tuple[list[dict], dict]:
+    """Build the plan that publishes the account changes with a flush file."""
     steps = login() + upload(80, b"m-au26-publish", b"\0\0")
     steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-update-publish"}
 
 
 def remove_publisher() -> tuple[list[dict], dict]:
+    """Build the plan that removes the publishing flush file."""
     steps = login() + exchange(204, 10, [(201, b"m-au26-publish")])
     steps += exchange(348, 90, []) + exchange(200, 91, [(202, b"\0\0")])
     return steps + [close()], {"kind": "account-update-remove"}

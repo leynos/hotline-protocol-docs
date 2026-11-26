@@ -39,6 +39,7 @@ FAILURES = {
 
 
 def listing(frame: dict) -> dict[bytes, bytes]:
+    """Decode a file list reply into names and records."""
     require(
         frame["is_reply"] == 1 and frame["type"] == 0 and frame["error"] == 0,
         "Listing failed",
@@ -60,6 +61,7 @@ def listing(frame: dict) -> dict[bytes, bytes]:
 
 
 def created_name(expected: dict) -> bytes:
+    """Return the name that the server should give the created folder."""
     label = expected["case"]
     if label == "path-supplies-name":
         return b"via-path"
@@ -72,6 +74,7 @@ def created_name(expected: dict) -> bytes:
 
 
 def check_creation(report: dict, expected: dict, agreement: bytes) -> dict:
+    """Check one creation case's replies, listings and created name."""
     frames = report["frames"]
     require(
         [(f["type"], f["is_reply"], f["id"]) for f in frames]
@@ -176,6 +179,7 @@ def creation_quiet(report: dict, plan: dict) -> None:
 
 
 def check_root_empty(report: dict, initial: dict[bytes, bytes]) -> None:
+    """Check that creating at an empty root path fails each time and that the final root listing is unchanged."""
     message = b"Cannot create folder \xd2\xd3 because there is already a file or folder with that name."
     require(
         [f["id"] for f in report["frames"] if f["is_reply"]]
@@ -197,6 +201,7 @@ def check_root_empty(report: dict, initial: dict[bytes, bytes]) -> None:
 
 
 def uploaded(report: dict, data: bytes) -> None:
+    """Check the upload reference and the bytes sent for the fixture file."""
     values = fields(
         next(
             f
@@ -219,6 +224,7 @@ def uploaded(report: dict, data: bytes) -> None:
 
 
 def catalogue(directory: Path) -> dict:
+    """Check the storage catalogues before and after the cleanup."""
     before_dir, after_dir = (
         directory / "native-before-cleanup",
         directory / "native-after-cleanup",
@@ -284,6 +290,7 @@ def catalogue(directory: Path) -> dict:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the folder creation corpus and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     cases = creation()
     require(

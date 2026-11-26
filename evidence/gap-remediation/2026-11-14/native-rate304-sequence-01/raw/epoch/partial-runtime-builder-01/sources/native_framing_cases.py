@@ -4,9 +4,11 @@ from native_plan import close, eof, login, packet, payload, quiet, read, send
 
 
 def framing() -> dict[str, tuple[list[dict], dict]]:
+    """Build one plan per malformed frame case."""
     cases = {}
 
     def add(name, data, expectation):
+        """Add one framing case, wrapped in a login and a close."""
         cases[name] = (login() + data + [close()], expectation)
 
     for name, overrides in [

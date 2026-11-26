@@ -38,23 +38,27 @@ READY_KEYS = {
 
 
 def require(ok: bool, reason: str) -> None:
+    """Raise a value error with the reason unless the condition holds."""
     if not ok:
         raise ValueError(reason)
 
 
 def utc(value: str) -> dt.datetime:
+    """Parse an ISO timestamp that carries an offset and return it in UTC."""
     result = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
     require(result.tzinfo is not None, "UTC value lacks offset")
     return result.astimezone(dt.timezone.utc)
 
 
 def command(args: list[str]) -> str:
+    """Run a command and return its output, failing on a non-zero exit or a timeout."""
     return subprocess.run(
         args, capture_output=True, text=True, check=True, timeout=5
     ).stdout
 
 
 def show(unit: str) -> dict[str, str]:
+    """Return the properties of a managed systemd unit."""
     require(
         re.fullmatch(r"mothra-[A-Za-z0-9_.@-]+\.service", unit) is not None,
         "Unexpected managed unit",
@@ -81,6 +85,7 @@ def coverage(
     now: dt.datetime,
     mono_us: int,
 ) -> None:
+    """Require the managed unit to be running with the expected properties until the deadline."""
     require(
         set(props) == set(PROPERTIES), "Managed unit properties incomplete or extra"
     )
@@ -206,6 +211,7 @@ def construct(
 def verify_capture(
     saved: dict, filter_text: str, expected_netns: int, deadline: dt.datetime
 ) -> dict:
+    """Verify one saved capture's unit, command line, namespace and file."""
     path = pathlib.Path(saved["capture"])
     expected = [
         "/usr/sbin/tcpdump",
@@ -231,6 +237,7 @@ def verify_capture(
 def lease_probe(
     unit: str, lock: pathlib.Path, deadline: dt.datetime, now: dt.datetime, mono_us: int
 ) -> dict:
+    """Check that the lease process holds the oracle lock and return its identity."""
     props = show(unit)
     pid = int(props["MainPID"])
     coverage(props, pid, deadline, now, mono_us)
@@ -282,6 +289,7 @@ def lease_probe(
 
 
 def isolated_routes(pid: int) -> None:
+    """Require the isolated namespace to have no routes and only the loopback interface."""
     base = ["/usr/sbin/nsenter", "-t", str(pid), "-n", "/usr/sbin/ip", "-j"]
     for family in ("-4", "-6"):
         require(
@@ -296,6 +304,7 @@ def isolated_routes(pid: int) -> None:
 
 
 def live_runtime(runtime: dict, guest_pcap: pathlib.Path) -> None:
+    """Require the running emulator to match the runtime record."""
     pid = runtime["emulator_pid"]
     require(
         capture.process_start(pid) == int(runtime["emulator_starttime"]),
@@ -335,6 +344,7 @@ def live_runtime(runtime: dict, guest_pcap: pathlib.Path) -> None:
 
 
 def write_exclusive(output: pathlib.Path, value: dict) -> None:
+    """Write the receipt to a new file, refusing an existing path or a symbolic link."""
     parent = output.parent
     require(
         parent.is_dir() and not parent.is_symlink(),
@@ -374,6 +384,7 @@ def write_exclusive(output: pathlib.Path, value: dict) -> None:
 
 
 def main() -> None:
+    """Parse the command line, verify both captures and the lease and write the receipt."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=pathlib.Path, required=True)
     parser.add_argument("--host-ready", type=pathlib.Path, required=True)

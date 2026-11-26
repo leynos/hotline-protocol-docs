@@ -37,10 +37,12 @@ REQUIRED_ENV = (
 
 
 def sha(raw: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def cells() -> list[dict]:
+    """Return the path field cells: well-formed and malformed values of fields 212 and 325."""
     values = [
         (212, P212),
         (212, bytes.fromhex("00030000086d2d706174683437000003482d9a000000")),
@@ -91,6 +93,7 @@ def request(
     *,
     marker: bytes | None = None,
 ) -> dict:
+    """Return the record of one request: its label, phase, type, identifier and fields."""
     return {
         "label": label,
         "phase": phase,
@@ -105,6 +108,7 @@ def request(
 
 
 def raw_request(spec: dict, dynamic_parent: bytes | None = None) -> str:
+    """Return a request as hexadecimal packet text, filling in the dynamic parent when the request needs it."""
     values = spec["fields"]
     if values is None:
         if dynamic_parent is None or spec["kind"] != 206:
@@ -118,6 +122,7 @@ def raw_request(spec: dict, dynamic_parent: bytes | None = None) -> str:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
+    """Build the path field plan for the owned control port after checking the runtime identity."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only isolated control-only 15900 profile is prepared")
     if any(not environment.get(key) for key in REQUIRED_ENV):
@@ -132,6 +137,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
         phase: str,
         marker: bytes | None = None,
     ) -> None:
+        """Append one numbered request to the plan's request list."""
         nonlocal next_id
         specs.append(request(label, kind, next_id, values, phase, marker=marker))
         next_id += 1
@@ -220,6 +226,7 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
 
 
 def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
+    """Write the plan and the hashes of its sources and return the plan's hash."""
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -243,6 +250,7 @@ def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

@@ -15,10 +15,12 @@ ACCOUNTS = [
 
 
 def complement(value: bytes) -> bytes:
+    """Return each byte XORed with 0xFF, as the protocol obscures keys and passwords."""
     return bytes(b ^ 255 for b in value)
 
 
 def seed() -> dict:
+    """Build the plan that creates the authentication fixture accounts."""
     steps = login()
     steps += [send(packet(352, 9, payload([(105, b"guest")]))), read()]
     for identifier, (key, name, privileges) in enumerate(ACCOUNTS, 10):
@@ -54,6 +56,7 @@ def authentication(
     connection: str = "main",
     identifier: int = 1,
 ) -> dict:
+    """Build the plan step that sends an authentication request with optional name and icon."""
     values = [(106, complement(password)), (160, b"\0\xbe")]
     if key is not None:
         values.append((105, complement(key)))
@@ -65,6 +68,7 @@ def authentication(
 
 
 def lookup(*, missing_guest: bool = False) -> dict:
+    """Build the plans that probe how account keys are looked up."""
     cases = {}
     for name, key, password in [
         ("admin-mixed-case", b"AdMiN", b"mothra19"),
@@ -113,6 +117,7 @@ def lookup(*, missing_guest: bool = False) -> dict:
 
 
 def guest_create() -> dict:
+    """Build the plan that creates a guest account with an empty password."""
     steps = login() + [
         send(
             packet(
@@ -138,6 +143,7 @@ def guest_create() -> dict:
 
 
 def roster(identifier: int) -> list[dict]:
+    """Build the steps that fetch the user list as the observer connection."""
     return [
         send(packet(300, identifier), "observer"),
         read("observer", match_frame={"is_reply": 1, "id": identifier}),
@@ -145,6 +151,7 @@ def roster(identifier: int) -> list[dict]:
 
 
 def states() -> dict:
+    """Build the plans that authenticate in each session state, with and without early name and icon."""
     cases = {}
     variants = [
         ("early-admin", b"admin", b"mothra19", b"auth-visible", b"\0\1", True),
@@ -258,6 +265,7 @@ def states() -> dict:
 
 
 def reauthentication() -> dict:
+    """Build the plans that send acceptance before the first authentication, or authenticate twice before acceptance."""
     cases = {}
     for before in [False, True]:
         steps = [{**s, "connection": "observer"} for s in login()] + roster(10)
@@ -307,6 +315,7 @@ def reauthentication() -> dict:
 
 
 def cleanup() -> dict:
+    """Build the plan that deletes the owned authentication accounts, except the 32-byte key account that seed also attempts to create."""
     steps = login()
     for identifier, key in enumerate(
         [b"guest"] + [key for key, _, _ in ACCOUNTS if key != KEY32], 10

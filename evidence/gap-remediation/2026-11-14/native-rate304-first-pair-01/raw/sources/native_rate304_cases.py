@@ -21,10 +21,12 @@ TEMPORARY_BAN = b"You are temporarily banned on this server."
 
 
 def digest(data: bytes) -> str:
+    """Return the SHA-256 hex digest of the bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
+    """Build the rate-limit plan for the reserved control port after checking the runtime identity."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only reserved control-only port15880 is prepared")
     required = (
@@ -113,22 +115,26 @@ def source_plan(environment: dict, port: int = PORT) -> dict:
 
 
 def update(identifier: int, icon: int) -> str:
+    """Return a settings update packet that sets the icon."""
     if not (0 <= icon <= 65535):
         raise ValueError("Icon out of range")
     return packet(304, identifier, payload([(104, icon.to_bytes(2, "big"))]))
 
 
 def barrier(identifier: int) -> str:
+    """Return a barrier request packet."""
     return packet(500, identifier)
 
 
 def observer_control(kind: int, identifier: int) -> str:
+    """Return an approved observer control packet."""
     if kind not in (348, 200, 206, 300, 303):
         raise ValueError("Unapproved observer control")
     return packet(kind, identifier)
 
 
 def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
+    """Write the plan and its source hash and return the plan's hash."""
     value = source_plan(environment, port)
     output.mkdir(parents=True, exist_ok=False)
     raw = (json.dumps(value, indent=2) + "\n").encode()
@@ -141,6 +147,7 @@ def write_plan(output: Path, environment: dict, port: int = PORT) -> str:
 
 
 def main() -> None:
+    """Write the plan for the runtime record and print its hash."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--runtime", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
