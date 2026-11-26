@@ -248,7 +248,7 @@ def create() -> dict:
 
 
 def information() -> dict:
-    """Build one plan per location that reads file information through aliases and chains."""
+    """Build one plan per location that reads file information for ordinary files and folders, aliases and alias chains."""
     locations = [
         ("ordinary-file", b"file", (ROOT,)),
         ("empty-file", b"empty", (ROOT,)),

@@ -108,7 +108,7 @@ def planned_operations() -> list[dict]:
 
 
 def source_plan(environment: dict, port: int = PORT) -> dict:
-    """Build the board plan for the reviewed control port after checking the runtime identity and the stopped board baseline."""
+    """Build the board plan for the reviewed control port after checking that the runtime identity fields are present and the stopped board baseline matches."""
     if port != PORT or environment.get("fixture_profile") != "control-only":
         raise ValueError("Only the reviewed control-only port15860 is prepared")
     required = (

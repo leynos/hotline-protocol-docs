@@ -17,7 +17,7 @@ def request(
     empty: bool = False,
     empty_preview: bool = False,
 ) -> list[dict]:
-    """Return the steps that request a fixture download in a mode and save its reference and size."""
+    """Return the steps that request a fixture download in a mode and, unless the preview is empty, save its reference and size."""
     filename = b"mothra-empty-fixture" if empty else b"mothra-fork-fixture"
     values = [(201, filename)]
     if mode is not None:
