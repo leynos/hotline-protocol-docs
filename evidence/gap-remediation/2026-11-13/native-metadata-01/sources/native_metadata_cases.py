@@ -165,7 +165,7 @@ def mutations() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the folder, accounts and flush file."""
+    """Build the plan that moves the folder and the flush file to Trash and deletes the accounts."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     steps += exchange(204, 20, [(201, ROOT)])
     for identifier, (name, _) in enumerate(ACCOUNTS.values(), 30):

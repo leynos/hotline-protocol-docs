@@ -193,7 +193,7 @@ def stopped() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
-    """Build the plan that deletes the live account and the flush file."""
+    """Build the plan that deletes the live account and moves the flush file to Trash."""
     steps = login() + exchange(351, 10, [(105, complement(LIVE))])
     steps += exchange(204, 11, [(201, b"m-live27-flush")])
     steps += exchange(348, 20, []) + exchange(200, 21, [(202, b"\0\0")])

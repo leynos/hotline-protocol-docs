@@ -272,7 +272,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the owned folders."""
+    """Build the plan that requests moving the owned folders to Trash."""
     steps = login() + exchange(200, 10, [(202, b"\0\0")])
     names = [ROOT] + [
         bytes.fromhex(s["name_hex"])

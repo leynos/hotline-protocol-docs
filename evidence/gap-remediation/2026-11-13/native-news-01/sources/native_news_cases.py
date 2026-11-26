@@ -226,7 +226,7 @@ def finalization() -> dict:
 
 
 def cleanup() -> dict:
-    """Build the plan that deletes the news tree and the flush file."""
+    """Build the plan that deletes the news tree and moves the flush file to Trash."""
     steps = login() + exchange(380, 10, [(325, BASE)])
     steps += exchange(204, 11, [(201, b"m-news23-flush")])
     steps += exchange(370, 90, []) + exchange(500, 91, []) + [close()]
