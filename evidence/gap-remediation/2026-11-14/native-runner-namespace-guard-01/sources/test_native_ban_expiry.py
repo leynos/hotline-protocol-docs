@@ -59,7 +59,7 @@ def roster_record(uid: int, name: bytes) -> bytes:
 
 
 def identity_frames(protected: bool = False) -> list[dict]:
-    """Return the frames of a valid login and kick sequence for the target."""
+    """Return the login, announcement and roster frames for the target."""
     access = cases.PROTECTED_ACCESS if protected else cases.ZERO_ACCESS
     name = cases.PROTECTED_NAME if protected else cases.ZERO_NAME
     return [

@@ -179,7 +179,7 @@ def creation_quiet(report: dict, plan: dict) -> None:
 
 
 def check_root_empty(report: dict, initial: dict[bytes, bytes]) -> None:
-    """Check that creating at an empty root path fails each time and changes nothing."""
+    """Check that creating at an empty root path fails each time and that the final root listing is unchanged."""
     message = b"Cannot create folder \xd2\xd3 because there is already a file or folder with that name."
     require(
         [f["id"] for f in report["frames"] if f["is_reply"]]
@@ -201,7 +201,7 @@ def check_root_empty(report: dict, initial: dict[bytes, bytes]) -> None:
 
 
 def uploaded(report: dict, data: bytes) -> None:
-    """Check that the fixture file was uploaded with the expected reference and body."""
+    """Check the upload reference and the bytes sent for the fixture file."""
     values = fields(
         next(
             f
