@@ -43,10 +43,12 @@ ACCESS = bytes.fromhex("2000000000000000")
 
 
 def username(label: str) -> bytes:
+    """Return the owned account key for a case label."""
     return ("m-au26-" + label).encode()
 
 
 def values(label: str, after: bool) -> tuple[bytes, bytes, bytes, bytes]:
+    """Return the name, attribute, password and access of a case's account before or after its update."""
     password = (
         PASSWORDS[label]
         if after
@@ -67,6 +69,7 @@ def values(label: str, after: bool) -> tuple[bytes, bytes, bytes, bytes]:
 
 
 def account_reply(frame: dict, label: str, after: bool) -> None:
+    """Require an account reply to carry the expected fields for the case."""
     name, _, password, access = values(label, after)
     expected = {105: complement(username(label)), 110: access}
     if name:
@@ -80,6 +83,7 @@ def account_reply(frame: dict, label: str, after: bool) -> None:
 
 
 def account_record(label: str, after: bool) -> bytes:
+    """Build the stored account record that the case should have before or after its update."""
     name, attribute, password, access = values(label, after)
     result = bytearray(734)
     result[:2] = b"\0\1"
@@ -96,6 +100,7 @@ def account_record(label: str, after: bool) -> bytes:
 
 
 def enumeration(frame: dict) -> list[str]:
+    """Return the sorted account list of a successful enumeration reply."""
     require(
         frame["error"] == 0 and all(f["id"] == 101 for f in frame["fields"]),
         "Account enumeration failed",
@@ -104,6 +109,7 @@ def enumeration(frame: dict) -> list[str]:
 
 
 def storage(directory: Path) -> None:
+    """Check the extracted account catalogues before and after the updates."""
     catalogues = {}
     for phase, after, count in [("native-seed", False, 17), ("native-final", True, 18)]:
         base = directory / phase
@@ -197,6 +203,7 @@ def storage(directory: Path) -> None:
 
 
 def verify(directory: Path) -> dict:
+    """Verify the account update corpus and return the summary."""
     manifest = json.loads((directory / "manifest.json").read_text())
     runtime = json.loads((directory / "runtime.json").read_text())
     require(

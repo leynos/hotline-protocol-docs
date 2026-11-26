@@ -53,12 +53,14 @@ def accepted_post(post: Path, environment: dict) -> str:
 
 
 def _streams(plan: dict, events: list[dict]) -> dict:
+    """Return the sent and received streams of a plan's events."""
     recorder = expiry_control.Recorder(plan)
     recorder.events = events
     return recorder.streams()
 
 
 def steps(stage: str) -> list[dict]:
+    """Return the steps of a cleanup stage: the guard or the deletion."""
     if stage == "guard":
         return (
             login()
@@ -80,6 +82,7 @@ def steps(stage: str) -> list[dict]:
 
 
 def semantic(report: dict, stage: str) -> None:
+    """Check that a cleanup capture completed and its replies match the stage."""
     require(
         report["status"] == "completed"
         and report["completed_actions"] == len(steps(stage)),
@@ -120,6 +123,7 @@ def semantic(report: dict, stage: str) -> None:
 def make_plan(
     stage: str, environment: dict, post_sha: str, guard_sha: str | None
 ) -> dict:
+    """Build the cleanup plan for a stage after checking the fixture profile."""
     require(
         environment.get("fixture_profile") == "control-only"
         and environment.get("full_file_baseline") == "not_exercised",
@@ -147,6 +151,7 @@ def make_plan(
 def prepare(
     stage: str, post: Path, runtime: Path, output: Path, guard: Path | None
 ) -> None:
+    """Check the accepted post capture and, for deletion, the guard capture, then write the plan."""
     environment = load(runtime)
     post_sha = accepted_post(post, environment)
     guard_sha = None
@@ -169,6 +174,7 @@ def prepare(
 
 
 def main() -> None:
+    """Parse the command line and prepare the cleanup plan."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stage", choices=("guard", "delete"), required=True)
     parser.add_argument("--post", type=Path, required=True)

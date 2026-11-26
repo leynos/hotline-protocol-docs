@@ -1,3 +1,4 @@
+"""Capture the Ghidra queries about the account writer through the MCP server and save the report and the raw results."""
 import asyncio,hashlib,json,os
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
@@ -16,15 +17,19 @@ env.update(JAVA_HOME=str(ROOT/'tools/jdk-25.0.5+8'),GHIDRA_INSTALL_DIR=str(ROOT/
 env['PATH']=str(ROOT/'tools/jdk-25.0.5+8/bin')+os.pathsep+env['PATH']
 args=['--headless','--binary',str(BINARY),'--project',str(ROOT/'state/delegation/endpoint-oracle-01/project'),'--project-name','independent-endpoint-01','--no-analyze','--discard','--language','PowerPC:BE:32:default','--compiler','default','--extension-jar',str(JAR),'--ready-timeout','900']
 report={'started_at_utc':datetime.now(timezone.utc).isoformat(),'command':str(ROOT/'tools/ghidramcp/.venv/bin/ghidra-mcp'),'args':args,'binary_sha256':SHA,'jar_sha256':hashlib.sha256(JAR.read_bytes()).hexdigest(),'project_scope':'read-only saved independent import from endpoint-oracle-01; no GUI-owned project accessed','queries':[],'status':'starting'}
-def save(): (BASE/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+def save():
+    """Write the capture report to disk."""
+    (BASE/'report.json').write_text(json.dumps(report,indent=2)+'\n')
 save()
 async def main():
+ """Start the Ghidra MCP server, run the writer-oracle queries and record the results."""
  params=StdioServerParameters(command=report['command'],args=args,env=env,cwd=str(ROOT))
  try:
   with (BASE/'server.stderr.log').open('w') as err:
    async with stdio_client(params,errlog=err) as (reader,writer),ClientSession(reader,writer,read_timeout_seconds=timedelta(seconds=1050)) as session:
     init=await session.initialize()
     async def query(label,tool,arguments):
+     """Run one Ghidra tool call and save its raw result and any decompiled code."""
      result=await session.call_tool(tool,arguments,read_timeout_seconds=timedelta(seconds=300))
      payload={'captured_at_utc':datetime.now(timezone.utc).isoformat(),'query':{'id':label,'tool':tool,'arguments':arguments},'result':result.model_dump(mode='json')}
      (BASE/'raw'/(label+'.json')).write_text(json.dumps(payload,indent=2)+'\n')

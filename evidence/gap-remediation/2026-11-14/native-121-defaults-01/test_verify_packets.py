@@ -14,7 +14,9 @@ ROOT = Path(__file__).resolve().parent
 
 
 class Native121CorpusTests(unittest.TestCase):
+    """Tests of the default-text corpus verifier."""
     def test_portable_replay(self) -> None:
+        """Check that the portable replay verifies with 27 gates and seven connections."""
         result = corpus.verify(ROOT)
         self.assertEqual(result["status"], "verified")
         self.assertEqual(len(result["gates"]), 27)
@@ -24,6 +26,7 @@ class Native121CorpusTests(unittest.TestCase):
         self.assertFalse(result["raw_snapshots_replayed"])
 
     def test_missing_default_104_is_not_a_pass(self) -> None:
+        """Check that a stale default text is rejected."""
         report = copy.deepcopy(verify_capture(ROOT / "observe"))
         plan = json.loads((ROOT / "observe/plan.json").read_text())
         case = plan["expectation"]["cases"][0]
@@ -37,6 +40,7 @@ class Native121CorpusTests(unittest.TestCase):
             semantic(report, plan)
 
     def test_modified_tcp_stream_and_prefix_fail(self) -> None:
+        """Check that an altered stream or output prefix is rejected."""
         reports = {
             name: verify_capture(ROOT / name)
             for name in ("preflight", "observe", "postflight")
@@ -53,6 +57,7 @@ class Native121CorpusTests(unittest.TestCase):
             corpus.packet_views(ROOT, wrong)
 
     def test_corrupt_inventory_rejected(self) -> None:
+        """Check that a wrong file hash is rejected by the inventory."""
         actual = corpus.digest
         with (
             patch.object(

@@ -23,6 +23,7 @@ SAVE_MARKER = b"reviewed-save\n"
 
 
 def account_gate(report: dict, *, absent: bool) -> None:
+    """Check the account guard (no owned key yet) or the seed (account created and read back)."""
     require(report["status"] == "completed", "Account guard or seed incomplete")
     base.login_gate(report["frames"])
     record = reply(report, 30 if absent else 32)
@@ -49,6 +50,7 @@ def account_gate(report: dict, *, absent: bool) -> None:
 
 
 def identity_gate(frames: list[dict]) -> bytes:
+    """Check the administrator and target logins and zero access, and return the target's user identifier."""
     main = [frame for frame in frames if frame["connection"] == "main"]
     target = [frame for frame in frames if frame["connection"] == "target"]
     base.login_gate(main)
@@ -97,6 +99,7 @@ def identity_gate(frames: list[dict]) -> bytes:
 
 
 def outcome(report: dict, plan: dict) -> None:
+    """Check the held apply capture: completion, identity, the reviewed save trigger and the notices."""
     require(
         report["status"] == "completed"
         and report["completed_actions"] == len(plan["steps"])
@@ -141,6 +144,7 @@ def outcome(report: dict, plan: dict) -> None:
 
 
 def plan_gate(directory: Path, emulator_pid: int) -> None:
+    """Check the prepared plans against their source hashes, the emulator and the endpoint."""
     hashes = json.loads((directory / "source-hashes.json").read_text())
     require(set(hashes) == EXPECTED_PLANS, "Source-plan inventory differs")
     for name in EXPECTED_PLANS:
@@ -178,6 +182,7 @@ def report_from_recorder(
     error: str,
     save_trigger: str | None,
 ) -> dict:
+    """Build the capture report from the recorder's events and frames and the run's outcome."""
     plan = recorder.plan
     return {
         "schema_version": 1,
@@ -203,6 +208,7 @@ def report_from_recorder(
 
 
 def wait_for_reviewed_save(recorder: Recorder, trigger: Path, deadline: float) -> None:
+    """Wait for the reviewed save trigger, failing if any traffic arrives first."""
     require(not trigger.exists(), "Save trigger already exists before hold")
     while time.monotonic() < deadline:
         ready, _, _ = select.select(list(recorder.sockets.values()), [], [], 0.05)
@@ -218,6 +224,7 @@ def wait_for_reviewed_save(recorder: Recorder, trigger: Path, deadline: float) -
 def run_held(
     plan_path: Path, binary: Path, output: Path, trigger: Path, receipt: Path
 ) -> dict:
+    """Run the held apply plan, pausing for the reviewed save, and write the report."""
     source = plan_path.read_bytes()
     plan = json.loads(source)
     validate_plan(plan)
@@ -281,6 +288,7 @@ def run_held(
 
 
 def main() -> None:
+    """Parse the command line and prepare or execute the plans."""
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
     prepare = sub.add_parser("prepare")
