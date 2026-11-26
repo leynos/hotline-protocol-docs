@@ -182,7 +182,7 @@ def seed_categories() -> dict:
 
 
 def deletions() -> dict:
-    """Build one plan per case that deletes an article and reads the category back."""
+    """Build one plan per case that attempts to delete an article, including the denied and missing cases, and reads the category back."""
     result = {}
     for spec in specs():
         category = path((ROOT, spec["case"].encode()))

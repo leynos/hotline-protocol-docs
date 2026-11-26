@@ -111,7 +111,7 @@ def upload_fresh() -> dict[str, tuple[list[dict], dict]]:
 
 
 def download_start(root: bytes, empty: bool = False) -> list[dict]:
-    """Build the steps that open a folder download and connect its transfer channel."""
+    """Build the steps that open a folder download and, unless it is empty, connect its transfer channel."""
     steps = session("a") + [send(packet(210, 10, payload([(201, root)])), "a")]
     if empty:
         return steps + [read("a", match_frame={"is_reply": 1, "id": 10}), close("a")]

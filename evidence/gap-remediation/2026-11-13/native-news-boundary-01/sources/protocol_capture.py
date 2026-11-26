@@ -206,7 +206,7 @@ class Recorder:
             raise ValueError("Session exceeds capture limit")
 
     def read(self, action: int, name: str, size: int | None, deadline: float) -> bytes:
-        """Receive bytes from a connection until the size or the deadline is reached, recording each receive."""
+        """Receive bytes from a connection, recording each receive: until the size arrives, or until EOF without a size; EOFError on early EOF, TimeoutError at the deadline."""
         chunks = bytearray()
         connection = self.sockets[name]
         while size is None or len(chunks) < size:

@@ -178,7 +178,7 @@ def strip_streams(views: dict) -> dict:
 
 
 def main() -> None:
-    """Verify the density corpus against the A7 baseline and print or write the result."""
+    """Verify the density corpus against the A7 baseline; write the result to --output when given, and print only its status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     arguments = parser.parse_args()

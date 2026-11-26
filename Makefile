@@ -30,7 +30,9 @@ PYTHON_TARGETS = $(shell git ls-files --cached --others \
 	'scripts/*.py' 'scripts/**/*.py')
 # Interrogate scans these directories recursively, so a new Python file under
 # them is measured without a list to update. The evidence directories join as each
-# is documented (the docstrings are held to the pinned code by pins-check).
+# is documented (the docstrings are held to the pinned code by pins-check). Interrogate
+# rounds to the decimals of its threshold, so one missed docstring among thousands
+# passes at 100; the second invocation in lint-python fails on any MISSED row.
 INTERROGATE_TARGETS ?= tools tests scripts evidence/gap-remediation/2026-11-13
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
@@ -202,6 +204,7 @@ curation-skip:
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(RUFF_ROOT) $(PYTHON_TARGETS)
 	$(UV) run --group dev interrogate --fail-under 100 $(INTERROGATE_TARGETS)
+	@! $(UV) run --group dev interrogate -vv $(INTERROGATE_TARGETS) | grep -q ' MISSED ' || { printf 'interrogate: a definition has no docstring\n' >&2; exit 1; }
 	$(PYLINT) $(PYTHON_TARGETS)
 	$(DF12_PYLINT) $(PYTHON_TARGETS)
 

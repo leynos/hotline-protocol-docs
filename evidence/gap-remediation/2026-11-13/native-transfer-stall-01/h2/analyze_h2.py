@@ -79,7 +79,7 @@ def scale(packet: dict) -> int | None:
 
 
 def main() -> None:
-    """Analyse the failed capture for hypothesis H2 (a zero receiver window) and write the result."""
+    """Analyse the failed capture for hypothesis H2 (a zero receiver window or an unacknowledged server tail) and write the result."""
     out = Path(__file__).resolve().parent
     boot = ROOT / "state/native-sessions/native-banlab-boot-c34"
     report_path = ROOT / "state/native-sessions/native-banlab-c35/a7-capture/report.json"

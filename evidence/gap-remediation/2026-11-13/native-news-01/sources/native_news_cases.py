@@ -165,7 +165,7 @@ def thread_grandchild(parent: int) -> dict:
 
 
 def structures() -> dict:
-    """Build one plan per case that creates folders or categories that conflict or lack a parent."""
+    """Build one plan per case: conflicting or parentless folder and category creation, deletions and low-permission creation."""
     result = {}
     for label, kind, values, role in [
         ("folder-conflict-folder", 381, [(201, b"bundle"), (325, BASE)], "admin"),

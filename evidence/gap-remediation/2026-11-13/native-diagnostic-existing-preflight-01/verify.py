@@ -37,7 +37,7 @@ def fields(value: dict) -> dict[int, bytes]:
 
 
 def main() -> None:
-    """Verify the preflight capture against the load baseline."""
+    """Verify the capture in the directory beside this file against the baseline."""
     verify_capture(BATCH / "capture")
     report = json.loads((BATCH / "capture/report.json").read_text())
     baseline = json.loads(
