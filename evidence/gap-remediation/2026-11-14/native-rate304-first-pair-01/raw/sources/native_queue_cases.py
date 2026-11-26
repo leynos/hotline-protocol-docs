@@ -78,7 +78,7 @@ def take(owner: str, variable: str, identifier: int) -> list[dict]:
 
 
 def queues() -> dict[str, tuple[list[dict], dict]]:
-    """Build the plan that queues downloads in every mode and then takes them in order."""
+    """Build the three queue plans: downloads in every mode taken in order, cancellation of queued downloads, and fairness between two owners."""
     modes = session("a") + request("a", 10, "blocker")
     specs = [
         (0, False),

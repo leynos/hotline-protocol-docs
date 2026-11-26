@@ -127,7 +127,7 @@ def finalization() -> tuple[list[dict], dict]:
 
 
 def cleanup() -> tuple[list[dict], dict]:
-    """Build the plan that deletes the owned accounts and flush files."""
+    """Build the plan that deletes the owned accounts and moves the flush files to Trash."""
     steps = login()
     for identifier, label in enumerate(LABELS, 100):
         steps += exchange(351, identifier, [(105, complement(key(label)))])
