@@ -138,6 +138,7 @@ class View:
         (root / NAME).write_text(DOCUMENTED, encoding="utf-8")
         self.root = root
         self.record = pinned_evidence.load_record(root)
+        self.real_link = os.link
 
 
 @pytest.fixture
@@ -152,7 +153,6 @@ def view(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> View:
     repo = View(tmp_path / "checkout")
     monkeypatch.setattr(evidence_pin_view, "ROOT", repo.root.resolve())
     monkeypatch.setattr(evidence_pin_view, "_view", evidence_pin_view._View())
-    monkeypatch.delenv(evidence_pin_view.ROOT_VARIABLE, raising=False)
     for owner, name in (
         (io, "open"),
         (os, "stat"),
@@ -210,17 +210,18 @@ def test_the_view_leaves_other_files_alone(view: View, tmp_path: Path) -> None:
     )
 
 
-def test_a_scratch_tree_is_served_only_when_named(
-    view: View, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+def test_a_scratch_tree_is_served_only_through_hard_links(
+    view: View, tmp_path: Path
 ) -> None:
-    """A tree that only shares a name is left alone; a named tree is served."""
+    """A tree that only shares a name is left alone; a hard-linked tree is served."""
     scratch = tmp_path / "hotline-protocol-docs"
-    target = scratch / NAME
-    target.parent.mkdir(parents=True)
-    target.write_text("scratch\n", encoding="utf-8")
-    assert target.read_text(encoding="utf-8") == "scratch\n", "an unnamed tree is kept"
-    monkeypatch.setenv(evidence_pin_view.ROOT_VARIABLE, str(scratch))
-    assert target.read_bytes() == ORIGINAL.encode(), "the named tree is served"
+    plain = scratch / "evidence" / NAME.removeprefix("evidence/")
+    plain.parent.mkdir(parents=True)
+    plain.write_text("scratch\n", encoding="utf-8")
+    assert plain.read_text(encoding="utf-8") == "scratch\n", "an unrelated file is kept"
+    plain.unlink()
+    view.real_link(view.root / NAME, plain)
+    assert plain.read_bytes() == ORIGINAL.encode(), "a hard link is served as captured"
 
 
 def test_the_view_keeps_the_other_stat_fields(view: View, tmp_path: Path) -> None:

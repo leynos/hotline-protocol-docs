@@ -246,7 +246,7 @@ export MOTHRA_ROOT ?= $(abspath $(MOTHRA))
 endif
 
 define in_legacy_layout
-tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && python3 scripts/pinned_source_cli.py stage "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && export EVIDENCE_PIN_VIEW_ROOT="$$root" && cd "$$root" && $(1)
+tmp=$$(mktemp -d) && trap 'rm -rf "$$tmp"' EXIT && root="$$tmp/hotline-protocol-docs" && mkdir -p "$$root" && cp -a scripts "$$root/scripts" && python3 scripts/pinned_source_cli.py stage "$$root/scripts" && { cp -al evidence "$$root/evidence" 2>/dev/null || cp -a evidence "$$root/evidence"; } && cd "$$root" && $(1)
 endef
 
 .PHONY: evidence-verify evidence-verify-known-red test-legacy
