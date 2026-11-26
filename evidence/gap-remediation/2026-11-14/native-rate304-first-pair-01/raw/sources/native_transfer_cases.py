@@ -108,7 +108,7 @@ def transfers() -> dict[str, tuple[list[dict], dict]]:
 
 
 def downloads() -> dict[str, tuple[list[dict], dict]]:
-    """Build one plan per case that downloads a file raw, previewed or through a selector."""
+    """Build one plan per case that downloads a file raw, previewed or through a selector, including the empty-preview and wrong-selector cases that do not transfer it."""
     cases = {}
     for case, name, preview, handover, selector in [
         ("raw", b"mothra-fork-fixture", False, False, 0),
