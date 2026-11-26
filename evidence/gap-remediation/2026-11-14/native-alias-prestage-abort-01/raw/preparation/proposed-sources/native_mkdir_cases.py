@@ -161,7 +161,7 @@ def specs() -> list[dict]:
 
 
 def creation() -> dict:
-    """Build one plan per case that attempts to create a folder, including the permission and missing-parent failures, and reads the parent back."""
+    """Build one plan per case that attempts to create a folder, including the permission and missing-parent failures, and reads the case's designated view before and after."""
     cases = {}
     for expected in specs():
         steps = login()

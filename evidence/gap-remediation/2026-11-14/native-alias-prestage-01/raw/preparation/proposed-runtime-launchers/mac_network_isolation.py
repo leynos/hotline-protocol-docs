@@ -237,7 +237,7 @@ def host_x_bridge(path: Path, display: str) -> None:
 
 
 def check_namespace() -> None:
-    """Require the network namespace to hold only the loopback interface and no routes."""
+    """Require the network namespace to hold only the loopback interface and empty IPv4 and IPv6 main routing tables."""
     ip = shutil.which("ip")
     if ip is None:
         raise FileNotFoundError("ip")
