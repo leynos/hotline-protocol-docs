@@ -28,6 +28,9 @@ DF12_PYLINT = $(UV) tool run --python $(LINT_PYTHON) --from 'pylint==$(PYLINT_VE
 PYTHON_TARGETS = $(shell git ls-files --cached --others \
 	--exclude-standard 'tools/*.py' 'tools/**/*.py' 'tests/*.py' 'tests/**/*.py' \
 	'scripts/*.py' 'scripts/**/*.py')
+# Interrogate scans these directories recursively, so a new Python file under
+# them is measured without a list to update.
+INTERROGATE_TARGETS ?= tools tests scripts
 RUFF_ROOT = --config pyproject.toml
 # The repository tools run in the project environment.
 PYTHON ?= $(UV) run --group dev python
@@ -191,7 +194,7 @@ curation-skip:
 
 lint-python: build ## Lint the Python that meets the df12 standards
 	$(RUFF) check $(RUFF_ROOT) $(PYTHON_TARGETS)
-	$(UV) run --group dev interrogate --fail-under 100 $(PYTHON_TARGETS)
+	$(UV) run --group dev interrogate --fail-under 100 $(INTERROGATE_TARGETS)
 	$(PYLINT) $(PYTHON_TARGETS)
 	$(DF12_PYLINT) $(PYTHON_TARGETS)
 
