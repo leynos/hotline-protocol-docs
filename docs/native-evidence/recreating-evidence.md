@@ -147,7 +147,11 @@ The verifiers compare that hash with the script as it stood at a recorded
 commit, listed in `scripts/pinned-sources.json`, and not with the working copy,
 so a script can be maintained without invalidating the evidence it produced.
 `make pins-check` confirms that each recorded commit still holds the recorded
-bytes. These checks read Git history, so they need a full clone; in a shallow
+bytes. The Python files under `evidence/` are pinned the same way, in
+`scripts/pinned-evidence.json`: each names the commit at which its bytes carry
+the hash that its corpus records, so such a file may gain docstrings (and
+nothing else) while the records stay true. `make pins-check` verifies both
+records. These checks read Git history, so they need a full clone; in a shallow
 clone they fail with a message that names the missing commit.
 
 ## 4. Native captures

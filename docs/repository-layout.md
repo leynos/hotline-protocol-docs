@@ -46,6 +46,7 @@ illustrative for those, and the paths named in it are authoritative.
 │   ├── tests/                           Pytest tests of the inherited scripts
 │   ├── fixtures/                        Fixture data read by the scripts
 │   ├── pinned-sources.json              Commit at which each hashed script carries its bytes
+│   ├── pinned-evidence.json             Commit at which each evidence .py file carries its bytes
 │   └── render-protocol-gap-analysis.py  Renders gap-analysis.md; checks the audit
 ├── tools/                               Repository checks, curation and audit
 │   ├── check_*.py                       Checks run by the gates
@@ -61,6 +62,7 @@ illustrative for those, and the paths named in it are authoritative.
 ├── fixtures/banner/                     Banner image samples and provenance.json
 ├── patches/                             Patches to retained sources
 ├── pyproject.toml                       Python project and lint configuration
+├── conftest.py                          Shows the tests each evidence .py file as captured
 ├── uv.lock                              Locked Python dependencies
 ├── typos.toml                           Spelling configuration; generated
 ├── typos.local.toml                     Repository-specific spellings

@@ -39,6 +39,11 @@ PYTHON ?= $(UV) run --group dev python
 # finds Cyclopts and cuprum, and an evidence-held verifier that imports one of
 # the scripts runs under the same interpreter.
 export PATH := $(CURDIR)/.venv/bin:$(PATH)
+# Every interpreter that these targets start reads each evidence .py file as it was
+# captured (scripts/pinned-evidence.json), so the file may gain docstrings while the
+# hashes recorded for it stay true; see tools/evidence_pin_view.py.
+PIN_VIEW_TARGETS = evidence-verify evidence-verify-known-red test test-legacy goldens-check continuity-tests pin-equivalence pin-experiment
+$(PIN_VIEW_TARGETS): export PYTHONPATH := $(CURDIR)/tools/pinview$(if $(PYTHONPATH),:$(PYTHONPATH))
 # Evidence JSON that cannot be canonical is exempted by hash in this file, once
 # it exists (see tools/check_json.py).
 JSON_EXCEPTIONS ?= json-exceptions.txt
@@ -128,8 +133,9 @@ check-fmt-markdown: ## Verify Markdown table and wrapping layout
 json-check: ## Verify that every tracked JSON file is in canonical layout
 	$(PYTHON) tools/check_json.py --root . $(JSON_EXCEPTIONS_ARG)
 
-pins-check: ## Verify that each pinned script is in the local history and carries its recorded hash
+pins-check: ## Verify that each pinned script and evidence .py file is in the local history and carries its recorded hash
 	python3 scripts/pinned_source_cli.py check
+	$(PYTHON) tools/pinned_evidence_cli.py check --root .
 
 links-check: ## Verify every Markdown link, fragment and mothra reference
 	$(PYTHON) tools/check_links.py --root . $(MOTHRA_ARG) --min-links $(LINKS_MIN) $(LINKS_ARGS)

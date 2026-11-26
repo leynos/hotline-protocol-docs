@@ -18,6 +18,7 @@ from evidence_corpus import INCLUDED, corpus_of, load_curation
 from evidence_files import CitingRoot, cited_paths, citing_files, list_files
 from git_lossless import as_arg, git_names, git_text
 from lfs_rule import POINTER_PREFIX
+from pinned_evidence import RECORD_RELATIVE, PinRecord, load_record
 from tool_support import MissingInputError
 from withheld_model import MANIFEST_RELATIVE, NotedReport, load_manifest
 
@@ -151,8 +152,11 @@ def _digest_source(source: Path, commit: str, name: str) -> str:
     return hashlib.sha256(blob).hexdigest()
 
 
-def _judge(request: CheckRequest, name: str) -> str | None:
+def _judge(request: CheckRequest, pins: PinRecord | None, name: str) -> str | None:
     """Compare one file here with the source commit's.
+
+    A pinned evidence ``.py`` file is compared as it is at its capture commit,
+    so that it may gain docstrings (``scripts/pinned-evidence.json``).
 
     Returns
     -------
@@ -160,7 +164,10 @@ def _judge(request: CheckRequest, name: str) -> str | None:
         A failure message, or ``None`` when the content is identical.
     """
     source = typ.cast("Path", request.source_root)
-    here, pointer = _digest_here(request.root / name)
+    if pins is not None and name in pins.pins:
+        here, pointer = hashlib.sha256(pins.read(name)).hexdigest(), False
+    else:
+        here, pointer = _digest_here(request.root / name)
     if here == _digest_source(source, request.source_commit, name):
         return None
     hint = ": Git LFS pointer, not content; run git lfs pull" if pointer else ""
@@ -169,8 +176,13 @@ def _judge(request: CheckRequest, name: str) -> str | None:
 
 def _compare(request: CheckRequest, names: list[str], result: CheckResult) -> None:
     """Compare the content of ``names`` here and in the source."""
+    pins = (
+        load_record(request.root)
+        if (request.root / RECORD_RELATIVE).is_file()
+        else None
+    )
     with futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
-        verdicts = list(pool.map(functools.partial(_judge, request), names))
+        verdicts = list(pool.map(functools.partial(_judge, request, pins), names))
     result.failures += [v for v in verdicts if v]
     result.differences += sum(1 for v in verdicts if v)
 

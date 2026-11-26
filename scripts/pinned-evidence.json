@@ -1,0 +1,3473 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "evidence/gap-remediation/2026-11-13/account-attribute-01/sources/capture-ghidra-evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-peer-01/sources/capture_shx_session.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-peer-01/sources/peer_tolerance_fixture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-peer-01/sources/peer_tolerance_run.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/delegated-peer-01/sources/verify_peer_tolerance.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/c8/run-isolated.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/c8/run-pair.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/c8/watch.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/mxd-direct-ack-02/watch-full.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/run-batches.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/sources/native_account_batch_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-batch-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-identity-01/run-identities.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/run-accounts.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-account-update-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-alias-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/run-deletions.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/run-resume.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-article-delete-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-bitmaps-01/sources/native_bitmap_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-bitmaps-01/sources/test_native_bitmaps.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-bitmaps-01/sources/verify_native_bitmaps.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-density-01/verify_density.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-01/verify_packets.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-existing-preflight-01/verify.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-load-01/as-run-native_diagnostic_load_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostic-near-01/verify_partial.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostics-01/sources/native_diagnostic_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostics-01/sources/test_native_diagnostics.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-diagnostics-01/sources/verify_native_diagnostics.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/run-live.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/sources/native_live_account_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-live-accounts-01/ui.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/run-combined-empty.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/run-mutations.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-metadata-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01/run-cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01/sources/native_move_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-move-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/run-bodies.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/run-cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/sources/native_news_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/run-boundary.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/run-phase.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/sources/native_news_boundary_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-news-boundary-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/native_pm_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/test_native_pm.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/test_native_pm_packet.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/verify_native_diagnostic_existing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/verify_native_pm.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-pm-01/sources/verify_native_pm_packet.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-rooms-01/run-rooms.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-01/raw/postflight/verify.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-01/raw/preflight/verify.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-01/raw/source/a7-verify.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-transitions-01/test_verify_packets.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-settings-transitions-01/verify_packets.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-transfer-stall-01/h1/analyze_h1.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/native-transfer-stall-01/h2/analyze_h2.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-13/timer-suspension-01/resume-timer.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/account-write-ordering-01/a63-writer-oracle/capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/account-write-ordering-01/a64-writer-oracle/capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-121-defaults-01/test_verify_packets.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-121-defaults-01/verify_packets.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/helper-sources/capture_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/helper-sources/native_capture_receipt.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/helper-sources/native_emulator_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_account_update_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_alias_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_auth_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_ban_control_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_ban_expiry_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_ban_expiry_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_banner_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_control_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_filp.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_folder_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_framing_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_metadata_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_missing_alias_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_missing_alias_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_mkdir_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_news_decode.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_news_delete_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_packet_evidence.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_plan.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_queue_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_rate304_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_rate304_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_resume_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/native_transfer_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/pcap_tcp.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/protocol_capture.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/shx_syscalls.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_account_updates.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_article_deletion.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_auth.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_banners.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_core.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_framing.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_mkdir.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/epoch/sources/verify_native_shx.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/build-runtime-alias-live.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/candidate-closure.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/freeze-after-import.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/prepare-corrected.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/prepare.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-runtime-launchers/mac_network_isolation.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-runtime-launchers/mac_runtime.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/capture_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_emulator_readiness.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_filp.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_missing_alias_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_missing_alias_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_news_decode.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_plan.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/protocol_capture.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_core.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/stage-finf.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/ui-input-alias-live.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-positive-first-01/raw/preparation/wait-managed-alias-live.py",
+      "commit": "efea44a552ecd221ac3d12f4fdd10c6301e8102f"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/helper-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/helper-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/helper-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_missing_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_missing_alias_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/epoch/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/build-runtime-alias-live-02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/candidate-closure-02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/freeze-after-import-02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/models/offline_no_x.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-runtime-launchers/mac_network_isolation.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-runtime-launchers/mac_runtime.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_missing_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_missing_alias_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/ui-input-alias-live-02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/preparation/wait-managed-alias-live-02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/root-helpers/parent-readiness-review.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-01/raw/root-helpers/pin-writer.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/build-runtime-alias-live-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/candidate-closure-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/freeze-after-import-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/models/offline_no_x.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-runtime-launchers/mac_network_isolation.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-runtime-launchers/mac_runtime.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_missing_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_missing_alias_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/ui-input-alias-live-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/raw/preparation/wait-managed-alias-live-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/reviews/approve-alias-live-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-alias-prestage-abort-01/reviews/review-alias-live-ready-03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-control-01/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-control-01/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-control-01/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-control-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/test_native_ban_expiry.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-first-01/sources/protocol/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/retire-input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_ban_expiry_cleanup.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/test_native_ban_expiry.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-later-01/raw/post/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-expiry-preparation-01/sources/test_native_ban_expiry.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/c61/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-ban-reload-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/preparation/build-runtime-c100.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/preparation/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/preparation/wait-managed-c100.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/raw/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/helpers/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/helpers/mac_runtime.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/helpers/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/helpers/snapshot_native_hfs.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_liveness_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_liveness_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-01/sources/protocol/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/preparation/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/build-receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-board-readiness-failure-01/raw/stopped-hfs.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/assets/options-input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/native-configured-apply-c66/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/mothra/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/mothra/mac_network_isolation.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/mothra/mac_runtime.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_configured_ban_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_configured_ban_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/test_native_configured_ban.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-configured-ban-01/sources/protocol/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_liveness_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_liveness_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/raw/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_liveness_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_liveness_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-liveness-01/sources/protocol/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/helper-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/helper-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/helper-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_path_fields_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_path_fields_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/epoch/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_path_fields_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_path_fields_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/scripts/build-runtime-path-fields-01.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/scripts/freeze-proposed-sources.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/scripts/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-path-fields-01/raw/preparation/scripts/wait-managed-path-fields-01.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/preparation/build-runtime-c106.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/preparation/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/preparation/supplement.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/preparation/wait-managed-c106.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/helper-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/helper-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-first-pair-01/raw/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/helper-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/helper-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/helper-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/helper-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/helper-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/helper-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/partial-runtime-builder-01/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/epoch/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/build-runtime-r03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/freeze-proposed-sources.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_emulator_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-sequence-01/raw/preparation/wait-managed-r03.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/build-runtime-r02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/freeze-proposed-sources.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/prepare.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_board_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_board_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_capture_receipt.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_rate304_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_rate304_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/proposed-sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/wait-emulator-r02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-rate304-startup-gate-01/preparation/wait-managed-r02.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/capture_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_account_update_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_alias_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_auth_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_ban_expiry_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_banner_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_filp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_folder_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_framing_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_metadata_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_mkdir_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_news_decode.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_news_delete_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_packet_evidence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_plan.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_queue_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_resume_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_roster_overlap_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_roster_overlap_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/native_transfer_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/shx_syscalls.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_account_updates.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_article_deletion.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_auth.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_banners.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_core.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_framing.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_mkdir.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-roster-overlap-01/raw/sources/verify_native_shx.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/sources/native_ban_expiry_control.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-runner-namespace-guard-01/sources/test_native_ban_expiry.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a46/native_settings_persistence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a46/native_settings_persistence_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/native_ban_control_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/native_control_readiness.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/native_settings_persistence.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/native_settings_persistence_cases.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/pcap_tcp.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/a48/protocol_capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/operators/a45-ui-input.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/native-settings-persistence-01/source/operators/x11-input-asrun.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01/oracle/capture.py",
+      "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    }
+  ]
+}
