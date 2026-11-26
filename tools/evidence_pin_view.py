@@ -34,8 +34,11 @@ if typ.TYPE_CHECKING:
     import pinned_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
+# Where a checkout, or a copy of its scripts, holds the pin record.
+RECORD_RELATIVE = "scripts/pinned-evidence.json"
 WRITE_MODES = frozenset("wax+")
-# The fields of a stat result that are also its first ten sequence items.
+# The named fields of a stat result that are also sequence items. The three
+# integer times are unnamed sequence items; the named times are floats.
 SEQUENCE = frozenset({
     "st_mode",
     "st_ino",
@@ -44,9 +47,6 @@ SEQUENCE = frozenset({
     "st_uid",
     "st_gid",
     "st_size",
-    "st_atime",
-    "st_mtime",
-    "st_ctime",
 })
 
 
@@ -103,24 +103,20 @@ def _record() -> pinned_evidence.PinRecord | None:
 
 
 def _is_checkout_file(path: Path, relative: str) -> bool:
-    """Say whether ``path`` is the checkout's ``relative`` file, or a hard link of it.
+    """Say whether ``path`` is in a checkout's ``evidence`` directory.
 
-    The Makefile's ``in_legacy_layout`` recipe builds its scratch tree by hard
-    links (``cp -al``), so a file that is not this checkout's own file or a link
-    to it, such as a test's scratch corpus that reuses a real name, is left alone.
+    A checkout is this one, or a legacy layout that the Makefile's
+    ``in_legacy_layout`` recipe builds (hard links or copies of ``evidence/``
+    beside a copy of ``scripts/``, which holds the pin record). A test's own
+    scratch corpus, which may reuse a real corpus name, holds no such record.
 
     Returns
     -------
     bool
-        ``True`` for the checkout's file or a link to it.
+        ``True`` for a file of a checkout or of a legacy layout.
     """
-    own = ROOT / relative
-    if path == own:
-        return True
-    try:
-        return os.path.samestat(path.stat(), own.stat())
-    except OSError:
-        return False
+    root = path.parents[len(Path(relative).parts) - 1]
+    return root == ROOT or (root / RECORD_RELATIVE).is_file()
 
 
 def _lookup(name: str, record: pinned_evidence.PinRecord) -> str | None:
