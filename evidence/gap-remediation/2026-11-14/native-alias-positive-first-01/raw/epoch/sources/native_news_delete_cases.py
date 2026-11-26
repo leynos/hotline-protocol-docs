@@ -21,7 +21,7 @@ NODES = [
 
 
 def specs() -> list[dict]:
-    """Return the article deletion cases, each with its case name, hexadecimal value and mode."""
+    """Return the article deletion cases, each with its case name, mode and optional hexadecimal value."""
     result = []
     for label, value, recursive in [
         ("absent", None, False),
