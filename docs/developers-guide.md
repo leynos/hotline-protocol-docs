@@ -165,6 +165,20 @@ candidate, server image, and retained code and reference observations.
 synthetic offline sections and checks that copied false records fail the Make
 recipe. The archived scanner remains checksum-pinned as run.
 
+The Classic privilege label corpus keeps a checksum-pinned `ClassicLabels.java`
+extractor. It takes the identified Classic client DATA fork, uses Ghidra's
+`ContainerHeader` to unpack its PEF `PackedData` section, and prints the input
+and unpacked-section hashes, class and label addresses, and each label's
+preceding Pascal length byte. `locations.txt` retains that output.
+`length-byte-crosscheck.json` pairs packed text offsets with loaded text and
+length-byte addresses. The `make evidence-verify` recipe runs the retained
+`verify.jq` against those records, the section manifest, and the earlier
+segment and class-byte queries. The offline tests in
+`tests/test_classic_privilege_labels_verify.py` run the exact recipe on copied
+inputs and require false observations to fail. The
+[Classic privilege discovery](accounts-and-privileges/classic-privilege-discovery.md#bounded-follow-up-of-the-class-data-reference)
+explains the evidence and its limits.
+
 The GAP-011 static verifier, `receive-limit-preferences-01/verify.jq`, takes
 seven query JSON records from `queries/`. It checks the identified server
 image, the single startup caller, its call arguments, the two observed input
