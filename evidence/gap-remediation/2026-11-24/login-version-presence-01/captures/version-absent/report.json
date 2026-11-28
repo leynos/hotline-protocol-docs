@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "status": "completed",
+  "native_conformance": false,
+  "identity_scope": "Local binary hash verified; remote process identity is operator-reported",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "plan_sha256": "e9677d2c0eb1e869b8d15c2aedd6648b7d92b76d9288afd81a330aa9fc8b637e",
+  "driver_sha256": "9dc0577aac84f9a4220930f244a956a190f2e54db88d704485f2d7943476b3b8",
+  "driver_identity": {
+    "schema_version": 1,
+    "commit": "e1474a19ad21687e10f75d0af34375161edd0fb3",
+    "dirty": [],
+    "files": [
+      {
+        "path": "scripts/protocol_capture.py",
+        "sha256": "d7d427435467d6f506d74dd164a564a0f7d383bf9693f0c1fa675bb61f1eae24"
+      },
+      {
+        "path": "scripts/protocol_capture_decode.py",
+        "sha256": "79a5f1aef98ff40ed0787b663e839954fe011954e35057d254b47e27a3179f2c"
+      },
+      {
+        "path": "scripts/protocol_capture_plan.py",
+        "sha256": "e60eb59e4d5158dd0e7e5bf1164baf53ba69813fd180da3433294430c19d751c"
+      },
+      {
+        "path": "scripts/protocol_capture_recorder.py",
+        "sha256": "3d6c079db1414ed830af4c514e280782542704eaec026d1a03e6a1e70cee598a"
+      },
+      {
+        "path": "scripts/protocol_capture_report.py",
+        "sha256": "b77b45334547ce192ac4c3c29dc436fa315988d171dac3471feacf6b038f93da"
+      }
+    ],
+    "digest": "9dc0577aac84f9a4220930f244a956a190f2e54db88d704485f2d7943476b3b8"
+  },
+  "recorded_at_utc": "2026-11-24T18:51:30.533511+00:00",
+  "started_at_utc": "2026-11-24T18:51:22.708273+00:00",
+  "gap_ids": [
+    "GAP-016"
+  ],
+  "completed_actions": 6,
+  "error": "",
+  "events": [
+    {
+      "action": 0,
+      "connection": "main",
+      "event": "connect",
+      "elapsed_ns": 1408606,
+      "hex": "",
+      "local_address": [
+        "127.0.0.1",
+        48812
+      ],
+      "peer_address": [
+        "127.0.0.1",
+        16140
+      ]
+    },
+    {
+      "action": 1,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 1469750,
+      "hex": "54525450484f544c00010002"
+    },
+    {
+      "action": 2,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 7794797505,
+      "hex": "5452545000000000"
+    },
+    {
+      "action": 3,
+      "connection": "main",
+      "event": "send",
+      "elapsed_ns": 7794946152,
+      "hex": "0000006b000000010000000000000017000000170002006a000892908b978d9ecec6006900059e9b929691"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 7800489703,
+      "hex": "0001000000000001000000000000000e0000000e"
+    },
+    {
+      "action": 4,
+      "connection": "main",
+      "event": "receive",
+      "elapsed_ns": 7800544896,
+      "hex": "000200a0000200be00a100020000"
+    },
+    {
+      "action": 5,
+      "connection": "main",
+      "event": "close",
+      "elapsed_ns": 7800726614,
+      "hex": ""
+    }
+  ],
+  "frames": [
+    {
+      "action": 4,
+      "connection": "main",
+      "flags": 0,
+      "is_reply": 1,
+      "type": 0,
+      "id": 1,
+      "error": 0,
+      "total_size": 14,
+      "data_size": 14,
+      "payload_hex": "000200a0000200be00a100020000",
+      "fields": [
+        {
+          "id": 160,
+          "hex": "00be"
+        },
+        {
+          "id": 161,
+          "hex": "0000"
+        }
+      ],
+      "declared_field_count": 2,
+      "unconsumed_hex": ""
+    }
+  ],
+  "streams": {
+    "main": {
+      "sent_hex": "54525450484f544c000100020000006b000000010000000000000017000000170002006a000892908b978d9ecec6006900059e9b929691",
+      "received_hex": "54525450000000000001000000000001000000000000000e0000000e000200a0000200be00a100020000"
+    }
+  }
+}

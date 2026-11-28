@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "profile": "native-mac-oracle",
+  "operator": "native fixture operator",
+  "oracle_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "environment": {
+    "runtime": "gap016-version-20261124-01",
+    "base_disk_sha256": "c36b7bc9c513b2b576d5e7bdd2d51c54a4d0af01a863e5154ce71274272a3ffe",
+    "rom_sha256": "18da89e42c7cb68bffe0ec8e404ddd6b2527947d8d5fb6f694a49b2d4a89d2bd",
+    "working_inode": 2768721517,
+    "application": {
+      "HLserver19": {
+        "bytes": 616821,
+        "sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+      },
+      ".rsrc/HLserver19": {
+        "bytes": 38460,
+        "sha256": "fe83a2cfaacd80e998a8ca274a828a0196d5cd5c4db59b06c1763cb3c1c48b12"
+      }
+    },
+    "stage": "Server running from System 9:Hotline19 on the native HFS+ volume",
+    "guest_os": "Mac OS 9.0.4; PowerPC Enabler 9.0.4",
+    "carbonlib": "1.6",
+    "server": "Hotline Server 1.9",
+    "account": "New dedicated administrator; first-launch dialog states full access",
+    "agreement": "Staged Agreement.txt loaded according to server log",
+    "banner": "Remote selected; URL empty; local banner and link empty",
+    "capture": "Isolated loopback server forward 16140 to guest port 5500"
+  },
+  "gap_ids": [
+    "GAP-016"
+  ],
+  "endpoints": {
+    "control": {
+      "host": "127.0.0.1",
+      "port": 16140
+    }
+  },
+  "expectation": {
+    "version_hex": null
+  },
+  "steps": [
+    {
+      "op": "connect",
+      "connection": "main",
+      "endpoint": "control",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "54525450484f544c00010002",
+      "timeout": 30
+    },
+    {
+      "op": "read",
+      "connection": "main",
+      "size": 8,
+      "expect_hex": "5452545000000000",
+      "timeout": 10
+    },
+    {
+      "op": "send",
+      "connection": "main",
+      "hex": "0000006b000000010000000000000017000000170002006a000892908b978d9ecec6006900059e9b929691",
+      "timeout": 30
+    },
+    {
+      "op": "read_frame",
+      "connection": "main",
+      "timeout": 30,
+      "match_frame": {
+        "is_reply": 1,
+        "id": 1
+      }
+    },
+    {
+      "op": "close",
+      "connection": "main"
+    }
+  ]
+}

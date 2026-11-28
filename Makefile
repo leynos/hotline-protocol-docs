@@ -258,6 +258,7 @@ endef
 # One recipe per line, in mothra's order, so a failure names its line.
 evidence-verify: ## Verify every retained Hotline corpus with its legacy verifier
 	d=evidence/gap-remediation/2026-11-24/classic-privilege-labels-01; jq -ne --rawfile locations "$$d/locations.txt" --slurpfile manifest "$$d/manifest.json" --slurpfile offsets "$$d/length-byte-crosscheck.json" --slurpfile segment evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/segments.json --slurpfile anchor evidence/gap-remediation/2026-11-14/classic-privilege-followups-01/classic-privilege-xrefs-01/raw/class-bytes.json -f "$$d/verify.jq"
+	PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py
 	d=evidence/gap-remediation/2026-11-24/field161-readers-01; python3 "$$d/discover-reads.py.as-run.txt" | cmp - "$$d/read-candidates.json" && jq -se --slurpfile scan "$$d/read-candidates.json" -f "$$d/verify.jq" "$$d"/queries/*.json
 	d=evidence/gap-remediation/2026-11-24/post-session-preferences-01; jq -e -f "$$d/verify.jq" --rawfile stat "$$d/catalogue-record.txt" --rawfile application "$$d/application-directory.txt" --rawfile staged "$$d/staged-directory.txt" --slurpfile loader evidence/gap-remediation/2026-11-13/receive-limit-origin-01/11-selected-consumer.json "$$d/fork-summary.json"
 	d=evidence/gap-remediation/2026-11-24/receive-limit-preferences-01; jq -se -f "$$d/verify.jq" "$$d"/queries/*.json

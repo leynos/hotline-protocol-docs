@@ -3468,6 +3468,10 @@
     {
       "path": "evidence/gap-remediation/2026-11-14/rate304-recipient-predicate-01/oracle/capture.py",
       "commit": "7e85eae6f722b7f8fc918ee4fe00912367b33146"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py",
+      "commit": "1682c2788fc997b4d327241fd25bec894a2cde95"
     }
   ]
 }
