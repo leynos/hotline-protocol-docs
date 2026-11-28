@@ -92,6 +92,11 @@ def test_retained_classic_label_recipe_passes(tmp_path: Path) -> None:
     [
         (
             CORPUS / "locations.txt",
+            "input 7f286e3f8941c226",
+            "input 8f286e3f8941c226",
+        ),
+        (
+            CORPUS / "locations.txt",
             "previous-byte=11 length=17",
             "previous-byte=10 length=17",
         ),
@@ -99,6 +104,11 @@ def test_retained_classic_label_recipe_passes(tmp_path: Path) -> None:
             CORPUS / "locations.txt",
             "previous-byte=14 length=20",
             "previous-byte=14 length=19",
+        ),
+        (
+            CORPUS / "locations.txt",
+            "Can Disconnect Users text=1014c6ef previous-byte=14 length=20",
+            "Can Disconnect Users text=1014c6ef previous-byte=13 length=20",
         ),
         (
             CORPUS / "locations.txt",
@@ -122,6 +132,26 @@ def test_retained_classic_label_recipe_passes(tmp_path: Path) -> None:
         ),
         (
             CORPUS / "length-byte-crosscheck.json",
+            '"packed_text_offset": "14d33c"',
+            '"packed_text_offset": "14d33d"',
+        ),
+        (
+            CORPUS / "length-byte-crosscheck.json",
+            '"packed_text_offset": "14f9b4"',
+            '"packed_text_offset": "14f9b5"',
+        ),
+        (
+            CORPUS / "length-byte-crosscheck.json",
+            '"packed_text_offset": "14d306"',
+            '"packed_text_offset": "14d307"',
+        ),
+        (
+            CORPUS / "length-byte-crosscheck.json",
+            '"packed_text_offset": "14f97e"',
+            '"packed_text_offset": "14f97f"',
+        ),
+        (
+            CORPUS / "length-byte-crosscheck.json",
             '"loaded_length_address": "1014c724"',
             '"loaded_length_address": "1014c725"',
         ),
@@ -131,18 +161,32 @@ def test_retained_classic_label_recipe_passes(tmp_path: Path) -> None:
             '"unpacked_size": 149224',
         ),
         (SEGMENT, '"end": "10159ef8"', '"end": "10159ef7"'),
+        (SEGMENT, '"start": "10135810"', '"start": "10135811"'),
+        (
+            ANCHOR,
+            '"structuredContent": {\n      "address": "1014fef8"',
+            '"structuredContent": {\n      "address": "1014fef9"',
+        ),
         (ANCHOR, '"ascii": "CMyAdminEditUserWin', '"ascii": "CMyAdminEditUserWix'),
     ],
     ids=[
+        "input-hash",
         "prefix",
         "pascal-length",
+        "disconnect-prefix",
         "section-hash",
         "class-location",
         "label-count",
         "text-address",
+        "packed-text-first-send",
+        "packed-text-second-send",
+        "packed-text-first-disconnect",
+        "packed-text-second-disconnect",
         "length-address",
         "section-size",
         "segment-end",
+        "segment-start",
+        "anchor-address",
         "class-anchor",
     ],
 )
