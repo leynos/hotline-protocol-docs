@@ -1,0 +1,18 @@
+[
+  {
+    "id": "field161-load",
+    "tool": "disassemble_function",
+    "arguments": {
+      "address": "10011960",
+      "offset": 127,
+      "limit": 12
+    }
+  },
+  {
+    "id": "field161-width",
+    "tool": "decompile_function_by_address",
+    "arguments": {
+      "address": "10056a90"
+    }
+  }
+]

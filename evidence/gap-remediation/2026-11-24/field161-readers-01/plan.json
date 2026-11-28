@@ -1,0 +1,16 @@
+[
+  {
+    "id": "constructor-refs",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10000160"
+    }
+  },
+  {
+    "id": "login-builder-refs",
+    "tool": "get_xrefs_to",
+    "arguments": {
+      "address": "10011960"
+    }
+  }
+]

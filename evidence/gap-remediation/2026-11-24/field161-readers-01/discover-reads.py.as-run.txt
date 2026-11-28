@@ -1,0 +1,30 @@
+"""Inventory direct PowerPC reads and address formation for the field 161 word."""
+
+import hashlib
+import json
+import struct
+from pathlib import Path
+
+image = Path("evidence/hotline-server-1.9/inputs/HLserver19.pef").read_bytes()
+digest = hashlib.sha256(image).hexdigest()
+assert digest == "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b"
+_, base, _, unpacked, packed, start, kind, *_ = struct.unpack_from(">iIIIIIBBBB", image, 40)
+assert kind == 0 and packed == unpacked and start + packed <= len(image)
+assert packed % 4 == 0
+widths = {32: 4, 33: 4, 34: 1, 35: 1, 40: 2, 41: 2, 42: 2, 43: 2,
+          48: 4, 49: 4, 50: 8, 51: 8}
+rows = []
+for position in range(0, packed, 4):
+    word, = struct.unpack_from(">I", image, start + position)
+    opcode = word >> 26
+    register = (word >> 21) & 31
+    base_register = (word >> 16) & 31
+    displacement, = struct.unpack_from(">h", image, start + position + 2)
+    width = 4 * (32 - register) if opcode == 46 else widths.get(opcode, 0)
+    direct_read = width > 0 and displacement < 0x420 and displacement + width > 0x41c
+    form_address = opcode == 14 and base_register != 0 and 0x41c <= displacement < 0x420
+    if direct_read or form_address:
+        rows.append({"address": f"{0x10000000+base+position:08x}", "opcode": opcode,
+                     "base_register": base_register, "displacement": displacement,
+                     "read_width": width})
+print(json.dumps({"input_sha256": digest, "section_bytes": packed, "candidates": rows}, indent=2))

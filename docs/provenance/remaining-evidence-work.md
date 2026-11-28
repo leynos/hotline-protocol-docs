@@ -416,6 +416,11 @@ Quoted text is taken from the register.
   text says that the meaning of field 161, and its exhaustive change and
   lifetime semantics, remain unresolved. Direct-store discovery covers only the
   constructor store and the login load, not indexed, derived or aliased writes.
+  A subsequent
+  [read inventory](../../evidence/gap-remediation/2026-11-24/field161-readers-01/manifest.json)
+  found the login load as the sole candidate among the displacement-based load
+  forms checked. The startup path retains the constructor object in a global.
+  The field meaning and possible indirect accesses remain open.
 - **Kind chosen by the scribe:** static analysis, for the indexed, derived and
   aliased writes. Native capture of change and lifetime samples follows.
 - **Prepared:** [classic field 161 matrix](../peers/classic-field161-matrix.md),

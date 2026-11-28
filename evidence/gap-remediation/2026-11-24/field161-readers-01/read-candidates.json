@@ -1,0 +1,13 @@
+{
+  "input_sha256": "ad7040db4eb67aef1308d915d80305dc96b4aa437a5b3654ea9bb76ab2e4cd1b",
+  "section_bytes": 558872,
+  "candidates": [
+    {
+      "address": "10011c3c",
+      "opcode": 32,
+      "base_register": 29,
+      "displacement": 1052,
+      "read_width": 4
+    }
+  ]
+}
