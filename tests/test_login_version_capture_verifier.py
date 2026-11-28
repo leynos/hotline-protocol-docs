@@ -5,7 +5,7 @@ import json
 import shutil
 import typing as typ
 from pathlib import Path
-from types import ModuleType
+from types import ModuleType, SimpleNamespace
 
 import pytest
 
@@ -76,6 +76,21 @@ def save_comparison(copied: Path, records: list[dict[str, typ.Any]]) -> None:
     )
 
 
+def falsify_unread_field(copied: Path, row: dict[str, typ.Any]) -> None:
+    """Change field 101 to 102 in the first copied loopback packet tail."""
+    original = bytes.fromhex(row["views"]["loopback"]["unread_hex"])
+    changed = bytearray(original)
+    at = original.find(bytes.fromhex("006500f2"))
+    assert at >= 0, "the retained unread frame must contain field 101"
+    changed[at + 1] = 102
+    assert len(changed) == len(original), "field mutation must preserve frame length"
+    pcap = copied / "namespace.pcap"
+    raw = pcap.read_bytes()
+    assert raw.count(original) == 4, "each retained case has one unread tail"
+    pcap.write_bytes(raw.replace(original, changed, 1))
+    row["views"]["loopback"]["unread_hex"] = changed.hex()
+
+
 def falsify_login_wire(copied: Path, mutation: WireMutation) -> None:
     """Change one request byte in both copied report and copied plan."""
     case = mutation[0]
@@ -138,6 +153,31 @@ def test_replay_rejects_case_inventory(corpus: Corpus) -> None:
         module.replay()
 
 
+@pytest.mark.parametrize(
+    ("path", "value", "reason"),
+    [
+        (("installed_forks", "data_sha256"), "0" * 64, "native data fork"),
+        (("installed_forks", "resource_sha256"), "0" * 64, "native resource fork"),
+        (("installed_forks", "disk_fuser_exit"), 0, "stopped disk"),
+        (("installed_forks", "disk_fuser_output_bytes"), 1, "stopped disk"),
+        (("retirement", "hotline"), ["ActiveState=active", "MainPID=1"], "retirement"),
+    ],
+)
+def test_replay_rejects_native_identity_and_retirement(
+    corpus: Corpus, path: tuple[str, str], value: object, reason: str
+) -> None:
+    """Changed installed forks or live-process receipts cannot certify the run."""
+    module, copied = corpus
+    manifest = record(copied, "manifest.json")
+    section, key = path
+    if section == "retirement":
+        key = next(iter(manifest[section]))
+    manifest[section][key] = value
+    save(copied, "manifest.json", manifest)
+    with pytest.raises(ValueError, match=rf"^{reason}$"):
+        module.replay()
+
+
 def test_replay_rejects_namespace_isolation(corpus: Corpus) -> None:
     """An unexpected route invalidates the isolated network receipt."""
     module, copied = corpus
@@ -152,6 +192,15 @@ def test_replay_rejects_namespace_isolation(corpus: Corpus) -> None:
         pytest.param(
             ("plan.json", ("gap_ids",), ["GAP-011"], "case environment"),
             id="case-environment",
+        ),
+        pytest.param(
+            (
+                "plan.json",
+                ("environment", "runtime"),
+                "wrong runtime",
+                "case environment",
+            ),
+            id="planner-environment",
         ),
         pytest.param(
             ("report.json", ("status",), "failed", "capture identity"),
@@ -173,6 +222,10 @@ def test_replay_rejects_namespace_isolation(corpus: Corpus) -> None:
         pytest.param(
             ("report.json", ("frames", 0, "fields", 0, "hex"), "00bf", "reply fields"),
             id="reply-fields",
+        ),
+        pytest.param(
+            ("report.json", ("frames", 0, "fields", 1, "hex"), "0001", "reply fields"),
+            id="reply-field-161",
         ),
         pytest.param(
             ("report.json", ("frames", 0, "error"), 1, "reply correlation"),
@@ -226,6 +279,22 @@ def test_replay_rejects_socket_endpoint(
     save(copied, path, report)
     monkeypatch.setattr(module, "verify_capture", lambda _path: None)
     with pytest.raises(ValueError, match=r"^socket endpoints$"):
+        module.replay()
+
+
+def test_replay_rejects_wire_request_stream(
+    corpus: Corpus, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The retained packet stream must equal the driver's sent bytes."""
+    module, copied = corpus
+    path = "captures/version-absent/report.json"
+    report = record(copied, path)
+    sent = bytearray.fromhex(report["streams"]["main"]["sent_hex"])
+    sent[-1] ^= 1
+    report["streams"]["main"]["sent_hex"] = sent.hex()
+    save(copied, path, report)
+    monkeypatch.setattr(module, "verify_capture", lambda _path: None)
+    with pytest.raises(ValueError, match=r"^wire request stream$"):
         module.replay()
 
 
@@ -310,26 +379,21 @@ def test_replay_rejects_falsified_login_wire(
 def test_replay_rejects_wrong_unread_agreement(
     corpus: Corpus, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    """The unread tail must decode as the recorded field 101 agreement."""
-    module, _ = corpus
-    original = module.decode_frame
-    calls = 0
-
-    def false_agreement(raw: bytes) -> dict[str, typ.Any]:
-        """Change only the second decoded field agreement.
-
-        Returns
-        -------
-        dict[str, typing.Any]
-            The decoded frame with one altered field identifier.
-        """
-        nonlocal calls
-        calls += 1
-        decoded = original(raw)
-        if calls == 2:
-            decoded["fields"][0]["id"] = 102
-        return decoded
-
-    monkeypatch.setattr(module, "decode_frame", false_agreement)
+    """An actual field-ID byte change in the unread PCAP tail is rejected."""
+    module, copied = corpus
+    rows = comparison(copied)
+    row = next(r for r in rows if r["case"] == "version-absent")
+    falsify_unread_field(copied, row)
+    save_comparison(copied, rows)
+    # The changed response cannot retain its recorded digest. Isolate the final
+    # field-ID guard after proving that the copied PCAP carries the changed byte.
+    recorded_digest = row["views"]["loopback"]["received_sha256"]
+    monkeypatch.setattr(
+        module,
+        "hashlib",
+        SimpleNamespace(
+            sha256=lambda _data: SimpleNamespace(hexdigest=lambda: recorded_digest)
+        ),
+    )
     with pytest.raises(ValueError, match=r"^unread agreement$"):
         module.replay()
