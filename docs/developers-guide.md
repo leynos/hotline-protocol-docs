@@ -194,6 +194,25 @@ run both original inputs and falsified copies through those recipes. The
 immutable corpus files, including both verifier programs, retain their recorded
 checksums.
 
+The GAP-016 article-read verifier, `news-read-presence-01/verify.py`, checks
+nine retained request 400 captures. The captures cover fields 326, 334 and 337
+with absent, empty and zero encodings. It reads each case's plan and report,
+the packet captures, readiness receipts and stream comparison records. It
+checks request fields and replies, packet streams at the namespace and guest
+boundaries, and agreement within the 326 group and the 334/337 group. A
+mismatch raises `ValueError`. A successful run prints
+`Verified nine native article reads at both packet boundaries`. Run it offline
+with `make evidence-verify`, or directly with
+`PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/news-read-presence-01/verify.py`.
+The `PYTHONPATH` setting supplies `pcap_tcp`, `protocol_capture` and
+`protocol_capture_decode` from `scripts/`. Its retained inputs are pinned by
+the corpus's `SHA256SUMS`, and the expected output is pinned in
+`tests/goldens/verifiers.json`. The verifier operates offline on retained
+files. The later GAP-016 assessment records the disposition.
+`tests/test_news_read_capture_verifier.py` exercises success and falsified
+input copies, including fields, article error text, stream comparison, packet
+bytes and guard records.
+
 `make all` runs its evidence gates only when `evidence/` is present, and its
 curation gate only when `evidence/curation.json` exists. One target is known
 red by design (decision D18). `make evidence-verify-known-red` is expected to
