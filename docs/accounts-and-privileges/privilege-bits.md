@@ -95,6 +95,11 @@ Positions 12–13, 18–19 and 41–63 remain **unknown**. No bit is positively
 classified reserved or ignored. Bit 19 is not this build’s private-message send
 gate; source-observed bit 40 serves that operation.
 
+The
+[Classic client label extraction](classic-privilege-discovery.md#bounded-follow-up-of-the-class-data-reference)
+located both occurrences of two privilege-editor labels in unpacked client
+data. Their positions supply no connection to a specific field 110 bit.
+
 The separate
 [six width controls](../protocol/bitmap-boundaries.md#field-110-presence-and-width)
 show missing/empty/short/eight/nine-byte replacement results. The

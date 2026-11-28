@@ -5,6 +5,13 @@
     "evidence-verify-known-red"
   ],
   "records": {
+    "evidence-verify: d=evidence/gap-remediation/2026-11-24/classic-privilege-labels-01; jq -ne --rawfile locations \"$d/locations.txt\" --slurpfile manifest \"$d/manifest.json\" --slurpfile offsets \"$d/length-byte-crosscheck.json\" --slurpfile segment evidence/gap-remediation/2026-11-14/classic-privilege-discovery-01/raw/segments.json --slurpfile anchor evidence/gap-remediation/2026-11-14/classic-privilege-followups-01/classic-privilege-xrefs-01/raw/class-bytes.json -f \"$d/verify.jq\"": {
+      "target": "evidence-verify",
+      "exit_code": 0,
+      "output_sha256": "a17fcf0a2f50e2d495e4f90ce263410edc183add6c62699a2facbccf60410f74",
+      "output_bytes": 5,
+      "last_line": "true"
+    },
     "evidence-verify: d=evidence/gap-remediation/2026-11-24/field161-readers-01; python3 \"$d/discover-reads.py.as-run.txt\" | cmp - \"$d/read-candidates.json\" && jq -se --slurpfile scan \"$d/read-candidates.json\" -f \"$d/verify.jq\" \"$d\"/queries/*.json": {
       "target": "evidence-verify",
       "exit_code": 0,

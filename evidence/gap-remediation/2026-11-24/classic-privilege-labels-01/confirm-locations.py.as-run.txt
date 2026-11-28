@@ -1,0 +1,26 @@
+"""Compare decoded text locations and their Pascal prefixes to the original fork."""
+
+import hashlib
+import json
+import re
+import sys
+from pathlib import Path
+
+image, output = map(Path, sys.argv[1:])
+data = image.read_bytes()
+lines = output.read_text()
+assert hashlib.sha256(data).hexdigest() == lines.splitlines()[0].split()[1]
+reported = {"Can Send Messages": (0x14d33c, 0x14f9b4),
+            "Can Disconnect Users": (0x14d306, 0x14f97e)}
+rows = []
+for label, offsets in reported.items():
+    raw = label.encode("ascii")
+    matches = [match.start() for match in re.finditer(re.escape(raw), data)]
+    assert tuple(matches) == offsets and all(data[index-1] == len(raw) for index in matches)
+    decoded = re.findall(re.escape(label) + r" text=([0-9a-f]+) previous-byte=([0-9a-f]+)", lines)
+    assert len(decoded) == 2 and all(int(prefix, 16) == len(raw) for _, prefix in decoded)
+    for offset, (address, _) in zip(matches, decoded, strict=True):
+        rows.append({"label": label, "packed_text_offset": f"{offset:x}",
+                     "loaded_text_address": address,
+                     "loaded_length_address": f"{int(address,16)-1:08x}"})
+print(json.dumps(rows, indent=2))
