@@ -137,7 +137,7 @@ or the plan gives one, how long it takes.
 | `make lfs-check`                 | Exactly the PNG, PCAP and gzip evidence is stored through Git LFS                                                                                                                        | After adding evidence                                                 | Yes, when `evidence/` exists                                   | Not stated      |
 | `make curation-check`            | The imported corpora against `evidence/curation.json`, and that every citation resolves                                                                                                  | After changing evidence or citing text                                | Yes, once `evidence/curation.json` exists                      | Not stated      |
 | `make import-check`              | As `curation-check`, and every included file against the mothra commit named by `IMPORT_COMMIT`                                                                                          | After an import; needs `MOTHRA`                                       | No                                                             | Not stated      |
-| `make evidence-verify`           | Every retained corpus, through its legacy verifier, one recipe line at a time. The GAP-011 recipes use `jq` to verify seven static query records and a stopped-disk fork summary         | After a verifier or a corpus changes                                  | Yes, when `evidence/` exists                                   | Not stated      |
+| `make evidence-verify`           | Every retained corpus, one recipe per line. GAP-011 uses `jq` for static queries and the stopped fork; GAP-016 replays native article reads and posts with retained packet trace         | After a verifier or a corpus changes                                  | Yes, when `evidence/` exists                                   | Not stated      |
 | `make evidence-verify-known-red` | The verifier that is known to fail (decision D18)                                                                                                                                        | To see the known failure                                              | No                                                             | Not stated      |
 | `make lint-python`               | Ruff, docstring coverage at 100 per cent, pylint and the df12 plugin messages, on the Python that meets the standard                                                                     | After a change to Python                                              | Yes                                                            | Not stated      |
 | `make typecheck`                 | `ty` on the Python that meets the standard                                                                                                                                               | After a change to Python                                              | Yes                                                            | Not stated      |
@@ -212,6 +212,28 @@ files. The later GAP-016 assessment records the disposition.
 `tests/test_news_read_capture_verifier.py` exercises success and falsified
 input copies, including fields, article error text, stream comparison, packet
 bytes and guard records.
+
+The GAP-016 article-post verifier, `news-post-presence-01/verify.py`, replays
+the nine retained request 410 posts for fields 326, 334 and 337 with absent,
+empty and zero encodings. It checks the captured plan and report, packet
+streams at the namespace and guest boundaries, readiness receipts, listing
+rows, accepted posts and article-body readbacks. A mismatch raises
+`ValueError`. A successful run prints
+`Verified nine native root posts and their article body reads at both packet boundaries`.
+Run it offline with `make evidence-verify`, or directly with
+`PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/news-post-presence-01/verify.py`.
+The `PYTHONPATH` setting supplies six helpers from `scripts/`.
+`native_news_decode` decodes listing rows; `pcap_reader` supplies packet
+records; `pcap_tcp` reconstructs TCP lifetimes and streams; `protocol_capture`
+checks capture identity and hashes; `protocol_capture_decode` decodes frames;
+and `verify_native_news_catalogue` checks the stopped category fork. The
+committed corpus supplies plans, reports, PCAPs, environment and comparison
+records. Its `SHA256SUMS` pins those inputs, while
+`tests/goldens/verifiers.json` pins the success output.
+`tests/test_news_post_capture_verifier.py` exercises the retained corpus and
+falsified copies; `tests/test_news_post_capture_properties.py` checks general
+field, correlation and event-order rules. The neighbouring
+`news-read-presence-01` corpus covers the preceding article reads.
 
 `make all` runs its evidence gates only when `evidence/` is present, and its
 curation gate only when `evidence/curation.json` exists. One target is known

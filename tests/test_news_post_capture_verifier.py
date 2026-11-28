@@ -1,4 +1,8 @@
-"""Exercise retained GAP-016 post verification with falsified corpus copies."""
+"""Exercise retained GAP-016 post verification with falsified corpus copies.
+
+Import the pinned verifier with importlib and run it on a temporary corpus copy;
+the tests confirm that altered records fail its offline guards.
+"""
 
 import importlib.util
 import json
@@ -155,9 +159,7 @@ def test_pair_rejects_wrong_transaction(corpus: Corpus) -> None:
         module.pair(events(copied), 7, 410)
 
 
-def test_pair_rejects_mismatched_reply_id(
-    corpus: Corpus, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_pair_rejects_reply_id(corpus: Corpus, monkeypatch: pytest.MonkeyPatch) -> None:
     """The reply identifier must match its decoded request."""
     module, copied = corpus
     captured = events(copied)
