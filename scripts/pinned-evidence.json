@@ -3472,6 +3472,10 @@
     {
       "path": "evidence/gap-remediation/2026-11-24/login-version-presence-01/verify.py",
       "commit": "1682c2788fc997b4d327241fd25bec894a2cde95"
+    },
+    {
+      "path": "evidence/gap-remediation/2026-11-24/news-read-presence-01/verify.py",
+      "commit": "0c52724054b2a54de6a9539a4d28f4c1169a00ec"
     }
   ]
 }

@@ -18,15 +18,30 @@ CASES = {f"{field}-{shape}" for field in (326, 334, 337) for shape in ENCODINGS}
 
 
 def read(path):
+    """Load one retained JSON record relative to the corpus root.
+
+    Returns
+    -------
+    object
+        The parsed JSON value.
+    """
     return json.loads((ROOT / path).read_bytes())
 
 
 def require(ok, reason):
+    """Raise ``ValueError`` with ``reason`` when a comparison fails."""
     if not ok:
         raise ValueError(reason)
 
 
 def check_read(case, report, plan, reference):
+    """Check one case's request, reply sequence and article response.
+
+    Returns
+    -------
+    str
+        The verified reply payload as hexadecimal text.
+    """
     field, shape = case.split("-")
     field = int(field)
     expected = [(f["id"], f["hex"]) for f in reference["fields"]]
@@ -96,6 +111,7 @@ def check_read(case, report, plan, reference):
 
 
 def replay():
+    """Reconcile all retained cases, packet streams and readiness identities."""
     manifest = read("manifest.json")
     env = read("environment.json")
     require(
