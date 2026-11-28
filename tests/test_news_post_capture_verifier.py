@@ -6,6 +6,7 @@ import shutil
 import typing as typ
 from pathlib import Path
 from types import ModuleType
+from unittest import mock
 
 import pytest
 
@@ -64,6 +65,25 @@ def events(copied: Path, case: str = "334-zero") -> list[dict[str, typ.Any]]:
     return record(copied, f"captures/{case}/report.json")["events"]
 
 
+def session_inputs(
+    module: ModuleType, copied: Path, case: str
+) -> tuple[list[object], dict[str, typ.Any]]:
+    """Read the retained packet views and comparison for one case.
+
+    Returns
+    -------
+    tuple[list[object], dict[str, typing.Any]]
+        The packet views and stream comparison.
+    """
+    views = [module.read_packets(copied / p) for p in ("namespace.pcap", "guest.pcap")]
+    comparison = next(
+        json.loads(line)
+        for line in (copied / "stream-comparison.jsonl").read_text().splitlines()
+        if json.loads(line)["case"] == case
+    )
+    return views, comparison
+
+
 def test_retained_copy_replays(
     corpus: Corpus, capsys: pytest.CaptureFixture[str]
 ) -> None:
@@ -84,6 +104,14 @@ def test_require_accepts_and_rejects(corpus: Corpus) -> None:
     )
     with pytest.raises(ValueError, match=r"^false invariant$"):
         module.require(condition=False, reason="false invariant")
+
+
+def test_load_rejects_missing_json(corpus: Corpus) -> None:
+    """Load a retained record and expose a missing input."""
+    module, copied = corpus
+    assert module.load("manifest.json") == record(copied, "manifest.json"), "manifest"
+    with pytest.raises(FileNotFoundError, match=r"missing\.json"):
+        module.load("missing.json")
 
 
 @pytest.mark.parametrize("change", ["declared", "duplicate", "unconsumed"])
@@ -127,8 +155,23 @@ def test_pair_rejects_wrong_transaction(corpus: Corpus) -> None:
         module.pair(events(copied), 7, 410)
 
 
-def test_listing_requires_single_payload_field(
+def test_pair_rejects_mismatched_reply_id(
     corpus: Corpus, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The reply identifier must match its decoded request."""
+    module, copied = corpus
+    captured = events(copied)
+    request = module.from_wire(captured, 7, "send")
+    reply = module.from_wire(captured, 8, "receive")
+    replies = (request, {**reply, "id": request["id"] + 1})
+    monkeypatch.setattr(module, "from_wire", mock.Mock(side_effect=replies))
+    with pytest.raises(ValueError, match=r"^correlated reply$"):
+        module.pair(captured, 7, 371)
+
+
+@pytest.mark.parametrize("change", ["wrong_id", "extra_field"])
+def test_listing_requires_single_payload_field(
+    corpus: Corpus, monkeypatch: pytest.MonkeyPatch, change: str
 ) -> None:
     """A category listing accepts exactly field 321 on a successful reply."""
     module, copied = corpus
@@ -150,7 +193,12 @@ def test_listing_requires_single_payload_field(
             The request and altered reply.
         """
         request, reply = original_pair(items, action, transaction)
-        reply = {**reply, "fields": [{**reply["fields"][0], "id": 322}]}
+        altered = {**reply["fields"][0], "id": 322}
+        fields = [altered]
+        if change == "extra_field":
+            fields.insert(0, reply["fields"][0])
+        reply = {**reply, "fields": fields, "declared_field_count": len(fields)}
+        assert module.fields(reply), "falsified fields must retain valid boundaries"
         return request, reply
 
     monkeypatch.setattr(module, "pair", false_listing)
@@ -164,14 +212,7 @@ def test_check_session_rejects_missing_quiet_close(
     """The session must end with its recorded quiet and close events."""
     module, copied = corpus
     case = "334-zero"
-    views = [
-        module.read_packets(copied / name) for name in ("namespace.pcap", "guest.pcap")
-    ]
-    comparison = next(
-        json.loads(line)
-        for line in (copied / "stream-comparison.jsonl").read_text().splitlines()
-        if json.loads(line)["case"] == case
-    )
+    views, comparison = session_inputs(module, copied, case)
     assert module.check_session(case, views, comparison), (
         "the retained session must pass before falsification"
     )
@@ -194,14 +235,7 @@ def test_check_session_rejects_planned_send(
     plan["steps"][7]["hex"] = "ff" + plan["steps"][7]["hex"][2:]
     save(copied, plan_path, plan)
     monkeypatch.setattr(module, "verify_capture", lambda _path: None)
-    views = [
-        module.read_packets(copied / name) for name in ("namespace.pcap", "guest.pcap")
-    ]
-    comparison = next(
-        json.loads(line)
-        for line in (copied / "stream-comparison.jsonl").read_text().splitlines()
-        if json.loads(line)["case"] == case
-    )
+    views, comparison = session_inputs(module, copied, case)
     with pytest.raises(ValueError, match=r"^planned send$"):
         module.check_session(case, views, comparison)
 
@@ -342,14 +376,7 @@ def test_check_session_rejects_login_error(
     """A non-zero login reply fails the native-login guard."""
     module, copied = corpus
     case = "334-zero"
-    views = [
-        module.read_packets(copied / name) for name in ("namespace.pcap", "guest.pcap")
-    ]
-    comparison = next(
-        json.loads(line)
-        for line in (copied / "stream-comparison.jsonl").read_text().splitlines()
-        if json.loads(line)["case"] == case
-    )
+    views, comparison = session_inputs(module, copied, case)
     original = module.pair
 
     def false_login(items: object, action: int, transaction: int) -> object:
