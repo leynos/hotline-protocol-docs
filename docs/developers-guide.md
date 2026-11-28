@@ -215,10 +215,14 @@ bytes and guard records.
 
 The GAP-016 article-post verifier, `news-post-presence-01/verify.py`, replays
 the nine retained request 410 posts for fields 326, 334 and 337 with absent,
-empty and zero encodings. It checks the captured plan and report, packet
-streams at the namespace and guest boundaries, readiness receipts, listing
-rows, accepted posts and article-body readbacks. A mismatch raises
-`ValueError`. A successful run prints
+empty and zero encodings. It compares each plan and report against the
+namespace and guest packet streams and checks the readiness receipts. Each
+successful acknowledgement must have no fields. The next listing must preserve
+the existing rows and add exactly one root post with a positive ID, zero flags
+and the submitted title, flavour and body length. The subsequent read must
+request that ID in the same category and flavour. Its reply must match the
+listed date and title, the submitted flavour and the exact body bytes. A
+mismatch raises `ValueError`. A successful run prints
 `Verified nine native root posts and their article body reads at both packet boundaries`.
 Run it offline with `make evidence-verify`, or directly with
 `PYTHONPATH=scripts python3 evidence/gap-remediation/2026-11-24/news-post-presence-01/verify.py`.
@@ -228,8 +232,9 @@ records; `pcap_tcp` reconstructs TCP lifetimes and streams; `protocol_capture`
 checks capture identity and hashes; `protocol_capture_decode` decodes frames;
 and `verify_native_news_catalogue` checks the stopped category fork. The
 committed corpus supplies plans, reports, PCAPs, environment and comparison
-records. Its `SHA256SUMS` pins those inputs, while
-`tests/goldens/verifiers.json` pins the success output.
+records. Its `SHA256SUMS` pins those inputs. The entry in
+`scripts/pinned-evidence.json` selects the capture-time verifier for checksum
+verification. The golden in `tests/goldens/verifiers.json` pins its output.
 `tests/test_news_post_capture_verifier.py` exercises the retained corpus and
 falsified copies; `tests/test_news_post_capture_properties.py` checks general
 field, correlation and event-order rules. The neighbouring
