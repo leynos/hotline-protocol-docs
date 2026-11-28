@@ -1,6 +1,46 @@
 {
   "schema_version": 1,
   "records": {
+    "test_news_delete_presence_setup.test_setup_reuses_scoped_historical_cases": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence_setup.test_flush_reads_both_owned_categories": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence_setup.test_setup_plans_bind_only_isolated_forwards": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence.test_delete_presence_preserves_reference_and_followup": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_delete_presence.test_delete_plan_uses_isolated_endpoint": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_post_presence.test_post_matrix_preserves_reference_and_brackets_each_post": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_post_presence.test_post_plan_targets_isolated_control_and_names_gap": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_read_presence.test_matrix_changes_only_the_named_field": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_read_presence.test_read_plan_targets_isolated_control_and_names_gap": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_news_read_presence.test_article_read_requires_a_listed_parent": {
+      "outcome": "ok",
+      "detail": ""
+    },
     "test_account_attribute.AccountAttributeEvidenceTests.test_frozen_oracle_and_stored_records_verify": {
       "outcome": "ok",
       "detail": ""
@@ -254,6 +294,14 @@
       "detail": ""
     },
     "test_classic_server_name_162.ClassicServerName162Tests.test_wrong_delivered_banner_byte_rejected": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_login_version_presence.test_control_target_is_the_namespace_local_server_forward": {
+      "outcome": "ok",
+      "detail": ""
+    },
+    "test_login_version_presence.test_version_lengths_are_explicit_and_other_login_fields_match": {
       "outcome": "ok",
       "detail": ""
     },

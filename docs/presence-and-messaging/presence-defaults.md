@@ -85,7 +85,7 @@ fields, with the confidence and limit of each._
 | Room 120 subject **115**                                                  | `Ø` and E both clear stored subject; writer omits zero-length 119/115 subject. `00` is raw one-byte subject and has no numeric-zero meaning.                                                                                               | **S+N:** [topic clear and 255-byte controls](presence-messaging-contracts.md#captured-private-rooms-invitations-and-chat-bytes); NUL byte topic unmeasured.                                   |
 | Transfer 202/203/210/213 option **204**, size **108**, item count **220** | Generic `N` makes `Ø`/E/`00`/`N0` effective zero. Enclosing handlers assign option-specific preview/resume meaning; zero size/count does not guarantee a successful worker or complete folder stream.                                      | **S+selected N:** [transfer contracts](../files-and-transfers/transfer-contracts.md); full absent/E/zero per-handler matrix remains.                                                          |
 | Transfer reference **107** in request 214                                 | Direct-copy four-byte word, unlike `N`: `Ø`/E/zero skips cleanup; shorter values zero-fill, longer values cap at four.                                                                                                                     | **S+selected N:** [reference controls](../files-and-transfers/transfer-contracts.md#reference-allocation-and-request-214); not a default reference to the current transfer.                   |
-| News 400/410/411 article **326**, post flags **334**, recursive **337**   | Generic `N` makes `Ø`/E/zero effective zero. Unresolved 326 can select root posting in 410 but errors for read/delete; 334 stores raw zero; 337 zero is nonrecursive, any nonzero recursive.                                               | **Source+Native** [deletion width controls](../news/news-contracts.md#captured-article-deletion-and-index-effects); 326/334 absent/E/zero native cells remain.                                |
+| News 400/410/411 article **326**, post flags **334**, recursive **337**   | Generic `N` makes `Ø`/E/zero effective zero. Unresolved 326 can select root posting in 410 but errors for read/delete; 334 stores raw zero; 337 zero is nonrecursive, any nonzero recursive.                                               | **Source+Native** [deletion width controls](../news/news-contracts.md#captured-article-deletion-and-index-effects); 400 read and 410 root post controls below; 411 cells remain.              |
 
 _Table 4: Presence and default distinctions for other core requests and
 generated fields, with the confidence and remaining cell for each._
@@ -117,26 +117,75 @@ give the actual variant/recipient contexts. In particular, PM delivery 104,
 refusal feedback 104, console data-only 104 and kick notice 104 cannot share
 one 101/103/113 default table (GAP-044).
 
+In four delayed logins on the same dedicated administrator account, request 107
+omitted version field 160 or supplied zero, one or two value bytes. All present
+bytes were zero. The server returned the same success reply in all four cases,
+with field 160 = `00be` and field 161 = `0000`. Both packet captures also
+contain the same agreement notification after the reply. The driver closed
+after reading the reply. These observations establish the server output through
+that point. They leave the saved client version and later version-dependent
+behaviour unmeasured.
+[Native login version captures](../../evidence/gap-remediation/2026-11-24/login-version-presence-01/manifest.json).
+
+The retained room formatting session also covers zero-length chat text. At
+action 100, request 105 supplied an empty field 101. At action 109 it omitted
+that field for the same room. The main and reader connections each received a
+106 with the same 17-byte formatted sender prefix and room identifier in both
+cases. The speaker and zero connections read only their barrier replies in
+those intervals.
+[Room formatting report](../../evidence/gap-remediation/2026-11-13/native-rooms-01/formatting/report.json).
+
+Nine authenticated request 400 sessions read the same populated category. With
+article ID 326 omitted, empty or four zero bytes, all three replies had error 1
+and the same field 100 text:
+`Cannot get article data because an invalid category was specified.` The path
+and flavour matched the successful reference read.
+
+With article ID 1 supplied, each encoding of flags 334 and of recursive field
+337 gave the same nine-field success payload. The title was `First root`, the
+flavour was `text/plain` and the 14 body bytes matched the retained article.
+Each session answered the subsequent request 500 and stayed quiet for the
+planned interval. The isolated loopback and guest packet captures reproduce
+every sent and received byte. These results cover article reads on this
+fixture. Posting and deletion have separate handlers.
+[Native article read captures](../../evidence/gap-remediation/2026-11-24/news-read-presence-01/manifest.json).
+
+> Status note (2026-11-24): The posting controls below extend the earlier
+> article read evidence. GAP-016 remains Investigating.
+
+Nine authenticated request 410 sessions posted to one initially empty news
+category. Each comparison varied one field (parent 326, flags 334 or recursive
+field 337) across omission, a zero-length value and four zero bytes. The other
+request bytes matched the historical root post, including its title, flavour
+and 14-byte body. All nine posts received an empty success reply. The listings
+before and after each post showed one new root with parent 0 and flags 0. The
+server assigned public IDs 1 through 9. A separate request 400 session for each
+ID returned the submitted title, flavour and body. The final listing matched
+the cached list in the stopped category data fork byte for byte. Both packet
+captures reproduce all 18 sessions. The comparison covers root posts on this
+growing category.
+[Native root posting captures](../../evidence/gap-remediation/2026-11-24/news-post-presence-01/manifest.json).
+
 ## Explicitly unmeasured cells
 
 Existing native fixtures cover the high-priority credentials, 304 settings, 353
 replacement and bitmap contrasts above; they do **not** constitute a four-case
 matrix for every core field. Finite remaining groups are:
 
-1. 107 password and name with one decoded NUL; 107 version absent/E/zero on
-   the same account; separate 121 `102/104/113` E/zero width controls and
-   one-NUL 215 feedback. 304 one-NUL 102/215 and present one-byte-zero 104/113.
+1. 107 password and name with one decoded NUL; separate 121 `102/104/113`
+   E/zero width controls and one-NUL 215 feedback. 304 one-NUL 102/215 and
+   present one-byte-zero 104/113.
 2. 350 create and 353 account-key 105 absent/E/NUL; 351/352 key 105
    absent/E/NUL; 353 name102/attribute111 one-NUL. Nested 349 one-NUL old/new
    key/name and E/zero repeated-value contrasts are not a complete matrix.
-3. 105 text101 one-NUL/zero-byte delivery, 108 text101 and quote214 E/NUL,
+3. 105 text101 one-NUL delivery, 108 text101 and quote214 E/NUL,
    108 option113/target103 explicit zeros, and 110 reason101 E/NUL with stored
    option-2 outcome. The exact notification variant must be retained.
 4. 112/113 repeated target103 E/zero/NUL, room114 E/zero per 113–116/120,
    and subject115 one-NUL. Source may predict accessor defaults, while native
    missing-object reply/close and recipient effects are distinct observations.
 5. Transfer 202/203/210/213 `204/108/220` and request214 reference107
-   absent/E/zero per handler; news 400/410/411 `326/334/337` contrasts beyond
+   absent/E/zero per handler; news deletion 411 `326/334/337` contrasts beyond
    the recorded 337 controls. Output conditional/empty variants beyond the
    named captured 107/109/122/300/354 cases require their own generator and
    recipient fixtures, not a copied generic field rule.

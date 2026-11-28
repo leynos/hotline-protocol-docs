@@ -1369,6 +1369,50 @@ requirements remain active.
 
 ## Reproducing isolated article deletion fixtures
 
+The GAP-016 presence controls use five separate `prepare_native_cases.py`
+suites: `login-version-presence`, `news-read-presence`, `news-post-presence`,
+`news-delete-presence-setup` and `news-delete-presence`. Planning reads the
+named runtime record and writes to a new output directory; it does not contact
+the server. These suites use the namespace-local control forward on port 16140.
+The deletion setup also names port 16141 when an upload step needs the data
+forward. Verify the actual runtime, application forks, News and Files baseline
+before executing a plan. Keep the credentials, ROMs and disks local, run cases
+serially, and retain both packet views and each plan/report, including failed
+controls.
+
+`login-version-presence` prepares four same-account logins that differ only in
+field 160: absent, empty, one zero byte and two zero bytes. The retained
+[login-version corpus](../../evidence/gap-remediation/2026-11-24/login-version-presence-01/manifest.json)
+records the native outcomes. `news-read-presence` prepares nine separate
+request-400 article reads: absent, empty and four-zero-byte encodings of fields
+326, 334 and 337. Pass `--article-parent` with a positive public article ID
+from a captured category listing; zero and an unlisted guess are not fixture
+IDs. The retained
+[article-read corpus](../../evidence/gap-remediation/2026-11-24/news-read-presence-01/manifest.json)
+records those outcomes. `news-post-presence` prepares the corresponding nine
+request-410 root posts, one case per field and encoding; the retained
+[root-post corpus](../../evidence/gap-remediation/2026-11-24/news-post-presence-01/manifest.json)
+includes independent reads of the submitted bodies.
+
+For a new article-read plan, substitute the listed ID and use a fresh output
+path from mothra:
+
+```sh
+uv run --project ../hotline-protocol-docs --group dev python ../hotline-protocol-docs/scripts/prepare_native_cases.py \
+  news-read-presence --runtime-record state/native-sessions/your-run/runtime.json \
+  --article-parent ARTICLE_ID --output state/native-sessions/your-run/plans-read-presence
+```
+
+`news-delete-presence-setup` supplies the scoped preflight, root, paced seeds,
+flush, publication and cleanup plans for the two owned categories.
+`news-delete-presence` then prepares six field-326/334 deletion comparisons.
+Each flags case needs a fresh complete eight-article tree. Inspect the owned
+prefix before any resumed seed and preserve the separate setup and case
+reports. These deletion presence suites are preparation only: no native outcome
+for them has been retained, and the earlier frozen deletion corpus does not
+establish their results. The existing deletion controls below govern that
+corpus.
+
 The frozen [article-deletion corpus][article-delete-corpus] includes the failed
 initial burst and explicit temporary-ban login. Preserve both failures. Do not
 execute the retained burst plan: it exceeds the native flood counter. Use

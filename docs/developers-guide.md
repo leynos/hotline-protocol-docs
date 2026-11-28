@@ -658,6 +658,18 @@ Library modules must still import under a bare `python3`.
 `scripts/script_cli.py` imports Cyclopts lazily, so the modules that use it
 still import (the plan records this).
 
+For GAP-016, `scripts/prepare_native_cases.py` exposes `login-version-presence`,
+`news-read-presence` and `news-post-presence`. Their cases are defined in
+`scripts/native_login_extras_cases.py` and `scripts/native_news_steps.py`. The
+corresponding retained corpora are `login-version-presence-01`,
+`news-read-presence-01` and `news-post-presence-01`. Their `verify.py` files
+run from the three `make evidence-verify` recipes for those corpora. The
+`news-delete-presence` and `news-delete-presence-setup` suites in
+`scripts/native_news_delete_presence.py` prepare deletion comparisons and the
+owned fixture trees. They have no retained native outcome yet. The
+[native capture workflow](native-evidence/native-capture-workflow.md#reproducing-isolated-article-deletion-fixtures)
+records the existing deletion operator controls.
+
 ### Names that evidence-held verifiers import
 
 Verifiers held under `evidence/` cannot be edited. They import helper modules

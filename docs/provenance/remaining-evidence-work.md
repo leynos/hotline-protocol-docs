@@ -339,7 +339,17 @@ Quoted text is taken from the register.
   They are: login and settings controls with one NUL and with zero widths;
   account-key and name cases for transactions 349 to 353; chat, private-message
   and kick text, option and target cases; invitation and room target, room and
-  subject cases; and the numeric fields of the transfer and news requests.
+  subject cases; and the numeric fields of the transfer and news requests. Four
+  same-account delayed logins now cover omission, an empty field and one or two
+  zero bytes for version 160. The remaining login controls concern password and
+  name. Room chat covers empty and omitted text on the observed connections;
+  one-NUL delivery remains open. Nine native article reads cover omitted, empty
+  and four-zero-byte encodings of 326, 334 and 337 on request 400. The three
+  article-ID cases gave the same error. Flags and recursive-field cases
+  returned the same body with article ID 1. Nine request 410 posts compared
+  those same encodings independently. Each produced one root with flags zero,
+  and an independent read returned its submitted body. Deletion and transfer
+  controls remain open.
 - **Prepared:**
   [presence defaults](../presence-and-messaging/presence-defaults.md).
 - **Blocked by:** no `depends_on` entries. GAP-072 depends on this gap.

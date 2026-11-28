@@ -48,6 +48,194 @@
     "prepare_native_cases.py": "dispatcher"
   },
   "records": {
+    "prepare_native_cases.py news-delete-presence-setup": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "e58cc2f8a5f3b600eda7f7a47427240f3f553aa03de18a6750e03e59f3b5f74b",
+      "files": {
+        "cleanup.json": {
+          "sha256": "eda4afb017a9d71fbc93ddf087244faf57d7a5010d2bb088c587bbfd63c02df4",
+          "size": 2698,
+          "embeds_script_digests": []
+        },
+        "flush.json": {
+          "sha256": "b3f99e74ddf87e49bdd854ae6c441b67623567605098855c1d2a1bec64bea93a",
+          "size": 4118,
+          "embeds_script_digests": []
+        },
+        "preflight.json": {
+          "sha256": "f28641aab14853d786ec18c1bb623b4c5fe1edd4e5d946b25677b581b674e09f",
+          "size": 2353,
+          "embeds_script_digests": []
+        },
+        "publish.json": {
+          "sha256": "c4bf0c2368f7f6de7b2dc5919afd04bef95de69fa94d784c5aa1dcf2b28f02bd",
+          "size": 3314,
+          "embeds_script_digests": []
+        },
+        "remove.json": {
+          "sha256": "554dfd71d4cc2dc6c696e30d5832085ea37ef61a6fec10cf99b6966c3da75fcc",
+          "size": 2667,
+          "embeds_script_digests": []
+        },
+        "root.json": {
+          "sha256": "60e95f9e72ac4a3c15f6daa8933256f969ea020226b931f202c8273df24001db",
+          "size": 2083,
+          "embeds_script_digests": []
+        },
+        "seed-missing-id-field.json": {
+          "sha256": "56ec2fc0f9d194dc7b0e004862e398424c53aba84c71603b41afacbcbb71418d",
+          "size": 5963,
+          "embeds_script_digests": []
+        },
+        "seed-parent-four-zero.json": {
+          "sha256": "80f6dd8c03e61eb3969ee76be61d8590dabe830253355f882ec8955442c794a9",
+          "size": 5963,
+          "embeds_script_digests": []
+        }
+      }
+    },
+    "prepare_native_cases.py news-delete-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "aa9944d6a018e2f25c0e95b81ee787114e8b83f29baa9ff9d07dfc7df8ef8ff4",
+      "files": {
+        "326-absent.json": {
+          "sha256": "074935c491553dc63512299034acc636e9184f153d9251e8ce99dc24f7fa92c4",
+          "size": 6806,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "1a1ec31301dcbc8b244dba5cbb1a97d69700b97d7499a4be7773f229c7245bc8",
+          "size": 6813,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "9cd9c26c9f57c9de300f79c8b4a76272ce59bcaa63eb465f96e50c8fc0674b13",
+          "size": 6820,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "168bf29ef324a87078bd415fa0afe03aff9a23fcaaa029e16b1f9c94f957b76c",
+          "size": 6828,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "620d6f8573c9ea48d15d4fa5e42febe04e00a1878c2a40bbb1c42b3b06198211",
+          "size": 6835,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "6c2f7a0c56d2317e19f46c0667c62524ea12b336d1255d38e8d60d3b25fc3b8a",
+          "size": 6842,
+          "embeds_script_digests": []
+        }
+      }
+    },
+    "prepare_native_cases.py news-post-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "c30f29782787570eb0166e153d8721bcf25f1e81de6b60fc4450deaa27ed471d",
+      "files": {
+        "326-absent.json": {
+          "sha256": "cbeaa3a2c6f47c35d534cb85a95742f355eeb0df12b8102d71dc4bbf0be409d6",
+          "size": 3047,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "3dd7e91aeede774f6d94bf8d42f150b8478878d17453489e58b97985a28457a1",
+          "size": 3054,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "3f16278abcd50c274bce58a80dab67195f16eef52f01f8c2eba53a25defe352c",
+          "size": 3061,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "28254df1ae54aed815d1a9c116e3864402090fccec837cd21b3e55ef793f4629",
+          "size": 3031,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "7a016db20fba4ac0f90d1cf8803334a47f6e06f5e71017df8c6ea5aa0ce4ae4d",
+          "size": 3038,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "ee48854f0e4896ff5788d39f2f05e5e7fd7425b310b1aef0d64097aba7e0d356",
+          "size": 3045,
+          "embeds_script_digests": []
+        },
+        "337-absent.json": {
+          "sha256": "6b08fb5328556f6b076e9a143c1934bc557be5e0f3d906f99a79e5e0f9a77162",
+          "size": 3047,
+          "embeds_script_digests": []
+        },
+        "337-empty.json": {
+          "sha256": "9b5ea3c2c489cb9b26cf1e19c123e942bb4d5bcc9ed08bfb889b2ed1d9946cdd",
+          "size": 3054,
+          "embeds_script_digests": []
+        },
+        "337-zero.json": {
+          "sha256": "ad0f3cccb1b6552ad998f534f22e72b12078e9f37e36a4f6d47a9df0994c6171",
+          "size": 3061,
+          "embeds_script_digests": []
+        }
+      }
+    },
+    "prepare_native_cases.py news-read-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "0333675b81fab2be081d95150b005620ffa998f2579d16b60562237cc07ffe4e",
+      "files": {
+        "326-absent.json": {
+          "sha256": "51e35221ada4a8242b8d42efecf050c9ef7b9c881d3259ec2cda8837ac4ca228",
+          "size": 2261,
+          "embeds_script_digests": []
+        },
+        "326-empty.json": {
+          "sha256": "cb9a7351347e5f43db52fc76121796964dbc67a6aaecc65f8cb065d0410d159c",
+          "size": 2268,
+          "embeds_script_digests": []
+        },
+        "326-zero.json": {
+          "sha256": "29c2fd5f19c91ab486cb7899fc87ab4625d623ff075162f9c8c307aebad8f2a2",
+          "size": 2275,
+          "embeds_script_digests": []
+        },
+        "334-absent.json": {
+          "sha256": "215af09b75f933f61cbcbfca28c6baab4b0c70defbf6ab8d83c9438c1d38329a",
+          "size": 2277,
+          "embeds_script_digests": []
+        },
+        "334-empty.json": {
+          "sha256": "83a3c49aa926b122e60c6a3b10ae56d51bceb3077b611ddf6935b921e4863b51",
+          "size": 2284,
+          "embeds_script_digests": []
+        },
+        "334-zero.json": {
+          "sha256": "92b1b27ea90440735debdd31c581d50d06d25fa9129b3f0f8486776750a82134",
+          "size": 2291,
+          "embeds_script_digests": []
+        },
+        "337-absent.json": {
+          "sha256": "d725513bb5023d5811513c5e8ed5b5f86ff390d0ae60c46b19591b7d937c9eda",
+          "size": 2277,
+          "embeds_script_digests": []
+        },
+        "337-empty.json": {
+          "sha256": "cb3ddbce7bfd516f0ce20172c92918af9af266f3bbd50d3714b3bfbf4dd15d9c",
+          "size": 2284,
+          "embeds_script_digests": []
+        },
+        "337-zero.json": {
+          "sha256": "84102802d5b185040202fd48f7e7c18c8380c521f5d8b679b17a0b826764b658",
+          "size": 2291,
+          "embeds_script_digests": []
+        }
+      }
+    },
     "native_121_default_cases.py": {
       "status": "emitted",
       "exit_code": 0,
@@ -4184,6 +4372,33 @@
         "url-190-early.json": {
           "sha256": "6e836e997faa5dd5b1a118b25009625639265c2615e11b7ce8765f488334648f",
           "size": 1980,
+          "embeds_script_digests": []
+        }
+      }
+    },
+    "prepare_native_cases.py login-version-presence": {
+      "status": "emitted",
+      "exit_code": 0,
+      "stdout_sha256": "fbdce8fd1a646c71a98ef755435ef0391d56c886819976bd1e5192b415a35e6c",
+      "files": {
+        "version-absent.json": {
+          "sha256": "e41c494b6b6486b465192814747c4af98c45f8d77244b6c8eb4cd9819f84e8c9",
+          "size": 1231,
+          "embeds_script_digests": []
+        },
+        "version-empty.json": {
+          "sha256": "5e131603221d26602d442c7c8c2f84ba679e080eb97346b316412d724605c168",
+          "size": 1237,
+          "embeds_script_digests": []
+        },
+        "version-one-zero.json": {
+          "sha256": "722b408f20aa362e9202f2b22d6438613d7d9b47901492242b3fda4eae1f365a",
+          "size": 1241,
+          "embeds_script_digests": []
+        },
+        "version-two-zero.json": {
+          "sha256": "09949056e3b1ee166dfa591384b68245167ac750c252b8b3e369b4d6ac1f71c2",
+          "size": 1245,
           "embeds_script_digests": []
         }
       }

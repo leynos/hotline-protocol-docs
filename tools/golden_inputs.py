@@ -23,6 +23,7 @@ SUITE_EXTRAS: dict[str, tuple[str, ...]] = {
         "--original-agreement",
         AGREEMENT + "original-agreement.data",
     ),
+    "news-read-presence": ("--article-parent", "7"),
     "news-thread-children": ("--article-parent", "7"),
     "news-thread-grandchild": ("--article-parent", "7"),
     "article-delete-resume": ("--case-name", "parent-absent"),

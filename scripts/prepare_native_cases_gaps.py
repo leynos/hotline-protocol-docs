@@ -92,6 +92,9 @@ GAP_RULES: tuple[tuple[Test, tuple[str, ...]], ...] = (
             "GAP-084",
         ),
     ),
+    (is_suite("news-delete-presence", "news-delete-presence-setup"), ("GAP-016",)),
+    (is_suite("news-post-presence"), ("GAP-016",)),
+    (is_suite("news-read-presence"), ("GAP-016",)),
     (has_prefix("news-boundary-"), ("GAP-067", "GAP-068", "GAP-084")),
     (has_prefix("news-"), ("GAP-003", "GAP-065", "GAP-066", "GAP-070", "GAP-084")),
     (
@@ -101,6 +104,7 @@ GAP_RULES: tuple[tuple[Test, tuple[str, ...]], ...] = (
     (has_prefix("metadata-"), ("GAP-016", "GAP-019", "GAP-052", "GAP-084")),
     (has_prefix("alias-"), ("GAP-047", "GAP-048", "GAP-049", "GAP-054", "GAP-084")),
     (has_prefix("mkdir-"), ("GAP-047", "GAP-048", "GAP-051", "GAP-019", "GAP-084")),
+    (is_suite("login-version-presence"), ("GAP-016",)),
     (has_prefix("login-extras-"), ("GAP-026", "GAP-018", "GAP-019", "GAP-084")),
     (has_prefix("agreement-"), ("GAP-025", "GAP-027", "GAP-019", "GAP-084")),
     (has_prefix("auth-"), ("GAP-023", "GAP-025", "GAP-026", "GAP-027", "GAP-084")),
